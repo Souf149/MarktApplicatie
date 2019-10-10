@@ -25,8 +25,20 @@ namespace MarktApplicatie
             InitializeComponent();
         }
 
-        private void TextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) {
+        
+
+        private void onClick_newComposition(object sender, MouseButtonEventArgs e) {
 
         }
+        private void onClick_oldComposition(object sender, MouseButtonEventArgs e) {
+
+        }
+        private void onClick_statistics(object sender, MouseButtonEventArgs e) {
+
+        }
+        private void onClick_settings(object sender, MouseButtonEventArgs e) {
+
+        }
+
     }
 }
