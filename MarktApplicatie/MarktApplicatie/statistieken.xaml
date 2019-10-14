@@ -8,7 +8,7 @@
         Title="statistieken" Height="450" Width="800">
     <Grid>
         <TextBlock Text="Homepagina" 
-                   MouseLeftButtonDown="onClick_homepage" Margin="26,24,694.6,359"/>
+                   MouseLeftButtonDown="onClick_homepage" Margin="26,24,694.6,359" FontSize="10"/>
 
     </Grid>
 </Window>
