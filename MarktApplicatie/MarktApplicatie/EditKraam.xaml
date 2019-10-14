@@ -51,7 +51,7 @@
 
         <TextBlock Text="Homepagina" Grid.Row="3" 
                    MouseLeftButtonDown="onClick_homepage" Margin="23,0,6,3" Width="68"/>
-        <TextBlock Text="Verander Stad" Grid.Column="4" Grid.Row="9"
+        <TextBlock Text="edit bus" Grid.Column="4" Grid.Row="9"
                    MouseLeftButtonDown="onClick_changecity" Margin="38,0,36,14" Width="81"/>
         <TextBlock Text=" Verander m2" Grid.Column="1" Grid.Row="5"
                    MouseLeftButtonDown="onClick_changearea" Width="116" Margin="82,10,110,15" Grid.RowSpan="3"/>

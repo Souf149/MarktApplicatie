@@ -55,16 +55,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-
+    <Compile Include="editbus.xaml.cs">
+      <DependentUpon>editbus.xaml</DependentUpon>
+    </Compile>
     <Compile Include="statistieken.xaml.cs">
       <DependentUpon>statistieken.xaml</DependentUpon>
     </Compile>
-
+    <Page Include="editbus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EditKraam.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

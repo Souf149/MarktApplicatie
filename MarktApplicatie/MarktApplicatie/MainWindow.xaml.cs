@@ -42,6 +42,7 @@ namespace MarktApplicatie
             this.Close();
 
         }
+
         private void onClick_settings(object sender, MouseButtonEventArgs e) {
 
         }
