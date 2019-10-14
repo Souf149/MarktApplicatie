@@ -28,6 +28,9 @@ namespace MarktApplicatie
         
 
         private void onClick_newComposition(object sender, MouseButtonEventArgs e) {
+            EditKraam editkraam = new EditKraam();
+            editkraam.Show();
+            this.Close();
 
         }
         private void onClick_oldComposition(object sender, MouseButtonEventArgs e) {
