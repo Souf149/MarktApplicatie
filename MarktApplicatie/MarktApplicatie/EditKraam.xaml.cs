@@ -35,7 +35,9 @@ namespace MarktApplicatie
         }
         private void onClick_changecity(object sender, MouseButtonEventArgs e)
         {
-
+            editbus editmobus = new editbus();
+            editmobus.Show();
+            this.Close();
         }
         private void onClick_changearea(object sender, MouseButtonEventArgs e)
         {
