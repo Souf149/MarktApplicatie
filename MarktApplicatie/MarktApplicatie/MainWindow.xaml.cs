@@ -37,6 +37,9 @@ namespace MarktApplicatie
 
         }
         private void onClick_statistics(object sender, MouseButtonEventArgs e) {
+            statistieken statistics = new statistieken();
+            statistics.Show();
+            this.Close();
 
         }
         private void onClick_settings(object sender, MouseButtonEventArgs e) {

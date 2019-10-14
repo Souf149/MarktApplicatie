@@ -1,0 +1,14 @@
+﻿<Window x:Class="MarktApplicatie.statistieken"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MarktApplicatie"
+        mc:Ignorable="d"
+        Title="statistieken" Height="450" Width="800">
+    <Grid>
+        <TextBlock Text="Homepagina" 
+                   MouseLeftButtonDown="onClick_homepage" Margin="26,24,694.6,359" FontSize="10"/>
+
+    </Grid>
+</Window>
