@@ -23,5 +23,14 @@ namespace MarktApplicatie
         {
             InitializeComponent();
         }
+
+        private void onClick_homepage(object sender, MouseButtonEventArgs e)
+        {
+            MainWindow home = new MainWindow();
+            home.Show();
+            this.Close();
+
+
+        }
     }
 }

@@ -30,5 +30,12 @@ namespace MarktApplicatie
             home.Show();
             this.Close();
         }
+
+        private void onClick_tijdelijk (object sender, MouseButtonEventArgs e)
+        {
+            tijdelijkstatscherm tijdelijk = new tijdelijkstatscherm();
+            tijdelijk.Show();
+            this.Close();
+        }
     }
 }
