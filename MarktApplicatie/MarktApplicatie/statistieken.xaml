@@ -6,17 +6,19 @@
         xmlns:local="clr-namespace:MarktApplicatie"
         mc:Ignorable="d"
         Title="statistieken" Height="450" Width="800">
-  <Grid Background="#FFEDEDED">
-    <TextBlock 
+    <Grid Background="#FFEDEDED">
+        <TextBlock 
                    MouseLeftButtonDown="onClick_homepage" Margin="24,358,696.6,25" FontSize="10"   UseLayoutRounding="False" Background="#FFFAF7F7"><Run/><LineBreak/><Run Text="  "/><Run Text="Homepagina"/>
 
 
-    </TextBlock>
-    <Image HorizontalAlignment="Left" Height="120" Margin="235,113,0,0" VerticalAlignment="Top" Width="287" Source="staafdiagram.png"/>
-    <Button Content="Stat1" HorizontalAlignment="Left" Margin="107,113,0,0" VerticalAlignment="Top" Width="75"/>
-    <Button Content="Stat2" HorizontalAlignment="Left" Margin="107,153,0,0" VerticalAlignment="Top" Width="75"/>
-    <Button Content="Stat3" HorizontalAlignment="Left" Margin="107,195,0,0" VerticalAlignment="Top" Width="75"/>
-    <TextBlock HorizontalAlignment="Left" Margin="235,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="65" Width="287" Background="White"><Run Text="DATA: "/><LineBreak/><Run/><LineBreak/><Run Text="DATA:"/></TextBlock>
+        </TextBlock>
+        <Image HorizontalAlignment="Left" Height="120" Margin="235,113,0,0" VerticalAlignment="Top" Width="287" Source="staafdiagram.png"/>
+        <Button Content="Stat1" HorizontalAlignment="Left" Margin="107,113,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Stat2" HorizontalAlignment="Left" Margin="107,153,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Stat3" HorizontalAlignment="Left" Margin="107,195,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBlock HorizontalAlignment="Left" Margin="235,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="65" Width="287" Background="White"><Run Text="DATA: "/><LineBreak/><Run/><LineBreak/><Run Text="DATA:"/></TextBlock>
+        <TextBlock 
+        MouseLeftButtonDown="onClick_tijdelijk" Margin="138,358.4,582.6,24.6" FontSize="10"   UseLayoutRounding="False" Background="#FFFAF7F7"><Run/><LineBreak/><Run Text="  "/><Run Text="invoerscherm"/></TextBlock>
 
-  </Grid>
+    </Grid>
 </Window>

@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace MarktApplicatie
 {
     /// <summary>
-    /// Interaction logic for statistieken.xaml
+    /// Interaction logic for tijdelijkstatscherm.xaml
     /// </summary>
-    public partial class statistieken : Window
+    public partial class tijdelijkstatscherm : Window
     {
-        public statistieken()
+        public tijdelijkstatscherm()
         {
             InitializeComponent();
         }
@@ -29,13 +29,8 @@ namespace MarktApplicatie
             MainWindow home = new MainWindow();
             home.Show();
             this.Close();
-        }
 
-        private void onClick_tijdelijk (object sender, MouseButtonEventArgs e)
-        {
-            tijdelijkstatscherm tijdelijk = new tijdelijkstatscherm();
-            tijdelijk.Show();
-            this.Close();
+
         }
     }
 }
