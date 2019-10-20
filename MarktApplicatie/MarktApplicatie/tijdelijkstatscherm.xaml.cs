@@ -32,5 +32,13 @@ namespace MarktApplicatie
 
 
         }
+
+        private void prevWeek_OnClick(object sender, MouseButtonEventArgs e) {
+
+        }
+
+        private void thisWeek_OnClick(object sender, MouseButtonEventArgs e) {
+
+        }
     }
 }
