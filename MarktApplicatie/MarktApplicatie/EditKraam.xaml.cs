@@ -48,5 +48,10 @@ namespace MarktApplicatie
 
         }
 
+        private void onClick_Opslaan(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
     }
 }
