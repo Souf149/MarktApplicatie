@@ -57,6 +57,7 @@
                    MouseLeftButtonDown="onClick_changearea" Width="116" Margin="82,10,110,15" Grid.RowSpan="3"/>
         <TextBlock Text="Voeg plank toe" Grid.Column="4" Grid.Row="4"
                    MouseLeftButtonDown="onClick_addplank" Margin="39,3,36,0" Width="80"/>
+        <TextBlock Text="Compositie Opslaan" Grid.Column="1" Grid.Row="1" MouseLeftButtonDown="onClick_Opslaan"/>
 
 
 
