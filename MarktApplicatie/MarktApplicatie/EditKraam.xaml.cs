@@ -23,35 +23,41 @@ namespace MarktApplicatie
             InitializeComponent();
         }
 
-
-
         private void onClick_homepage(object sender, MouseButtonEventArgs e)
         {
-
             MainWindow mainwindow = new MainWindow();
             mainwindow.Show();
             this.Close();
-
-        }
-        private void onClick_changecity(object sender, MouseButtonEventArgs e)
-        {
-            editbus editmobus = new editbus();
-            editmobus.Show();
-            this.Close();
-        }
-        private void onClick_changearea(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-        private void onClick_addplank(object sender, MouseButtonEventArgs e)
-        {
-
         }
 
         private void onClick_Opslaan(object sender, MouseButtonEventArgs e)
         {
 
         }
+
+        private void onClick_editbus(object sender, MouseButtonEventArgs e)
+        {
+            editbus editBus = new editbus();
+            editBus.Show();
+            this.Close();
+        }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+
+
+        private void onClick_Drag(object sender, MouseButtonEventArgs e)
+        {
+            TextBlock r = (TextBlock)sender;
+            DataObject ding = new DataObject(r.Background);
+            DragDrop.DoDragDrop(r, ding, DragDropEffects.Move);
+            //https://www.youtube.com/watch?v=TksMljeFaV4
+        }
+
+         
 
     }
 }
