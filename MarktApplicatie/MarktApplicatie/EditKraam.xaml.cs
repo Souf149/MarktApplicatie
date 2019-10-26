@@ -61,10 +61,5 @@ namespace MarktApplicatie
             SolidColorBrush scb = (SolidColorBrush)e.Data.GetData(typeof(SolidColorBrush));
             Target.Fill = scb;
         }
-
-        private void Target_Drop_1(object sender, DragEventArgs e)
-        {
-
-        }
     }
 }
