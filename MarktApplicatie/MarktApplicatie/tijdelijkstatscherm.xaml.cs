@@ -35,7 +35,7 @@ namespace MarktApplicatie
         }
 
         private void prevWeek_OnClick(object sender, MouseButtonEventArgs e) {
-            
+            txt.Text = File.ReadAllText(System.AppDomain.CurrentDomain.BaseDirectory + @"\aaadata.txt");
 
         }
 

@@ -22,7 +22,7 @@
         <Button x:Name="btnThisWeek" Content="add" HorizontalAlignment="Left" Margin="208,204,0,0" VerticalAlignment="Top" Width="74" PreviewMouseLeftButtonDown="thisWeek_OnClick"/>
         <Label Content="citroenen" HorizontalAlignment="Left" Margin="621,256,0,0" VerticalAlignment="Top" Width="102"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="613,286,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Button Content="add" HorizontalAlignment="Left" Margin="494,204,0,0" VerticalAlignment="Top" Width="74" MouseLeftButtonDown="prevWeek_OnClick" />
+        <Button Content="load" HorizontalAlignment="Left" Margin="494,204,0,0" VerticalAlignment="Top" Width="74" PreviewMouseLeftButtonDown="prevWeek_OnClick" />
         <TextBlock HorizontalAlignment="Left" Margin="395,376,0,0"   TextWrapping="Wrap" Text="Home" MouseLeftButtonDown="onClick_homepage"  VerticalAlignment="Top" Height="44" Width="64"/>
 
     </Grid>
