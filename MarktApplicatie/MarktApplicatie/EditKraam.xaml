@@ -43,7 +43,13 @@
 
 
 
-        <Rectangle  Grid.Row="2"  Grid.Column="1" Grid.ColumnSpan="1"   Name="Target" AllowDrop="True" Fill="Blue" Stroke="Black"  StrokeThickness="4" Drop="Target_Drop"/>
+        <Rectangle Grid.Row="2"  Grid.Column="1" Grid.ColumnSpan="1"   Name="Target" AllowDrop="True" Fill="Blue" Stroke="Black"  StrokeThickness="4" Drop="Target_Drop">
+            <Rectangle.ContextMenu>
+                <ContextMenu >
+                    <MenuItem Header="verwijder" Click="delete" />
+                </ContextMenu>
+            </Rectangle.ContextMenu>
+        </Rectangle>
 
 
 
