@@ -56,6 +56,17 @@ namespace MarktApplicatie
             DragDrop.DoDragDrop(r, ding, DragDropEffects.Move);
             //https://www.youtube.com/watch?v=TksMljeFaV4
         }
+
+        private void delete(object sender, RoutedEventArgs e)
+        {
+           
+
+        SolidColorBrush jem = new SolidColorBrush(Colors.Blue);
+        Target.Fill = jem;
+            
+        }
+
+
         private void Target_Drop(object sender, DragEventArgs e)
         {
             SolidColorBrush scb = (SolidColorBrush)e.Data.GetData(typeof(SolidColorBrush));
