@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,21 @@ namespace MarktApplicatie
             home.Show();
             this.Close();
 
+
+        }
+
+        private void prevWeek_OnClick(object sender, MouseButtonEventArgs e) {
+            txt.Text = File.ReadAllText(System.AppDomain.CurrentDomain.BaseDirectory + @"\aaadata.txt");
+
+        }
+
+        private void thisWeek_OnClick(object sender, MouseButtonEventArgs e) {
+
+
+            string data = txt1.Text + "," + txt2.Text + "," + txt3.Text;
+
+            File.WriteAllText(System.AppDomain.CurrentDomain.BaseDirectory + @"\aaadata.txt", data);
+            
 
         }
     }
