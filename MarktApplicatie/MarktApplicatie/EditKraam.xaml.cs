@@ -106,10 +106,13 @@ namespace MarktApplicatie
 
         private void create_plank(object sender, MouseButtonEventArgs e)
         {
-            var dialog = new plank_popup();
+            plank_popup dialog = new plank_popup();
+            int width, height;
             if (dialog.ShowDialog() == true)
             {
-                debugText.Text = dialog.plank_width.Text;
+                debugText.Text = dialog.Inp_width + dialog.Inp_height;
+                width = Convert.ToInt32(dialog.Inp_width);
+                height = Convert.ToInt32(dialog.Inp_height);
             }
         }
     }

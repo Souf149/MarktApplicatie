@@ -29,7 +29,7 @@ namespace MarktApplicatie
             get { return plank_width.Text; }
         }
 
-        public string inp_height
+        public string Inp_height
         {
             get { return plank_height.Text; }
         }
@@ -37,7 +37,7 @@ namespace MarktApplicatie
         private void OKButton_Click(object sender, RoutedEventArgs e)
         {
             if (Inp_width.All(char.IsDigit) && Inp_width != "" &&
-                inp_height.All(char.IsDigit) && inp_height != "")
+                Inp_height.All(char.IsDigit) && Inp_height != "")
             {
                 DialogResult = true;
             }
