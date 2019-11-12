@@ -18,9 +18,25 @@ namespace MarktApplicatie
     
     public partial class EditKraam : Window
     {
+        private TextBlock txtBlock(String t, String c)
+        {
+            TextBlock txt = new TextBlock();
+            txt.Text = t;
+            SolidColorBrush color = (SolidColorBrush)(new BrushConverter().ConvertFrom(c));
+            txt.Background = color;
+            return txt;
+        }
+
         public EditKraam()
         {
+            // initialize window
             InitializeComponent();
+
+            // add new item to listview
+            TextBlock txt = txtBlock("Test123", "#FF00FF");
+            listView.Items.Add(txt);
+
+
         }
 
         private void onClick_homepage(object sender, MouseButtonEventArgs e)
@@ -30,11 +46,6 @@ namespace MarktApplicatie
             this.Close();
         }
 
-        private void onClick_Opslaan(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
         private void onClick_editbus(object sender, MouseButtonEventArgs e)
         {
             editbus editBus = new editbus();
@@ -42,35 +53,5 @@ namespace MarktApplicatie
             this.Close();
         }
 
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-
-
-        private void onClick_Drag(object sender, MouseButtonEventArgs e)
-        {
-            TextBlock r = (TextBlock)sender;
-            DataObject ding = new DataObject(r.Background);
-            DragDrop.DoDragDrop(r, ding, DragDropEffects.Move);
-            //https://www.youtube.com/watch?v=TksMljeFaV4
-        }
-
-        private void delete(object sender, RoutedEventArgs e)
-        {
-           
-
-        SolidColorBrush jem = new SolidColorBrush(Colors.Blue);
-        Target.Fill = jem;
-            
-        }
-
-
-        private void Target_Drop(object sender, DragEventArgs e)
-        {
-            SolidColorBrush scb = (SolidColorBrush)e.Data.GetData(typeof(SolidColorBrush));
-            Target.Fill = scb;
-        }
     }
 }
