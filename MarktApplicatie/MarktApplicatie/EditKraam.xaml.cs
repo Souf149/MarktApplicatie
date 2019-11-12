@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,8 @@ namespace MarktApplicatie
     
     public partial class EditKraam : Window
     {
+        ArrayList rectangles = new ArrayList();
+
         private TextBlock txtBlock(String t, String c)
         {
             TextBlock txt = new TextBlock();
@@ -27,14 +30,39 @@ namespace MarktApplicatie
             return txt;
         }
 
+        private void Rect(double x, double y, double w, double h)
+        {
+
+
+            Rectangle r = new Rectangle
+            {
+                Width = w,
+                Height = h
+            };
+            
+            Canvas.SetLeft(r, x);
+            Canvas.SetTop(r, y);
+
+            rectangles.Add(r);
+            canvas.Children.Add(r);
+        }
+
+
         public EditKraam()
         {
             // initialize window
             InitializeComponent();
 
-            // add new item to listview
+            // TODO: ADD FROM FILE
             TextBlock txt = txtBlock("Test123", "#FF00FF");
             listView.Items.Add(txt);
+
+            
+            
+
+                
+
+
 
 
         }
