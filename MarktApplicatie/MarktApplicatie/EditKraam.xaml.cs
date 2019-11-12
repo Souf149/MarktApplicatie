@@ -21,6 +21,7 @@ namespace MarktApplicatie
     public partial class EditKraam : Window
     {
         ArrayList rectangles = new ArrayList();
+
         SolidColorBrush currentFill = new SolidColorBrush(Colors.Red);
         int selectedFruit = -1;
 
@@ -38,7 +39,7 @@ namespace MarktApplicatie
             return (SolidColorBrush)(new BrushConverter().ConvertFrom(code));
         }
 
-        private void setColor(string code)
+        private void SetColor(string code)
         {
             currentFill = getColor(code);
         }
@@ -71,10 +72,10 @@ namespace MarktApplicatie
             TextBlock txt = txtBlock("Test123", "#FF00FF");
             listView.Items.Add(txt);
 
-            setColor("#000000");
+            SetColor("#000000");
             Rect(200, 200, 200, 200);
 
-            setColor("#FF0000");
+            SetColor("#FF0000");
             Rect(100, 300, 50, 50);
 
 
@@ -107,13 +108,19 @@ namespace MarktApplicatie
         private void create_plank(object sender, MouseButtonEventArgs e)
         {
             plank_popup dialog = new plank_popup();
-            int width, height;
-            if (dialog.ShowDialog() == true)
+            int width = 0, height = 0;
+            if(dialog.ShowDialog() == true)
             {
                 debugText.Text = dialog.Inp_width + dialog.Inp_height;
-                width = Convert.ToInt32(dialog.Inp_width);
-                height = Convert.ToInt32(dialog.Inp_height);
+                width = Convert.ToInt16(dialog.Inp_width);
+                height = Convert.ToInt16(dialog.Inp_height);
+
+
+                SetColor("#654321");
+                Rect(0, 0, width * 16, height * 16);
+
             }
+            
         }
     }
 }
