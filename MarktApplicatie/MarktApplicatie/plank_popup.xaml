@@ -20,12 +20,12 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Hoeveel blokken breed?" Grid.Column="0" Grid.Row="0" 
+        <TextBlock Text="Breedte?  2 - 10" Grid.Column="0" Grid.Row="0" 
                    Margin="10"/>
         <TextBox x:Name="plank_width" Grid.Column="1"
                  Margin="10"/>
 
-        <TextBlock Text="Hoeveel blokken lang?" Grid.Column="0" Grid.Row="1" 
+        <TextBlock Text="Lengte?  2 - 10" Grid.Column="0" Grid.Row="1" 
                    Margin="10"/>
         <TextBox x:Name="plank_height" Grid.Column="1" Grid.Row="1"
                  Margin="10"/>

@@ -58,6 +58,7 @@
     <Compile Include="editbus.xaml.cs">
       <DependentUpon>editbus.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Plank.cs" />
     <Compile Include="plank_popup.xaml.cs">
       <DependentUpon>plank_popup.xaml</DependentUpon>
     </Compile>

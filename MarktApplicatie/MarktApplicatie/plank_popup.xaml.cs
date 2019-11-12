@@ -39,7 +39,18 @@ namespace MarktApplicatie
             if (Inp_width.All(char.IsDigit) && Inp_width != "" &&
                 Inp_height.All(char.IsDigit) && Inp_height != "")
             {
-                DialogResult = true;
+                int w = Convert.ToInt16(Inp_width);
+                int h = Convert.ToInt16(Inp_height);
+                if (w >= 2 && w <= 10 &&
+                    h >= 2 && h <= 10)
+                {
+                    DialogResult = true;
+                }
+                else
+                {
+                    MessageBox.Show("De getallen moeten van 2 t/m 10 zijn.");
+                }
+                
             }
             else
             {
