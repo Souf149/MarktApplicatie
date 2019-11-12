@@ -109,7 +109,7 @@ namespace MarktApplicatie
             var dialog = new plank_popup();
             if (dialog.ShowDialog() == true)
             {
-                debugText.Text = dialog.ResponseText;
+                debugText.Text = dialog.plank_width.Text;
             }
         }
     }

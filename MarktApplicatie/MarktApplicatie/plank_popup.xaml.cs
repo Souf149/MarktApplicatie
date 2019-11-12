@@ -24,15 +24,28 @@ namespace MarktApplicatie
             InitializeComponent();
         }
 
-        public string ResponseText
+        public string Inp_width
         {
-            get { return ResponseTextBox.Text; }
-            set { ResponseTextBox.Text = value; }
+            get { return plank_width.Text; }
         }
 
-        private void OKButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        public string inp_height
         {
-            DialogResult = true;
+            get { return plank_height.Text; }
+        }
+
+        private void OKButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (Inp_width.All(char.IsDigit) && Inp_width != "" &&
+                inp_height.All(char.IsDigit) && inp_height != "")
+            {
+                DialogResult = true;
+            }
+            else
+            {
+                MessageBox.Show("Wees zeker dat je hele getallen in alle velden invult.");
+            }
+            
         }
     }
 }
