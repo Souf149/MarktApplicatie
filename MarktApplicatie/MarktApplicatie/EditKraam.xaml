@@ -70,8 +70,8 @@
 
 
         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
-            <Button Content="Bus scherm"/>
-            <Button Content="Begin scherm"/>
+            <Button Content="Bus scherm" PreviewMouseLeftButtonDown="go_bus"/>
+            <Button Content="Begin scherm" PreviewMouseLeftButtonDown="go_home"/>
         </StackPanel>
     </Grid>
 

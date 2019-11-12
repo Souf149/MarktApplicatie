@@ -83,14 +83,14 @@ namespace MarktApplicatie
 
         }
 
-        private void onClick_homepage(object sender, MouseButtonEventArgs e)
+        private void go_home(object sender, MouseButtonEventArgs e)
         {
             MainWindow mainwindow = new MainWindow();
             mainwindow.Show();
             this.Close();
         }
 
-        private void onClick_editbus(object sender, MouseButtonEventArgs e)
+        private void go_bus(object sender, MouseButtonEventArgs e)
         {
             editbus editBus = new editbus();
             editBus.Show();
