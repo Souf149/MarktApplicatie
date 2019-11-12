@@ -20,14 +20,25 @@ namespace MarktApplicatie
     public partial class EditKraam : Window
     {
         ArrayList rectangles = new ArrayList();
+        SolidColorBrush currentFill = new SolidColorBrush(Colors.Red);
 
-        private TextBlock txtBlock(String t, String c)
+        private TextBlock txtBlock(String t, String code)
         {
-            TextBlock txt = new TextBlock();
-            txt.Text = t;
-            SolidColorBrush color = (SolidColorBrush)(new BrushConverter().ConvertFrom(c));
-            txt.Background = color;
-            return txt;
+            return new TextBlock
+            {
+                Text = t,
+                Background = getColor(code)
+            };
+        }
+
+        private SolidColorBrush getColor(string code)
+        {
+            return (SolidColorBrush)(new BrushConverter().ConvertFrom(code));
+        }
+
+        private void setColor(string code)
+        {
+            currentFill = getColor(code);
         }
 
         private void Rect(double x, double y, double w, double h)
@@ -37,7 +48,8 @@ namespace MarktApplicatie
             Rectangle r = new Rectangle
             {
                 Width = w,
-                Height = h
+                Height = h,
+                Fill = currentFill
             };
             
             Canvas.SetLeft(r, x);
@@ -57,7 +69,11 @@ namespace MarktApplicatie
             TextBlock txt = txtBlock("Test123", "#FF00FF");
             listView.Items.Add(txt);
 
-            
+            setColor("#000000");
+            Rect(200, 200, 200, 200);
+
+            setColor("#FF0000");
+            Rect(100, 300, 50, 50);
             
 
                 
