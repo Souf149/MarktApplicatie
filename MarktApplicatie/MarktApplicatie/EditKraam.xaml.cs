@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,7 @@ namespace MarktApplicatie
     {
         ArrayList rectangles = new ArrayList();
         SolidColorBrush currentFill = new SolidColorBrush(Colors.Red);
+        int selectedFruit = -1;
 
         private TextBlock txtBlock(String t, String code)
         {
@@ -74,9 +76,8 @@ namespace MarktApplicatie
 
             setColor("#FF0000");
             Rect(100, 300, 50, 50);
-            
 
-                
+
 
 
 
@@ -97,5 +98,19 @@ namespace MarktApplicatie
             this.Close();
         }
 
+        private void ListView_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            selectedFruit = listView.SelectedIndex;
+            debugText.Text = selectedFruit.ToString();
+        }
+
+        private void create_plank(object sender, MouseButtonEventArgs e)
+        {
+            var dialog = new plank_popup();
+            if (dialog.ShowDialog() == true)
+            {
+                debugText.Text = dialog.ResponseText;
+            }
+        }
     }
 }
