@@ -26,7 +26,6 @@ namespace MarktApplicatie
 
         Plank selectedPlank = new Plank();
 
-        List<Rectangle> rectangles = new List<Rectangle>();
         List<Plank> planks = new List<Plank>();
 
         SolidColorBrush currentFill = new SolidColorBrush(Colors.Red);
@@ -64,7 +63,6 @@ namespace MarktApplicatie
             Canvas.SetLeft(r, x);
             Canvas.SetTop(r, y);
 
-            rectangles.Add(r);
             canvas.Children.Add(r);
             return r;
         }
@@ -78,12 +76,6 @@ namespace MarktApplicatie
             // TODO: ADD FROM FILE
             TextBlock txt = txtBlock("Test123", "#FF00FF");
             listView.Items.Add(txt);
-
-            SetColor("#000000");
-            Rect(200, 200, 200, 200);
-
-            SetColor("#FF0000");
-            Rect(100, 300, 50, 50);
 
 
         }
@@ -216,6 +208,10 @@ namespace MarktApplicatie
                 btn_switch_editmode.Content = "Switch to\nadd fruit";
                 canvas.Background = SoufTools.GetColor("#555555");
             }
+        }
+
+        private void Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e) {
+
         }
     }
 }
