@@ -78,12 +78,12 @@
 
 
         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
-            <Button Content="Nieuw plank" PreviewMouseLeftButtonDown="create_plank"/>
+            <Button Content="Nieuw plank" PreviewMouseLeftButtonDown="Create_plank"/>
             <Button Content="[temporary}"/>
         </StackPanel>
         
         <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
-            <Button Content="Bus scherm" PreviewMouseLeftButtonDown="go_bus"/>
+            <Button Content="Bus scherm" PreviewMouseLeftButtonDown="Go_bus"/>
             <Button Content="Begin scherm" PreviewMouseLeftButtonDown="go_home"/>
         </StackPanel>
     </Grid>

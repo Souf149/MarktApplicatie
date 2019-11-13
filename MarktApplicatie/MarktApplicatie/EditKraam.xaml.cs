@@ -98,7 +98,7 @@ namespace MarktApplicatie
             this.Close();
         }
 
-        private void go_bus(object sender, MouseButtonEventArgs e)
+        private void Go_bus(object sender, MouseButtonEventArgs e)
         {
             editbus editBus = new editbus();
             editBus.Show();
@@ -111,7 +111,7 @@ namespace MarktApplicatie
             debugText.Text = selectedFruit.ToString();
         }
 
-        private void create_plank(object sender, MouseButtonEventArgs e)
+        private void Create_plank(object sender, MouseButtonEventArgs e)
         {
             plank_popup dialog = new plank_popup();
             int width = 0, height = 0;
@@ -134,6 +134,8 @@ namespace MarktApplicatie
                 selectedPlank = p;
                 Plank.selectedPlank = planks.Count() - 1;
 
+                CheckPlanks();
+
             }
             
         }
@@ -149,6 +151,34 @@ namespace MarktApplicatie
 
             positionText.Text = $"X: {p.X.ToString()}, \nY: {p.Y.ToString()}";
 
+
+
+
+
+            for (int i = 0; i < planks.Count; i++) {
+                Rectangle r = planks[i].r;
+                double x = Canvas.GetLeft(r);
+                double y = Canvas.GetTop(r);
+
+
+                if (p.X > x && p.X < x + r.Width &&
+                    p.Y > y && p.Y < y + r.Height) {
+                    Plank.selectedPlank = i;
+                    selectedPlank = planks[i];
+                    CheckPlanks();
+                    break;
+                }
+            }
+
+
+                
+
+        }
+
+        void CheckPlanks() {
+            // Make it get green stroke, if its currently selected.
+            foreach (Plank plank in planks)
+                plank.Check();
         }
 
         private void Canvas_onrelease(object sender, MouseButtonEventArgs e) {
@@ -167,6 +197,8 @@ namespace MarktApplicatie
                     return;
 
                 MoveShape(planks[Plank.selectedPlank].r, p.X, p.Y);
+
+                
                 
             }
         }
