@@ -90,7 +90,7 @@
 
         <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
             <Button Content="(Temp)" />
-            <Button Content="Verander&#10;grootte" PreviewMouseLeftButtonDown="Button_PreviewMouseLeftButtonDown"/>
+            <Button Content="Verander&#10;grootte" PreviewMouseLeftButtonDown="Verander_grootte"/>
         </StackPanel>
     </Grid>
 

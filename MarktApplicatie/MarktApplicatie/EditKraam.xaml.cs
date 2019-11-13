@@ -24,6 +24,8 @@ namespace MarktApplicatie
         Boolean mouseDown = false;
         Boolean plankEditMode = true;
 
+        const int GRID_SIZE = 48;
+
         Plank selectedPlank = new Plank();
 
         List<Plank> planks = new List<Plank>();
@@ -116,7 +118,7 @@ namespace MarktApplicatie
 
                 Plank p = new Plank(
                     planks.Count,
-                    Rect(0, 0, width * 16, height * 16)
+                    Rect(0, 0, width * GRID_SIZE, height * GRID_SIZE)
                     );
 
                 planks.Add(p);
@@ -210,7 +212,18 @@ namespace MarktApplicatie
             }
         }
 
-        private void Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e) {
+        private void Verander_grootte(object sender, MouseButtonEventArgs e) {
+
+            plank_popup dialog = new plank_popup();
+            int width, height;
+            if (dialog.ShowDialog() == true) {
+                debugText.Text = planks.Count.ToString();
+                width = Convert.ToInt16(dialog.Inp_width);
+                height = Convert.ToInt16(dialog.Inp_height);
+
+                selectedPlank.r.Width = width * GRID_SIZE;
+                selectedPlank.r.Height = height * GRID_SIZE;
+            }
 
         }
     }
