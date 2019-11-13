@@ -22,6 +22,7 @@ namespace MarktApplicatie
     public partial class EditKraam : Window
     {
         Boolean mouseDown = false;
+        Boolean plankEditMode = true;
 
         Plank selectedPlank = new Plank();
 
@@ -85,10 +86,6 @@ namespace MarktApplicatie
             Rect(100, 300, 50, 50);
 
 
-
-
-
-
         }
 
         private void go_home(object sender, MouseButtonEventArgs e)
@@ -114,7 +111,7 @@ namespace MarktApplicatie
         private void Create_plank(object sender, MouseButtonEventArgs e)
         {
             plank_popup dialog = new plank_popup();
-            int width = 0, height = 0;
+            int width, height;
             if(dialog.ShowDialog() == true)
             {
                 debugText.Text = planks.Count.ToString();
@@ -152,9 +149,6 @@ namespace MarktApplicatie
             positionText.Text = $"X: {p.X.ToString()}, \nY: {p.Y.ToString()}";
 
 
-
-
-
             for (int i = 0; i < planks.Count; i++) {
                 Rectangle r = planks[i].r;
                 double x = Canvas.GetLeft(r);
@@ -166,12 +160,17 @@ namespace MarktApplicatie
                     Plank.selectedPlank = i;
                     selectedPlank = planks[i];
                     CheckPlanks();
-                    break;
+                    return;
                 }
             }
 
+            // als niks gedrukt is dan moet hij deselecteren
+            selectedPlank = new Plank();
+            Plank.selectedPlank = -1;
+            CheckPlanks();
 
-                
+
+
 
         }
 
@@ -190,16 +189,32 @@ namespace MarktApplicatie
 
         private void Canvas_PreviewMouseMove(object sender, MouseEventArgs e) {
             Point p = e.GetPosition(this);
+            // if the mouse is held down while moving
             if (mouseDown) {
                 positionText.Text = $"X: {p.X.ToString()}, \nY: {p.Y.ToString()}";
 
-                if (Plank.selectedPlank == -1)
-                    return;
+                // if you want to move the current selected plank
+                if (plankEditMode) {
+                    if (Plank.selectedPlank == -1)
+                        return;
+                    MoveShape(planks[Plank.selectedPlank].r, p.X, p.Y);
+                }
 
-                MoveShape(planks[Plank.selectedPlank].r, p.X, p.Y);
 
-                
-                
+             }
+        }
+
+        private void Switch_editmode_onclick(object sender, MouseButtonEventArgs e) {
+
+            if (plankEditMode) {
+                plankEditMode = false;
+                btn_switch_editmode.Content = "Switch to\nplank edit";
+                canvas.Background = SoufTools.GetColor("#22AA22");
+            }
+            else {
+                plankEditMode = true;
+                btn_switch_editmode.Content = "Switch to\nadd fruit";
+                canvas.Background = SoufTools.GetColor("#555555");
             }
         }
     }

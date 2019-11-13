@@ -39,6 +39,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
 
 
@@ -59,8 +60,8 @@
 
 
 
-        <Canvas x:Name="canvas" Grid.Column="0"  Grid.Row="0" Grid.RowSpan="3" Panel.ZIndex="-1"
-                Background="LightGray" 
+        <Canvas x:Name="canvas" Grid.Column="0"  Grid.Row="0" Grid.RowSpan="4" Panel.ZIndex="-1"
+                Background="#555555" 
                 PreviewMouseLeftButtonDown="Canvas_onclick" MouseLeftButtonUp="Canvas_onrelease"
                 PreviewMouseMove="Canvas_PreviewMouseMove">
 
@@ -79,12 +80,17 @@
 
         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
             <Button Content="Nieuw plank" PreviewMouseLeftButtonDown="Create_plank"/>
-            <Button Content="[temporary}"/>
+            <Button x:Name="btn_switch_editmode" Content="Switch to&#10;add fruit" PreviewMouseLeftButtonDown="Switch_editmode_onclick"/>
         </StackPanel>
         
         <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
             <Button Content="Bus scherm" PreviewMouseLeftButtonDown="Go_bus"/>
             <Button Content="Begin scherm" PreviewMouseLeftButtonDown="go_home"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
+            <Button Content="(Temp)" />
+            <Button Content="Verander&#10;grootte" />
         </StackPanel>
     </Grid>
 
