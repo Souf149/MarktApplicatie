@@ -59,8 +59,10 @@
 
 
 
-        <Canvas x:Name="canvas" Grid.Column="0"  Grid.Row="0" Grid.RowSpan="3"
-                Background="LightGray">
+        <Canvas x:Name="canvas" Grid.Column="0"  Grid.Row="0" Grid.RowSpan="3" Panel.ZIndex="-1"
+                Background="LightGray" 
+                PreviewMouseLeftButtonDown="Canvas_onclick" MouseLeftButtonUp="Canvas_onrelease"
+                PreviewMouseMove="Canvas_PreviewMouseMove">
 
 
 
@@ -68,6 +70,10 @@
             <!-- debug text -->
             <TextBlock x:Name="debugText" Text="" Canvas.Left="10" Canvas.Top="10"
                        Width="400"/>
+            
+            <TextBlock x:Name="positionText" Text="" Canvas.Left="10" Canvas.Top="30"
+                       Width="400"/>
+            
         </Canvas>
 
 

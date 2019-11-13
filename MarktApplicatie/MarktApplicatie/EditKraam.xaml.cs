@@ -20,7 +20,9 @@ namespace MarktApplicatie
     
     public partial class EditKraam : Window
     {
-        ArrayList rectangles = new ArrayList();
+        Boolean mouseDown = false;
+
+        List<Rectangle> rectangles = new List<Rectangle>();
         ArrayList planks = new ArrayList();
 
         SolidColorBrush currentFill = new SolidColorBrush(Colors.Red);
@@ -129,6 +131,30 @@ namespace MarktApplicatie
 
             }
             
+        }
+
+        private void Canvas_onclick(object sender, MouseButtonEventArgs e) {
+            Point p = e.GetPosition(this);
+            mouseDown = true;
+
+            positionText.Text = p.X.ToString() + ", " + p.Y.ToString();
+
+            Canvas.SetLeft(rectangles[0], p.X);
+            Canvas.SetTop(rectangles[0], p.Y);
+
+        }
+
+        private void Canvas_onrelease(object sender, MouseButtonEventArgs e) {
+            Point p = e.GetPosition(this);
+            mouseDown = false;
+        }
+
+        private void Canvas_PreviewMouseMove(object sender, MouseEventArgs e) {
+            Point p = e.GetPosition(this);
+            if (mouseDown) {
+                Canvas.SetLeft(rectangles[0], p.X);
+                Canvas.SetTop(rectangles[0], p.Y);
+            }
         }
     }
 }
