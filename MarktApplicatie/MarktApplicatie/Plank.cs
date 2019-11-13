@@ -17,5 +17,10 @@ namespace MarktApplicatie
             id = id_;
             r = r_;
         }
+
+        public Plank() {
+            id = -1;
+            r = new Rectangle();
+        }
     }
 }

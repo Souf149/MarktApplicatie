@@ -21,6 +21,7 @@ namespace MarktApplicatie
     public partial class EditKraam : Window
     {
         Boolean mouseDown = false;
+        selectedPlank = new Plank();
 
         List<Rectangle> rectangles = new List<Rectangle>();
         ArrayList planks = new ArrayList();
