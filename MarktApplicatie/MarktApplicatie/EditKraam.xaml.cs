@@ -15,37 +15,38 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace MarktApplicatie
 {
     
     public partial class EditKraam : Window
     {
         Boolean mouseDown = false;
-        selectedPlank = new Plank();
+
+        Plank selectedPlank = new Plank();
 
         List<Rectangle> rectangles = new List<Rectangle>();
-        ArrayList planks = new ArrayList();
+        List<Plank> planks = new List<Plank>();
 
         SolidColorBrush currentFill = new SolidColorBrush(Colors.Red);
         int selectedFruit = -1;
 
-        private TextBlock txtBlock(String t, String code)
+        
+
+        public TextBlock txtBlock(String t, String code)
         {
             return new TextBlock
             {
                 Text = t,
-                Background = getColor(code)
+                Background = SoufTools.GetColor(code)
             };
         }
 
-        private SolidColorBrush getColor(string code)
-        {
-            return (SolidColorBrush)(new BrushConverter().ConvertFrom(code));
-        }
+        
 
         private void SetColor(string code)
         {
-            currentFill = getColor(code);
+            currentFill = SoufTools.GetColor(code);
         }
 
         private Rectangle Rect(double x, double y, double w, double h)
@@ -128,7 +129,10 @@ namespace MarktApplicatie
                     planks.Count,
                     Rect(0, 0, width * 16, height * 16)
                     );
-                
+
+                planks.Add(p);
+                selectedPlank = p;
+                Plank.selectedPlank = planks.Count() - 1;
 
             }
             
@@ -148,6 +152,8 @@ namespace MarktApplicatie
         private void Canvas_onrelease(object sender, MouseButtonEventArgs e) {
             Point p = e.GetPosition(this);
             mouseDown = false;
+
+
         }
 
         private void Canvas_PreviewMouseMove(object sender, MouseEventArgs e) {

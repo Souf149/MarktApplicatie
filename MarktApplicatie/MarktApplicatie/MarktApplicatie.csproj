@@ -62,6 +62,7 @@
     <Compile Include="plank_popup.xaml.cs">
       <DependentUpon>plank_popup.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SoufTools.cs" />
     <Compile Include="statistieken.xaml.cs">
       <DependentUpon>statistieken.xaml</DependentUpon>
     </Compile>
