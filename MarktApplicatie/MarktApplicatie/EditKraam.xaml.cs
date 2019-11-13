@@ -213,9 +213,10 @@ namespace MarktApplicatie
         }
 
         private void Verander_grootte(object sender, MouseButtonEventArgs e) {
-            if (Plank.selectedPlank == -1)
+            if (Plank.selectedPlank == -1) { 
                 MessageBox.Show("Selecteer een plank");
                 return;
+            }
 
             plank_popup dialog = new plank_popup();
             int width, height;
