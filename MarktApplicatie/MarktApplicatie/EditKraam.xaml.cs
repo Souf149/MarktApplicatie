@@ -138,14 +138,16 @@ namespace MarktApplicatie
             
         }
 
+        private void MoveShape(Rectangle r, double x, double y) {
+            Canvas.SetLeft(r, x);
+            Canvas.SetTop(r, y);
+        }
+
         private void Canvas_onclick(object sender, MouseButtonEventArgs e) {
             Point p = e.GetPosition(this);
             mouseDown = true;
 
             positionText.Text = $"X: {p.X.ToString()}, \nY: {p.Y.ToString()}";
-
-            Canvas.SetLeft(rectangles[0], p.X);
-            Canvas.SetTop(rectangles[0], p.Y);
 
         }
 
@@ -160,8 +162,12 @@ namespace MarktApplicatie
             Point p = e.GetPosition(this);
             if (mouseDown) {
                 positionText.Text = $"X: {p.X.ToString()}, \nY: {p.Y.ToString()}";
-                Canvas.SetLeft(rectangles[0], p.X);
-                Canvas.SetTop(rectangles[0], p.Y);
+
+                if (Plank.selectedPlank == -1)
+                    return;
+
+                MoveShape(planks[Plank.selectedPlank].r, p.X, p.Y);
+                
             }
         }
     }

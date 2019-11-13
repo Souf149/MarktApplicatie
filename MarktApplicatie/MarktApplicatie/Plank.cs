@@ -9,8 +9,8 @@ namespace MarktApplicatie
 {
     public class Plank
     {
-        int id;
-        Rectangle r;
+        public int id;
+        public Rectangle r;
         public static int selectedPlank = -1;
         
 
