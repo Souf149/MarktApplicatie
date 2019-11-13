@@ -137,7 +137,7 @@ namespace MarktApplicatie
             Point p = e.GetPosition(this);
             mouseDown = true;
 
-            positionText.Text = p.X.ToString() + ", " + p.Y.ToString();
+            positionText.Text = $"X: {p.X.ToString()}, \nY: {p.Y.ToString()}";
 
             Canvas.SetLeft(rectangles[0], p.X);
             Canvas.SetTop(rectangles[0], p.Y);
@@ -152,6 +152,7 @@ namespace MarktApplicatie
         private void Canvas_PreviewMouseMove(object sender, MouseEventArgs e) {
             Point p = e.GetPosition(this);
             if (mouseDown) {
+                positionText.Text = $"X: {p.X.ToString()}, \nY: {p.Y.ToString()}";
                 Canvas.SetLeft(rectangles[0], p.X);
                 Canvas.SetTop(rectangles[0], p.Y);
             }
