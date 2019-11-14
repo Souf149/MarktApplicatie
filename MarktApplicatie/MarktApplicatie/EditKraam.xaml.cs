@@ -179,10 +179,18 @@ namespace MarktApplicatie
             else {
 
                 foreach(Plank plank in planks) {
-                    double x = p.X - Canvas.GetLeft(plank.r);
-                    double y = p.Y - Canvas.GetTop(plank.r);
+                    Rectangle r = plank.r;
+                    double plank_x = Canvas.GetLeft(r);
+                    double plank_y = Canvas.GetTop(r);
 
-                    plank.OnClick(selectedFruit, x, y);
+                    if (p.X > plank_x && p.X < plank_x + r.Width &&
+                        p.Y > plank_y && p.Y < plank_y + r.Height) {
+
+                        double x = p.X - Canvas.GetLeft(plank.r);
+                        double y = p.Y - Canvas.GetTop(plank.r);
+                        plank.OnClick(selectedFruit, x, y);
+                    }
+                    
                 }
             }
             

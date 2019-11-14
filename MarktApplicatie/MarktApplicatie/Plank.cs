@@ -60,13 +60,17 @@ namespace MarktApplicatie {
 
         public void OnClick(int selectedFruit, double x, double y) {
 
-            int col = (int)Math.Floor(x / GRID_SIZE);
-            int row = (int)Math.Floor(y / GRID_SIZE);
+            int col = Math.Abs((int)Math.Floor(x / GRID_SIZE));
+            int row = Math.Abs((int)Math.Floor(y / GRID_SIZE));
 
             // index of pressed fruit in list
             int i = (row * cols) + col;
-
-            fruits[i].Change(selectedFruit);
+            try {
+                fruits[i].Change(selectedFruit);
+            } catch {
+                
+            }
+            
         }
 
         public Rectangle[] GetAllFruitRect() {
