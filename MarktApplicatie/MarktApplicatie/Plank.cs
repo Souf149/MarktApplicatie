@@ -58,10 +58,10 @@ namespace MarktApplicatie {
 
         }
 
-        public void OnClick(int selectedFruit, int x, int y) {
+        public void OnClick(int selectedFruit, double x, double y) {
 
-            int col = (int)Math.Floor((double) x / GRID_SIZE);
-            int row = (int)Math.Floor((double) y / GRID_SIZE);
+            int col = (int)Math.Floor(x / GRID_SIZE);
+            int row = (int)Math.Floor(y / GRID_SIZE);
 
             // index of pressed fruit in list
             int i = (row * cols) + col;
@@ -123,6 +123,9 @@ namespace MarktApplicatie {
                 Height = GRID_SIZE - GRID_SIZE / 5
             };
 
+            //TEMP
+            r.Stroke = SoufTools.GetColor("#FF0000");
+
             double plank_x = Canvas.GetLeft(plank.r);
             double plank_y = Canvas.GetTop( plank.r);
 
@@ -130,10 +133,7 @@ namespace MarktApplicatie {
             x_on_plank = id % plank.cols * GRID_SIZE;
             y_on_plank = id / plank.cols * GRID_SIZE;
 
-            int total_x = x_on_plank + (int)plank_x;
-            int total_y = y_on_plank + (int)plank_y;
-
-            Move(total_x, total_y);
+            Move(plank_x, plank_y);
 
 
 

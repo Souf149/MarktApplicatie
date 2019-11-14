@@ -150,31 +150,45 @@ namespace MarktApplicatie
 
 
         private void Canvas_onclick(object sender, MouseButtonEventArgs e) {
+
             Point p = e.GetPosition(this);
             mouseDown = true;
-
             positionText.Text = $"X: {p.X.ToString()}, \nY: {p.Y.ToString()}";
 
+            if (plankEditMode) {
+                for (int i = 0; i < planks.Count; i++) {
+                    Rectangle r = planks[i].r;
+                    double x = Canvas.GetLeft(r);
+                    double y = Canvas.GetTop(r);
 
-            for (int i = 0; i < planks.Count; i++) {
-                Rectangle r = planks[i].r;
-                double x = Canvas.GetLeft(r);
-                double y = Canvas.GetTop(r);
 
+                    if (p.X > x && p.X < x + r.Width &&
+                        p.Y > y && p.Y < y + r.Height) {
+                        Plank.selectedPlank = i;
+                        selectedPlank = planks[i];
+                        CheckPlanks();
+                        return;
+                    }
+                }
 
-                if (p.X > x && p.X < x + r.Width &&
-                    p.Y > y && p.Y < y + r.Height) {
-                    Plank.selectedPlank = i;
-                    selectedPlank = planks[i];
-                    CheckPlanks();
-                    return;
+                // als niks gedrukt is dan moet hij deselecteren
+                selectedPlank = new Plank();
+                Plank.selectedPlank = -1;
+                CheckPlanks();
+            }
+            else {
+
+                foreach(Plank plank in planks) {
+                    double x = p.X - Canvas.GetLeft(plank.r);
+                    double y = p.Y - Canvas.GetTop(plank.r);
+
+                    plank.OnClick(selectedFruit, x, y);
                 }
             }
+            
 
-            // als niks gedrukt is dan moet hij deselecteren
-            selectedPlank = new Plank();
-            Plank.selectedPlank = -1;
-            CheckPlanks();
+
+            
 
 
 
