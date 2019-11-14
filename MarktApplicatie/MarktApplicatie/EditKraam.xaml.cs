@@ -24,6 +24,11 @@ namespace MarktApplicatie
         Boolean mouseDown = false;
         Boolean plankEditMode = true;
 
+        List<string> fruitNames = new List<string>();
+
+        
+        
+
         const int GRID_SIZE = 48;
 
         Plank selectedPlank = new Plank();
@@ -69,7 +74,7 @@ namespace MarktApplicatie
             return r;
         }
 
-
+        // window initializer
         public EditKraam()
         {
             // initialize window
@@ -78,6 +83,14 @@ namespace MarktApplicatie
             // TODO: ADD FROM FILE
             TextBlock txt = txtBlock("Test123", "#FF00FF");
             listView.Items.Add(txt);
+
+            // make list of all current fruit TODO: ADD FROM FILE
+            fruitNames.Add("appel");
+            fruitNames.Add("banaan");
+            fruitNames.Add("citroen");
+            fruitNames.Add("limoen");
+
+
 
 
         }
