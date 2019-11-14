@@ -151,6 +151,10 @@ namespace MarktApplicatie {
         }
 
         internal void Change(int selectedFruit) {
+            if (selectedFruit < 0) {
+                r.Fill = SoufTools.GetColor("#FFFFFF");
+                return;
+            }
 
             // TODO: get fruits from file
             switch (fruitNames[selectedFruit].ToLower()) {
