@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Shapes;
 
 namespace MarktApplicatie {
     public class Plank {
 
-        const int GRID_SIZE = 48;
+        public const int GRID_SIZE = 48;
+        public static Canvas c;
 
         public int id;
         public Rectangle r;
         public static int selectedPlank = -1;
         List<Fruit> fruits = new List<Fruit>();
 
-        int cols, rows;
+        public int cols, rows;
 
         public void StandardConstructer() {
             id = -1;
@@ -51,6 +53,9 @@ namespace MarktApplicatie {
             else {
                 r.Stroke = SoufTools.GetColor("#000000");
             }
+
+
+
         }
 
         public void OnClick(int selectedFruit, int x, int y) {
@@ -64,18 +69,40 @@ namespace MarktApplicatie {
             fruits[i].Change(selectedFruit);
         }
 
+        public Rectangle[] GetAllFruitRect() {
 
+            Rectangle[] rects = new Rectangle[fruits.Count];
 
+            for(int i = 0; i < fruits.Count; i++) {
+                rects[i] = fruits[i].r;
+            }
 
+            return rects;
+        }
+
+        internal void Move(double x, double y) {
+            Canvas.SetLeft(r, x);
+            Canvas.SetTop(r, y);
+
+            foreach(Fruit f in fruits) {
+                f.Move(x, y);
+            }
+        }
     }
 
     public class Fruit{
         public Rectangle r;
         public int id;
+        public const int GRID_SIZE = 48;
 
         public Plank plank;
 
         public static List<string> fruitNames = new List<string>();
+
+        public static Canvas c;
+
+        public int x_on_plank;
+        public int y_on_plank;
 
 
         public Fruit(int id_, int fruitId, Plank plank_) {
@@ -90,12 +117,35 @@ namespace MarktApplicatie {
             fruitNames.Add("citroen");
             fruitNames.Add("limoen");
 
+            // creating the rectangle
+            r = new Rectangle {
+                Width = GRID_SIZE - GRID_SIZE / 5,
+                Height = GRID_SIZE - GRID_SIZE / 5
+            };
+
+            double plank_x = Canvas.GetLeft(plank.r);
+            double plank_y = Canvas.GetTop( plank.r);
+
+            // get coordinates inside plank
+            x_on_plank = id % plank.cols * GRID_SIZE;
+            y_on_plank = id / plank.cols * GRID_SIZE;
+
+            int total_x = x_on_plank + (int)plank_x;
+            int total_y = y_on_plank + (int)plank_y;
+
+            Move(total_x, total_y);
+
+
+
+            // als hij geen null fruit is dan moet je kleur instellen
             if (fruitId != -1) {
                 Change(fruitId);
             }
             else {
                 r.Fill = SoufTools.GetColor("#010101");
             }
+
+            c.Children.Add(r);
             
             
         }
@@ -122,6 +172,11 @@ namespace MarktApplicatie {
                     break;
 
             }
+        }
+
+        internal void Move(double x, double y) {
+            Canvas.SetLeft(r, x_on_plank + x + GRID_SIZE / 10);
+            Canvas.SetTop( r, y_on_plank + y + GRID_SIZE / 10);
         }
     }
 }

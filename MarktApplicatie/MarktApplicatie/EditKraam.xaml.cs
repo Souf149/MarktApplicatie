@@ -90,6 +90,10 @@ namespace MarktApplicatie
             fruitNames.Add("citroen");
             fruitNames.Add("limoen");
 
+            Fruit.c = canvas;
+            Plank.c = canvas;
+            
+
 
 
 
@@ -144,10 +148,6 @@ namespace MarktApplicatie
             
         }
 
-        private void MoveShape(Rectangle r, double x, double y) {
-            Canvas.SetLeft(r, x);
-            Canvas.SetTop(r, y);
-        }
 
         private void Canvas_onclick(object sender, MouseButtonEventArgs e) {
             Point p = e.GetPosition(this);
@@ -183,8 +183,13 @@ namespace MarktApplicatie
 
         void CheckPlanks() {
             // Make it get green stroke, if its currently selected.
-            foreach (Plank plank in planks)
-                plank.Check();
+            for(int i = 0; i < planks.Count; i++) {
+                planks[i].Check();
+             }
+            
+            
+            
+
         }
 
         private void Canvas_onrelease(object sender, MouseButtonEventArgs e) {
@@ -204,7 +209,8 @@ namespace MarktApplicatie
                 if (plankEditMode) {
                     if (Plank.selectedPlank == -1)
                         return;
-                    MoveShape(planks[Plank.selectedPlank].r, p.X, p.Y);
+                    // TODO: remove Moveshape method
+                    planks[Plank.selectedPlank].Move(p.X, p.Y);
                 }
 
 
