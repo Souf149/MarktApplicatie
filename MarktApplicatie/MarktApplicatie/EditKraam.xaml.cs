@@ -266,8 +266,7 @@ namespace MarktApplicatie
                 width = Convert.ToInt16(dialog.Inp_width);
                 height = Convert.ToInt16(dialog.Inp_height);
 
-                selectedPlank.r.Width = width * GRID_SIZE;
-                selectedPlank.r.Height = height * GRID_SIZE;
+                selectedPlank.Resize(width * GRID_SIZE, height * GRID_SIZE);
             }
 
         }

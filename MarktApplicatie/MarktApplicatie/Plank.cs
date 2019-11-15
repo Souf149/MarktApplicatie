@@ -53,9 +53,30 @@ namespace MarktApplicatie {
             else {
                 r.Stroke = SoufTools.GetColor("#000000");
             }
+        }
+
+        public void Resize(int width, int height) {
+
+            r.Width = width;
+            r.Height = height;
+
+            cols = (int)r.Width / GRID_SIZE;
+            rows = (int)r.Height / GRID_SIZE;
+
+            List<Fruit> new_fruits = new List<Fruit>();
+
+            // remove all fruit rectangles from canvas
+            foreach(Fruit f in fruits) {
+                c.Children.Remove(f.r);
+            }
 
 
+            // initialize with null fruits
+            for (int i = 0; i < cols * rows; i++) {
+                new_fruits.Add(new Fruit(i, -1, this));
+            }
 
+            fruits = new_fruits;
         }
 
         public void OnClick(int selectedFruit, double x, double y) {
