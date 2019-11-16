@@ -34,7 +34,7 @@ namespace MarktApplicatie
 
         }
         private void onClick_oldComposition(object sender, MouseButtonEventArgs e) {
-            oudecomposities oudecompo = new oudecomposities();
+            OudeComposities oudecompo = new OudeComposities();
             oudecompo.Show();
             this.Close();
         }

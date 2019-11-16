@@ -1,12 +1,214 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using Microsoft.Win32;
 
 namespace MarktApplicatie
 {
-    class oudecomposities
+    public partial class OudeComposities : Window
     {
+        public OudeComposities()
+        {
+            InitializeComponent();
+        }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (tab1.IsSelected)
+            {
+                if (imgPhoto == null)
+                {
+                }
+                else
+                {
+                    //this is the cause of the problem.
+                     imgPhoto.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab1.jpg");
+                    tabName.Text = tab1.Header.ToString();
+                      
+                }
+            }
+            else if (tab2.IsSelected)
+            {
+               imgPhoto.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab2.jpg");
+                    tabName.Text = tab2.Header.ToString();
+
+            }
+            else if (tab3.IsSelected)
+            {
+
+                // imgPhoto.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab3.jpg");
+                    tabName.Text = tab3.Header.ToString();
+            }
+            else if (tab4.IsSelected)
+            {
+                //imgPhoto.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab4.jpg");
+                    tabName.Text = tab4.Header.ToString();
+            }
+            else if (tab5.IsSelected)
+            {
+                //imgPhoto.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab5.jpg");
+                    tabName.Text = tab5.Header.ToString();
+            }
+            else if (tab6.IsSelected)
+            {
+                //imgPhoto.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab6.jpg");    
+                   tabName.Text = tab6.Header.ToString();
+            }
+            else if (tab7.IsSelected)
+            {
+                // imgPhoto.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab7.jpg"); 
+                  tabName.Text = tab7.Header.ToString();
+            }
+            else if (tab8.IsSelected)
+            {
+                //imgPhoto.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab8.jpg"); 
+                  tabName.Text = tab8.Header.ToString();
+            }
+        }
+        private void onClick_homepage(object sender, MouseButtonEventArgs e)
+        {
+            MainWindow home = new MainWindow();
+            home.Show();
+            this.Close();
+        }
+
+        /*
+        public void btnRemove_Click(object sender, RoutedEventArgs e)
+        {
+            if(imgPhoto != null)
+            {
+                File.Delete("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab1.jpg");
+            }
+            else
+            {
+                MessageBox.Show("No file to delete");
+            }
+        }
+        */
+
+        public void btnLoad_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog op = new OpenFileDialog();
+            op.Title = "Select a picture";
+            op.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
+              "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
+              "Portable Network Graphic (*.png)|*.png";
+            if (op.ShowDialog() == true)
+            {
+
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(op.FileName);
+                bitmap.CacheOption = BitmapCacheOption.None;
+                bitmap.CreateOptions = BitmapCreateOptions.DelayCreation;
+                bitmap.EndInit();
+                imgPhoto.Source = bitmap;
+            }
+            Title = op.FileName;
+        }
+        public void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            var bitmap = new Uri(Title);
+            var encoder = new JpegBitmapEncoder(); // Or any other, e.g. PngBitmapEncoder for PNG.
+            encoder.Frames.Add(BitmapFrame.Create(bitmap, BitmapCreateOptions.DelayCreation, BitmapCacheOption.None));
+            encoder.QualityLevel = 100; // Set quality level 1-100.
+            if (tab1.IsSelected)
+            {
+                try
+                {
+                    using (FileStream file = File.OpenWrite(@"C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab1.jpg"))
+                    {
+                        //File.Delete("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab1.jpg");
+                        encoder.Save(file);
+                        MessageBox.Show("Done!");
+                        file.Close();
+                    }  
+                }
+                catch(IOException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                }
+            else if (tab2.IsSelected)
+            {
+                using (var stream = new FileStream(@"C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab2.jpg", FileMode.OpenOrCreate))
+                {
+                    //File.Delete("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab2.jpg");
+                    encoder.Save(stream);
+                    MessageBox.Show("Done!");
+                    stream.Close();
+                }
+            }
+            else if (tab3.IsSelected)
+            {
+                using (var stream = new FileStream(@"C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab3.jpg", FileMode.OpenOrCreate))
+                {
+                    //File.Delete("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab3.jpg");
+                    encoder.Save(stream);
+                    MessageBox.Show("Done!");
+                    stream.Close();
+                }
+            }
+            else if (tab4.IsSelected)
+            {
+                //File.Delete("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab4.jpg");
+                using (var stream = new FileStream(@"C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab4.jpg", FileMode.OpenOrCreate))
+                {
+                    encoder.Save(stream);
+                    MessageBox.Show("Done!");
+                    stream.Close();
+                }
+            }
+            else if (tab5.IsSelected)
+            {
+               // File.Delete("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab5.jpg");
+                using (var stream = new FileStream(@"C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab5.jpg", FileMode.OpenOrCreate))
+                {
+                    encoder.Save(stream);
+                    MessageBox.Show("Done!");
+                    stream.Close();
+                }
+            }
+            else if (tab6.IsSelected)
+            {
+                //File.Delete("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab6.jpg");
+                using (var stream = new FileStream(@"C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab6.jpg", FileMode.OpenOrCreate))
+                {
+                    encoder.Save(stream);
+                    MessageBox.Show("Done!");
+                    stream.Close();
+                }
+            }
+            else if (tab7.IsSelected)
+            {
+                //File.Delete("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab7.jpg");
+                using (var stream = new FileStream(@"C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab7.jpg", FileMode.OpenOrCreate))
+                {
+                    encoder.Save(stream);
+                    MessageBox.Show("Done!");
+                    stream.Close();
+                }
+            }
+            else if (tab8.IsSelected)
+            {
+                //File.Delete("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab8.jpg");
+                using (var stream = new FileStream(@"C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab8.jpg", FileMode.Create))
+                {
+                    encoder.Save(stream);
+                    MessageBox.Show("Done!");
+                    stream.Close();
+                }
+            }
+        }
+
     }
+
 }
