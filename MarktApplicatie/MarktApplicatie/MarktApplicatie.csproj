@@ -73,6 +73,7 @@
     <Compile Include="editbus.xaml.cs">
       <DependentUpon>editbus.xaml</DependentUpon>
     </Compile>
+
     <Compile Include="oudecomposities.xaml.cs">
       <DependentUpon>oudecomposities.xaml</DependentUpon>
     </Compile>
@@ -82,6 +83,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings1.settings</DependentUpon>
     </Compile>
+    <Compile Include="Plank.cs" />
+    <Compile Include="plank_popup.xaml.cs">
+      <DependentUpon>plank_popup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SoufTools.cs" />
     <Compile Include="statistieken.xaml.cs">
       <DependentUpon>statistieken.xaml</DependentUpon>
     </Compile>
@@ -112,6 +118,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="oudecomposities.xaml">
+
+    <Page Include="plank_popup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
