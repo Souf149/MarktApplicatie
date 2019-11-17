@@ -188,7 +188,7 @@ namespace MarktApplicatie
             this.Close();
         }
 
-        /*
+        /* Delete button if needed
         public void btnRemove_Click(object sender, RoutedEventArgs e)
         {
             if(imgPhoto != null)
