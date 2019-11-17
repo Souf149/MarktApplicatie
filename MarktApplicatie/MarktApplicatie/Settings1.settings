@@ -1,0 +1,30 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MarktApplicatie" GeneratedClassName="Settings1">
+  <Profiles />
+  <Settings>
+    <Setting Name="tab1Setting" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Tab 1</Value>
+    </Setting>
+    <Setting Name="tab2Setting" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Tab 2</Value>
+    </Setting>
+    <Setting Name="tab3Setting" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Tab 3</Value>
+    </Setting>
+    <Setting Name="tab4Setting" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Tab 4</Value>
+    </Setting>
+    <Setting Name="tab5Setting" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Tab 5</Value>
+    </Setting>
+    <Setting Name="tab6Setting" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Tab 6</Value>
+    </Setting>
+    <Setting Name="tab7Setting" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Tab 7</Value>
+    </Setting>
+    <Setting Name="tab8Setting" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Tab 8</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

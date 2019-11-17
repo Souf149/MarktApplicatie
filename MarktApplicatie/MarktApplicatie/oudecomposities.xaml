@@ -13,14 +13,14 @@
             <ColumnDefinition Width="233"/>
             <ColumnDefinition Width="26*"/>
             <ColumnDefinition Width="403*"/>
-            <ColumnDefinition Width="18*"/>
-            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="41*"/>
+            <ColumnDefinition Width="7*"/>
             <ColumnDefinition Width="82"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="0"/>
+            <RowDefinition Height="100"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
@@ -32,7 +32,8 @@
         </Grid.RowDefinitions>
 
 
-        <TextBox Name ="tabName" Text="Tab Item 1" Grid.Column ="2" ></TextBox>
+        <TextBox Name ="tabName" Text="" Grid.Column ="2" ></TextBox>
+        <Button Name="editTitle" Click="btnEditTitle_Click" Grid.Column="3" Grid.ColumnSpan="2" Margin="2,0,5,378"/>
         <TextBlock Text="Homepagina" Grid.Column="5" Grid.Row="0"  MouseLeftButtonDown="onClick_homepage"   />
         <TabControl SelectionChanged="TabControl_SelectionChanged" TabStripPlacement="Left" Grid.Column="0" Grid.Row="0" Margin="0,0,27,0">
             <TabControl.Resources>
@@ -44,7 +45,7 @@
             </TabControl.Resources>
 
             <TabItem Header="SAVED" Style="{StaticResource SideBarSectionStyle}" />
-            <TabItem Name ="tab1" Header="Tab Item 1" Height="49" Width="200" IsSelected="True" />
+            <TabItem Name ="tab1" Header="{DynamicResource tab1}" Height="49" Width="200" IsSelected="True" />
             <TabItem Name ="tab2" Header="Tab Item 2" Height="49" Width="200"/>
             <TabItem Name ="tab3" Header="Tab Item 3" Height="49" Width="200"/>
             <TabItem Name ="tab4" Header="Tab Item 4" Height="49" Width="200"/>

@@ -16,8 +16,17 @@ namespace MarktApplicatie
     public partial class OudeComposities : Window
     {
         public OudeComposities()
-        {
+        {     
             InitializeComponent();
+            tab1.Header = Settings1.Default.tab1Setting;
+            tab2.Header = Settings1.Default.tab2Setting;
+            tab3.Header = Settings1.Default.tab3Setting;
+            tab4.Header = Settings1.Default.tab4Setting;
+            tab5.Header = Settings1.Default.tab5Setting;
+            tab6.Header = Settings1.Default.tab6Setting;
+            tab7.Header = Settings1.Default.tab7Setting;
+            tab8.Header = Settings1.Default.tab8Setting;
+            tabName.Text = Settings1.Default.tab1Setting;
         }
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -30,47 +39,47 @@ namespace MarktApplicatie
                 else
                 {
                     //this is the cause of the problem.
-                     imgPhoto.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab1.jpg");
+                    // imgPhoto.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab1.jpg");
                     tabName.Text = tab1.Header.ToString();
-                      
+
                 }
             }
             else if (tab2.IsSelected)
             {
-               imgPhoto.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab2.jpg");
-                    tabName.Text = tab2.Header.ToString();
+                //imgPhoto.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab2.jpg");
+                tabName.Text = tab2.Header.ToString();
 
             }
             else if (tab3.IsSelected)
             {
 
                 // imgPhoto.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab3.jpg");
-                    tabName.Text = tab3.Header.ToString();
+                tabName.Text = tab3.Header.ToString();
             }
             else if (tab4.IsSelected)
             {
                 //imgPhoto.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab4.jpg");
-                    tabName.Text = tab4.Header.ToString();
+                tabName.Text = tab4.Header.ToString();
             }
             else if (tab5.IsSelected)
             {
                 //imgPhoto.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab5.jpg");
-                    tabName.Text = tab5.Header.ToString();
+                tabName.Text = tab5.Header.ToString();
             }
             else if (tab6.IsSelected)
             {
                 //imgPhoto.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab6.jpg");    
-                   tabName.Text = tab6.Header.ToString();
+                tabName.Text = tab6.Header.ToString();
             }
             else if (tab7.IsSelected)
             {
                 // imgPhoto.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab7.jpg"); 
-                  tabName.Text = tab7.Header.ToString();
+                tabName.Text = tab7.Header.ToString();
             }
             else if (tab8.IsSelected)
             {
                 //imgPhoto.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab8.jpg"); 
-                  tabName.Text = tab8.Header.ToString();
+                tabName.Text = tab8.Header.ToString();
             }
         }
         private void onClick_homepage(object sender, MouseButtonEventArgs e)
@@ -129,14 +138,15 @@ namespace MarktApplicatie
                         //File.Delete("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab1.jpg");
                         encoder.Save(file);
                         MessageBox.Show("Done!");
+                        Resources.Add("myresourcekey", tabName.Text);
                         file.Close();
-                    }  
+                    }
                 }
-                catch(IOException ex)
+                catch (IOException ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
-                }
+            }
             else if (tab2.IsSelected)
             {
                 using (var stream = new FileStream(@"C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab2.jpg", FileMode.OpenOrCreate))
@@ -169,7 +179,7 @@ namespace MarktApplicatie
             }
             else if (tab5.IsSelected)
             {
-               // File.Delete("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab5.jpg");
+                // File.Delete("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab5.jpg");
                 using (var stream = new FileStream(@"C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab5.jpg", FileMode.OpenOrCreate))
                 {
                     encoder.Save(stream);
@@ -209,6 +219,65 @@ namespace MarktApplicatie
             }
         }
 
-    }
+        public void btnEditTitle_Click(object sender, RoutedEventArgs e)
+        {
+            if (tab1.IsSelected)
+            {
 
+                //tab1.Header = tabName.Text;
+                
+                Settings1.Default.tab1Setting = tabName.Text;
+                tab1.Header = Settings1.Default.tab1Setting;
+                Settings1.Default.Save();
+                
+
+            }
+
+            else if (tab2.IsSelected)
+            {
+                Settings1.Default.tab2Setting = tabName.Text;
+                tab2.Header = Settings1.Default.tab2Setting;
+                Settings1.Default.Save();
+
+            }
+            else if (tab3.IsSelected)
+            {
+
+                Settings1.Default.tab3Setting = tabName.Text;
+                tab3.Header = Settings1.Default.tab3Setting;
+                Settings1.Default.Save();
+            }
+            else if (tab4.IsSelected)
+            {
+                Settings1.Default.tab4Setting = tabName.Text;
+                tab4.Header = Settings1.Default.tab4Setting;
+                Settings1.Default.Save();
+            }
+            else if (tab5.IsSelected)
+            {
+                Settings1.Default.tab5Setting = tabName.Text;
+                tab5.Header = Settings1.Default.tab5Setting;
+                Settings1.Default.Save();
+            }
+            else if (tab6.IsSelected)
+            {
+                Settings1.Default.tab6Setting = tabName.Text;
+                tab6.Header = Settings1.Default.tab6Setting;
+                Settings1.Default.Save();
+            }
+            else if (tab7.IsSelected)
+            {
+                Settings1.Default.tab7Setting = tabName.Text;
+                tab7.Header = Settings1.Default.tab7Setting;
+                Settings1.Default.Save();
+            }
+            else if (tab8.IsSelected)
+            {
+                Settings1.Default.tab8Setting = tabName.Text;
+                tab8.Header = Settings1.Default.tab8Setting;
+                Settings1.Default.Save();
+            }
+
+        }
+    }
 }
