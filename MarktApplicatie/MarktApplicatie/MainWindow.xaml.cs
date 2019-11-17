@@ -34,8 +34,11 @@ namespace MarktApplicatie
 
         }
         private void onClick_oldComposition(object sender, MouseButtonEventArgs e) {
-
+            OudeComposities oudecompo = new OudeComposities();
+            oudecompo.Show();
+            this.Close();
         }
+
         private void onClick_statistics(object sender, MouseButtonEventArgs e) {
             statistieken statistics = new statistieken();
             statistics.Show();
