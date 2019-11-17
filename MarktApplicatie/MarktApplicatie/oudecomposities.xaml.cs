@@ -224,158 +224,163 @@ namespace MarktApplicatie
         }
         public void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            var bitmap = new Uri(Title);
-            var encoder = new JpegBitmapEncoder(); // Or any other, e.g. PngBitmapEncoder for PNG.
-            encoder.Frames.Add(BitmapFrame.Create(bitmap, BitmapCreateOptions.DelayCreation, BitmapCacheOption.None));
-            encoder.QualityLevel = 100; // Set quality level 1-100.
-            if (tab1.IsSelected)
-            {
-                try
+            try {
+                var bitmap = new Uri(Title);
+                var encoder = new JpegBitmapEncoder(); // Or any other, e.g. PngBitmapEncoder for PNG.
+                encoder.Frames.Add(BitmapFrame.Create(bitmap, BitmapCreateOptions.DelayCreation, BitmapCacheOption.None));
+                encoder.QualityLevel = 100; // Set quality level 1-100.
+                if (tab1.IsSelected)
                 {
-                    using (FileStream file = File.OpenWrite(@"..\..\Images\tab1.jpg"))
+                    try
                     {
-                        //File.Delete("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab1.jpg");
-                        encoder.Save(file);
-                        MessageBox.Show("Done!");
-                        file.Close();
+                        using (FileStream file = File.OpenWrite(@"..\..\Images\tab1.jpg"))
+                        {
+                            //File.Delete("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab1.jpg");
+                            encoder.Save(file);
+                            MessageBox.Show("Done!");
+                            file.Close();
+                        }
+                    }
+                    catch (IOException ex)
+                    {
+                        MessageBox.Show(ex.Message);
                     }
                 }
-                catch (IOException ex)
+                else if (tab2.IsSelected)
                 {
-                    MessageBox.Show(ex.Message);
+                    using (var stream = new FileStream(@"..\..\Images\tab2.jpg", FileMode.OpenOrCreate))
+                    {
+                        //File.Delete("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab2.jpg");
+                        encoder.Save(stream);
+                        MessageBox.Show("Done!");
+                        stream.Close();
+                    }
+                }
+                else if (tab3.IsSelected)
+                {
+                    using (var stream = new FileStream(@"..\..\Images\tab3.jpg", FileMode.OpenOrCreate))
+                    {
+                        //File.Delete("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab3.jpg");
+                        encoder.Save(stream);
+                        MessageBox.Show("Done!");
+                        stream.Close();
+                    }
+                }
+                else if (tab4.IsSelected)
+                {
+                    //File.Delete("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab4.jpg");
+                    using (var stream = new FileStream(@"..\..\Images\tab4.jpg", FileMode.OpenOrCreate))
+                    {
+                        encoder.Save(stream);
+                        MessageBox.Show("Done!");
+                        stream.Close();
+                    }
+                }
+                else if (tab5.IsSelected)
+                {
+                    // File.Delete("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab5.jpg");
+                    using (var stream = new FileStream(@"..\..\Images\tab5.jpg", FileMode.OpenOrCreate))
+                    {
+                        encoder.Save(stream);
+                        MessageBox.Show("Done!");
+                        stream.Close();
+                    }
+                }
+                else if (tab6.IsSelected)
+                {
+                    //File.Delete("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab6.jpg");
+                    using (var stream = new FileStream(@"..\..\Images\tab6.jpg", FileMode.OpenOrCreate))
+                    {
+                        encoder.Save(stream);
+                        MessageBox.Show("Done!");
+                        stream.Close();
+                    }
+                }
+                else if (tab7.IsSelected)
+                {
+                    //File.Delete("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab7.jpg");
+                    using (var stream = new FileStream(@"..\..\Images\tab7.jpg", FileMode.OpenOrCreate))
+                    {
+                        encoder.Save(stream);
+                        MessageBox.Show("Done!");
+                        stream.Close();
+                    }
+                }
+                else if (tab8.IsSelected)
+                {
+                    //File.Delete("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab8.jpg");
+                    using (var stream = new FileStream(@"..\..\Images\tab8.jpg", FileMode.Create))
+                    {
+                        encoder.Save(stream);
+                        MessageBox.Show("Done!");
+                        stream.Close();
+                    }
                 }
             }
-            else if (tab2.IsSelected)
+            catch
             {
-                using (var stream = new FileStream(@"..\..\Images\tab2.jpg", FileMode.OpenOrCreate))
-                {
-                    //File.Delete("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab2.jpg");
-                    encoder.Save(stream);
-                    MessageBox.Show("Done!");
-                    stream.Close();
-                }
+                MessageBox.Show("Choose a different file to save.");
             }
-            else if (tab3.IsSelected)
-            {
-                using (var stream = new FileStream(@"..\..\Images\tab3.jpg", FileMode.OpenOrCreate))
-                {
-                    //File.Delete("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab3.jpg");
-                    encoder.Save(stream);
-                    MessageBox.Show("Done!");
-                    stream.Close();
-                }
             }
-            else if (tab4.IsSelected)
+            public void btnEditTitle_Click(object sender, RoutedEventArgs e)
             {
-                //File.Delete("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab4.jpg");
-                using (var stream = new FileStream(@"..\..\Images\tab4.jpg", FileMode.OpenOrCreate))
+                if (tab1.IsSelected)
                 {
-                    encoder.Save(stream);
-                    MessageBox.Show("Done!");
-                    stream.Close();
+
+                    //tab1.Header = tabName.Text;
+                
+                    Settings1.Default.tab1Setting = tabName.Text;
+                    tab1.Header = Settings1.Default.tab1Setting;
+                    Settings1.Default.Save();
+                
+
                 }
-            }
-            else if (tab5.IsSelected)
-            {
-                // File.Delete("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab5.jpg");
-                using (var stream = new FileStream(@"..\..\Images\tab5.jpg", FileMode.OpenOrCreate))
+
+                else if (tab2.IsSelected)
                 {
-                    encoder.Save(stream);
-                    MessageBox.Show("Done!");
-                    stream.Close();
+                    Settings1.Default.tab2Setting = tabName.Text;
+                    tab2.Header = Settings1.Default.tab2Setting;
+                    Settings1.Default.Save();
+
                 }
-            }
-            else if (tab6.IsSelected)
-            {
-                //File.Delete("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab6.jpg");
-                using (var stream = new FileStream(@"..\..\Images\tab6.jpg", FileMode.OpenOrCreate))
+                else if (tab3.IsSelected)
                 {
-                    encoder.Save(stream);
-                    MessageBox.Show("Done!");
-                    stream.Close();
+
+                    Settings1.Default.tab3Setting = tabName.Text;
+                    tab3.Header = Settings1.Default.tab3Setting;
+                    Settings1.Default.Save();
                 }
-            }
-            else if (tab7.IsSelected)
-            {
-                //File.Delete("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab7.jpg");
-                using (var stream = new FileStream(@"..\..\Images\tab7.jpg", FileMode.OpenOrCreate))
+                else if (tab4.IsSelected)
                 {
-                    encoder.Save(stream);
-                    MessageBox.Show("Done!");
-                    stream.Close();
+                    Settings1.Default.tab4Setting = tabName.Text;
+                    tab4.Header = Settings1.Default.tab4Setting;
+                    Settings1.Default.Save();
                 }
-            }
-            else if (tab8.IsSelected)
-            {
-                //File.Delete("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab8.jpg");
-                using (var stream = new FileStream(@"..\..\Images\tab8.jpg", FileMode.Create))
+                else if (tab5.IsSelected)
                 {
-                    encoder.Save(stream);
-                    MessageBox.Show("Done!");
-                    stream.Close();
+                    Settings1.Default.tab5Setting = tabName.Text;
+                    tab5.Header = Settings1.Default.tab5Setting;
+                    Settings1.Default.Save();
                 }
+                else if (tab6.IsSelected)
+                {
+                    Settings1.Default.tab6Setting = tabName.Text;
+                    tab6.Header = Settings1.Default.tab6Setting;
+                    Settings1.Default.Save();
+                }
+                else if (tab7.IsSelected)
+                {
+                    Settings1.Default.tab7Setting = tabName.Text;
+                    tab7.Header = Settings1.Default.tab7Setting;
+                    Settings1.Default.Save();
+                }
+                else if (tab8.IsSelected)
+                {
+                    Settings1.Default.tab8Setting = tabName.Text;
+                    tab8.Header = Settings1.Default.tab8Setting;
+                    Settings1.Default.Save();
+                }
+
             }
         }
-
-        public void btnEditTitle_Click(object sender, RoutedEventArgs e)
-        {
-            if (tab1.IsSelected)
-            {
-
-                //tab1.Header = tabName.Text;
-                
-                Settings1.Default.tab1Setting = tabName.Text;
-                tab1.Header = Settings1.Default.tab1Setting;
-                Settings1.Default.Save();
-                
-
-            }
-
-            else if (tab2.IsSelected)
-            {
-                Settings1.Default.tab2Setting = tabName.Text;
-                tab2.Header = Settings1.Default.tab2Setting;
-                Settings1.Default.Save();
-
-            }
-            else if (tab3.IsSelected)
-            {
-
-                Settings1.Default.tab3Setting = tabName.Text;
-                tab3.Header = Settings1.Default.tab3Setting;
-                Settings1.Default.Save();
-            }
-            else if (tab4.IsSelected)
-            {
-                Settings1.Default.tab4Setting = tabName.Text;
-                tab4.Header = Settings1.Default.tab4Setting;
-                Settings1.Default.Save();
-            }
-            else if (tab5.IsSelected)
-            {
-                Settings1.Default.tab5Setting = tabName.Text;
-                tab5.Header = Settings1.Default.tab5Setting;
-                Settings1.Default.Save();
-            }
-            else if (tab6.IsSelected)
-            {
-                Settings1.Default.tab6Setting = tabName.Text;
-                tab6.Header = Settings1.Default.tab6Setting;
-                Settings1.Default.Save();
-            }
-            else if (tab7.IsSelected)
-            {
-                Settings1.Default.tab7Setting = tabName.Text;
-                tab7.Header = Settings1.Default.tab7Setting;
-                Settings1.Default.Save();
-            }
-            else if (tab8.IsSelected)
-            {
-                Settings1.Default.tab8Setting = tabName.Text;
-                tab8.Header = Settings1.Default.tab8Setting;
-                Settings1.Default.Save();
-            }
-
-        }
-    }
 }
