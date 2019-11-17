@@ -44,8 +44,8 @@
                 </Style>
             </TabControl.Resources>
 
-            <TabItem Header="SAVED" Style="{StaticResource SideBarSectionStyle}" />
-            <TabItem Name ="tab1" Header="{DynamicResource tab1}" Height="49" Width="200" IsSelected="True" />
+            <TabItem Header="SAVED" />
+            <TabItem Name ="tab1" Header="Tab Item 1" Height="49" Width="200" IsSelected="True" />
             <TabItem Name ="tab2" Header="Tab Item 2" Height="49" Width="200"/>
             <TabItem Name ="tab3" Header="Tab Item 3" Height="49" Width="200"/>
             <TabItem Name ="tab4" Header="Tab Item 4" Height="49" Width="200"/>
