@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MarktApplicatie"
         mc:Ignorable="d"
-        Title="Oude Composities" Height="450" Width="800">
+        Title="Oude Composities" Height="500" Width="800">
 
     <Grid ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto">
 
@@ -19,8 +19,8 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
+            <RowDefinition Height="420"/>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="100"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
@@ -33,8 +33,8 @@
 
 
         <TextBox Name ="tabName" Text="" Grid.Column ="2" ></TextBox>
-        <Button Name="editTitle" Click="btnEditTitle_Click" Grid.Column="3" Grid.ColumnSpan="2" Margin="2,0,5,378"/>
-        <TextBlock Text="Homepagina" Grid.Column="5" Grid.Row="0"  MouseLeftButtonDown="onClick_homepage"   />
+        <Button Name="editTitle"  Click="btnEditTitle_Click" Grid.Column="3" Grid.ColumnSpan="2" Margin="2,0,5,378">Edit</Button>
+        <TextBlock Text="Homepagina" Grid.Column="5" Grid.Row="0"  MouseLeftButtonDown="onClick_homepage" Margin="0,0,0,391"   />
         <TabControl SelectionChanged="TabControl_SelectionChanged" TabStripPlacement="Left" Grid.Column="0" Grid.Row="0" Margin="0,0,27,0">
             <TabControl.Resources>
                 <Style TargetType="TabItem" x:Key="SideBarSectionStyle">
@@ -55,10 +55,10 @@
             <TabItem Name ="tab8" Header="Tab Item 8" Height="49" Width="200"/>
 
         </TabControl>
-        <Image Margin="12,40,14,21" Name="imgPhoto"
+        <Image Margin="12,40,14,68" Name="imgPhoto"
         Stretch="Fill" Grid.Column="2" />
 
-        <Button Click="btnLoad_Click" Grid.Column="5" Grid.Row="3">Choose different file</Button>
-        <Button Click="btnSave_Click" Grid.Column="5" Grid.Row="4">Save</Button>
+        <Button Click="btnLoad_Click" Grid.Column="5" Grid.Row="1">Choose File</Button>
+        <Button Click="btnSave_Click" Grid.Column="5" Grid.Row="2" >Save</Button>
     </Grid>
 </Window>
