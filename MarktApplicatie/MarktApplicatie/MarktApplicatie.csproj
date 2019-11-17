@@ -118,7 +118,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="oudecomposities.xaml">
-
+     <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    
     <Page Include="plank_popup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
