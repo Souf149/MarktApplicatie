@@ -270,5 +270,16 @@ namespace MarktApplicatie
             }
 
         }
+
+        private void Go_to_custom_fruits(object sender, MouseButtonEventArgs e)
+        {
+            custom_fruits dialog = new custom_fruits();
+            if (dialog.ShowDialog() == true)
+            {
+                
+            }
+
+
+        }
     }
 }
