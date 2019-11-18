@@ -5,15 +5,51 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MarktApplicatie"
         mc:Ignorable="d"
-        Title="custom_fruits" Height="450" Width="800">
+        Title="custom_fruits" Height="700" Width="500">
+
+
+    <Window.Resources>
+        <Style TargetType="Rectangle">
+
+            <Setter Property="Width" Value="200" />
+            <Setter Property="Height" Value="200" />
+            <Setter Property="Fill" Value="Transparent"/>
+            <Setter Property="Stroke" Value="Black"/>
+
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="0, 0, 100, 0" />
+        </Style>
+
+        <Style TargetType="StackPanel">
+            <Setter Property="Orientation" Value="Horizontal"/>
+        </Style>
+    </Window.Resources>
+
+
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        
-        
+
+        <ListView x:Name="list_view" Grid.Row="0">
+            <ListViewItem>
+                <StackPanel>
+                    <TextBlock Text="Appel"/>
+                    <TextBlock Text="#004433"/>
+                    
+                </StackPanel>
+            </ListViewItem>
+            <ListViewItem IsSelected="True">with several</ListViewItem>
+            <ListViewItem>items</ListViewItem>
+        </ListView>
+
+        <Button Content="Add new fruit" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                Grid.Row="1" Width="auto" Height="auto" 
+                PreviewMouseLeftButtonDown="Add_new_fruit"/>
+
     </Grid>
 </Window>

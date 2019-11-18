@@ -23,6 +23,34 @@ namespace MarktApplicatie
         {
             InitializeComponent();
 
+            CreateNewItem("Hello", "haa");
+
+        }
+
+        private void Add_new_fruit(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void CreateNewItem(string name_, string color_)
+        {
+            StackPanel stack = new StackPanel();
+
+            TextBlock name = new TextBlock
+            {
+                Text = name_
+            };
+            TextBlock color = new TextBlock
+            {
+                Text = color_
+            };
+
+
+            stack.Children.Add(name);
+            stack.Children.Add(color);
+
+
+            list_view.Items.Add(stack);
         }
     }
 }
