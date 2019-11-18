@@ -17,7 +17,7 @@ namespace MarktApplicatie
     /// <summary>
     /// Interaction logic for plank_popup.xaml
     /// </summary>
-    public partial class plank_popup : Window
+    public partial class plank_popup : Window 
     {
         public plank_popup()
         {
