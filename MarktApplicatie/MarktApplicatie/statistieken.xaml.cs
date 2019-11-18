@@ -25,6 +25,7 @@ namespace MarktApplicatie
     {
         public statistieken()
         {
+            InitializeComponent();
             
 
             SeriesCollection = new SeriesCollection
@@ -53,11 +54,7 @@ namespace MarktApplicatie
         }
 
 
-        private void InitializeComponent()
-        {
-            throw new NotImplementedException();
-        }
-
+      
         public SeriesCollection SeriesCollection { get; set; }
         public string[] Labels { get; set; }
         public Func<double, string> Formatter { get; set; }
