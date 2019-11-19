@@ -122,7 +122,9 @@ namespace MarktApplicatie {
 
         public Plank plank;
 
-        public static List<string> fruitNames = new List<string>();
+        // list of every food that holds list with 2 values, name and color
+        public static List<List<string>> fruit_info = new List<List<string>>();
+
 
         public static Canvas c;
 
@@ -136,11 +138,12 @@ namespace MarktApplicatie {
             // parent
             plank = plank_;
 
-            // make list of all current fruit TODO: ADD FROM FILE
-            fruitNames.Add("appel");
-            fruitNames.Add("banaan");
-            fruitNames.Add("citroen");
-            fruitNames.Add("limoen");
+            // by first Fruit Obj created, initialize all fruits.
+            if(fruit_info.Count == 0)
+            {
+                ReloadFoods();
+            }
+            
 
             // creating the rectangle
             r = new Rectangle {
@@ -175,32 +178,23 @@ namespace MarktApplicatie {
             
         }
 
+        public void ReloadFoods()
+        {
+            foreach (string[] fruit in SoufTools.GetAllFruits())
+            {
+                fruit_info.Add(fruit.ToList());
+            }
+        }
+
         internal void Change(int selectedFruit) {
             if (selectedFruit < 0) {
                 r.Fill = SoufTools.GetColor("#FFFFFF");
                 return;
             }
 
-            // TODO: get fruits from file
-            switch (fruitNames[selectedFruit].ToLower()) {
-                case "appel":
-                    r.Fill = SoufTools.GetColor("#FF0000");
-                    break;
-                case "banaan":
-                    r.Fill = SoufTools.GetColor("#00AAAA");
-                    break;
-                case "citroen":
-                    r.Fill = SoufTools.GetColor("#00AA55");
-                    break;
-                case "limoen":
-                    r.Fill = SoufTools.GetColor("#00FF00");
-                    break;
-                default:
-                    // this should never hit
-                    r.Fill = SoufTools.GetColor("#FFFFFF");
-                    break;
+            string hex = fruit_info[selectedFruit][2];
+            r.Fill = SoufTools.GetColor(hex);
 
-            }
         }
 
         internal void Move(double x, double y) {

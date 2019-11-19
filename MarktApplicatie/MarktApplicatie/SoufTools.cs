@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,33 @@ namespace MarktApplicatie {
         public static string custom_fruit_path = path + @"data\custom_fruits.txt";
 
         
+        public static string[][] GetAllFruits()
+        {
+            // load fruits from file and split it into each fruit with their respective color.
+            string data = File.ReadAllText(SoufTools.custom_fruit_path);
+            string[] data_fruits = data.Split(';');
+
+            string[][] fruit_names = new string[data_fruits.Length][];
+
+            int i = 0;
+            foreach (string fruit in data_fruits)
+            {
+                // if you reached the end of the line
+                if (fruit.Length == 0)
+                {
+                    break;
+                }
+
+                // every fruit with their color gets split and combined into a new item
+                string[] d = fruit.Split('|');
+
+                fruit_names[i++] = new string[] { d[0], d[1] };
+                
+            }
+            return fruit_names;
+
+
+        }
 
         public static SolidColorBrush GetColor(string code) {
             return (SolidColorBrush)(new BrushConverter().ConvertFrom(code));
