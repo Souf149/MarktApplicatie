@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Shapes;
 
 namespace MarktApplicatie {
@@ -86,11 +87,8 @@ namespace MarktApplicatie {
 
             // index of pressed fruit in list
             int i = (row * cols) + col;
-            try {
-                fruits[i].Change(selectedFruit);
-            } catch {
-                
-            }
+
+            fruits[i].Change(selectedFruit);
             
         }
 
@@ -127,6 +125,7 @@ namespace MarktApplicatie {
 
 
         public static Canvas c;
+        public static SolidColorBrush standard_color = SoufTools.GetColor("#000000");
 
         public int x_on_plank;
         public int y_on_plank;
@@ -134,6 +133,7 @@ namespace MarktApplicatie {
 
         public Fruit(int id_, int fruitId, Plank plank_) {
             id = id_;
+            
 
             // parent
             plank = plank_;
@@ -170,7 +170,7 @@ namespace MarktApplicatie {
                 Change(fruitId);
             }
             else {
-                r.Fill = SoufTools.GetColor("#010101");
+                r.Fill = standard_color;
             }
 
             c.Children.Add(r);
@@ -188,7 +188,7 @@ namespace MarktApplicatie {
 
         internal void Change(int selectedFruit) {
             if (selectedFruit < 0) {
-                r.Fill = SoufTools.GetColor("#FFFFFF");
+                r.Fill = standard_color;
                 return;
             }
 

@@ -20,7 +20,7 @@ namespace MarktApplicatie {
         public add_new_fruit() {
             InitializeComponent();
 
-            MessageBox.Show("Kies een naam, en je kleur (default value 255)");
+            MessageBox.Show("Kies een naam en je kleur (default value 255)");
         }
 
         public string Inp_red {
