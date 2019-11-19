@@ -24,7 +24,25 @@ namespace MarktApplicatie
         {
             InitializeComponent();
 
+            
 
+            // load fruits from file and split it into each fruit with their respective color.
+            string data = File.ReadAllText(SoufTools.custom_fruit_path);
+            string[] data_fruits = data.Split(';');
+
+
+            foreach(string fruit in data_fruits)
+            {
+                // if you reached the end of the line
+                if(fruit.Length == 0)
+                {
+                    break;
+                }
+
+                // every fruit with their color gets split and combined into a new item
+                string[] d = fruit.Split('|');
+                CreateNewItem(d[0], d[1]);
+            }
 
         }
 
