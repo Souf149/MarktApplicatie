@@ -19,6 +19,60 @@ namespace MarktApplicatie {
     public partial class add_new_fruit : Window {
         public add_new_fruit() {
             InitializeComponent();
+
+            MessageBox.Show("Kies een naam, en je kleur (defualt value 255)");
+        }
+
+        public string Inp_red {
+            get { return Get_default_if_empty(txt_red.Text);
+            }
+        }
+
+        public string Inp_blue {
+            get {
+                return Get_default_if_empty(txt_blue.Text);
+            }
+        }
+        public string Inp_green {
+            get {
+                return Get_default_if_empty(txt_green.Text);
+            }
+        }
+
+        public string Inp_naam {
+            get {
+                return txt_naam.Text;
+            }
+        }
+
+        public string Get_default_if_empty(string inp) {
+            if (inp == "") {
+                return "255";
+            }
+            else {
+                return inp;
+            }
+
+        }
+
+        private void OKButton_Click(object sender, MouseButtonEventArgs e) {
+
+
+            if (Inp_naam == "") {
+                MessageBox.Show("Geef het een naam");
+                return;
+            }
+
+            if (!(Inp_red.All(char.IsDigit) &&
+                Inp_blue.All(char.IsDigit) &&
+                Inp_green.All(char.IsDigit))) {
+                MessageBox.Show("De kleuren moeten hele getallen zijn tussen 0 en 256");
+                return;
+            }
+
+            
+
+
         }
     }
 }

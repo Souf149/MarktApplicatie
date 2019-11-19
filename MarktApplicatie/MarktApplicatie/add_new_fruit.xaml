@@ -5,18 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MarktApplicatie"
         mc:Ignorable="d"
-        Title="add_new_fruit" Height="300" Width="400">
+        Title="add_new_fruit" Height="300" Width="300">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="40"/>
-        </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Fruit naam: " Grid.Column="0" Grid.Row="0" 
+                   Margin="10"/>
+        <TextBox x:Name="txt_naam" Grid.Column="1" Grid.Row="0"
+                 Margin="10"/>
+        
+        <TextBlock Text="Red: " Grid.Column="0" Grid.Row="1" 
+                   Margin="10"/>
+        <TextBox x:Name="txt_red" Grid.Column="1" Grid.Row="1"
+                 Margin="10"/>
+        
+        <TextBlock Text="Blue: " Grid.Column="0" Grid.Row="2" 
+                   Margin="10"/>
+        <TextBox x:Name="txt_blue" Grid.Column="1" Grid.Row="2"
+                 Margin="10"/>
+        
+        <TextBlock Text="Green: " Grid.Column="0" Grid.Row="3" 
+                   Margin="10"/>
+        <TextBox x:Name="txt_green" Grid.Column="1" Grid.Row="3"
+                 Margin="10"/>
         
         
+        
+
+        <Button Content="OK" PreviewMouseLeftButtonDown="OKButton_Click" Grid.ColumnSpan="2" Grid.Row="4"
+                Margin="10"/>
+
     </Grid>
 </Window>
