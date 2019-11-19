@@ -5,21 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MarktApplicatie"
         mc:Ignorable="d"
-        Title="custom_fruits" Height="700" Width="500">
+        Title="custom_fruits" Height="700" Width="600">
 
 
     <Window.Resources>
-        <Style TargetType="Rectangle">
-
-            <Setter Property="Width" Value="200" />
-            <Setter Property="Height" Value="200" />
-            <Setter Property="Fill" Value="Transparent"/>
-            <Setter Property="Stroke" Value="Black"/>
-
-        </Style>
 
         <Style TargetType="TextBlock">
-            <Setter Property="Margin" Value="0, 0, 100, 0" />
+            <Setter Property="Width" Value="150" />
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="100" />
         </Style>
 
         <Style TargetType="StackPanel">
@@ -35,20 +31,21 @@
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
 
-        <ListView x:Name="list_view" Grid.Row="0">
-            <ListViewItem>
-                <StackPanel>
-                    <TextBlock Text="Appel"/>
-                    <TextBlock Text="#004433"/>
-                    
-                </StackPanel>
-            </ListViewItem>
-            <ListViewItem IsSelected="True">with several</ListViewItem>
-            <ListViewItem>items</ListViewItem>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <ListView x:Name="list_view" Grid.Row="0" Grid.ColumnSpan="2">
+            
         </ListView>
 
         <Button Content="Add new fruit" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                 Grid.Row="1" Width="auto" Height="auto" 
+                PreviewMouseLeftButtonDown="Add_new_fruit"/>
+
+        <Button Content="Quit and Save" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                Grid.Row="1" Grid.Column="1" Width="auto" Height="auto" 
                 PreviewMouseLeftButtonDown="Add_new_fruit"/>
 
     </Grid>
