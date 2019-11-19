@@ -10,5 +10,28 @@ namespace MarktApplicatie {
         public static SolidColorBrush GetColor(string code) {
             return (SolidColorBrush)(new BrushConverter().ConvertFrom(code));
         }
+
+        /*
+         ref: https://www.programmingalgorithms.com/algorithm/decimal-to-hexadecimal/
+        */
+    public static string DecimalToHexadecimal(int dec) {
+            if (dec < 1) return "0";
+
+            int hex = dec;
+            string hexStr = string.Empty;
+
+            while (dec > 0) {
+                hex = dec % 16;
+
+                if (hex < 10)
+                    hexStr = hexStr.Insert(0, Convert.ToChar(hex + 48).ToString());
+                else
+                    hexStr = hexStr.Insert(0, Convert.ToChar(hex + 55).ToString());
+
+                dec /= 16;
+            }
+
+            return hexStr;
+        }
     }
 }

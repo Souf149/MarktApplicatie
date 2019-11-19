@@ -70,6 +70,8 @@ namespace MarktApplicatie {
                 return;
             }
 
+            DialogResult = true;
+            
             
 
 

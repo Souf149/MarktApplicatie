@@ -36,6 +36,19 @@ namespace MarktApplicatie
             add_new_fruit dialog = new add_new_fruit();
             if (dialog.ShowDialog() == true) {
 
+                string[] rgb = new string[] {
+                    dialog.Inp_red,
+                    dialog.Inp_blue,
+                    dialog.Inp_green
+                };
+
+                string hexColor = "#";
+                for(int i = 0; i < rgb.Length; i++) {
+                    hexColor+= SoufTools.DecimalToHexadecimal(Convert.ToInt32(rgb[i]));
+                }
+
+                CreateNewItem(dialog.Inp_naam, hexColor);
+
             }
         }
 
