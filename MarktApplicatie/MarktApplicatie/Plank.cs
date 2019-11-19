@@ -192,7 +192,7 @@ namespace MarktApplicatie {
                 return;
             }
 
-            string hex = fruit_info[selectedFruit][2];
+            string hex = fruit_info[selectedFruit][1];
             r.Fill = SoufTools.GetColor(hex);
 
         }
