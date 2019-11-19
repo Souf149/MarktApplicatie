@@ -55,7 +55,7 @@
         <Canvas x:Name="canvas" Grid.Column="0"  Grid.Row="0" Grid.RowSpan="4" Panel.ZIndex="-1"
                 Background="#555555" 
                 PreviewMouseLeftButtonDown="Canvas_onclick" MouseLeftButtonUp="Canvas_onrelease"
-                PreviewMouseMove="Canvas_PreviewMouseMove">
+                PreviewMouseMove="Canvas_PreviewMouseMove" PreviewMouseRightButtonDown="Canvas_right_click">
 
 
 

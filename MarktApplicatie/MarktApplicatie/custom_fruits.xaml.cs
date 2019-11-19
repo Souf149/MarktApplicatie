@@ -144,6 +144,7 @@ namespace MarktApplicatie
 
             }
 
+            data = data.Remove(data.Length - 1);
             File.WriteAllText(SoufTools.custom_fruit_path, data);
 
             DialogResult = true;

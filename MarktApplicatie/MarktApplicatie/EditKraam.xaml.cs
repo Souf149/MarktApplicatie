@@ -267,25 +267,36 @@ namespace MarktApplicatie
 
         public void ReloadFruits()
         {
-            // load fruits from file and split it into each fruit with their respective color.
-            string data = File.ReadAllText(SoufTools.custom_fruit_path);
-            string[] data_fruits = data.Split(';');
+            string[][] fruit_info = SoufTools.GetAllFruits();
+
+            ReloadFruitsMainScreen(fruit_info);
 
 
-            foreach (string fruit in data_fruits)
-            {
-                // if you reached the end of the line
-                if (fruit.Length == 0)
-                {
-                    break;
-                }
-
-                // every fruit with their color gets split and combined into a new item
-                string[] d = fruit.Split('|');
-                CreateFruit(d[0], d[1]);
-            }
         }
 
+        public void ReloadFruitsMainScreen(string[][] fruit_info)
+        {
+            List<TextBlock> selected_blocks = new List<TextBlock>();
+
+            foreach(TextBlock block in listView.Items)
+            {
+                selected_blocks.Add(block);
+            }
+
+            // Delete all previous fruits
+            foreach (TextBlock block in selected_blocks)
+            {
+                listView.Items.Remove(block);
+            }
+
+            foreach(string[] d in fruit_info)
+            {
+                CreateFruit(d[0], d[1]);
+            }
+            
+
+
+        }
         private void Go_to_custom_fruits(object sender, MouseButtonEventArgs e)
         {
             custom_fruits dialog = new custom_fruits();
@@ -294,6 +305,11 @@ namespace MarktApplicatie
                 ReloadFruits();
             }
 
+
+        }
+
+        private void Canvas_right_click(object sender, MouseButtonEventArgs e)
+        {
 
         }
     }
