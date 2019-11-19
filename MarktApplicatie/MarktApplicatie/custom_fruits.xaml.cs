@@ -45,7 +45,7 @@ namespace MarktApplicatie
 
                     // low numbers only have 1 digit
                     if (hex.Length < 2) {
-                        hex += 0;
+                        hex += "0";
                     }
 
 
