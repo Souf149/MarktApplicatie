@@ -48,15 +48,7 @@
           ScrollViewer.VerticalScrollBarVisibility="Visible"
           ScrollViewer.HorizontalScrollBarVisibility="Hidden"
           ScrollViewer.CanContentScroll="False"
-            PreviewMouseLeftButtonUp="ListView_PreviewMouseLeftButtonUp"
-                  >
-
-
-            <TextBlock Background="Red" Text="Appel"/>
-            <TextBlock Background="Yellow" Text="Banaan"/>
-            <TextBlock Background="Green" Text="Citroen"/>
-            <TextBlock Background="GreenYellow" Text="Limoen"/>
-        </ListView>
+            PreviewMouseLeftButtonUp="ListView_PreviewMouseLeftButtonUp"/>
 
 
 

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,14 +41,7 @@ namespace MarktApplicatie
 
         
 
-        public TextBlock txtBlock(String t, String code)
-        {
-            return new TextBlock
-            {
-                Text = t,
-                Background = SoufTools.GetColor(code)
-            };
-        }
+        
 
         
 
@@ -80,23 +74,29 @@ namespace MarktApplicatie
             // initialize window
             InitializeComponent();
 
-            // TODO: ADD FROM FILE
-            TextBlock txt = txtBlock("Test123", "#FF00FF");
-            listView.Items.Add(txt);
-
-            // make list of all current fruit TODO: ADD FROM FILE
-            fruitNames.Add("appel");
-            fruitNames.Add("banaan");
-            fruitNames.Add("citroen");
-            fruitNames.Add("limoen");
+            
 
             Fruit.c = canvas;
             Plank.c = canvas;
-            
+
+            ReloadFruits();
 
 
 
 
+
+        }
+
+        public void CreateFruit(String name, String hex_color)
+        {
+            TextBlock txt = new TextBlock
+            {
+                Text = name,
+                Background = SoufTools.GetColor(hex_color)
+            };
+
+            listView.Items.Add(txt);
+            fruitNames.Add(name);
         }
 
         private void go_home(object sender, MouseButtonEventArgs e)
@@ -195,12 +195,6 @@ namespace MarktApplicatie
             }
             
 
-
-            
-
-
-
-
         }
 
         void CheckPlanks() {
@@ -269,6 +263,27 @@ namespace MarktApplicatie
                 selectedPlank.Resize(width * GRID_SIZE, height * GRID_SIZE);
             }
 
+        }
+
+        public void ReloadFruits()
+        {
+            // load fruits from file and split it into each fruit with their respective color.
+            string data = File.ReadAllText(SoufTools.custom_fruit_path);
+            string[] data_fruits = data.Split(';');
+
+
+            foreach (string fruit in data_fruits)
+            {
+                // if you reached the end of the line
+                if (fruit.Length == 0)
+                {
+                    break;
+                }
+
+                // every fruit with their color gets split and combined into a new item
+                string[] d = fruit.Split('|');
+                CreateFruit(d[0], d[1]);
+            }
         }
 
         private void Go_to_custom_fruits(object sender, MouseButtonEventArgs e)
