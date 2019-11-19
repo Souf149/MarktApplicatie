@@ -127,6 +127,8 @@ namespace MarktApplicatie
             }
 
             File.WriteAllText(SoufTools.custom_fruit_path, data);
+
+            DialogResult = true;
         }
     }
 }

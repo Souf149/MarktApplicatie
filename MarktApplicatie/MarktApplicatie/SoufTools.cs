@@ -9,7 +9,7 @@ namespace MarktApplicatie {
     public static class SoufTools {
 
         public static string path = AppDomain.CurrentDomain.BaseDirectory;
-        public static string custom_fruit_path = path + @"\data\";
+        public static string custom_fruit_path = path + @"data\custom_fruits.txt";
 
         
 
