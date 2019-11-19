@@ -291,7 +291,7 @@ namespace MarktApplicatie
             custom_fruits dialog = new custom_fruits();
             if (dialog.ShowDialog() == true)
             {
-                
+                ReloadFruits();
             }
 
 
