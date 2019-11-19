@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,10 +24,6 @@ namespace MarktApplicatie
         {
             InitializeComponent();
 
-            CreateNewItem("Hello", "haa");
-            CreateNewItem("Hello", "haa");
-            CreateNewItem("Hello", "haa");
-
 
 
         }
@@ -44,7 +41,15 @@ namespace MarktApplicatie
 
                 string hexColor = "#";
                 for(int i = 0; i < rgb.Length; i++) {
-                    hexColor+= SoufTools.DecimalToHexadecimal(Convert.ToInt32(rgb[i]));
+                    string hex = SoufTools.DecimalToHexadecimal(Convert.ToInt32(rgb[i]));
+
+                    // low numbers only have 1 digit
+                    if (hex.Length < 2) {
+                        hex += 0;
+                    }
+
+
+                    hexColor += hex;
                 }
 
                 CreateNewItem(dialog.Inp_naam, hexColor);
@@ -109,5 +114,19 @@ namespace MarktApplicatie
 
         }
 
+        private void Quit_and_save(object sender, MouseButtonEventArgs e) {
+            string data = "";
+
+            foreach(StackPanel sp in list_view.Items) {
+                TextBlock txt_naam = (TextBlock)sp.Children[1];
+                TextBlock txt_color = (TextBlock)sp.Children[2];
+
+                data += $"{txt_naam.Text}|{txt_color.Text};";
+
+
+            }
+
+            File.WriteAllText(SoufTools.custom_fruit_path, data);
+        }
     }
 }

@@ -46,7 +46,9 @@ namespace MarktApplicatie {
         }
 
         public string Get_default_if_empty(string inp) {
-            if (inp == "") {
+            int int_inp = Convert.ToInt32(inp);
+
+            if (inp == "" || int_inp > 255 || int_inp < 0) {
                 return "255";
             }
             else {

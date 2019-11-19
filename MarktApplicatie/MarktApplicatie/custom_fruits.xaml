@@ -46,7 +46,7 @@
 
         <Button Content="Quit and Save" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                 Grid.Row="1" Grid.Column="1" Width="auto" Height="auto" 
-                PreviewMouseLeftButtonDown="Add_new_fruit"/>
+                PreviewMouseLeftButtonDown="Quit_and_save"/>
 
     </Grid>
 </Window>
