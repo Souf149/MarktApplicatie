@@ -7,6 +7,11 @@ using System.Windows.Media;
 
 namespace MarktApplicatie {
     public static class SoufTools {
+
+        public static string path = AppDomain.CurrentDomain.BaseDirectory + @"\data\";
+
+        
+
         public static SolidColorBrush GetColor(string code) {
             return (SolidColorBrush)(new BrushConverter().ConvertFrom(code));
         }
