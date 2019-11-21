@@ -10,13 +10,30 @@ namespace MarktApplicatie {
     public static class SoufTools {
 
         public static string path = AppDomain.CurrentDomain.BaseDirectory;
-        public static string custom_fruit_path = path + @"data\custom_fruits.txt";
+        public static string data_folder_path = AppDomain.CurrentDomain.BaseDirectory + @"data";
+        public static string custom_fruit_path = data_folder_path + @"\custom_fruits.txt";
 
-        
+        public static string default_fruit = @"Appel|#FF0000;Banaan|#ffe119;Limoen|#bcf60c;Draken fruit|#911eb4";
+
+
         public static string[][] GetAllFruits()
         {
+            // if the folder does not exist
+            if (!Directory.Exists(data_folder_path)) {
+                Directory.CreateDirectory(data_folder_path);
+            }
+
+            // if the file does not exist give it default value
+            if (!File.Exists(custom_fruit_path)) {
+                FileStream file = File.Create(custom_fruit_path);
+                file.Close();
+
+                File.WriteAllText(custom_fruit_path, default_fruit);
+            }
+
+
             // load fruits from file and split it into each fruit with their respective color.
-            string data = File.ReadAllText(SoufTools.custom_fruit_path);
+            string data = File.ReadAllText(custom_fruit_path);
             string[] data_fruits = data.Split(';');
 
             string[][] fruit_names = new string[data_fruits.Length][];
@@ -38,6 +55,10 @@ namespace MarktApplicatie {
             }
             return fruit_names;
 
+
+        }
+
+        public static void DefaultFiles() {
 
         }
 
