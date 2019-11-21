@@ -155,6 +155,8 @@ namespace MarktApplicatie
             mouseDown = true;
             positionText.Text = $"X: {p.X.ToString()}, \nY: {p.Y.ToString()}";
 
+
+
             if (plankEditMode) {
                 for (int i = 0; i < planks.Count; i++) {
                     Rectangle r = planks[i].r;
@@ -166,6 +168,7 @@ namespace MarktApplicatie
                         p.Y > y && p.Y < y + r.Height) {
                         Plank.selectedPlank = i;
                         selectedPlank = planks[i];
+                        selectedPlank.OnClick(p.X, p.Y);
                         CheckPlanks();
                         return;
                     }
@@ -225,8 +228,8 @@ namespace MarktApplicatie
                 if (plankEditMode) {
                     if (Plank.selectedPlank == -1)
                         return;
-                    // TODO: remove Moveshape method
-                    planks[Plank.selectedPlank].Move(p.X, p.Y);
+
+                    selectedPlank.Move(p.X, p.Y);
                 }
 
 

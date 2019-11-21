@@ -13,6 +13,10 @@ namespace MarktApplicatie {
         public const int GRID_SIZE = 48;
         public static Canvas c;
 
+        // location where the plank has been clicked lastly on the plank
+        public double onClick_X;
+        public double onClick_Y;
+
         public int id;
         public Rectangle r;
         public static int selectedPlank = -1;
@@ -80,10 +84,13 @@ namespace MarktApplicatie {
             fruits = new_fruits;
         }
 
+        // onclick om fruit te veranderen
         public void OnClick(int selectedFruit, double x, double y) {
 
             int col = Math.Abs((int)Math.Floor(x / GRID_SIZE));
             int row = Math.Abs((int)Math.Floor(y / GRID_SIZE));
+
+            
 
             // index of pressed fruit in list
             int i = (row * cols) + col;
@@ -91,6 +98,16 @@ namespace MarktApplicatie {
             fruits[i].Change(selectedFruit);
             
         }
+
+        // general onclick (to remember where it has been clicked to it can move it smoothly)
+        public void OnClick(double x, double y) {
+
+            onClick_X = x - Canvas.GetLeft(r);
+            onClick_Y = y - Canvas.GetTop(r);
+
+        }
+
+
 
         public Rectangle[] GetAllFruitRect() {
 
@@ -103,7 +120,14 @@ namespace MarktApplicatie {
             return rects;
         }
 
-        internal void Move(double x, double y) {
+        public void Move(double x, double y) {
+
+
+
+            x -= onClick_X;
+            y -= onClick_Y;
+
+
             Canvas.SetLeft(r, x);
             Canvas.SetTop(r, y);
 
@@ -111,6 +135,7 @@ namespace MarktApplicatie {
                 f.Move(x, y);
             }
         }
+
     }
 
     public class Fruit{
