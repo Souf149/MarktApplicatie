@@ -13,6 +13,44 @@
             <Setter Property="TextBlock.HorizontalAlignment" Value="Center" />
             <Setter Property="TextBlock.Margin" Value="10, 10, 10, 30" />
         </Style>
+
+        <!-- stackoverflow.com/questions/17630968/wpf-c-sharp-button-style -->
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#373737" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border CornerRadius="4" Background="{TemplateBinding Background}">
+                            <Grid>
+                                <Path x:Name="PathIcon" Width="15" Height="25" Stretch="Fill" Fill="#4C87B3" HorizontalAlignment="Left" Margin="17,0,0,0" Data="F1 M 30.0833,22.1667L 50.6665,37.6043L 50.6665,38.7918L 30.0833,53.8333L 30.0833,22.1667 Z "/>
+                                <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Grid>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#E59400" />
+                                <Setter Property="Foreground" Value="White" />
+                                <Setter TargetName="PathIcon" Property="Fill" Value="Black" />
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="OrangeRed" />
+                                <Setter Property="Foreground" Value="White" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Width" Value="300"/>
+        </Style>
+
     </Window.Resources>
 
 
@@ -38,18 +76,27 @@
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
 
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.504,1.5" StartPoint="0.504,0.03">
+                <GradientStop Color="#8888FF" Offset="0.2"/>
+                <GradientStop Color="#6666FF" Offset="0.4"/>
+                <GradientStop Color="#4444FF" Offset="0.6"/>
+                <GradientStop Color="#2222FF" Offset="0.8"/>
+                <GradientStop Color="#0000FF" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
 
         <Image Source="logo.png" Grid.Column="2" Grid.Row="2" Width="200" Height="100" 
-               Margin="10, 10, 10, 40"/>
+               Margin="50"/>
         
-        <TextBlock Text="Nieuwe compositie starten" Grid.Column="2" Grid.Row="3" 
-                   MouseLeftButtonDown="onClick_newComposition"/>
-        <TextBlock Text="Vorige composities" Grid.Column="2" Grid.Row="4"
-                   MouseLeftButtonDown="onClick_oldComposition"/>
-        <TextBlock Text="Statistieken" Grid.Column="2" Grid.Row="5"
-                   MouseLeftButtonDown="onClick_statistics"/>
-        <TextBlock Text="Instellingen" Grid.Column="2" Grid.Row="6"
-                   MouseLeftButtonDown="onClick_settings"/>
+        <Button Content="Nieuwe compositie starten" Grid.Column="2" Grid.Row="3" 
+                   PreviewMouseLeftButtonDown="onClick_newComposition"/>
+        <Button Content="Vorige composities" Grid.Column="2" Grid.Row="4"
+                   PreviewMouseLeftButtonDown="onClick_oldComposition"/>
+        <Button Content="Statistieken" Grid.Column="2" Grid.Row="5"
+                   PreviewMouseLeftButtonDown="onClick_statistics"/>
+        <Button Content="Instellingen" Grid.Column="2" Grid.Row="6"
+                   PreviewMouseLeftButtonDown="onClick_settings"/>
         
         
     </Grid>
