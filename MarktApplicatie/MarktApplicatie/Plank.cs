@@ -10,7 +10,7 @@ using System.Windows.Shapes;
 namespace MarktApplicatie {
     public class Plank {
 
-        public const int GRID_SIZE = 48;
+        public int GRID_SIZE = SoufTools.GRID_SIZE;
         public static Canvas c;
 
         // location where the plank has been clicked lastly on the plank
@@ -146,7 +146,7 @@ namespace MarktApplicatie {
     public class Fruit{
         public Rectangle r;
         public int id;
-        public const int GRID_SIZE = 48;
+        public int GRID_SIZE = SoufTools.GRID_SIZE;
 
         public Plank plank;
 
