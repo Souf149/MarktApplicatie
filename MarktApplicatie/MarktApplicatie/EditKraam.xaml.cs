@@ -29,7 +29,7 @@ namespace MarktApplicatie
         
         
 
-        const int GRID_SIZE = 48;
+        int GRID_SIZE = SoufTools.GRID_SIZE;
 
         Plank selectedPlank = new Plank();
 
