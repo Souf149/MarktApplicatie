@@ -9,7 +9,7 @@ using System.Windows.Shapes;
 namespace MarktApplicatie {
     public class Plank {
 
-        public const int GRID_SIZE = 48;
+        public int GRID_SIZE = SoufTools.GRID_SIZE;
         public static Canvas c;
 
         public int id;
@@ -118,14 +118,13 @@ namespace MarktApplicatie {
     public class Fruit{
         public Rectangle r;
         public int id;
-        public const int GRID_SIZE = 48;
+        public int GRID_SIZE = SoufTools.GRID_SIZE;
 
         public Plank plank;
 
         public static List<string> fruitNames = new List<string>();
 
         public static Canvas c;
-
         public int x_on_plank;
         public int y_on_plank;
 
