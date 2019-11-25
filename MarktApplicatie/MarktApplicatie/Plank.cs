@@ -136,6 +136,11 @@ namespace MarktApplicatie {
             }
         }
 
+        public void ReloadFruits()
+        {
+            Fruit.fruit_info = SoufTools.GetAllFruits();
+        }
+
     }
 
     public class Fruit{
@@ -146,7 +151,7 @@ namespace MarktApplicatie {
         public Plank plank;
 
         // list of every food that holds list with 2 values, name and color
-        public static List<List<string>> fruit_info = new List<List<string>>();
+        public static string[][] fruit_info = SoufTools.GetAllFruits();
 
 
         public static Canvas c;
@@ -162,12 +167,6 @@ namespace MarktApplicatie {
 
             // parent
             plank = plank_;
-
-            // by first Fruit Obj created, initialize all fruits.
-            if(fruit_info.Count == 0)
-            {
-                ReloadFoods();
-            }
             
 
             // creating the rectangle
@@ -205,10 +204,7 @@ namespace MarktApplicatie {
 
         public void ReloadFoods()
         {
-            foreach (string[] fruit in SoufTools.GetAllFruits())
-            {
-                fruit_info.Add(fruit.ToList());
-            }
+            fruit_info = SoufTools.GetAllFruits();
         }
 
         internal void Change(int selectedFruit) {

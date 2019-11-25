@@ -274,6 +274,8 @@ namespace MarktApplicatie
 
             ReloadFruitsMainScreen(fruit_info);
 
+            Fruit.fruit_info = fruit_info;
+
 
         }
 
