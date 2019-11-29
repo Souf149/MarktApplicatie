@@ -29,13 +29,7 @@
                                 <!-- Button design -->
                                 <Path x:Name="PathIcon" Width="15" Height="25" Stretch="Fill" Fill="#4C87B3" HorizontalAlignment="Left" Margin="17,0,0,0" Data="F1 M 30.0833,22.1667L 50.6665,37.6043L 50.6665,38.7918L 30.0833,53.8333L 30.0833,22.1667 Z "/>
                                 <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                <Rectangle x:Name="small_rect" Fill="Aqua" Stroke="AliceBlue" 
-                                           Width="10" Height="10" HorizontalAlignment="Right"
-                                           Margin="10">
-                                    <Rectangle.RenderTransform>
-                                        <RotateTransform x:Name="rotateTransform"/>
-                                    </Rectangle.RenderTransform>
-                                </Rectangle>
+                                
                             </Grid>
                         </Border>
 
@@ -59,7 +53,20 @@
             <Setter Property="Width" Value="300"/>
         </Style>
 
-    </Window.Resources>
+        <Style TargetType="Rectangle">
+
+            <Setter Property="Fill" Value="Aqua"/>
+            <Setter Property="Stroke" Value="Green"/>
+            <Setter Property="StrokeThickness" Value="2"/>
+            <Setter Property="Opacity" Value="0.1"/>
+            
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="RenderTransformOrigin" Value="0.5, 0.5"/>
+        </Style>
+            
+
+        </Window.Resources>
 
 
     <Grid x:Name="grid">
@@ -105,7 +112,18 @@
                    PreviewMouseLeftButtonDown="OnClick_statistics"/>
         <Button Content="Instellingen" Grid.Column="2" Grid.Row="6"
                    PreviewMouseLeftButtonDown="OnClick_settings"/>
+
+        <Rectangle Grid.Column="1" Grid.Row="2">
+            <Rectangle.RenderTransform>
+                <RotateTransform x:Name="rect1_rotation"/>
+            </Rectangle.RenderTransform>
+        </Rectangle>
         
-        
+        <Rectangle Grid.Column="3" Grid.Row="2">
+            <Rectangle.RenderTransform>
+                <RotateTransform x:Name="rect2_rotation"/>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
     </Grid>
 </Window>

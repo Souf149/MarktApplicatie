@@ -23,6 +23,7 @@ namespace MarktApplicatie
     {
         DispatcherTimer loopTimer;
         public const int FPS = 30;
+        double angle = 0;
 
         public MainWindow()
         {
@@ -37,9 +38,12 @@ namespace MarktApplicatie
 
         }
 
-        private void Loop(Object sender, EventArgs e)
+        private void Loop(object sender, EventArgs e)
         {
-            btn.Content += "a";
+
+            rect1_rotation.Angle = angle;
+            rect2_rotation.Angle = angle;
+            angle += 10;
         }
 
         
@@ -47,19 +51,19 @@ namespace MarktApplicatie
         private void OnClick_newComposition(object sender, MouseButtonEventArgs e) {
             EditKraam editkraam = new EditKraam();
             editkraam.Show();
-            this.Close();
+            Close();
 
         }
         private void OnClick_oldComposition(object sender, MouseButtonEventArgs e) {
             OudeComposities oudecompo = new OudeComposities();
             oudecompo.Show();
-            this.Close();
+            Close();
         }
 
         private void OnClick_statistics(object sender, MouseButtonEventArgs e) {
             statistieken statistics = new statistieken();
             statistics.Show();
-            this.Close();
+            Close();
 
         }
 
