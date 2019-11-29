@@ -15,7 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using Newtonsoft.Json;
 
 namespace MarktApplicatie
 {
@@ -105,14 +105,14 @@ namespace MarktApplicatie
             mainwindow.Show();
             this.Close();
         }
-
+        /* Code not needed
         private void Go_bus(object sender, MouseButtonEventArgs e)
         {
             editbus editBus = new editbus();
             editBus.Show();
             this.Close();
         }
-
+*/
         private void ListView_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             selectedFruit = listView.SelectedIndex;
@@ -147,7 +147,44 @@ namespace MarktApplicatie
             }
             
         }
+        private void save_Composition(object sender, MouseButtonEventArgs e)
+        {
+            PlankInfo[] plankinfos = new PlankInfo[planks.Count];
 
+            for (int i = 0; i < planks.Count; i++)
+            {
+                Rectangle r = planks[i].r;
+
+
+                var width = r.Width / SoufTools.GRID_SIZE;
+                var height = r.Height / SoufTools.GRID_SIZE;
+                double plank_x = Canvas.GetLeft(r);
+                double plank_y = Canvas.GetTop(r);
+
+                plankinfos[i] = new PlankInfo()
+                {
+                    Width = width,
+                    Height = height,
+                    X = plank_x,
+                    Y = plank_y
+                };
+
+                /* Kan je gebruiken voor het json to string
+                PlankInfo result =  JsonConvert.DeserializeObject<PlankInfo>(strResultJson);
+                Console.WriteLine(result); 
+                */
+            }
+            string strResultJson = JsonConvert.SerializeObject(plankinfos);
+            File.WriteAllText(@"..\..\plankinfo.json", strResultJson);
+            MessageBox.Show("File Saved!");
+            /*
+            Console.WriteLine("The x as: " + plank_x);
+            Console.WriteLine("The y as: " + plank_y);
+            Console.WriteLine("The width is: " + width);
+            Console.WriteLine("The height is: " + height);
+            */
+
+        }
 
         private void Canvas_onclick(object sender, MouseButtonEventArgs e) {
 
