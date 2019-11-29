@@ -24,12 +24,13 @@ namespace MarktApplicatie
         DispatcherTimer loopTimer;
         public const int FPS = 30;
         double angle = 0;
+        List<Rectangle> rectangles = new List<Rectangle>();
 
         public MainWindow()
         {
             InitializeComponent();
 
-            //  DispatcherTimer setup
+            //  basic loop setup
             loopTimer = new DispatcherTimer();
             loopTimer.Tick += new EventHandler(Loop);
             loopTimer.Interval = new TimeSpan(0, 0, 0, 0, 1000/FPS);
@@ -40,9 +41,6 @@ namespace MarktApplicatie
 
         private void Loop(object sender, EventArgs e)
         {
-
-            rect1_rotation.Angle = angle;
-            rect2_rotation.Angle = angle;
             angle += 10;
         }
 
