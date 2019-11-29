@@ -26,8 +26,16 @@
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border CornerRadius="4" Background="{TemplateBinding Background}">
                             <Grid>
+                                <!-- Button design -->
                                 <Path x:Name="PathIcon" Width="15" Height="25" Stretch="Fill" Fill="#4C87B3" HorizontalAlignment="Left" Margin="17,0,0,0" Data="F1 M 30.0833,22.1667L 50.6665,37.6043L 50.6665,38.7918L 30.0833,53.8333L 30.0833,22.1667 Z "/>
                                 <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                <Rectangle x:Name="small_rect" Fill="Aqua" Stroke="AliceBlue" 
+                                           Width="10" Height="10" HorizontalAlignment="Right"
+                                           Margin="10">
+                                    <Rectangle.RenderTransform>
+                                        <RotateTransform x:Name="rotateTransform"/>
+                                    </Rectangle.RenderTransform>
+                                </Rectangle>
                             </Grid>
                         </Border>
 
@@ -54,7 +62,7 @@
     </Window.Resources>
 
 
-    <Grid>
+    <Grid x:Name="grid">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50"/>
@@ -87,16 +95,16 @@
         </Grid.Background>
 
         <Image Source="logo.png" Grid.Column="2" Grid.Row="2" Width="200" Height="100" 
-               Margin="50"/>
+               Margin="35"/>
         
-        <Button Content="Nieuwe compositie starten" Grid.Column="2" Grid.Row="3" 
-                   PreviewMouseLeftButtonDown="onClick_newComposition"/>
+        <Button x:Name="btn" Content="Nieuwe compositie starten" Grid.Column="2" Grid.Row="3" 
+                   PreviewMouseLeftButtonDown="OnClick_newComposition"/>
         <Button Content="Vorige composities" Grid.Column="2" Grid.Row="4"
-                   PreviewMouseLeftButtonDown="onClick_oldComposition"/>
+                   PreviewMouseLeftButtonDown="OnClick_oldComposition"/>
         <Button Content="Statistieken" Grid.Column="2" Grid.Row="5"
-                   PreviewMouseLeftButtonDown="onClick_statistics"/>
+                   PreviewMouseLeftButtonDown="OnClick_statistics"/>
         <Button Content="Instellingen" Grid.Column="2" Grid.Row="6"
-                   PreviewMouseLeftButtonDown="onClick_settings"/>
+                   PreviewMouseLeftButtonDown="OnClick_settings"/>
         
         
     </Grid>
