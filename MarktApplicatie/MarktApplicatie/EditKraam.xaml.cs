@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,7 +30,7 @@ namespace MarktApplicatie
         
         
 
-        const int GRID_SIZE = 48;
+        int GRID_SIZE = SoufTools.GRID_SIZE;
 
         Plank selectedPlank = new Plank();
 
@@ -40,14 +41,7 @@ namespace MarktApplicatie
 
         
 
-        public TextBlock txtBlock(String t, String code)
-        {
-            return new TextBlock
-            {
-                Text = t,
-                Background = SoufTools.GetColor(code)
-            };
-        }
+        
 
         
 
@@ -80,23 +74,29 @@ namespace MarktApplicatie
             // initialize window
             InitializeComponent();
 
-            // TODO: ADD FROM FILE
-            TextBlock txt = txtBlock("Test123", "#FF00FF");
-            listView.Items.Add(txt);
-
-            // make list of all current fruit TODO: ADD FROM FILE
-            fruitNames.Add("appel");
-            fruitNames.Add("banaan");
-            fruitNames.Add("citroen");
-            fruitNames.Add("limoen");
+            
 
             Fruit.c = canvas;
             Plank.c = canvas;
-            
+
+            ReloadFruits();
 
 
 
 
+
+        }
+
+        public void CreateFruit(String name, String hex_color)
+        {
+            TextBlock txt = new TextBlock
+            {
+                Text = name,
+                Background = SoufTools.GetColor(hex_color)
+            };
+
+            listView.Items.Add(txt);
+            fruitNames.Add(name);
         }
 
         private void go_home(object sender, MouseButtonEventArgs e)
@@ -155,6 +155,8 @@ namespace MarktApplicatie
             mouseDown = true;
             positionText.Text = $"X: {p.X.ToString()}, \nY: {p.Y.ToString()}";
 
+
+
             if (plankEditMode) {
                 for (int i = 0; i < planks.Count; i++) {
                     Rectangle r = planks[i].r;
@@ -166,6 +168,7 @@ namespace MarktApplicatie
                         p.Y > y && p.Y < y + r.Height) {
                         Plank.selectedPlank = i;
                         selectedPlank = planks[i];
+                        selectedPlank.OnClick(p.X, p.Y);
                         CheckPlanks();
                         return;
                     }
@@ -194,12 +197,6 @@ namespace MarktApplicatie
                 }
             }
             
-
-
-            
-
-
-
 
         }
 
@@ -231,8 +228,8 @@ namespace MarktApplicatie
                 if (plankEditMode) {
                     if (Plank.selectedPlank == -1)
                         return;
-                    // TODO: remove Moveshape method
-                    planks[Plank.selectedPlank].Move(p.X, p.Y);
+
+                    selectedPlank.Move(p.X, p.Y);
                 }
 
 
@@ -268,6 +265,82 @@ namespace MarktApplicatie
 
                 selectedPlank.Resize(width * GRID_SIZE, height * GRID_SIZE);
             }
+
+        }
+
+        public void ReloadFruits()
+        {
+            string[][] fruit_info = SoufTools.GetAllFruits();
+
+            ReloadFruitsMainScreen(fruit_info);
+
+            Fruit.fruit_info = fruit_info;
+
+
+        }
+
+        public void ReloadFruitsMainScreen(string[][] fruit_info)
+        {
+            List<TextBlock> selected_blocks = new List<TextBlock>();
+
+            foreach(TextBlock block in listView.Items)
+            {
+                selected_blocks.Add(block);
+            }
+
+            // Delete all previous fruits
+            foreach (TextBlock block in selected_blocks)
+            {
+                listView.Items.Remove(block);
+            }
+
+            foreach(string[] d in fruit_info)
+            {
+                CreateFruit(d[0], d[1]);
+            }
+            
+
+
+        }
+        private void Go_to_custom_fruits(object sender, MouseButtonEventArgs e)
+        {
+            custom_fruits dialog = new custom_fruits();
+            if (dialog.ShowDialog() == true)
+            {
+                ReloadFruits();
+            }
+
+
+        }
+
+        private void Canvas_right_click(object sender, MouseButtonEventArgs e)
+        {
+            Point p = e.GetPosition(this);
+            mouseDown = true;
+
+            if (plankEditMode)
+            {
+
+            }
+            else
+            {
+                foreach (Plank plank in planks)
+                {
+                    Rectangle r = plank.r;
+                    double plank_x = Canvas.GetLeft(r);
+                    double plank_y = Canvas.GetTop(r);
+
+                    if (p.X > plank_x && p.X < plank_x + r.Width &&
+                        p.Y > plank_y && p.Y < plank_y + r.Height)
+                    {
+                        double x = p.X - Canvas.GetLeft(plank.r);
+                        double y = p.Y - Canvas.GetTop(plank.r);
+                        plank.OnClick(-1, x, y);
+                    }
+                }
+            }
+
+            
 
         }
     }

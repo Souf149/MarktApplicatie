@@ -76,10 +76,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="add_new_fruit.xaml.cs">
+      <DependentUpon>add_new_fruit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="custom_fruits.xaml.cs">
+      <DependentUpon>custom_fruits.xaml</DependentUpon>
+    </Compile>
     <Compile Include="editbus.xaml.cs">
       <DependentUpon>editbus.xaml</DependentUpon>
     </Compile>
-
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="oudecomposities.xaml.cs">
       <DependentUpon>oudecomposities.xaml</DependentUpon>
     </Compile>
@@ -100,6 +106,14 @@
     <Compile Include="tijdelijkstatscherm.xaml.cs">
       <DependentUpon>tijdelijkstatscherm.xaml</DependentUpon>
     </Compile>
+    <Page Include="add_new_fruit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="custom_fruits.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="editbus.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -124,10 +138,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="oudecomposities.xaml">
-     <SubType>Designer</SubType>
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    
     <Page Include="plank_popup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -48,27 +48,19 @@
           ScrollViewer.VerticalScrollBarVisibility="Visible"
           ScrollViewer.HorizontalScrollBarVisibility="Hidden"
           ScrollViewer.CanContentScroll="False"
-            PreviewMouseLeftButtonUp="ListView_PreviewMouseLeftButtonUp"
-                  >
-
-
-            <TextBlock Background="Red" Text="Appel"/>
-            <TextBlock Background="Yellow" Text="Banaan"/>
-            <TextBlock Background="Green" Text="Citroen"/>
-            <TextBlock Background="GreenYellow" Text="Limoen"/>
-        </ListView>
+            PreviewMouseLeftButtonUp="ListView_PreviewMouseLeftButtonUp"/>
 
 
 
         <Canvas x:Name="canvas" Grid.Column="0"  Grid.Row="0" Grid.RowSpan="4" Panel.ZIndex="-1"
                 Background="#555555" 
                 PreviewMouseLeftButtonDown="Canvas_onclick" MouseLeftButtonUp="Canvas_onrelease"
-                PreviewMouseMove="Canvas_PreviewMouseMove">
+                PreviewMouseMove="Canvas_PreviewMouseMove" PreviewMouseRightButtonDown="Canvas_right_click">
 
 
 
 
-            <!-- debug text -->
+            <!-- TODO: delete this debug text -->
             <TextBlock x:Name="debugText" Text="" Canvas.Left="10" Canvas.Top="10"
                        Width="400"/>
             
@@ -89,7 +81,7 @@
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
-            <Button Content="(Temp)" />
+            <Button Content="Custom fruits" PreviewMouseLeftButtonDown="Go_to_custom_fruits" />
             <Button Content="Verander&#10;grootte" PreviewMouseLeftButtonDown="Verander_grootte"/>
         </StackPanel>
     </Grid>
