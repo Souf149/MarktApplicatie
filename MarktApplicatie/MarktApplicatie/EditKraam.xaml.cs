@@ -122,30 +122,36 @@ namespace MarktApplicatie
         private void Create_plank(object sender, MouseButtonEventArgs e)
         {
             plank_popup dialog = new plank_popup();
-            int width, height;
+            double width, height;
             if(dialog.ShowDialog() == true)
             {
                 debugText.Text = planks.Count.ToString();
-                width = Convert.ToInt16(dialog.Inp_width);
-                height = Convert.ToInt16(dialog.Inp_height);
 
-
-
-                SetColor("#654321");
-
-                Plank p = new Plank(
-                    planks.Count,
-                    Rect(0, 0, width * GRID_SIZE, height * GRID_SIZE)
-                    );
-
-                planks.Add(p);
-                selectedPlank = p;
-                Plank.selectedPlank = planks.Count() - 1;
-
-                CheckPlanks();
+                width = Convert.ToDouble(dialog.Inp_width);
+                height = Convert.ToDouble(dialog.Inp_height);
+                Add_plank(0, 0, width, height);
 
             }
             
+        }
+
+
+        private void Add_plank(double x, double y, double width, double height) {
+
+
+
+            SetColor("#654321");
+
+            Plank p = new Plank(
+                planks.Count,
+                Rect(x, y, width * GRID_SIZE, height * GRID_SIZE)
+                );
+
+            planks.Add(p);
+            selectedPlank = p;
+            Plank.selectedPlank = planks.Count() - 1;
+
+            CheckPlanks();
         }
         private void save_Composition(object sender, MouseButtonEventArgs e)
         {
