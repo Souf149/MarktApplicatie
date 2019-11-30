@@ -52,7 +52,25 @@ namespace MarktApplicatie
 
         private void Darkmode(object sender, RoutedEventArgs e)
         {
-            SolidColorBrush currentFill = new SolidColorBrush(Colors.Red);
+            
+            settingscreen Background = new settingscreen();
+            this.Background = new SolidColorBrush(Colors.Black);
+            Textboxexample.Foreground = new SolidColorBrush(Colors.White);
+
+
+
+        }
+
+        private void Bigger_fontsize(object sender, RoutedEventArgs e)
+        {
+            this.FontSize = 20;
+        }
+
+        
+
+        private void Smaller_fontsize(object sender, RoutedEventArgs e)
+        {
+            this.FontSize = 10;
         }
     }
 

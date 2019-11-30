@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MarktApplicatie"
         mc:Ignorable="d"
+        FontSize="10"
         Title="settingscreen" Height="450" Width="800">
     <Grid x:Name="LayoutRoot">
         <Grid.Triggers>
@@ -20,8 +21,11 @@
         <Button Click="stopbutton_Click" Name="stopbutton" HorizontalAlignment="Left" Margin="82,30,0,0" VerticalAlignment="Top" Width="75">stop</Button>
 
 
-        <Button Click="Darkmode" Content="Home" HorizontalAlignment="Left" Margin="494,30,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="82,163,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Click="Home_button" Content="Home" HorizontalAlignment="Left" Margin="494,30,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Click="Darkmode" Content="Darkmode" HorizontalAlignment="Left" Margin="82,163,0,0" VerticalAlignment="Top" Width="134"/>
+        <Button Click="Bigger_fontsize" Content="Bigger fontsize" HorizontalAlignment="Left" Margin="82,218,0,0" VerticalAlignment="Top" Width="110"/>
+        <TextBlock Name="Textboxexample"  HorizontalAlignment="Left" Margin="82,355,0,0" TextWrapping="Wrap" Text="Example of text" VerticalAlignment="Top"/>
+        <Button Click="Smaller_fontsize" Content="Back to normal Fontsize" HorizontalAlignment="Left" Margin="82,266,0,0" VerticalAlignment="Top" Width="239" Height="36" />
     </Grid>
     
     
