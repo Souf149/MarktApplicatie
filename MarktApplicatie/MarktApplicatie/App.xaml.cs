@@ -13,5 +13,12 @@ namespace MarktApplicatie
     /// </summary>
     public partial class App : Application
     {
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            MessageBox.Show("tip van de dag is het bekijken van oude composities in het laadscherm", "Tip van de dag");
+            new MainWindow().Show();
+
+        }
+
     }
 }

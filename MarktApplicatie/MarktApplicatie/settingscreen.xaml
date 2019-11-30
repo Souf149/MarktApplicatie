@@ -1,0 +1,30 @@
+﻿<Window x:Class="MarktApplicatie.settingscreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MarktApplicatie"
+        mc:Ignorable="d"
+        Title="settingscreen" Height="450" Width="800">
+    <Grid x:Name="LayoutRoot">
+        <Grid.Triggers>
+            <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="playbutton">
+                <BeginStoryboard Storyboard="{StaticResource PlaySoundStoryboard}" Name="theStoryboard" />
+            </EventTrigger>
+            <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="stopbutton">
+                <StopStoryboard BeginStoryboardName="theStoryboard" />
+            </EventTrigger>
+        </Grid.Triggers>
+        <MediaElement x:Name="myMediaElement" Width="100" Height="100" Margin="511,178,182.6,142"/>
+        <Button Click="playbutton_Click" Name="playbutton" HorizontalAlignment="Left" Margin="82,72,0,0" VerticalAlignment="Top" Width="75">play</Button>
+        <Button Click="stopbutton_Click" Name="stopbutton" HorizontalAlignment="Left" Margin="82,30,0,0" VerticalAlignment="Top" Width="75">stop</Button>
+
+
+        <Button Click="Darkmode" Content="Home" HorizontalAlignment="Left" Margin="494,30,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="82,163,0,0" VerticalAlignment="Top" Width="75"/>
+    </Grid>
+    
+    
+
+    
+</Window>

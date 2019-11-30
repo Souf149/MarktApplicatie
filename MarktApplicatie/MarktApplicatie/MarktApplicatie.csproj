@@ -99,6 +99,9 @@
     <Compile Include="plank_popup.xaml.cs">
       <DependentUpon>plank_popup.xaml</DependentUpon>
     </Compile>
+    <Compile Include="settingscreen.xaml.cs">
+      <DependentUpon>settingscreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SoufTools.cs" />
     <Compile Include="statistieken.xaml.cs">
       <DependentUpon>statistieken.xaml</DependentUpon>
@@ -142,6 +145,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="plank_popup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="settingscreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
