@@ -34,15 +34,10 @@ namespace MarktApplicatie
 
         Plank selectedPlank = new Plank();
 
-        List<Plank> planks = new List<Plank>();
+        public List<Plank> planks = new List<Plank>();
 
         SolidColorBrush currentFill = new SolidColorBrush(Colors.Red);
         int selectedFruit = -1;
-
-        
-
-        
-
         
 
         private void SetColor(string code)
@@ -136,10 +131,7 @@ namespace MarktApplicatie
         }
 
 
-        private void Add_plank(double x, double y, double width, double height) {
-
-
-
+        public void Add_plank(double x, double y, double width, double height) {
             SetColor("#654321");
 
             Plank p = new Plank(
@@ -153,8 +145,12 @@ namespace MarktApplicatie
 
             CheckPlanks();
         }
-        private void save_Composition(object sender, MouseButtonEventArgs e)
+        public void save_Composition(object sender, MouseButtonEventArgs e)
         {
+            /*
+            save_popup popup = new save_popup(planks);
+            popup.ShowDialog();
+            */
             PlankInfo[] plankinfos = new PlankInfo[planks.Count];
 
             for (int i = 0; i < planks.Count; i++)
@@ -180,18 +176,48 @@ namespace MarktApplicatie
                 Console.WriteLine(result); 
                 */
             }
+
             string strResultJson = JsonConvert.SerializeObject(plankinfos);
+            Console.WriteLine(planks.Count);
             File.WriteAllText(@"..\..\plankinfo.json", strResultJson);
             MessageBox.Show("File Saved!");
-            /*
-            Console.WriteLine("The x as: " + plank_x);
-            Console.WriteLine("The y as: " + plank_y);
-            Console.WriteLine("The width is: " + width);
-            Console.WriteLine("The height is: " + height);
-            */
 
         }
+/*
+        public void savetest()
+        {
+            PlankInfo[] plankinfos = new PlankInfo[planks.Count];
 
+            for (int i = 0; i < planks.Count; i++)
+            {
+                Rectangle r = planks[i].r;
+
+
+                var width = r.Width / SoufTools.GRID_SIZE;
+                var height = r.Height / SoufTools.GRID_SIZE;
+                double plank_x = Canvas.GetLeft(r);
+                double plank_y = Canvas.GetTop(r);
+
+                plankinfos[i] = new PlankInfo()
+                {
+                    Width = width,
+                    Height = height,
+                    X = plank_x,
+                    Y = plank_y
+                };
+                
+                 Kan je gebruiken voor het json to string
+                PlankInfo result =  JsonConvert.DeserializeObject<PlankInfo>(strResultJson);
+                Console.WriteLine(result); 
+            }
+    
+            string strResultJson = JsonConvert.SerializeObject(plankinfos);
+            Console.WriteLine(planks.Count);
+            File.WriteAllText(@"..\..\plankinfo.json", strResultJson);
+            MessageBox.Show("File Saved!");
+            
+        }
+        */
         private void Canvas_onclick(object sender, MouseButtonEventArgs e) {
 
             Point p = e.GetPosition(this);

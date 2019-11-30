@@ -1,0 +1,22 @@
+﻿<Window x:Class="MarktApplicatie.save_popup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MarktApplicatie"
+        mc:Ignorable="d"
+        Title="save_popup" Height="200" Width="300">
+    <Grid>
+        <StackPanel>
+            <RadioButton x:Name="tab1" GroupName="tabs" Content="" IsChecked="True"/>
+            <RadioButton x:Name="tab2" GroupName="tabs" Content="" />
+            <RadioButton x:Name="tab3" GroupName="tabs" Content="" />
+            <RadioButton x:Name="tab4" GroupName="tabs" Content=""/>
+            <RadioButton x:Name="tab5" GroupName="tabs" Content=""/>
+            <RadioButton x:Name="tab6" GroupName="tabs" Content=""/>
+            <RadioButton x:Name="tab7" GroupName="tabs" Content=""/>
+            <RadioButton x:Name="tab8" GroupName="tabs" Content=""/>
+            
+        </StackPanel>
+    </Grid>
+</Window>

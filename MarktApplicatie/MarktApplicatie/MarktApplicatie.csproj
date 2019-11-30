@@ -96,6 +96,9 @@
       <DependentUpon>oudecomposities.xaml</DependentUpon>
     </Compile>
     <Compile Include="PlankInfo.cs" />
+    <Compile Include="save_popup.xaml.cs">
+      <DependentUpon>save_popup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Settings1.cs" />
     <Compile Include="Settings1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -149,6 +152,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="plank_popup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="save_popup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

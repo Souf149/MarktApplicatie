@@ -60,5 +60,6 @@
 
         <Button Click="btnLoad_Click" Grid.Column="5" Grid.Row="1">Choose File</Button>
         <Button Click="btnSave_Click" Grid.Column="5" Grid.Row="2" >Save</Button>
+        <Button Click="btnLoadPlanks_Click" Grid.Column="5" Grid.Row="3">Load Planks</Button>
     </Grid>
 </Window>

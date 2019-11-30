@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Microsoft.Win32;
+using Newtonsoft.Json;
 
 namespace MarktApplicatie
 {
@@ -188,20 +189,24 @@ namespace MarktApplicatie
             this.Close();
         }
 
-        /* Delete button if needed!
-        public void btnRemove_Click(object sender, RoutedEventArgs e)
-        {
-            if(imgPhoto != null)
-            {
-                File.Delete("C:/Users/khadar/Documents/GitHub/MarktApplicatie/MarktApplicatie/MarktApplicatie/Images/tab1.jpg");
-            }
-            else
-            {
-                MessageBox.Show("No file to delete");
-            }
-        }
-        */
 
+        public void btnLoadPlanks_Click(object sender, RoutedEventArgs e)
+        {
+            string plankinfo = File.ReadAllText(@"..\..\plankinfo.json");
+            PlankInfo[] result = JsonConvert.DeserializeObject<PlankInfo[]>(plankinfo);
+            Console.WriteLine(result);
+
+            EditKraam ek = new EditKraam();
+
+            foreach (PlankInfo p in result)
+            {
+                ek.Add_plank(p.X, p.Y, p.Width, p.Height);
+            }
+
+            ek.Show();
+            Close();
+        }
+        
         public void btnLoad_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog op = new OpenFileDialog();
