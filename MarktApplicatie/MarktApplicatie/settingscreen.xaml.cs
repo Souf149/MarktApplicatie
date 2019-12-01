@@ -24,6 +24,7 @@ namespace MarktApplicatie
         public settingscreen()
         {
             InitializeComponent();
+
         }
         
         private void Home_button(object sender, RoutedEventArgs e)
