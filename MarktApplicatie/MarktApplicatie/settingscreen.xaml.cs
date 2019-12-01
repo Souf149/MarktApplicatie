@@ -29,8 +29,7 @@ namespace MarktApplicatie
         private void Home_button(object sender, RoutedEventArgs e)
         {
             MainWindow main = new MainWindow();
-            var player = new MediaPlayer();
-            player.Play();
+           
             main.Show();
             this.Close();
         }
@@ -67,6 +66,19 @@ namespace MarktApplicatie
 
         private void Normalmode(object sender, RoutedEventArgs e)
         {
+            this.Background = new SolidColorBrush(Colors.White);
+            this.Foreground = new SolidColorBrush(Colors.Black);
+        }
+
+        private void Button_save(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_reset(object sender, RoutedEventArgs e)
+        {
+            
+            this.FontSize = 10;
             this.Background = new SolidColorBrush(Colors.White);
             this.Foreground = new SolidColorBrush(Colors.Black);
         }

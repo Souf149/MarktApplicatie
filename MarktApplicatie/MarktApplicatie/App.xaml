@@ -7,6 +7,7 @@
     
     <Application.Resources>
         <Storyboard x:Key="PlaySoundStoryboard">
+            
             <MediaTimeline Storyboard.TargetName="myMediaElement" Source="mii.mp3" RepeatBehavior="Forever"/>
         </Storyboard>
 
