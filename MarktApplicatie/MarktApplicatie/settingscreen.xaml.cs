@@ -24,13 +24,13 @@ namespace MarktApplicatie
         public settingscreen()
         {
             InitializeComponent();
-
         }
         
-
         private void Home_button(object sender, RoutedEventArgs e)
         {
             MainWindow main = new MainWindow();
+            var player = new MediaPlayer();
+            player.Play();
             main.Show();
             this.Close();
         }
@@ -39,10 +39,7 @@ namespace MarktApplicatie
         {
             var player = new MediaPlayer();
             player.Play();
-
         }
-
-        
 
         private void stopbutton_Click(object sender, RoutedEventArgs e)
         {
@@ -51,14 +48,9 @@ namespace MarktApplicatie
         }
 
         private void Darkmode(object sender, RoutedEventArgs e)
-        {
-            
-            settingscreen Background = new settingscreen();
+        { 
             this.Background = new SolidColorBrush(Colors.Black);
-            Textboxexample.Foreground = new SolidColorBrush(Colors.White);
-
-
-
+            this.Foreground = new SolidColorBrush(Colors.White);
         }
 
         private void Bigger_fontsize(object sender, RoutedEventArgs e)
@@ -71,6 +63,12 @@ namespace MarktApplicatie
         private void Smaller_fontsize(object sender, RoutedEventArgs e)
         {
             this.FontSize = 10;
+        }
+
+        private void Normalmode(object sender, RoutedEventArgs e)
+        {
+            this.Background = new SolidColorBrush(Colors.White);
+            this.Foreground = new SolidColorBrush(Colors.Black);
         }
     }
 
