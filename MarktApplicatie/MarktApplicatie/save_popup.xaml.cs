@@ -22,11 +22,10 @@ namespace MarktApplicatie
     public partial class save_popup : Window
     {
 
-        public save_popup(List<Plank> planks)
+        public save_popup(string strResultJson)
         {
             InitializeComponent();
-            OudeComposities oc = new OudeComposities();
-            
+            OudeComposities oc = new OudeComposities(); 
             tab1.Content = oc.tab1.Header;
             tab2.Content = oc.tab2.Header;
             tab3.Content = oc.tab3.Header;
@@ -35,10 +34,13 @@ namespace MarktApplicatie
             tab6.Content = oc.tab6.Header;
             tab7.Content = oc.tab7.Header;
             tab8.Content = oc.tab8.Header;
-            EditKraam ek = new EditKraam();
-            PlankInfo[] plankinfos = new PlankInfo[planks.Count];
-            Console.WriteLine(plankinfos);
+            savestuff(strResultJson);
         }
 
+        public string savestuff(string strResultJson)
+        {
+            Console.WriteLine("test1: " + strResultJson);
+            return strResultJson;
+        }
     }
 }

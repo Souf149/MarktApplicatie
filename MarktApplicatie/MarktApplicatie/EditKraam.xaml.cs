@@ -68,18 +68,10 @@ namespace MarktApplicatie
         {
             // initialize window
             InitializeComponent();
-
-            
-
             Fruit.c = canvas;
             Plank.c = canvas;
 
             ReloadFruits();
-
-
-
-
-
         }
 
         public void CreateFruit(String name, String hex_color)
@@ -147,77 +139,73 @@ namespace MarktApplicatie
         }
         public void save_Composition(object sender, MouseButtonEventArgs e)
         {
-            /*
-            save_popup popup = new save_popup(planks);
+
+            PlankInfo[] plankinfos = new PlankInfo[planks.Count];
+
+            for (int i = 0; i < planks.Count; i++)
+            {
+                Rectangle r = planks[i].r;
+
+
+                var width = r.Width / SoufTools.GRID_SIZE;
+                var height = r.Height / SoufTools.GRID_SIZE;
+                double plank_x = Canvas.GetLeft(r);
+                double plank_y = Canvas.GetTop(r);
+
+                plankinfos[i] = new PlankInfo()
+                {
+                    Width = width,
+                    Height = height,
+                    X = plank_x,
+                    Y = plank_y
+                };
+            }
+
+            string strResultJson = JsonConvert.SerializeObject(plankinfos);
+            save_popup popup = new save_popup(strResultJson);
             popup.ShowDialog();
-            */
-            PlankInfo[] plankinfos = new PlankInfo[planks.Count];
-
-            for (int i = 0; i < planks.Count; i++)
-            {
-                Rectangle r = planks[i].r;
-
-
-                var width = r.Width / SoufTools.GRID_SIZE;
-                var height = r.Height / SoufTools.GRID_SIZE;
-                double plank_x = Canvas.GetLeft(r);
-                double plank_y = Canvas.GetTop(r);
-
-                plankinfos[i] = new PlankInfo()
-                {
-                    Width = width,
-                    Height = height,
-                    X = plank_x,
-                    Y = plank_y
-                };
-
-                /* Kan je gebruiken voor het json to string
-                PlankInfo result =  JsonConvert.DeserializeObject<PlankInfo>(strResultJson);
-                Console.WriteLine(result); 
-                */
-            }
-
-            string strResultJson = JsonConvert.SerializeObject(plankinfos);
-            Console.WriteLine(planks.Count);
-            File.WriteAllText(@"..\..\plankinfo.json", strResultJson);
-            MessageBox.Show("File Saved!");
-
-        }
-/*
-        public void savetest()
-        {
-            PlankInfo[] plankinfos = new PlankInfo[planks.Count];
-
-            for (int i = 0; i < planks.Count; i++)
-            {
-                Rectangle r = planks[i].r;
-
-
-                var width = r.Width / SoufTools.GRID_SIZE;
-                var height = r.Height / SoufTools.GRID_SIZE;
-                double plank_x = Canvas.GetLeft(r);
-                double plank_y = Canvas.GetTop(r);
-
-                plankinfos[i] = new PlankInfo()
-                {
-                    Width = width,
-                    Height = height,
-                    X = plank_x,
-                    Y = plank_y
-                };
-                
-                 Kan je gebruiken voor het json to string
-                PlankInfo result =  JsonConvert.DeserializeObject<PlankInfo>(strResultJson);
-                Console.WriteLine(result); 
-            }
-    
-            string strResultJson = JsonConvert.SerializeObject(plankinfos);
-            Console.WriteLine(planks.Count);
-            File.WriteAllText(@"..\..\plankinfo.json", strResultJson);
-            MessageBox.Show("File Saved!");
             
+            if(popup.tab1.IsChecked == true)
+            {
+                File.WriteAllText(@"..\..\json\plankinfo.json", strResultJson);
+                MessageBox.Show("File Saved!");
+            }
+            if (popup.tab2.IsChecked == true)
+            {
+                File.WriteAllText(@"..\..\json\plankinfo2.json", strResultJson);
+                MessageBox.Show("File Saved!");
+            }
+            if (popup.tab3.IsChecked == true)
+            {
+                File.WriteAllText(@"..\..\json\plankinfo3.json", strResultJson);
+                MessageBox.Show("File Saved!");
+            }
+            if (popup.tab4.IsChecked == true)
+            {
+                File.WriteAllText(@"..\..\json\plankinfo4.json", strResultJson);
+                MessageBox.Show("File Saved!");
+            }
+            if (popup.tab5.IsChecked == true)
+            {
+                File.WriteAllText(@"..\..\json\plankinfo5.json", strResultJson);
+                MessageBox.Show("File Saved!");
+            }
+            if (popup.tab6.IsChecked == true)
+            {
+                File.WriteAllText(@"..\..\json\plankinfo6.json", strResultJson);
+                MessageBox.Show("File Saved!");
+            }
+            if (popup.tab7.IsChecked == true)
+            {
+                File.WriteAllText(@"..\..\json\plankinfo7.json", strResultJson);
+                MessageBox.Show("File Saved!");
+            }
+            if (popup.tab8.IsChecked == true)
+            {
+                File.WriteAllText(@"..\..\json\plankinfo8.json", strResultJson);
+                MessageBox.Show("File Saved!");
+            }
         }
-        */
         private void Canvas_onclick(object sender, MouseButtonEventArgs e) {
 
             Point p = e.GetPosition(this);
