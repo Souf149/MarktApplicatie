@@ -26,9 +26,10 @@
         <Button Click="Bigger_fontsize" Content="Bigger fontsize" HorizontalAlignment="Left" Margin="82,218,0,0" VerticalAlignment="Top" Width="110"/>
         <TextBlock Name="Textboxexample"  HorizontalAlignment="Left" Margin="82,355,0,0" TextWrapping="Wrap" Text="Example of text" VerticalAlignment="Top"/>
         <Button Click="Smaller_fontsize" Content="Back to normal Fontsize" HorizontalAlignment="Left" Margin="82,266,0,0" VerticalAlignment="Top" Width="239" Height="36" />
-        <Button Content="Back to normalmode" Click="Normalmode" HorizontalAlignment="Left" Margin="295,163,0,0" VerticalAlignment="Top" Width="310" Height="37"/>
+        <Button Content="Back to normalmode" Click="Normalmode" HorizontalAlignment="Left" Margin="82,106,0,0" VerticalAlignment="Top" Width="310" Height="37"/>
         <Button Content="Save" HorizontalAlignment="Left" Margin="351,355,0,0" VerticalAlignment="Top" Width="117" Click="Button_save" Height="37"/>
         <Button Content="Reset" HorizontalAlignment="Left" Margin="569,355,0,0" VerticalAlignment="Top" Width="107" Click="Button_reset" Height="37"/>
+        <MediaElement x:Name="myMediaElement_Copy" Width="100" Height="100" Margin="511,178,182.6,142"/>
     </Grid>
 
 
