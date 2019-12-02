@@ -16,6 +16,7 @@ namespace MarktApplicatie
 {
     public partial class OudeComposities : Window
     {
+
         public OudeComposities()
         {
             InitializeComponent();
@@ -30,56 +31,76 @@ namespace MarktApplicatie
             tabName.Text = Settings1.Default.tab1Setting;
         }
 
-        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        public void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (tab1.IsSelected)
             {
-                tabName.Text = tab1.Header.ToString();
-                int valuetab = 1;
-                btnLoadPlanks_Click(valuetab);
-
+                tabName.Text = tab1.Header.ToString();   
             }
             else if (tab2.IsSelected)
             {
                 tabName.Text = tab2.Header.ToString();
-                int valuetab = 2;
-                btnLoadPlanks_Click(valuetab);
             }
             else if (tab3.IsSelected)
             {
                 tabName.Text = tab3.Header.ToString();
-                int valuetab = 3;
-                btnLoadPlanks_Click(valuetab);
             }
             else if (tab4.IsSelected)
             {
                 tabName.Text = tab4.Header.ToString();
-                int valuetab = 4;
-                btnLoadPlanks_Click(valuetab);
             }
             else if (tab5.IsSelected)
             {
                 tabName.Text = tab5.Header.ToString();
-                int valuetab = 5;
-                btnLoadPlanks_Click(valuetab);
             }
             else if (tab6.IsSelected)
             {
                 tabName.Text = tab6.Header.ToString();
-                int valuetab = 6;
-                btnLoadPlanks_Click(valuetab);
             }
             else if (tab7.IsSelected)
             {
                 tabName.Text = tab7.Header.ToString();
-                int valuetab = 7;
-                btnLoadPlanks_Click(valuetab);
             }
             else if (tab8.IsSelected)
             {
                 tabName.Text = tab8.Header.ToString();
-                int valuetab = 8;
-                btnLoadPlanks_Click(valuetab);
+            }
+        }
+
+        private void btngotocomp(object sender, MouseButtonEventArgs e)
+        {
+
+            if (tab1.IsSelected)
+            {
+                btnLoadPlanks_Click(1);
+            }
+            else if (tab2.IsSelected)
+            {
+                btnLoadPlanks_Click(2);
+            }
+            else if (tab3.IsSelected)
+            {
+                btnLoadPlanks_Click(3);
+            }
+            else if (tab4.IsSelected)
+            {
+                btnLoadPlanks_Click(4);
+            }
+            else if (tab5.IsSelected)
+            {
+                btnLoadPlanks_Click(5);
+            }
+            else if (tab6.IsSelected)
+            {
+                btnLoadPlanks_Click(6);
+            }
+            else if (tab7.IsSelected)
+            {
+                btnLoadPlanks_Click(7);
+            }
+            else if (tab8.IsSelected)
+            {
+                btnLoadPlanks_Click(8);
             }
         }
         private void onClick_homepage(object sender, MouseButtonEventArgs e)

@@ -55,5 +55,6 @@
             <TabItem Name ="tab8" Header="Tab Item 8" Height="49" Width="200"/>
 
         </TabControl>
+        <Button  Grid.Column="5" Grid.Row="2" PreviewMouseLeftButtonDown="btngotocomp" >Go To composition</Button>
     </Grid>
 </Window>
