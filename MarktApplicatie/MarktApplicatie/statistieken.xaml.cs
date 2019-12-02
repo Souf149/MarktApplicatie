@@ -26,7 +26,7 @@ namespace MarktApplicatie
         public statistieken()
         {
             InitializeComponent();
-            
+
 
             SeriesCollection = new SeriesCollection
             {
@@ -54,11 +54,17 @@ namespace MarktApplicatie
         }
 
 
-      
+
         public SeriesCollection SeriesCollection { get; set; }
         public string[] Labels { get; set; }
         public Func<double, string> Formatter { get; set; }
 
+        private void openHome(object sender, RoutedEventArgs e)
+        {
+            MainWindow home = new MainWindow();
+            home.Show();
+            this.Close();
+        }
     }
 }
 
