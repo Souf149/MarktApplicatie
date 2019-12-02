@@ -76,7 +76,7 @@
         </StackPanel>
         
         <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
-            <Button Content="Bus scherm" PreviewMouseLeftButtonDown="Go_bus"/>
+            <Button Content="Save" PreviewMouseLeftButtonDown="save_Composition"/>
             <Button Content="Begin scherm" PreviewMouseLeftButtonDown="go_home"/>
         </StackPanel>
 
