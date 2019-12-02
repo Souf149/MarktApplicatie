@@ -69,7 +69,7 @@ namespace MarktApplicatie
 
         private void btngotocomp(object sender, MouseButtonEventArgs e)
         {
-
+        //btn to composition.
             if (tab1.IsSelected)
             {
                 btnLoadPlanks_Click(1);
