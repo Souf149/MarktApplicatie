@@ -27,10 +27,13 @@ namespace MarktApplicatie
         DispatcherTimer loopTimer;
         public const int FPS = 30;
         double angle = 0;
+        double shapeAmount = 30;
         List<SoufShape> shapes = new List<SoufShape>();
         List<string> colors = new List<string>();
 
-        Random rng = new Random();
+        int width = 800, height = 450;
+
+        Random rng = new Random(DateTime.Now.Millisecond);
 
         public MainWindow()
         {
@@ -46,27 +49,44 @@ namespace MarktApplicatie
                 colors.Add(fruits[i][1]);
             }
 
+            // for every color there exists there is a shape
+            for (int i = 0; i < shapeAmount; i++) {
 
-            Rectangle r = CreateRect(50, 50, 50, 50);
-            Ellipse c = CreateCircle(150, 50, 50);
+                Shape s;
+                int x = rng.Next(width);
+                int y = rng.Next(height);
+                int size = rng.Next(30, 50);
 
-            shapes.Add(new SoufShape(r));
-            shapes.Add(new SoufShape(c));
+
+                if(rng.NextDouble() < 0.5) {
+                    s = CreateSquare(x, y, size);
+                }
+                else {
+                    s = CreateCircle(x, y, size);
+                }
+
+                shapes.Add(new SoufShape(s));
+
+            }
+            
+            
+
+            
 
 
 
 
         }
 
-        private Rectangle CreateRect(int x, int y, int width, int height) {
+        private Rectangle CreateSquare(int x, int y, int size) {
 
             // chooses a random color from the list and applies it to the rectangle
             int i = new Random().Next(colors.Count);
 
             Rectangle r = new Rectangle() {
                 Fill = SoufTools.GetColor(colors[i]),
-                Width = width,
-                Height = height
+                Width = size,
+                Height = size
             };
             Canvas.SetLeft(r, x);
             Canvas.SetTop(r, y);

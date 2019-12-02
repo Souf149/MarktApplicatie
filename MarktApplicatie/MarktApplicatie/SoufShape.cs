@@ -11,17 +11,54 @@ namespace MarktApplicatie {
     class SoufShape : Shape {
         public Shape shape;
         public static Canvas canvas;
-        double xSpeed = 1, ySpeed = 0;
+        private static Random rng = new Random(DateTime.Now.Millisecond);
+        double xSpeed, ySpeed;
+        double speed = 10;
 
         public SoufShape(Shape s) {
 
             shape = s;
             canvas.Children.Add(s);
+
+            
+
+            // top-right, bot-right, bot-left, top-left
+            switch (rng.Next(1, 4)) {
+                case 1:
+                    xSpeed = speed; ySpeed = -speed;
+                    break;
+                case 2:
+                    xSpeed = speed; ySpeed = speed;
+                    break;
+                case 3:
+                    xSpeed = -speed; ySpeed = speed;
+                    break;
+                case 4:
+                    xSpeed = -speed; ySpeed = -speed;
+                    break;
+                default:
+                    xSpeed = 6;
+                    break;
+            }
+
+
+
         }
 
         public void Update() {
             double[] pos = GetLocation();
-            SetLocation(pos[0] + xSpeed, pos[1] + ySpeed);
+            double x = pos[0] + xSpeed;
+            double y = pos[1] + ySpeed;
+            SetLocation(x, y);
+            
+            if(x <= 0 || x + shape.Width >= canvas.ActualWidth) {
+                xSpeed *= -1;
+            }
+
+            if(y <= 0 || y + shape.Height >= canvas.ActualHeight) {
+                ySpeed *= -1;
+            }
+
         }
 
         
@@ -37,6 +74,10 @@ namespace MarktApplicatie {
                 Canvas.GetLeft(shape),
                 Canvas.GetTop(shape)
             };
+        }
+        
+        public double GetWidth() {
+            return shape.Width;
         }
 
         public void Rotate(double angle) {
