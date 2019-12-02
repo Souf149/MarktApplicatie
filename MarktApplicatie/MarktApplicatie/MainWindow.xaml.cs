@@ -25,10 +25,12 @@ namespace MarktApplicatie
     public partial class MainWindow : Window
     {
         DispatcherTimer loopTimer;
-        public const int FPS = 60;
+        public const int FPS = 30;
         double angle = 0;
-        List<Shape> shapes = new List<Shape>();
+        List<SoufShape> shapes = new List<SoufShape>();
         List<string> colors = new List<string>();
+
+        Random rng = new Random();
 
         public MainWindow()
         {
@@ -36,16 +38,21 @@ namespace MarktApplicatie
 
             CreateTimer();
 
-            string[][] fruits = SoufTools.GetAllFruits();
+            SoufShape.canvas = canvas;
 
+            // gets all custom fruit and adds it's colors to the list
+            string[][] fruits = SoufTools.GetAllFruits();
             for(int i = 0; i < fruits.Length; i++) {
                 colors.Add(fruits[i][1]);
             }
 
 
-            Rectangle r = CreateRect(50, 50, 100, 100);
+            Rectangle r = CreateRect(50, 50, 50, 50);
+            Ellipse c = CreateCircle(150, 50, 50);
 
-            AddShape(r);
+            shapes.Add(new SoufShape(r));
+            shapes.Add(new SoufShape(c));
+
 
 
 
@@ -53,6 +60,7 @@ namespace MarktApplicatie
 
         private Rectangle CreateRect(int x, int y, int width, int height) {
 
+            // chooses a random color from the list and applies it to the rectangle
             int i = new Random().Next(colors.Count);
 
             Rectangle r = new Rectangle() {
@@ -66,11 +74,22 @@ namespace MarktApplicatie
             return r;
         }
 
-        private void AddShape(Shape s)
-        {
-            canvas.Children.Add(s);
-            shapes.Add(s);
+        private Ellipse CreateCircle(int x, int y, int diameter) {
+
+            // chooses a random color from the list and applies it to the circle
+            int i = rng.Next(colors.Count);
+
+            Ellipse c = new Ellipse() {
+                Fill = SoufTools.GetColor(colors[i]),
+                Width = diameter,
+                Height = diameter
+            };
+            Canvas.SetLeft(c, x);
+            Canvas.SetTop(c, y);
+
+            return c;
         }
+
 
         private void CreateTimer()
         {
@@ -81,14 +100,14 @@ namespace MarktApplicatie
             loopTimer.Start();
         }
 
-        private void Loop(object sender, EventArgs e)
-        {
-            angle += 5 + new Random().NextDouble()*2;
-            Shape s = shapes[0];
-            s.RenderTransform = new RotateTransform(angle);
+        private void Loop(object sender, EventArgs e) {
+            angle += 5 + rng.NextDouble() * 2;
+            
+            foreach (SoufShape shape in shapes) {
+                shape.Update();
+                shape.Rotate(angle); 
+            }
         }
-
-        
 
         private void OnClick_newComposition(object sender, MouseButtonEventArgs e) {
             new EditKraam().Show();

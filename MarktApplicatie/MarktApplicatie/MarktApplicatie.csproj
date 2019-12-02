@@ -102,6 +102,7 @@
     <Compile Include="settingscreen.xaml.cs">
       <DependentUpon>settingscreen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SoufShape.cs" />
     <Compile Include="SoufTools.cs" />
     <Compile Include="statistieken.xaml.cs">
       <DependentUpon>statistieken.xaml</DependentUpon>
