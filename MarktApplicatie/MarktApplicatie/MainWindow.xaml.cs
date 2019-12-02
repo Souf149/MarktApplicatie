@@ -90,10 +90,9 @@ namespace MarktApplicatie
 
         }
 
-        private void onClick_settings(object sender, MouseButtonEventArgs e) {
-            settingscreen instellingen = new settingscreen();
-            instellingen.Show();
-            this.Close();
+        private void OnClick_settings(object sender, MouseButtonEventArgs e) {
+            new settingscreen().Show();
+            Close();
         }
 
     }

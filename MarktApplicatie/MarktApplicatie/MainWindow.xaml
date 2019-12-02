@@ -71,8 +71,16 @@
 
     <Grid>
         <!-- Background -->
-        <Canvas Panel.ZIndex="-1" x:Name="canvas">
-            
+        <Canvas x:Name="canvas">
+            <Canvas.Background>
+                <LinearGradientBrush EndPoint="0.504,1.5" StartPoint="0.504,0.03">
+                    <GradientStop Color="#8888FF" Offset="0.2"/>
+                    <GradientStop Color="#6666FF" Offset="0.4"/>
+                    <GradientStop Color="#4444FF" Offset="0.6"/>
+                    <GradientStop Color="#2222FF" Offset="0.8"/>
+                    <GradientStop Color="#0000FF" Offset="1"/>
+                </LinearGradientBrush>
+            </Canvas.Background>
             
         </Canvas>
 
@@ -99,15 +107,7 @@
                 <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
 
-            <Grid.Background>
-                <LinearGradientBrush EndPoint="0.504,1.5" StartPoint="0.504,0.03">
-                    <GradientStop Color="#8888FF" Offset="0.2"/>
-                    <GradientStop Color="#6666FF" Offset="0.4"/>
-                    <GradientStop Color="#4444FF" Offset="0.6"/>
-                    <GradientStop Color="#2222FF" Offset="0.8"/>
-                    <GradientStop Color="#0000FF" Offset="1"/>
-                </LinearGradientBrush>
-            </Grid.Background>
+            
 
             <Image Source="logo.png" Grid.Column="2" Grid.Row="2" Width="200" Height="100" 
                Margin="35"/>
