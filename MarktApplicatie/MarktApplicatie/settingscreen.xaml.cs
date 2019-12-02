@@ -32,7 +32,7 @@ namespace MarktApplicatie
             MainWindow main = new MainWindow();
            
             main.Show();
-            this.Close();
+            Close();
         }
 
         private void playbutton_Click(object sender, RoutedEventArgs e)
@@ -49,26 +49,26 @@ namespace MarktApplicatie
 
         private void Darkmode(object sender, RoutedEventArgs e)
         { 
-            this.Background = new SolidColorBrush(Colors.Black);
-            this.Foreground = new SolidColorBrush(Colors.White);
+            Background = new SolidColorBrush(Colors.Black);
+            Foreground = new SolidColorBrush(Colors.White);
         }
 
         private void Bigger_fontsize(object sender, RoutedEventArgs e)
         {
-            this.FontSize = 20;
+            FontSize = 20;
         }
 
         
 
         private void Smaller_fontsize(object sender, RoutedEventArgs e)
         {
-            this.FontSize = 10;
+            FontSize = 10;
         }
 
         private void Normalmode(object sender, RoutedEventArgs e)
         {
-            this.Background = new SolidColorBrush(Colors.White);
-            this.Foreground = new SolidColorBrush(Colors.Black);
+            Background = new SolidColorBrush(Colors.White);
+            Foreground = new SolidColorBrush(Colors.Black);
         }
 
         private void Button_save(object sender, RoutedEventArgs e)
@@ -79,9 +79,9 @@ namespace MarktApplicatie
         private void Button_reset(object sender, RoutedEventArgs e)
         {
             
-            this.FontSize = 10;
-            this.Background = new SolidColorBrush(Colors.White);
-            this.Foreground = new SolidColorBrush(Colors.Black);
+            FontSize = 10;
+            Background = new SolidColorBrush(Colors.White);
+            Foreground = new SolidColorBrush(Colors.Black);
         }
     }
 

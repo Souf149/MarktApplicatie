@@ -58,18 +58,13 @@ namespace MarktApplicatie {
 
         }
 
-        public static void DefaultFiles() {
-
-        }
-
         public static int GRID_SIZE = 48;
         public static SolidColorBrush GetColor(string code) {
             return (SolidColorBrush)(new BrushConverter().ConvertFrom(code));
         }
 
-        /*
-         ref: https://www.programmingalgorithms.com/algorithm/decimal-to-hexadecimal/
-        */
+        
+    // ref: https://www.programmingalgorithms.com/algorithm/decimal-to-hexadecimal/
     public static string DecimalToHexadecimal(int dec) {
             if (dec < 1) return "0";
 
