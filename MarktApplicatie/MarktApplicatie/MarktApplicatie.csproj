@@ -56,6 +56,12 @@
     <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
       <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="ObjectDumper, Version=1.0.0.12, Culture=neutral, PublicKeyToken=9e2fabf3af85dba9, processorArchitecture=MSIL">
+      <HintPath>..\packages\ObjectDumper.1.0.0.12\lib\net35-Client\ObjectDumper.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -89,6 +95,10 @@
     <Compile Include="oudecomposities.xaml.cs">
       <DependentUpon>oudecomposities.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PlankInfo.cs" />
+    <Compile Include="save_popup.xaml.cs">
+      <DependentUpon>save_popup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Settings1.cs" />
     <Compile Include="Settings1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -105,6 +115,12 @@
     <Compile Include="SoufTools.cs" />
     <Compile Include="statistieken.xaml.cs">
       <DependentUpon>statistieken.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="statistieken2.xaml.cs">
+      <DependentUpon>statistieken2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="statistieken3.xaml.cs">
+      <DependentUpon>statistieken3.xaml</DependentUpon>
     </Compile>
     <Compile Include="tijdelijkstatscherm.xaml.cs">
       <DependentUpon>tijdelijkstatscherm.xaml</DependentUpon>
@@ -148,11 +164,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+
     <Page Include="settingscreen.xaml">
+
+    <Page Include="save_popup.xaml">
+
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="statistieken.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="statistieken2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="statistieken3.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

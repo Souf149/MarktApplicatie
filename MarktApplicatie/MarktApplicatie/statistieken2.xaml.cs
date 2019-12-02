@@ -16,14 +16,11 @@ using LiveCharts.Wpf;
 
 namespace MarktApplicatie
 {
-    /// <summary>
-    /// Interaction logic for statistieken.xaml
-    /// </summary>
 
 
-    public partial class statistieken : Window
+    public partial class statistieken2 : Window
     {
-        public statistieken()
+        public statistieken2()
         {
             InitializeComponent();
 
@@ -34,22 +31,22 @@ namespace MarktApplicatie
                 new ColumnSeries
                 {
                     Title = "vorige week",
-                    Values = new ChartValues<double> { 10, 50, 39, 50 }
+                    Values = new ChartValues<double> { 11, 20, 44, 62 }
                 }
             };
 
 
-            //adding series will update and animate the chart automatically
+
             SeriesCollection.Add(new ColumnSeries
             {
                 Title = "deze week",
-                Values = new ChartValues<double> { 11, 56, 42 }
+                Values = new ChartValues<double> { 22, 88, 34 }
             });
 
-            //also adding values updates and animates the chart automatically
+
             SeriesCollection[1].Values.Add(48d);
 
-            Labels = new[] { "Appels", "Peren", "Citroenen", "Tomaten" };
+            Labels = new[] { "Bananen", "Komkommers", "Kiwis", "Bloemskool" };
             Formatter = value => value.ToString("N");
 
             DataContext = this;
@@ -68,21 +65,18 @@ namespace MarktApplicatie
             this.Close();
         }
 
-        private void openStat2(object sender, RoutedEventArgs e)
+        private void openstat(object sender, RoutedEventArgs e)
         {
-            statistieken2 stats = new statistieken2();
+            statistieken stats = new statistieken();
             stats.Show();
             this.Close();
         }
 
-        private void openStat3(object sender, RoutedEventArgs e)
+        private void openstat3(object sender, RoutedEventArgs e)
         {
-            statistieken3  stats3 = new statistieken3();
+            statistieken3 stats3 = new statistieken3();
             stats3.Show();
             this.Close();
-
         }
     }
 }
-
-
