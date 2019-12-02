@@ -99,12 +99,15 @@
     <Compile Include="plank_popup.xaml.cs">
       <DependentUpon>plank_popup.xaml</DependentUpon>
     </Compile>
-    <Compile Include="settingscreen.xaml.cs">
-      <DependentUpon>settingscreen.xaml</DependentUpon>
-    </Compile>
     <Compile Include="SoufTools.cs" />
     <Compile Include="statistieken.xaml.cs">
       <DependentUpon>statistieken.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="statistieken2.xaml.cs">
+      <DependentUpon>statistieken2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="statistieken3.xaml.cs">
+      <DependentUpon>statistieken3.xaml</DependentUpon>
     </Compile>
     <Compile Include="tijdelijkstatscherm.xaml.cs">
       <DependentUpon>tijdelijkstatscherm.xaml</DependentUpon>
@@ -148,11 +151,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="settingscreen.xaml">
+    <Page Include="statistieken.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="statistieken.xaml">
+    <Page Include="statistieken2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="statistieken3.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -209,9 +216,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Mii.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

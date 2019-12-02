@@ -2,23 +2,8 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:MarktApplicatie"
-             Startup="Application_Startup">
-    
-    
+             StartupUri="MainWindow.xaml">
     <Application.Resources>
-        
-        
-        <Storyboard x:Key="PlaySoundStoryboard">
-
-            <MediaTimeline Storyboard.TargetName="myMediaElement" Source="..\..\Mii.mp3" RepeatBehavior="Forever"/>
-            
-        </Storyboard>
-        
-
-
+         
     </Application.Resources>
 </Application>
-
-    
-
-
