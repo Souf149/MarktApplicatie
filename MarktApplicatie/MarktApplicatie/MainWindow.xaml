@@ -60,6 +60,8 @@
             <Setter Property="RenderTransformOrigin" Value="0.5, 0.5"/>
             <Setter Property="Opacity" Value="0.2"/>
             
+            
+            
         </Style>
 
         <Style TargetType="Ellipse">

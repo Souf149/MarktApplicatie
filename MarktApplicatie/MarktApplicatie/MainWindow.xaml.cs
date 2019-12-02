@@ -86,10 +86,14 @@ namespace MarktApplicatie
             Rectangle r = new Rectangle() {
                 Fill = SoufTools.GetColor(colors[i]),
                 Width = size,
-                Height = size
+                Height = size,
+                RadiusX = 5,
+                RadiusY = 5
             };
             Canvas.SetLeft(r, x);
             Canvas.SetTop(r, y);
+
+            
 
             return r;
         }
