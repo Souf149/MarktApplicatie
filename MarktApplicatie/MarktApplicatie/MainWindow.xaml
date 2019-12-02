@@ -118,13 +118,13 @@
                Margin="30"/>
 
             <Button x:Name="btn" Content="Nieuwe compositie starten" Grid.Column="2" Grid.Row="3" 
-                   PreviewMouseLeftButtonDown="OnClick_newComposition"/>
+                   PreviewMouseLeftButtonUp="OnClick_newComposition"/>
             <Button Content="Vorige composities" Grid.Column="2" Grid.Row="4"
-                   PreviewMouseLeftButtonDown="OnClick_oldComposition"/>
+                   PreviewMouseLeftButtonUp="OnClick_oldComposition"/>
             <Button Content="Statistieken" Grid.Column="2" Grid.Row="5"
-                   PreviewMouseLeftButtonDown="OnClick_statistics"/>
+                   PreviewMouseLeftButtonUp="OnClick_statistics"/>
             <Button Content="Instellingen" Grid.Column="2" Grid.Row="6"
-                   PreviewMouseLeftButtonDown="OnClick_settings"/>
+                   PreviewMouseLeftButtonUp="OnClick_settings"/>
 
 
         </Grid>
