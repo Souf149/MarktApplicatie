@@ -45,7 +45,7 @@
             </TabControl.Resources>
 
             <TabItem Header="SAVED" />
-            <TabItem Name ="tab1" Header="Tab Item 1" Height="49" Width="200"/>
+            <TabItem Name ="tab1" Header="Tab Item 1" Height="49" Width="200" IsSelected="True" />
             <TabItem Name ="tab2" Header="Tab Item 2" Height="49" Width="200"/>
             <TabItem Name ="tab3" Header="Tab Item 3" Height="49" Width="200"/>
             <TabItem Name ="tab4" Header="Tab Item 4" Height="49" Width="200"/>
@@ -55,6 +55,10 @@
             <TabItem Name ="tab8" Header="Tab Item 8" Height="49" Width="200"/>
 
         </TabControl>
-        <Button  Grid.Column="5" Grid.Row="2" PreviewMouseLeftButtonDown="btngotocomp" >Go To composition</Button>
+        <Image Margin="12,40,14,68" Name="imgPhoto"
+        Stretch="Fill" Grid.Column="2" />
+
+        <Button Click="btnLoad_Click" Grid.Column="5" Grid.Row="1">Choose File</Button>
+        <Button Click="btnSave_Click" Grid.Column="5" Grid.Row="2" >Save</Button>
     </Grid>
 </Window>

@@ -47,7 +47,9 @@ namespace MarktApplicatie
         }
 
         private void onClick_settings(object sender, MouseButtonEventArgs e) {
-
+            settingscreen instellingen = new settingscreen();
+            instellingen.Show();
+            this.Close();
         }
 
     }
