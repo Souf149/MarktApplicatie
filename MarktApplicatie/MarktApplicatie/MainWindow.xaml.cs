@@ -19,12 +19,16 @@ namespace MarktApplicatie
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+
+    
+
     public partial class MainWindow : Window
     {
         DispatcherTimer loopTimer;
-        public const int FPS = 30;
+        public const int FPS = 60;
         double angle = 0;
         List<Shape> shapes = new List<Shape>();
+        List<string> colors = new List<string>();
 
         public MainWindow()
         {
@@ -32,18 +36,34 @@ namespace MarktApplicatie
 
             CreateTimer();
 
+            string[][] fruits = SoufTools.GetAllFruits();
 
-            Rectangle r = new Rectangle()
-            {
-                Fill = SoufTools.GetColor("#FF0000"),
-                Width = 50,
-                Height = 50
-            };
+            for(int i = 0; i < fruits.Length; i++) {
+                colors.Add(fruits[i][1]);
+            }
+
+
+            Rectangle r = CreateRect(50, 50, 100, 100);
 
             AddShape(r);
 
 
 
+        }
+
+        private Rectangle CreateRect(int x, int y, int width, int height) {
+
+            int i = new Random().Next(colors.Count);
+
+            Rectangle r = new Rectangle() {
+                Fill = SoufTools.GetColor(colors[i]),
+                Width = width,
+                Height = height
+            };
+            Canvas.SetLeft(r, x);
+            Canvas.SetTop(r, y);
+
+            return r;
         }
 
         private void AddShape(Shape s)
@@ -63,7 +83,9 @@ namespace MarktApplicatie
 
         private void Loop(object sender, EventArgs e)
         {
-            angle += 10;
+            angle += 5 + new Random().NextDouble()*2;
+            Shape s = shapes[0];
+            s.RenderTransform = new RotateTransform(angle);
         }
 
         

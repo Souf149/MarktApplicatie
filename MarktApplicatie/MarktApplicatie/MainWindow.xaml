@@ -82,6 +82,8 @@
                 </LinearGradientBrush>
             </Canvas.Background>
             
+            
+            
         </Canvas>
 
         <!-- Foreground -->
