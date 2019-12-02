@@ -30,13 +30,38 @@ namespace MarktApplicatie
         {
             InitializeComponent();
 
+            CreateTimer();
+
+
+            Rectangle r = new Rectangle()
+            {
+                Fill = SoufTools.GetColor("#FF0000"),
+                Width = 50,
+                Height = 50
+            };
+
+            AddRectangle(r);
+
+
+
+        }
+
+        private void AddRectangle(Rectangle r)
+        {
+
+
+            canvas.Children.Add(r);
+            rectangles.Add(r);
+
+        }
+
+        private void CreateTimer()
+        {
             //  basic loop setup
             loopTimer = new DispatcherTimer();
             loopTimer.Tick += new EventHandler(Loop);
-            loopTimer.Interval = new TimeSpan(0, 0, 0, 0, 1000/FPS);
+            loopTimer.Interval = new TimeSpan(0, 0, 0, 0, 1000 / FPS);
             loopTimer.Start();
-
-
         }
 
         private void Loop(object sender, EventArgs e)
