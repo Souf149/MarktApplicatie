@@ -106,6 +106,12 @@
     <Compile Include="statistieken.xaml.cs">
       <DependentUpon>statistieken.xaml</DependentUpon>
     </Compile>
+    <Compile Include="statistieken2.xaml.cs">
+      <DependentUpon>statistieken2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="statistieken3.xaml.cs">
+      <DependentUpon>statistieken3.xaml</DependentUpon>
+    </Compile>
     <Compile Include="tijdelijkstatscherm.xaml.cs">
       <DependentUpon>tijdelijkstatscherm.xaml</DependentUpon>
     </Compile>
@@ -153,6 +159,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="statistieken.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="statistieken2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="statistieken3.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
