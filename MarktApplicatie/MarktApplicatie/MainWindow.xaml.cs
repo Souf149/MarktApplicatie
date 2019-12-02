@@ -24,7 +24,7 @@ namespace MarktApplicatie
         DispatcherTimer loopTimer;
         public const int FPS = 30;
         double angle = 0;
-        List<Rectangle> rectangles = new List<Rectangle>();
+        List<Shape> shapes = new List<Shape>();
 
         public MainWindow()
         {
@@ -40,19 +40,16 @@ namespace MarktApplicatie
                 Height = 50
             };
 
-            AddRectangle(r);
+            AddShape(r);
 
 
 
         }
 
-        private void AddRectangle(Rectangle r)
+        private void AddShape(Shape s)
         {
-
-
-            canvas.Children.Add(r);
-            rectangles.Add(r);
-
+            canvas.Children.Add(s);
+            shapes.Add(s);
         }
 
         private void CreateTimer()
@@ -72,20 +69,16 @@ namespace MarktApplicatie
         
 
         private void OnClick_newComposition(object sender, MouseButtonEventArgs e) {
-            EditKraam editkraam = new EditKraam();
-            editkraam.Show();
+            new EditKraam().Show();
             Close();
-
         }
         private void OnClick_oldComposition(object sender, MouseButtonEventArgs e) {
-            OudeComposities oudecompo = new OudeComposities();
-            oudecompo.Show();
+            new OudeComposities().Show();
             Close();
         }
 
         private void OnClick_statistics(object sender, MouseButtonEventArgs e) {
-            statistieken statistics = new statistieken();
-            statistics.Show();
+            new statistieken().Show();
             Close();
 
         }
