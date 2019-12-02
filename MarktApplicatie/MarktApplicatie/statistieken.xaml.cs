@@ -26,8 +26,7 @@ namespace MarktApplicatie
         public statistieken()
         {
             InitializeComponent();
-
-
+            
 
             SeriesCollection = new SeriesCollection
             {
@@ -37,7 +36,6 @@ namespace MarktApplicatie
                     Values = new ChartValues<double> { 10, 50, 39, 50 }
                 }
             };
-
 
             //adding series will update and animate the chart automatically
             SeriesCollection.Add(new ColumnSeries
@@ -56,32 +54,13 @@ namespace MarktApplicatie
         }
 
 
+
         //add collections to xaml 
+
         public SeriesCollection SeriesCollection { get; set; }
         public string[] Labels { get; set; }
         public Func<double, string> Formatter { get; set; }
 
-        private void openHome(object sender, RoutedEventArgs e)
-        {
-            MainWindow home = new MainWindow();
-            home.Show();
-            this.Close();
-        }
-
-        private void openStat2(object sender, RoutedEventArgs e)
-        {
-            statistieken2 stats = new statistieken2();
-            stats.Show();
-            this.Close();
-        }
-
-        private void openStat3(object sender, RoutedEventArgs e)
-        {
-            statistieken3  stats3 = new statistieken3();
-            stats3.Show();
-            this.Close();
-
-        }
     }
 }
 
