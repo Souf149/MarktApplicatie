@@ -114,8 +114,8 @@
 
             
 
-            <Image Source="logo.png" Grid.Column="2" Grid.Row="2" Width="200" Height="100" 
-               Margin="35"/>
+            <Image Source="logo.png" Grid.Column="2" Grid.Row="2" Width="300" Height="150" 
+               Margin="30"/>
 
             <Button x:Name="btn" Content="Nieuwe compositie starten" Grid.Column="2" Grid.Row="3" 
                    PreviewMouseLeftButtonDown="OnClick_newComposition"/>
