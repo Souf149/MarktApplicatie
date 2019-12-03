@@ -25,14 +25,7 @@ namespace MarktApplicatie
         {
             InitializeComponent();
             OudeComposities oc = new OudeComposities();
-            tab1.Content = oc.tab1.Header;
-            tab2.Content = oc.tab2.Header;
-            tab3.Content = oc.tab3.Header;
-            tab4.Content = oc.tab4.Header;
-            tab5.Content = oc.tab5.Header;
-            tab6.Content = oc.tab6.Header;
-            tab7.Content = oc.tab7.Header;
-            tab8.Content = oc.tab8.Header;
+            
             savestuff(strResultJson);
         }
 

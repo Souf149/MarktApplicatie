@@ -22,8 +22,8 @@ namespace MarktApplicatie
     
     public partial class EditKraam : Window
     {
-        Boolean mouseDown = false;
-        Boolean plankEditMode = true;
+        bool mouseDown = false;
+        bool plankEditMode = true;
 
         List<string> fruitNames = new List<string>();
 
