@@ -5,8 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MarktApplicatie"
         mc:Ignorable="d"
-        Title="confirmation_popup" Height="450" Width="800">
+        Title="confirmation_popup" Height="250" Width="400">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Weet je het zeker?" FontSize="40" Margin="20"  FontStyle="Oblique"
+                   Grid.ColumnSpan="5" HorizontalAlignment="Center"/>
+
+        <Button x:Name ="accept" Content="Ja" Background="#5000FF00"
+                Grid.Column="1" Grid.Row="1" Click="Accept_Click"/>
+        <Button x:Name ="deny" Content="Nee" Background="#50FF0000"
+                Grid.Column="3" Grid.Row="1" Click="Deny_Click"/>
     </Grid>
 </Window>

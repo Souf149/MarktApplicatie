@@ -30,7 +30,7 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="75"/>
+            <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
 
         <ListView Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Margin="10"
@@ -40,11 +40,16 @@
           ScrollViewer.CanContentScroll="False" 
             PreviewMouseLeftButtonUp="ListView_onclick"/>
 
-        <StackPanel Orientation="Vertical" Grid.Column="2" Grid.Row ="1" Grid.RowSpan="2">
+        <StackPanel Orientation="Vertical" Grid.Column="2" Grid.Row ="1" >
             <Button Content="Verander naam" Click="btnEditTitle_Click" />
             <Button Content="Start schetsen" Click="StartSketch"/>
             <Button Content="Beginscherm" Click="onClick_homepage"/>
+            <Button Content="Verwijder" Click="OnClick_Verwijder"/>
         </StackPanel>
+
+        <Canvas  x:Name="canvas" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            
+        </Canvas>
         
         
 

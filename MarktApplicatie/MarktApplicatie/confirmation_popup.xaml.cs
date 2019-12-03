@@ -17,8 +17,24 @@ namespace MarktApplicatie {
     /// Interaction logic for confirmation_popup.xaml
     /// </summary>
     public partial class confirmation_popup : Window {
+
+        private bool result;
         public confirmation_popup() {
             InitializeComponent();
+        }
+
+        public bool Confirmation {
+            get { return result; }
+        }
+
+        private void Deny_Click(object sender, RoutedEventArgs e) {
+            result = false;
+            DialogResult = true;
+        }
+
+        private void Accept_Click(object sender, RoutedEventArgs e) {
+            result = true;
+            DialogResult = true;
         }
     }
 }

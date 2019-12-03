@@ -151,5 +151,17 @@ namespace MarktApplicatie
 
 
         }
+
+        private void OnClick_Verwijder(object sender, RoutedEventArgs e) {
+
+            confirmation_popup popup = new confirmation_popup();
+
+            if (popup.ShowDialog() == true) {
+                if (popup.Confirmation) {
+                    File.Delete(composition_files[listView.SelectedIndex]);
+                    UpdateList();
+                }
+            }
+        }
     }
 }
