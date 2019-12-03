@@ -17,201 +17,107 @@ namespace MarktApplicatie
     public partial class OudeComposities : Window
     {
 
+        string[] composition_files;
+
         public OudeComposities()
         {
             InitializeComponent();
-            tab1.Header = Settings1.Default.tab1Setting;
-            tab2.Header = Settings1.Default.tab2Setting;
-            tab3.Header = Settings1.Default.tab3Setting;
-            tab4.Header = Settings1.Default.tab4Setting;
-            tab5.Header = Settings1.Default.tab5Setting;
-            tab6.Header = Settings1.Default.tab6Setting;
-            tab7.Header = Settings1.Default.tab7Setting;
-            tab8.Header = Settings1.Default.tab8Setting;
-            tabName.Text = Settings1.Default.tab1Setting;
-        }
 
-        public void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (tab1.IsSelected)
-            {
-                tabName.Text = tab1.Header.ToString();
-            }
-            else if (tab2.IsSelected)
-            {
-                tabName.Text = tab2.Header.ToString();
-            }
-            else if (tab3.IsSelected)
-            {
-                tabName.Text = tab3.Header.ToString();
-            }
-            else if (tab4.IsSelected)
-            {
-                tabName.Text = tab4.Header.ToString();
-            }
-            else if (tab5.IsSelected)
-            {
-                tabName.Text = tab5.Header.ToString();
-            }
-            else if (tab6.IsSelected)
-            {
-                tabName.Text = tab6.Header.ToString();
-            }
-            else if (tab7.IsSelected)
-            {
-                tabName.Text = tab7.Header.ToString();
-            }
-            else if (tab8.IsSelected)
-            {
-                tabName.Text = tab8.Header.ToString();
+            UpdateList();
+
+            if (composition_files.Length < 1) {
+                MessageBox.Show("Je moet eerst een compositie opslaan!");
             }
         }
 
-        private void btngotocomp(object sender, MouseButtonEventArgs e)
-        {
-            //btn to composition.
-            if (tab1.IsSelected)
-            {
-                btnLoadPlanks_Click(1);
-            }
-            else if (tab2.IsSelected)
-            {
-                btnLoadPlanks_Click(2);
-            }
-            else if (tab3.IsSelected)
-            {
-                btnLoadPlanks_Click(3);
-            }
-            else if (tab4.IsSelected)
-            {
-                btnLoadPlanks_Click(4);
-            }
-            else if (tab5.IsSelected)
-            {
-                btnLoadPlanks_Click(5);
-            }
-            else if (tab6.IsSelected)
-            {
-                btnLoadPlanks_Click(6);
-            }
-            else if (tab7.IsSelected)
-            {
-                btnLoadPlanks_Click(7);
-            }
-            else if (tab8.IsSelected)
-            {
-                btnLoadPlanks_Click(8);
-            }
+        private void AddListViewItem(string filename) {
+            TextBlock b = new TextBlock() {
+                Text = filename.Split('.')[0],
+                FontSize = 24
+            };
+            listView.Items.Add(b);
+
         }
-        private void onClick_homepage(object sender, MouseButtonEventArgs e)
-        {
+
+        private void ListView_onclick(object sender, MouseButtonEventArgs e) {
+            
+
+        }
+
+        private void onClick_homepage(object sender, RoutedEventArgs e) {
             MainWindow home = new MainWindow();
             home.Show();
             this.Close();
         }
 
+        public void StartSketch(object sender, RoutedEventArgs e) {
 
-        public void btnLoadPlanks_Click(int valuetab)
-        {
-            if (valuetab == 1)
-            {
-                string plankinfo = File.ReadAllText(@"..\..\json\plankinfo.json");
-                PlankInfo[] result = JsonConvert.DeserializeObject<PlankInfo[]>(plankinfo);
-                Console.WriteLine(result);
+            string selected_file_name = composition_files[listView.SelectedIndex];
 
-                EditKraam ek = new EditKraam();
+            string plankinfo = File.ReadAllText(Path.Combine(@"..\..\json\", selected_file_name));
+            PlankInfo[] result = JsonConvert.DeserializeObject<PlankInfo[]>(plankinfo);
 
-                if (result != null)
-                {
-                    foreach (PlankInfo p in result)
-                    {
-                        ek.Add_plank(p.X, p.Y, p.Width, p.Height);
-                    }
+            EditKraam editkraam = new EditKraam();
+
+            if (result != null) {
+                foreach (PlankInfo p in result) {
+                    editkraam.Add_plank(p.X, p.Y, p.Width, p.Height);
                 }
-
-                ek.Show();
-                Close();
             }
-            else
-            {
-                string plankinfo = File.ReadAllText(@"..\..\json\plankinfo" + valuetab + ".json");
-                PlankInfo[] result = JsonConvert.DeserializeObject<PlankInfo[]>(plankinfo);
-                Console.WriteLine(result);
 
-                EditKraam ek = new EditKraam();
+            editkraam.Show();
+            Close();
+        }
 
-                if (result != null)
-                {
-                    foreach (PlankInfo p in result)
-                    {
-                        ek.Add_plank(p.X, p.Y, p.Width, p.Height);
-                    }
-                }
-                ek.Show();
-                Close();
+      
+
+
+        public void btnEditTitle_Click(object sender, RoutedEventArgs e) {
+
+            int selected_index = listView.SelectedIndex;
+            if (selected_index < 0) {
+                return;
+            }
+
+            save_popup popup = new save_popup();
+
+            if (popup.ShowDialog() == true) {
+
+                string new_path = Path.Combine(SoufTools.compositions_path, popup.FileName + ".json");
+                string old_path = composition_files[selected_index];
+
+                File.Move(old_path, new_path);
+
+                UpdateList();
             }
         }
 
+        private void UpdateList() {
 
-        public void btnEditTitle_Click(object sender, RoutedEventArgs e)
-        {
-            if (tab1.IsSelected)
-            {
+            listView.Items.Clear();
 
-                //tab1.Header = tabName.Text;
+            composition_files = SoufTools.GetAllCompositions();
 
-                Settings1.Default.tab1Setting = tabName.Text;
-                tab1.Header = Settings1.Default.tab1Setting;
-                Settings1.Default.Save();
-
-
+            // for every file get the filename and add it to 
+            foreach (string composition_filepath in composition_files) {
+                string[] path_parts = composition_filepath.Split('\\');
+                string filename = path_parts[path_parts.Length - 1];
+                AddListViewItem(filename);
             }
 
-            else if (tab2.IsSelected)
-            {
-                Settings1.Default.tab2Setting = tabName.Text;
-                tab2.Header = Settings1.Default.tab2Setting;
-                Settings1.Default.Save();
 
-            }
-            else if (tab3.IsSelected)
-            {
+        }
 
-                Settings1.Default.tab3Setting = tabName.Text;
-                tab3.Header = Settings1.Default.tab3Setting;
-                Settings1.Default.Save();
-            }
-            else if (tab4.IsSelected)
-            {
-                Settings1.Default.tab4Setting = tabName.Text;
-                tab4.Header = Settings1.Default.tab4Setting;
-                Settings1.Default.Save();
-            }
-            else if (tab5.IsSelected)
-            {
-                Settings1.Default.tab5Setting = tabName.Text;
-                tab5.Header = Settings1.Default.tab5Setting;
-                Settings1.Default.Save();
-            }
-            else if (tab6.IsSelected)
-            {
-                Settings1.Default.tab6Setting = tabName.Text;
-                tab6.Header = Settings1.Default.tab6Setting;
-                Settings1.Default.Save();
-            }
-            else if (tab7.IsSelected)
-            {
-                Settings1.Default.tab7Setting = tabName.Text;
-                tab7.Header = Settings1.Default.tab7Setting;
-                Settings1.Default.Save();
-            }
-            else if (tab8.IsSelected)
-            {
-                Settings1.Default.tab8Setting = tabName.Text;
-                tab8.Header = Settings1.Default.tab8Setting;
-                Settings1.Default.Save();
-            }
+        private void OnClick_Verwijder(object sender, RoutedEventArgs e) {
 
+            confirmation_popup popup = new confirmation_popup();
+
+            if (popup.ShowDialog() == true) {
+                if (popup.Confirmation) {
+                    File.Delete(composition_files[listView.SelectedIndex]);
+                    UpdateList();
+                }
+            }
         }
     }
 }

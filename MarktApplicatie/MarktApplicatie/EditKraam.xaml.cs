@@ -16,14 +16,15 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Newtonsoft.Json;
+using Path = System.IO.Path;
 
 namespace MarktApplicatie
 {
     
     public partial class EditKraam : Window
     {
-        Boolean mouseDown = false;
-        Boolean plankEditMode = true;
+        bool mouseDown = false;
+        bool plankEditMode = true;
 
         List<string> fruitNames = new List<string>();
 
@@ -190,41 +191,18 @@ namespace MarktApplicatie
             }
 
             string strResultJson = JsonConvert.SerializeObject(plankinfos);
-            save_popup popup = new save_popup(strResultJson);
-            popup.ShowDialog();
+            save_popup popup = new save_popup();
 
-            if (popup.tab1.IsChecked == true)
-            {
-                File.WriteAllText(@"..\..\json\plankinfo.json", strResultJson);    
+            if (popup.ShowDialog() == true) {
+                string filename = popup.FileName;
+
+                string path = Path.Combine(SoufTools.compositions_path, filename);
+                SoufTools.CreateFile(path, strResultJson);
+
+
             }
-            if (popup.tab2.IsChecked == true)
-            {
-                File.WriteAllText(@"..\..\json\plankinfo2.json", strResultJson);
-            }
-            if (popup.tab3.IsChecked == true)
-            {
-                File.WriteAllText(@"..\..\json\plankinfo3.json", strResultJson);
-            }
-            if (popup.tab4.IsChecked == true)
-            {
-                File.WriteAllText(@"..\..\json\plankinfo4.json", strResultJson);
-            }
-            if (popup.tab5.IsChecked == true)
-            {
-                File.WriteAllText(@"..\..\json\plankinfo5.json", strResultJson);
-            }
-            if (popup.tab6.IsChecked == true)
-            {
-                File.WriteAllText(@"..\..\json\plankinfo6.json", strResultJson);
-            }
-            if (popup.tab7.IsChecked == true)
-            {
-                File.WriteAllText(@"..\..\json\plankinfo7.json", strResultJson);
-            }
-            if (popup.tab8.IsChecked == true)
-            {
-                File.WriteAllText(@"..\..\json\plankinfo8.json", strResultJson);
-            }
+
+            
         }
 
         private void Canvas_onclick(object sender, MouseButtonEventArgs e) {
@@ -290,7 +268,6 @@ namespace MarktApplicatie
         }
 
         private void Canvas_onrelease(object sender, MouseButtonEventArgs e) {
-            Point p = e.GetPosition(this);
             mouseDown = false;
 
 
