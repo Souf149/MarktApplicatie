@@ -8,15 +8,11 @@
         Title="save_popup" Height="200" Width="300">
     <Grid x:Name="grid">
         <StackPanel x:Name="tabs">
-            <RadioButton x:Name="tab1" GroupName="tabs" Content="1" IsChecked="True"/>
-            <RadioButton x:Name="tab2" GroupName="tabs" Content="2" />
-            <RadioButton x:Name="tab3" GroupName="tabs" Content="3" />
-            <RadioButton x:Name="tab4" GroupName="tabs" Content="4"/>
-            <RadioButton x:Name="tab5" GroupName="tabs" Content="5"/>
-            <RadioButton x:Name="tab6" GroupName="tabs" Content="6"/>
-            <RadioButton x:Name="tab7" GroupName="tabs" Content="7"/>
-            <RadioButton x:Name="tab8" GroupName="tabs" Content="8"/>
-            <Button x:Name="Save" Click="save"  Height="19">Save</Button>
+            <TextBlock Text="Geef je compositie een naam:" FontSize="20"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox x:Name="inp_box" Height="60" Margin="10"/>
+            <Button x:Name="save" Content="Save" Click="Save"
+                    FontSize="15"/>
         </StackPanel>
         
     </Grid>

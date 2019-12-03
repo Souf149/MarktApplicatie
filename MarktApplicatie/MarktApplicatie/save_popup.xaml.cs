@@ -19,24 +19,20 @@ namespace MarktApplicatie
     /// <summary>
     /// Interaction logic for save_popup.xaml
     /// </summary>
-    public partial class save_popup : Window
-    {
-        public save_popup(string strResultJson)
-        {
+    public partial class save_popup : Window {
+        public save_popup() {
             InitializeComponent();
-            OudeComposities oc = new OudeComposities();
-            
-            savestuff(strResultJson);
+
         }
 
-        public string savestuff(string strResultJson)
-        {
-            Console.WriteLine("test1: " + strResultJson);
-            return strResultJson;
+        public string FileName {
+            get { return inp_box.Text; }
         }
-        public void save(object sender, RoutedEventArgs e) 
+
+        private void Save(object sender, RoutedEventArgs e) 
         {
-            MessageBox.Show("File Saved! Dont forget to close the popup.");
+            MessageBox.Show("File Saved!");
+            DialogResult = true;
         }
     }
 }

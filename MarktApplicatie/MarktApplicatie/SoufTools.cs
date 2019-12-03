@@ -74,24 +74,25 @@ namespace MarktApplicatie {
             }
         }
 
-        private static void CreateFile(string file_path, string default_value = "") {
+        public static void CreateFile(string file_path, string value = "") {
             // if the file does not exist give it default value
             if (!File.Exists(file_path)) {
                 FileStream file = File.Create(file_path);
                 file.Close();
-
-                File.WriteAllText(file_path, default_value);
             }
+            File.WriteAllText(file_path, value);
         }
 
         private static void CreateDataFolder() {
-            // if the folder does not exist create one.
+            // if the folder does not exist create one
             CreateDirectory(data_folder_path);
         }
 
         public static SolidColorBrush GetColor(string code) {
             return (SolidColorBrush)(new BrushConverter().ConvertFrom(code));
         }
+
+        
 
         
     // ref: https://www.programmingalgorithms.com/algorithm/decimal-to-hexadecimal/
