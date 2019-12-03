@@ -15,7 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using Newtonsoft.Json;
 
 namespace MarktApplicatie
 {
@@ -66,6 +66,23 @@ namespace MarktApplicatie
 
             canvas.Children.Add(r);
             return r;
+        }
+
+
+        public void Add_plank(double x, double y, double width, double height)
+        {
+            SetColor("#654321");
+
+            Plank p = new Plank(
+                planks.Count,
+                Rect(x, y, width * GRID_SIZE, height * GRID_SIZE)
+                );
+
+            planks.Add(p);
+            selectedPlank = p;
+            Plank.selectedPlank = planks.Count() - 1;
+
+            CheckPlanks();
         }
 
         // window initializer
@@ -148,6 +165,67 @@ namespace MarktApplicatie
             
         }
 
+        public void save_Composition(object sender, MouseButtonEventArgs e)
+        {
+
+            PlankInfo[] plankinfos = new PlankInfo[planks.Count];
+
+            for (int i = 0; i < planks.Count; i++)
+            {
+                Rectangle r = planks[i].r;
+
+
+                var width = r.Width / SoufTools.GRID_SIZE;
+                var height = r.Height / SoufTools.GRID_SIZE;
+                double plank_x = Canvas.GetLeft(r);
+                double plank_y = Canvas.GetTop(r);
+
+                plankinfos[i] = new PlankInfo()
+                {
+                    Width = width,
+                    Height = height,
+                    X = plank_x,
+                    Y = plank_y
+                };
+            }
+
+            string strResultJson = JsonConvert.SerializeObject(plankinfos);
+            save_popup popup = new save_popup(strResultJson);
+            popup.ShowDialog();
+
+            if (popup.tab1.IsChecked == true)
+            {
+                File.WriteAllText(@"..\..\json\plankinfo.json", strResultJson);    
+            }
+            if (popup.tab2.IsChecked == true)
+            {
+                File.WriteAllText(@"..\..\json\plankinfo2.json", strResultJson);
+            }
+            if (popup.tab3.IsChecked == true)
+            {
+                File.WriteAllText(@"..\..\json\plankinfo3.json", strResultJson);
+            }
+            if (popup.tab4.IsChecked == true)
+            {
+                File.WriteAllText(@"..\..\json\plankinfo4.json", strResultJson);
+            }
+            if (popup.tab5.IsChecked == true)
+            {
+                File.WriteAllText(@"..\..\json\plankinfo5.json", strResultJson);
+            }
+            if (popup.tab6.IsChecked == true)
+            {
+                File.WriteAllText(@"..\..\json\plankinfo6.json", strResultJson);
+            }
+            if (popup.tab7.IsChecked == true)
+            {
+                File.WriteAllText(@"..\..\json\plankinfo7.json", strResultJson);
+            }
+            if (popup.tab8.IsChecked == true)
+            {
+                File.WriteAllText(@"..\..\json\plankinfo8.json", strResultJson);
+            }
+        }
 
         private void Canvas_onclick(object sender, MouseButtonEventArgs e) {
 
