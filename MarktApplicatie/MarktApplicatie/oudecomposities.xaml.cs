@@ -23,16 +23,11 @@ namespace MarktApplicatie
         {
             InitializeComponent();
 
-            
-
             UpdateList();
 
             if (composition_files.Length < 1) {
                 MessageBox.Show("Je moet eerst een compositie opslaan!");
             }
-
-
-
         }
 
         private void AddListViewItem(string filename) {
@@ -40,14 +35,9 @@ namespace MarktApplicatie
                 Text = filename.Split('.')[0],
                 FontSize = 24
             };
-
-            
-
             listView.Items.Add(b);
 
         }
-
-        
 
         private void ListView_onclick(object sender, MouseButtonEventArgs e) {
             
@@ -79,46 +69,7 @@ namespace MarktApplicatie
             Close();
         }
 
-        public void btnLoadPlanks_Click(int valuetab)
-        {
-            if (valuetab == 1)
-            {
-                string plankinfo = File.ReadAllText(@"..\..\json\plankinfo.json");
-                PlankInfo[] result = JsonConvert.DeserializeObject<PlankInfo[]>(plankinfo);
-                Console.WriteLine(result);
-
-                EditKraam ek = new EditKraam();
-
-                if (result != null)
-                {
-                    foreach (PlankInfo p in result)
-                    {
-                        ek.Add_plank(p.X, p.Y, p.Width, p.Height);
-                    }
-                }
-
-                ek.Show();
-                Close();
-            }
-            else
-            {
-                string plankinfo = File.ReadAllText(@"..\..\json\plankinfo" + valuetab + ".json");
-                PlankInfo[] result = JsonConvert.DeserializeObject<PlankInfo[]>(plankinfo);
-                Console.WriteLine(result);
-
-                EditKraam ek = new EditKraam();
-
-                if (result != null)
-                {
-                    foreach (PlankInfo p in result)
-                    {
-                        ek.Add_plank(p.X, p.Y, p.Width, p.Height);
-                    }
-                }
-                ek.Show();
-                Close();
-            }
-        }
+      
 
 
         public void btnEditTitle_Click(object sender, RoutedEventArgs e) {
