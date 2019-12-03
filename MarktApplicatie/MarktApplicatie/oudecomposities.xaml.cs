@@ -17,9 +17,14 @@ namespace MarktApplicatie
     public partial class OudeComposities : Window
     {
 
+        string[] files = SoufTools.GetAllCompositions();
+
         public OudeComposities()
         {
             InitializeComponent();
+
+
+
             tab1.Header = Settings1.Default.tab1Setting;
             tab2.Header = Settings1.Default.tab2Setting;
             tab3.Header = Settings1.Default.tab3Setting;
@@ -29,6 +34,9 @@ namespace MarktApplicatie
             tab7.Header = Settings1.Default.tab7Setting;
             tab8.Header = Settings1.Default.tab8Setting;
             tabName.Text = Settings1.Default.tab1Setting;
+
+
+
         }
 
         public void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)

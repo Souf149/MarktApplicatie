@@ -12,24 +12,32 @@ namespace MarktApplicatie {
         public static string path = AppDomain.CurrentDomain.BaseDirectory;
         public static string data_folder_path = AppDomain.CurrentDomain.BaseDirectory + @"data";
         public static string custom_fruit_path = data_folder_path + @"\custom_fruits.txt";
+        public static string compositions_path = data_folder_path + @"\compositions";
 
         public static string default_fruit = @"Appel|#FF0000;Banaan|#ffe119;Limoen|#bcf60c;Draken fruit|#911eb4";
+        public static int GRID_SIZE = 48;
+
+
+        // returns all file names in a string
+        public static string[] GetAllCompositions() {
+
+            CreateDataFolder();
+            CreateDirectory(compositions_path);
+
+            return Directory.GetFiles(compositions_path);
+        }
+
 
 
         public static string[][] GetAllFruits()
         {
-            // if the folder does not exist
-            if (!Directory.Exists(data_folder_path)) {
-                Directory.CreateDirectory(data_folder_path);
-            }
+
+            // if the folder does not exist create one.
+            CreateDataFolder();
 
             // if the file does not exist give it default value
-            if (!File.Exists(custom_fruit_path)) {
-                FileStream file = File.Create(custom_fruit_path);
-                file.Close();
-
-                File.WriteAllText(custom_fruit_path, default_fruit);
-            }
+            CreateFile(custom_fruit_path, default_fruit);
+            
 
 
             // load fruits from file and split it into each fruit with their respective color.
@@ -58,7 +66,29 @@ namespace MarktApplicatie {
 
         }
 
-        public static int GRID_SIZE = 48;
+
+        private static void CreateDirectory(string folder_path) {
+            // if the folder does not exist
+            if (!Directory.Exists(folder_path)) {
+                Directory.CreateDirectory(folder_path);
+            }
+        }
+
+        private static void CreateFile(string file_path, string default_value = "") {
+            // if the file does not exist give it default value
+            if (!File.Exists(file_path)) {
+                FileStream file = File.Create(file_path);
+                file.Close();
+
+                File.WriteAllText(file_path, default_value);
+            }
+        }
+
+        private static void CreateDataFolder() {
+            // if the folder does not exist create one.
+            CreateDirectory(data_folder_path);
+        }
+
         public static SolidColorBrush GetColor(string code) {
             return (SolidColorBrush)(new BrushConverter().ConvertFrom(code));
         }
