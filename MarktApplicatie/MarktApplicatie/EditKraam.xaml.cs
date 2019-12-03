@@ -195,43 +195,35 @@ namespace MarktApplicatie
 
             if (popup.tab1.IsChecked == true)
             {
-                File.WriteAllText(@"..\..\json\plankinfo.json", strResultJson);
-                MessageBox.Show("File Saved!");
+                File.WriteAllText(@"..\..\json\plankinfo.json", strResultJson);    
             }
             if (popup.tab2.IsChecked == true)
             {
                 File.WriteAllText(@"..\..\json\plankinfo2.json", strResultJson);
-                MessageBox.Show("File Saved!");
             }
             if (popup.tab3.IsChecked == true)
             {
                 File.WriteAllText(@"..\..\json\plankinfo3.json", strResultJson);
-                MessageBox.Show("File Saved!");
             }
             if (popup.tab4.IsChecked == true)
             {
                 File.WriteAllText(@"..\..\json\plankinfo4.json", strResultJson);
-                MessageBox.Show("File Saved!");
             }
             if (popup.tab5.IsChecked == true)
             {
                 File.WriteAllText(@"..\..\json\plankinfo5.json", strResultJson);
-                MessageBox.Show("File Saved!");
             }
             if (popup.tab6.IsChecked == true)
             {
                 File.WriteAllText(@"..\..\json\plankinfo6.json", strResultJson);
-                MessageBox.Show("File Saved!");
             }
             if (popup.tab7.IsChecked == true)
             {
                 File.WriteAllText(@"..\..\json\plankinfo7.json", strResultJson);
-                MessageBox.Show("File Saved!");
             }
             if (popup.tab8.IsChecked == true)
             {
                 File.WriteAllText(@"..\..\json\plankinfo8.json", strResultJson);
-                MessageBox.Show("File Saved!");
             }
         }
 

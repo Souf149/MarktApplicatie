@@ -92,20 +92,20 @@
     <Compile Include="oudecomposities.xaml.cs">
       <DependentUpon>oudecomposities.xaml</DependentUpon>
     </Compile>
+    <Compile Include="save_popup.xaml.cs">
+      <DependentUpon>save_popup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Settings1.cs" />
     <Compile Include="Settings1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings1.settings</DependentUpon>
     </Compile>
-	<Compile Include="PlankInfo.cs" />
+    <Compile Include="PlankInfo.cs" />
     <Compile Include="Plank.cs" />
     <Compile Include="plank_popup.xaml.cs">
       <DependentUpon>plank_popup.xaml</DependentUpon>
     </Compile>
-	  <Compile Include="save_popup.xaml.cs">
-		  <DependentUpon>save_popup.xaml</DependentUpon>
-	  </Compile>  
     <Compile Include="settingscreen.xaml.cs">
       <DependentUpon>settingscreen.xaml</DependentUpon>
     </Compile>
@@ -152,6 +152,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="plank_popup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="save_popup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

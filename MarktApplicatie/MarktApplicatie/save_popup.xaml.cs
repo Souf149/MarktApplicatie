@@ -21,7 +21,6 @@ namespace MarktApplicatie
     /// </summary>
     public partial class save_popup : Window
     {
-
         public save_popup(string strResultJson)
         {
             InitializeComponent();
@@ -41,6 +40,10 @@ namespace MarktApplicatie
         {
             Console.WriteLine("test1: " + strResultJson);
             return strResultJson;
+        }
+        public void save(object sender, RoutedEventArgs e) 
+        {
+            MessageBox.Show("File Saved! Dont forget to close the popup.");
         }
     }
 }

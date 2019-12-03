@@ -121,9 +121,12 @@ namespace MarktApplicatie
 
                 EditKraam ek = new EditKraam();
 
-                foreach (PlankInfo p in result)
+                if (result != null)
                 {
-                    ek.Add_plank(p.X, p.Y, p.Width, p.Height);
+                    foreach (PlankInfo p in result)
+                    {
+                        ek.Add_plank(p.X, p.Y, p.Width, p.Height);
+                    }
                 }
 
                 ek.Show();
@@ -137,11 +140,13 @@ namespace MarktApplicatie
 
                 EditKraam ek = new EditKraam();
 
-                foreach (PlankInfo p in result)
+                if (result != null)
                 {
-                    ek.Add_plank(p.X, p.Y, p.Width, p.Height);
+                    foreach (PlankInfo p in result)
+                    {
+                        ek.Add_plank(p.X, p.Y, p.Width, p.Height);
+                    }
                 }
-
                 ek.Show();
                 Close();
             }
