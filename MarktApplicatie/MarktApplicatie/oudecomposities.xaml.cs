@@ -74,12 +74,17 @@ namespace MarktApplicatie
 
         public void btnEditTitle_Click(object sender, RoutedEventArgs e) {
 
+            int selected_index = listView.SelectedIndex;
+            if (selected_index < 0) {
+                return;
+            }
+
             save_popup popup = new save_popup();
 
             if (popup.ShowDialog() == true) {
 
                 string new_path = Path.Combine(SoufTools.compositions_path, popup.FileName + ".json");
-                string old_path = composition_files[listView.SelectedIndex];
+                string old_path = composition_files[selected_index];
 
                 File.Move(old_path, new_path);
 
