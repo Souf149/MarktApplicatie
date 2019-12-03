@@ -17,21 +17,18 @@ namespace MarktApplicatie
     public partial class OudeComposities : Window
     {
 
-        string[] composition_files = SoufTools.GetAllCompositions();
+        string[] composition_files;
 
         public OudeComposities()
         {
             InitializeComponent();
 
-            if(composition_files.Length < 1) {
-                MessageBox.Show("Je moet eerst een compositie opslaan!");
-            }
+            
 
-            // for every file get the filename and add it to 
-            foreach (string composition_filepath in composition_files) {
-                string[] path_parts = composition_filepath.Split('\\');
-                string filename = path_parts[path_parts.Length - 1];
-                AddListViewItem(filename);
+            UpdateList();
+
+            if (composition_files.Length < 1) {
+                MessageBox.Show("Je moet eerst een compositie opslaan!");
             }
 
 
@@ -53,6 +50,18 @@ namespace MarktApplicatie
         
 
         private void ListView_onclick(object sender, MouseButtonEventArgs e) {
+            
+
+        }
+
+        private void onClick_homepage(object sender, RoutedEventArgs e) {
+            MainWindow home = new MainWindow();
+            home.Show();
+            this.Close();
+        }
+
+        public void StartSketch(object sender, RoutedEventArgs e) {
+
             string selected_file_name = composition_files[listView.SelectedIndex];
 
             string plankinfo = File.ReadAllText(Path.Combine(@"..\..\json\", selected_file_name));
@@ -68,21 +77,7 @@ namespace MarktApplicatie
 
             editkraam.Show();
             Close();
-
-
-
-
-
-
         }
-
-        private void onClick_homepage(object sender, MouseButtonEventArgs e) {
-            MainWindow home = new MainWindow();
-            home.Show();
-            this.Close();
-        }
-
-
 
         public void btnLoadPlanks_Click(int valuetab)
         {
@@ -127,6 +122,33 @@ namespace MarktApplicatie
 
 
         public void btnEditTitle_Click(object sender, RoutedEventArgs e) {
+
+            save_popup popup = new save_popup();
+
+            if (popup.ShowDialog() == true) {
+
+                string new_path = Path.Combine(SoufTools.compositions_path, popup.FileName + ".json");
+                string old_path = composition_files[listView.SelectedIndex];
+
+                File.Move(old_path, new_path);
+
+                UpdateList();
+            }
+        }
+
+        private void UpdateList() {
+
+            listView.Items.Clear();
+
+            composition_files = SoufTools.GetAllCompositions();
+
+            // for every file get the filename and add it to 
+            foreach (string composition_filepath in composition_files) {
+                string[] path_parts = composition_filepath.Split('\\');
+                string filename = path_parts[path_parts.Length - 1];
+                AddListViewItem(filename);
+            }
+
 
         }
     }

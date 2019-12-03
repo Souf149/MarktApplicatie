@@ -98,12 +98,10 @@ namespace MarktApplicatie {
     // ref: https://www.programmingalgorithms.com/algorithm/decimal-to-hexadecimal/
     public static string DecimalToHexadecimal(int dec) {
             if (dec < 1) return "0";
-
-            int hex = dec;
             string hexStr = string.Empty;
 
             while (dec > 0) {
-                hex = dec % 16;
+                int hex = dec % 16;
 
                 if (hex < 10)
                     hexStr = hexStr.Insert(0, Convert.ToChar(hex + 48).ToString());

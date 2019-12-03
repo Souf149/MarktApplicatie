@@ -268,7 +268,6 @@ namespace MarktApplicatie
         }
 
         private void Canvas_onrelease(object sender, MouseButtonEventArgs e) {
-            Point p = e.GetPosition(this);
             mouseDown = false;
 
 
