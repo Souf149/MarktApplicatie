@@ -40,6 +40,7 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
 
 
@@ -52,7 +53,7 @@
 
 
 
-        <Canvas x:Name="canvas" Grid.Column="0"  Grid.Row="0" Grid.RowSpan="4" Panel.ZIndex="-1"
+        <Canvas x:Name="canvas" Grid.Column="0"  Grid.Row="0" Grid.RowSpan="5" Panel.ZIndex="-1"
             Background="#555555"
             PreviewMouseLeftButtonDown="Canvas_onclick" MouseLeftButtonUp="Canvas_onrelease"
             PreviewMouseMove="Canvas_PreviewMouseMove" PreviewMouseRightButtonDown="Canvas_right_click">
@@ -76,7 +77,7 @@
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
-            <Button Content="Save" PreviewMouseLeftButtonDown="save_Composition"/>
+            <Button Content="Reset" PreviewMouseLeftButtonDown="reset"/>
             <Button Content="Begin scherm" PreviewMouseLeftButtonDown="go_home"/>
         </StackPanel>
 
@@ -84,7 +85,9 @@
             <Button Content="Custom fruits" PreviewMouseLeftButtonDown="Go_to_custom_fruits" />
             <Button Content="Verander&#10;grootte" PreviewMouseLeftButtonDown="Verander_grootte"/>
         </StackPanel>
-        <Button Content="Reset" PreviewMouseLeftButtonDown="reset"  Grid.Row="3" Grid.Column="0" Margin="567,0,0,0"/>
+
+        <Button Content="Save" PreviewMouseLeftButtonDown="save_Composition"
+                Grid.Column="1" Grid.Row="4" Width="150"/>
     </Grid>
 
 
