@@ -168,39 +168,47 @@ namespace MarktApplicatie
 
         public void save_Composition(object sender, MouseButtonEventArgs e)
         {
-
-            PlankInfo[] plankinfos = new PlankInfo[planks.Count];
-
-            for (int i = 0; i < planks.Count; i++)
-            {
-                Rectangle r = planks[i].r;
-
-
-                var width = r.Width / SoufTools.GRID_SIZE;
-                var height = r.Height / SoufTools.GRID_SIZE;
-                double plank_x = Canvas.GetLeft(r);
-                double plank_y = Canvas.GetTop(r);
-
-                plankinfos[i] = new PlankInfo()
-                {
-                    Width = width,
-                    Height = height,
-                    X = plank_x,
-                    Y = plank_y
-                };
-            }
-
-            string strResultJson = JsonConvert.SerializeObject(plankinfos);
             save_popup popup = new save_popup();
-
             if (popup.ShowDialog() == true) {
-                string filename = popup.FileName;
 
-                string path = Path.Combine(SoufTools.compositions_path, filename);
-                SoufTools.CreateFile(path, strResultJson);
+                string path_filename = Path.Combine(SoufTools.compositions_path, popup.FileName);
 
+
+                // Creating the JSON file
+                PlankInfo[] plankinfos = new PlankInfo[planks.Count];
+                for (int i = 0; i < planks.Count; i++)
+                {
+                    Rectangle r = planks[i].r;
+                    var width = r.Width / SoufTools.GRID_SIZE;
+                    var height = r.Height / SoufTools.GRID_SIZE;
+                    double plank_x = Canvas.GetLeft(r);
+                    double plank_y = Canvas.GetTop(r);
+                    plankinfos[i] = new PlankInfo()
+                    {
+                        Width = width,
+                        Height = height,
+                        X = plank_x,
+                        Y = plank_y
+                    };
+                }
+                string strResultJson = JsonConvert.SerializeObject(plankinfos);
+                SoufTools.CreateFile(path_filename + ".json", strResultJson);
+
+
+                // Creating an Image
+                RenderTargetBitmap rtb = new RenderTargetBitmap((int)canvas.ActualWidth, (int)canvas.ActualHeight, 96, 96, PixelFormats.Pbgra32);
+                rtb.Render(canvas);
+                using (FileStream stream = new FileStream(path_filename + ".png", FileMode.Create))
+                {
+                    PngBitmapEncoder encoder5 = new PngBitmapEncoder();
+                    encoder5.Frames.Add(BitmapFrame.Create(rtb));
+                    encoder5.Save(stream);
+                }
 
             }
+
+
+            
 
             
         }
