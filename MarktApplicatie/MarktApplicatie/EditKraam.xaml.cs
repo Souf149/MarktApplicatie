@@ -398,5 +398,12 @@ namespace MarktApplicatie
             
 
         }
+
+        private void reset(object sender, MouseButtonEventArgs e)
+        {
+            EditKraam editkraam = new EditKraam();
+            editkraam.Show();
+            this.Close();
+        }
     }
 }

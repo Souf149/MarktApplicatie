@@ -7,43 +7,44 @@
         mc:Ignorable="d"
         Title="Editkraam" Height="450" Width="800">
 
-  <Window.Resources>
-    <Style TargetType="Rectangle">
+    <Window.Resources>
+        <Style TargetType="Rectangle">
 
-      <Setter Property="Width" Value="200" />
-      <Setter Property="Height" Value="200" />
-      <Setter Property="Fill" Value="Transparent"/>
-      <Setter Property="Stroke" Value="Black"/>
+            <Setter Property="Width" Value="200" />
+            <Setter Property="Height" Value="200" />
+            <Setter Property="Fill" Value="Transparent"/>
+            <Setter Property="Stroke" Value="Black"/>
 
-    </Style>
+        </Style>
 
-    <Style TargetType="TextBlock">
-      <Setter Property="Width" Value="100" />
-      <Setter Property="Height" Value="30" />
-    </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="30" />
+        </Style>
 
-    <Style TargetType="Button">
-      <Setter Property="Width" Value="75" />
-      <Setter Property="Height" Value="40" />
-    </Style>
-  </Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="75" />
+            <Setter Property="Height" Value="40" />
+        </Style>
+    </Window.Resources>
 
-  <Grid>
+    <Grid>
 
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="*"/>
-      <ColumnDefinition Width="150"/>
-    </Grid.ColumnDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="150"/>
+        </Grid.ColumnDefinitions>
 
-    <Grid.RowDefinitions>
-      <RowDefinition Height="*"/>
-      <RowDefinition Height="40"/>
-      <RowDefinition Height="40"/>
-      <RowDefinition Height="40"/>
-    </Grid.RowDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
 
 
-    <ListView Grid.Column="1" Grid.Row="0"
+        <ListView Grid.Column="1" Grid.Row="0"
         x:Name="listView"
       ScrollViewer.VerticalScrollBarVisibility="Visible"
       ScrollViewer.HorizontalScrollBarVisibility="Hidden"
@@ -52,7 +53,7 @@
 
 
 
-    <Canvas x:Name="canvas" Grid.Column="0"  Grid.Row="0" Grid.RowSpan="4" Panel.ZIndex="-1"
+        <Canvas x:Name="canvas" Grid.Column="0"  Grid.Row="0" Grid.RowSpan="5" Panel.ZIndex="-1"
             Background="#555555"
             PreviewMouseLeftButtonDown="Canvas_onclick" MouseLeftButtonUp="Canvas_onrelease"
             PreviewMouseMove="Canvas_PreviewMouseMove" PreviewMouseRightButtonDown="Canvas_right_click">
@@ -60,31 +61,34 @@
 
 
 
-      <!-- TODO: delete this debug text -->
-      <TextBlock x:Name="debugText" Text="" Canvas.Left="10" Canvas.Top="10"
+            <!-- TODO: delete this debug text -->
+            <TextBlock x:Name="debugText" Text="" Canvas.Left="10" Canvas.Top="10"
                  Width="400"/>
 
-      <TextBlock x:Name="positionText" Text="" Canvas.Left="10" Canvas.Top="30"
+            <TextBlock x:Name="positionText" Text="" Canvas.Left="10" Canvas.Top="30"
                  Width="400"/>
 
-    </Canvas>
+        </Canvas>
 
 
-    <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
-      <Button Content="Nieuw plank" PreviewMouseLeftButtonDown="Create_plank"/>
-      <Button x:Name="btn_switch_editmode" Content="Switch to&#10;add fruit" PreviewMouseLeftButtonDown="Switch_editmode_onclick"/>
-    </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
+            <Button Content="Nieuw plank" PreviewMouseLeftButtonDown="Create_plank"/>
+            <Button x:Name="btn_switch_editmode" Content="Switch to&#10;add fruit" PreviewMouseLeftButtonDown="Switch_editmode_onclick"/>
+        </StackPanel>
 
-    <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
-      <Button Content="Save" PreviewMouseLeftButtonDown="save_Composition"/>
-      <Button Content="Begin scherm" PreviewMouseLeftButtonDown="go_home"/>
-    </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
+            <Button Content="Reset" PreviewMouseLeftButtonDown="reset"/>
+            <Button Content="Begin scherm" PreviewMouseLeftButtonDown="go_home"/>
+        </StackPanel>
 
-    <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
-      <Button Content="Custom fruits" PreviewMouseLeftButtonDown="Go_to_custom_fruits" />
-      <Button Content="Verander&#10;grootte" PreviewMouseLeftButtonDown="Verander_grootte"/>
-    </StackPanel>
-  </Grid>
+        <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
+            <Button Content="Custom fruits" PreviewMouseLeftButtonDown="Go_to_custom_fruits" />
+            <Button Content="Verander&#10;grootte" PreviewMouseLeftButtonDown="Verander_grootte"/>
+        </StackPanel>
+
+        <Button Content="Save" PreviewMouseLeftButtonDown="save_Composition"
+                Grid.Column="1" Grid.Row="4" Width="150"/>
+    </Grid>
 
 
 
