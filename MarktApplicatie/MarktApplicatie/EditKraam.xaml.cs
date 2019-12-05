@@ -169,18 +169,15 @@ namespace MarktApplicatie
         public void save_Composition(object sender, MouseButtonEventArgs e)
         {
 
+            // Creating the JSON file
             PlankInfo[] plankinfos = new PlankInfo[planks.Count];
-
             for (int i = 0; i < planks.Count; i++)
             {
                 Rectangle r = planks[i].r;
-
-
                 var width = r.Width / SoufTools.GRID_SIZE;
                 var height = r.Height / SoufTools.GRID_SIZE;
                 double plank_x = Canvas.GetLeft(r);
                 double plank_y = Canvas.GetTop(r);
-
                 plankinfos[i] = new PlankInfo()
                 {
                     Width = width,
@@ -189,18 +186,43 @@ namespace MarktApplicatie
                     Y = plank_y
                 };
             }
-
             string strResultJson = JsonConvert.SerializeObject(plankinfos);
-            save_popup popup = new save_popup();
 
+
+            // Creating an image from canvas control
+            RenderTargetBitmap rtb = new RenderTargetBitmap((int)canvas.ActualWidth, (int)canvas.ActualHeight, 96, 96, PixelFormats.Pbgra32);
+            rtb.Render(canvas);
+
+
+            string img_filename = Path.Combine(SoufTools.compositions_path, "img.png");
+
+            using (FileStream stream5 = new FileStream(img_filename, FileMode.Create))
+            {
+                PngBitmapEncoder encoder5 = new PngBitmapEncoder();
+                encoder5.Frames.Add(BitmapFrame.Create(rtb));
+                encoder5.Save(stream5);
+            }
+            
+
+
+            //PngBitmapEncoder png = new PngBitmapEncoder();
+            //png.Frames.Add(BitmapFrame.Create(rtb));
+            //MemoryStream stream = new MemoryStream();
+            //png.Save(stream);
+
+
+
+            save_popup popup = new save_popup();
             if (popup.ShowDialog() == true) {
                 string filename = popup.FileName;
-
                 string path = Path.Combine(SoufTools.compositions_path, filename);
                 SoufTools.CreateFile(path, strResultJson);
 
 
             }
+
+
+            
 
             
         }
