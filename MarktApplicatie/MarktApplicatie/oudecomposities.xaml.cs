@@ -31,16 +31,28 @@ namespace MarktApplicatie
         }
 
         private void AddListViewItem(string filename) {
+
+            // add item to the list if the filename ends with .json
+            string[] file = filename.Split('.');
             TextBlock b = new TextBlock() {
-                Text = filename.Split('.')[0],
+                Text = file[0],
                 FontSize = 24
             };
-            listView.Items.Add(b);
+
+            if(file[1] == "json") {
+                listView.Items.Add(b);
+            }
+            
 
         }
 
         private void ListView_onclick(object sender, MouseButtonEventArgs e) {
-            
+            TextBlock txt = (TextBlock)listView.SelectedItem;
+            string filename = txt.Text + ".png";
+
+            img_preview.Source = new BitmapImage(new Uri(SoufTools.compositions_path + filename, UriKind.Absolute));
+
+
 
         }
 

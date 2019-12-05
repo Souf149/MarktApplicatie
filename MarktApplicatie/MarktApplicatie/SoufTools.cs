@@ -10,9 +10,9 @@ namespace MarktApplicatie {
     public static class SoufTools {
 
         public static string path = AppDomain.CurrentDomain.BaseDirectory;
-        public static string data_folder_path = AppDomain.CurrentDomain.BaseDirectory + @"data";
+        public static string data_folder_path = AppDomain.CurrentDomain.BaseDirectory + @"data\";
         public static string custom_fruit_path = data_folder_path + @"\custom_fruits.txt";
-        public static string compositions_path = data_folder_path + @"\compositions";
+        public static string compositions_path = data_folder_path + @"\compositions\";
 
         public static string default_fruit = @"Appel|#FF0000;Banaan|#ffe119;Limoen|#bcf60c;Draken fruit|#911eb4";
         public static int GRID_SIZE = 48;

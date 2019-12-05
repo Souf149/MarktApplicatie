@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MarktApplicatie"
         mc:Ignorable="d"
-        Title="Oude Composities" Height="500" Width="800">
+        Title="Oude Composities" Height="500" Width="1000">
 
     <Window.Resources>
         <Style TargetType="Button">
@@ -18,12 +18,13 @@
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.504,1.5" StartPoint="0.504,0.03">
                 <GradientStop Color="#FFFFC934" Offset="0"/>
-                <GradientStop Color="#FFFFFFFF" Offset="0.567"/>
+                <GradientStop Color="#FFFFFFFF" Offset="0.9"/>
             </LinearGradientBrush>
         </Grid.Background>
         
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
@@ -33,6 +34,12 @@
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
 
+        <Canvas  x:Name="canvas" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <Image Name="img_preview" Margin="0, 20" Stretch="Fill"/>
+
+        </Canvas>
+        
+        
         <ListView Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Margin="10"
         x:Name="listView"
           ScrollViewer.VerticalScrollBarVisibility="Visible"
@@ -40,16 +47,14 @@
           ScrollViewer.CanContentScroll="False" 
             PreviewMouseLeftButtonUp="ListView_onclick"/>
 
-        <StackPanel Orientation="Vertical" Grid.Column="2" Grid.Row ="1" >
+        <StackPanel Orientation="Vertical" Grid.Column="3" Grid.Row ="1" >
             <Button Content="Verander naam" Click="btnEditTitle_Click" />
             <Button Content="Start schetsen" Click="StartSketch"/>
             <Button Content="Beginscherm" Click="onClick_homepage"/>
             <Button Content="Verwijder" Click="OnClick_Verwijder"/>
         </StackPanel>
 
-        <Canvas  x:Name="canvas" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2">
-            
-        </Canvas>
+        
         
         
 
