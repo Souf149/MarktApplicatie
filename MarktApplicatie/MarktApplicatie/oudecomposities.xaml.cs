@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -17,7 +18,7 @@ namespace MarktApplicatie
     public partial class OudeComposities : Window
     {
 
-        string[] composition_files;
+        string[] composition_names;
 
         public OudeComposities()
         {
@@ -25,7 +26,7 @@ namespace MarktApplicatie
 
             UpdateList();
 
-            if (composition_files.Length < 1) {
+            if (composition_names.Length < 1) {
                 MessageBox.Show("Je moet eerst een compositie opslaan!");
             }
         }
@@ -33,25 +34,33 @@ namespace MarktApplicatie
         private void AddListViewItem(string filename) {
 
             // add item to the list if the filename ends with .json
-            string[] file = filename.Split('.');
             TextBlock b = new TextBlock() {
-                Text = file[0],
+                Text = filename,
                 FontSize = 24
             };
 
-            if(file[1] == "json") {
-                listView.Items.Add(b);
-            }
-            
+            listView.Items.Add(b);
 
         }
 
-        private void ListView_onclick(object sender, MouseButtonEventArgs e) {
+        private void ListView_onclick(object sender, MouseButtonEventArgs e)
+        {
+            if (listView.SelectedIndex < 0) {
+                return;
+            }
+
             TextBlock txt = (TextBlock)listView.SelectedItem;
-            string filename = txt.Text + ".png";
+            string img_filename = txt.Text + ".png";
 
-            img_preview.Source = new BitmapImage(new Uri(SoufTools.compositions_path + filename, UriKind.Absolute));
+        
 
+            BitmapImage image = new BitmapImage();
+            image.BeginInit();
+            image.CacheOption = BitmapCacheOption.OnLoad;
+            image.UriSource = new Uri(SoufTools.compositions_path + img_filename);
+            image.EndInit();
+
+            img_preview.Source = image;
 
 
         }
@@ -59,14 +68,18 @@ namespace MarktApplicatie
         private void onClick_homepage(object sender, RoutedEventArgs e) {
             MainWindow home = new MainWindow();
             home.Show();
-            this.Close();
+            Close();
         }
 
         public void StartSketch(object sender, RoutedEventArgs e) {
 
-            string selected_file_name = composition_files[listView.SelectedIndex];
+            if (listView.SelectedIndex < 0) {
+                return;
+            }
 
-            string plankinfo = File.ReadAllText(Path.Combine(@"..\..\json\", selected_file_name));
+            string selected_file_name = composition_names[listView.SelectedIndex];
+
+            string plankinfo = File.ReadAllText(Path.Combine(SoufTools.compositions_path, selected_file_name + ".json"));
             PlankInfo[] result = JsonConvert.DeserializeObject<PlankInfo[]>(plankinfo);
 
             EditKraam editkraam = new EditKraam();
@@ -94,11 +107,17 @@ namespace MarktApplicatie
             save_popup popup = new save_popup();
 
             if (popup.ShowDialog() == true) {
+                string compositions_path = SoufTools.compositions_path;
 
-                string new_path = Path.Combine(SoufTools.compositions_path, popup.FileName + ".json");
-                string old_path = composition_files[selected_index];
+                string old_filename = composition_names[selected_index];
+                string new_filename = popup.FileName;
 
-                File.Move(old_path, new_path);
+                string old_path = Path.Combine(compositions_path, old_filename);
+                string new_path = Path.Combine(compositions_path, new_filename);
+
+                
+                File.Move(old_path + ".png", new_path + ".png");
+                File.Move(old_path + ".json", new_path + ".json");
 
                 UpdateList();
             }
@@ -108,13 +127,21 @@ namespace MarktApplicatie
 
             listView.Items.Clear();
 
-            composition_files = SoufTools.GetAllCompositions();
+            string[] files = SoufTools.GetAllCompositions();
+            composition_names = new string[files.Length / 2];
 
+            
+            for (int i = 0, j = 0; i < files.Length; i++)
+            {
+                if(Path.GetExtension(files[i]) == ".json")
+                {
+                    composition_names[j++] = Path.GetFileNameWithoutExtension(files[i]);
+                }
+            }
+            
             // for every file get the filename and add it to 
-            foreach (string composition_filepath in composition_files) {
-                string[] path_parts = composition_filepath.Split('\\');
-                string filename = path_parts[path_parts.Length - 1];
-                AddListViewItem(filename);
+            foreach (string name in composition_names) {
+                    AddListViewItem(name);
             }
 
 
@@ -122,11 +149,19 @@ namespace MarktApplicatie
 
         private void OnClick_Verwijder(object sender, RoutedEventArgs e) {
 
+            if (listView.SelectedIndex < 0) {
+                return;
+            }
+
+
             confirmation_popup popup = new confirmation_popup();
 
             if (popup.ShowDialog() == true) {
                 if (popup.Confirmation) {
-                    File.Delete(composition_files[listView.SelectedIndex]);
+                    string filename = composition_names[listView.SelectedIndex];
+                    File.Delete(Path.Combine(SoufTools.compositions_path, filename + ".json"));
+                    File.Delete(Path.Combine(SoufTools.compositions_path, filename + ".png"));
+                    img_preview.Source = new BitmapImage();
                     UpdateList();
                 }
             }
