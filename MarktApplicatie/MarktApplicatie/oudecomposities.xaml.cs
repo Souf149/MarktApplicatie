@@ -17,7 +17,7 @@ namespace MarktApplicatie
     public partial class OudeComposities : Window
     {
 
-        string[] composition_files;
+        string[] composition_names;
 
         public OudeComposities()
         {
@@ -25,7 +25,7 @@ namespace MarktApplicatie
 
             UpdateList();
 
-            if (composition_files.Length < 1) {
+            if (composition_names.Length < 1) {
                 MessageBox.Show("Je moet eerst een compositie opslaan!");
             }
         }
@@ -45,11 +45,11 @@ namespace MarktApplicatie
         private void ListView_onclick(object sender, MouseButtonEventArgs e)
         {
             TextBlock txt = (TextBlock)listView.SelectedItem;
-            string filename = txt.Text + ".png";
+            string img_filename = txt.Text + ".png";
 
         
             img_preview.BeginInit();
-            img_preview.Source = new BitmapImage(new Uri(SoufTools.compositions_path + filename, UriKind.Absolute));
+            img_preview.Source = new BitmapImage(new Uri(SoufTools.compositions_path + img_filename, UriKind.Absolute));
             img_preview.EndInit();
 
 
@@ -59,14 +59,14 @@ namespace MarktApplicatie
         private void onClick_homepage(object sender, RoutedEventArgs e) {
             MainWindow home = new MainWindow();
             home.Show();
-            this.Close();
+            Close();
         }
 
         public void StartSketch(object sender, RoutedEventArgs e) {
 
-            string selected_file_name = composition_files[listView.SelectedIndex];
+            string selected_file_name = composition_names[listView.SelectedIndex];
 
-            string plankinfo = File.ReadAllText(Path.Combine(@"..\..\json\", selected_file_name));
+            string plankinfo = File.ReadAllText(Path.Combine(@"..\..\json\", selected_file_name + ".json"));
             PlankInfo[] result = JsonConvert.DeserializeObject<PlankInfo[]>(plankinfo);
 
             EditKraam editkraam = new EditKraam();
@@ -94,11 +94,16 @@ namespace MarktApplicatie
             save_popup popup = new save_popup();
 
             if (popup.ShowDialog() == true) {
+                string compositions_path = SoufTools.compositions_path;
+                string old_filename = composition_names[selected_index];
+                string new_filename = popup.FileName;
 
-                string new_path = Path.Combine(SoufTools.compositions_path, popup.FileName + ".json");
-                string old_path = composition_files[selected_index];
+                string old_path = Path.Combine(compositions_path, old_filename);
+                string new_path = Path.Combine(compositions_path, new_filename);
 
-                File.Move(old_path, new_path);
+
+                File.Move(old_path + ".json", new_path + ".json");
+                File.Move(old_path + ".img", new_path + ".img");
 
                 UpdateList();
             }
@@ -108,21 +113,21 @@ namespace MarktApplicatie
 
             listView.Items.Clear();
 
-            composition_files = SoufTools.GetAllCompositions();
+            string[] files = SoufTools.GetAllCompositions();
+            composition_names = new string[files.Length / 2];
 
-            // for every file get the filename and add it to 
-            foreach (string composition_filepath in composition_files) {
-                string[] path_parts = composition_filepath.Split('\\');
-                string file = path_parts[path_parts.Length - 1];
-
-                string filename = file.Split('.')[0];
-                string extension = file.Split('.')[1];
-                    
-                if(extension == "json")
+            
+            for (int i = 0, j = 0; i < files.Length; i++)
+            {
+                if(Path.GetExtension(files[i]) == "json")
                 {
-                    AddListViewItem(filename);
+                    composition_names[j++] = Path.GetFileNameWithoutExtension(files[i]);
                 }
-
+            }
+            
+            // for every file get the filename and add it to 
+            foreach (string name in composition_names) {
+                    AddListViewItem(name);
             }
 
 
@@ -134,7 +139,9 @@ namespace MarktApplicatie
 
             if (popup.ShowDialog() == true) {
                 if (popup.Confirmation) {
-                    File.Delete(composition_files[listView.SelectedIndex]);
+                    string filename = composition_names[listView.SelectedIndex];
+                    File.Delete(Path.Combine(SoufTools.compositions_path, filename + ".json"));
+                    File.Delete(Path.Combine(SoufTools.compositions_path, filename + ".png"));
                     UpdateList();
                 }
             }
