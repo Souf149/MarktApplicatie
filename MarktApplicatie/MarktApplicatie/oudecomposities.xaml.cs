@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -44,14 +45,22 @@ namespace MarktApplicatie
 
         private void ListView_onclick(object sender, MouseButtonEventArgs e)
         {
+            if (listView.SelectedIndex < 0) {
+                return;
+            }
+
             TextBlock txt = (TextBlock)listView.SelectedItem;
             string img_filename = txt.Text + ".png";
 
         
-            img_preview.BeginInit();
-            img_preview.Source = new BitmapImage(new Uri(SoufTools.compositions_path + img_filename, UriKind.Absolute));
-            img_preview.EndInit();
 
+            BitmapImage image = new BitmapImage();
+            image.BeginInit();
+            image.CacheOption = BitmapCacheOption.OnLoad;
+            image.UriSource = new Uri(SoufTools.compositions_path + img_filename);
+            image.EndInit();
+
+            img_preview.Source = image;
 
 
         }
@@ -64,9 +73,13 @@ namespace MarktApplicatie
 
         public void StartSketch(object sender, RoutedEventArgs e) {
 
+            if (listView.SelectedIndex < 0) {
+                return;
+            }
+
             string selected_file_name = composition_names[listView.SelectedIndex];
 
-            string plankinfo = File.ReadAllText(Path.Combine(@"..\..\json\", selected_file_name + ".json"));
+            string plankinfo = File.ReadAllText(Path.Combine(SoufTools.compositions_path, selected_file_name + ".json"));
             PlankInfo[] result = JsonConvert.DeserializeObject<PlankInfo[]>(plankinfo);
 
             EditKraam editkraam = new EditKraam();
@@ -95,15 +108,16 @@ namespace MarktApplicatie
 
             if (popup.ShowDialog() == true) {
                 string compositions_path = SoufTools.compositions_path;
+
                 string old_filename = composition_names[selected_index];
                 string new_filename = popup.FileName;
 
                 string old_path = Path.Combine(compositions_path, old_filename);
                 string new_path = Path.Combine(compositions_path, new_filename);
 
-
+                
+                File.Move(old_path + ".png", new_path + ".png");
                 File.Move(old_path + ".json", new_path + ".json");
-                File.Move(old_path + ".img", new_path + ".img");
 
                 UpdateList();
             }
@@ -119,7 +133,7 @@ namespace MarktApplicatie
             
             for (int i = 0, j = 0; i < files.Length; i++)
             {
-                if(Path.GetExtension(files[i]) == "json")
+                if(Path.GetExtension(files[i]) == ".json")
                 {
                     composition_names[j++] = Path.GetFileNameWithoutExtension(files[i]);
                 }
@@ -135,6 +149,11 @@ namespace MarktApplicatie
 
         private void OnClick_Verwijder(object sender, RoutedEventArgs e) {
 
+            if (listView.SelectedIndex < 0) {
+                return;
+            }
+
+
             confirmation_popup popup = new confirmation_popup();
 
             if (popup.ShowDialog() == true) {
@@ -142,6 +161,7 @@ namespace MarktApplicatie
                     string filename = composition_names[listView.SelectedIndex];
                     File.Delete(Path.Combine(SoufTools.compositions_path, filename + ".json"));
                     File.Delete(Path.Combine(SoufTools.compositions_path, filename + ".png"));
+                    img_preview.Source = new BitmapImage();
                     UpdateList();
                 }
             }
