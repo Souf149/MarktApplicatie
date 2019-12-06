@@ -33,24 +33,24 @@ namespace MarktApplicatie
         private void AddListViewItem(string filename) {
 
             // add item to the list if the filename ends with .json
-            string[] file = filename.Split('.');
             TextBlock b = new TextBlock() {
-                Text = file[0],
+                Text = filename,
                 FontSize = 24
             };
 
-            if(file[1] == "json") {
-                listView.Items.Add(b);
-            }
-            
+            listView.Items.Add(b);
 
         }
 
-        private void ListView_onclick(object sender, MouseButtonEventArgs e) {
+        private void ListView_onclick(object sender, MouseButtonEventArgs e)
+        {
             TextBlock txt = (TextBlock)listView.SelectedItem;
             string filename = txt.Text + ".png";
 
+        
+            img_preview.BeginInit();
             img_preview.Source = new BitmapImage(new Uri(SoufTools.compositions_path + filename, UriKind.Absolute));
+            img_preview.EndInit();
 
 
 
@@ -113,8 +113,16 @@ namespace MarktApplicatie
             // for every file get the filename and add it to 
             foreach (string composition_filepath in composition_files) {
                 string[] path_parts = composition_filepath.Split('\\');
-                string filename = path_parts[path_parts.Length - 1];
-                AddListViewItem(filename);
+                string file = path_parts[path_parts.Length - 1];
+
+                string filename = file.Split('.')[0];
+                string extension = file.Split('.')[1];
+                    
+                if(extension == "json")
+                {
+                    AddListViewItem(filename);
+                }
+
             }
 
 
