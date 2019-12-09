@@ -7,7 +7,7 @@
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"      
         mc:Ignorable="d"
         d:DesignHeight="300" d:DesignWidth="500" d:DataContext="{d:DesignInstance local:statistieken2}"
-        Title="BasicCollum" Height="450" Width="800">
+        Title="Cirkeldiagram huidige week" Height="450" Width="800">
     <Grid Background="#FFEDEDED">
 
         <Button x:Name="Home" Content="Home" HorizontalAlignment="Left" Margin="0,62,0,0" VerticalAlignment="Top" Width="75" Click="openHome" FontSize="11"
