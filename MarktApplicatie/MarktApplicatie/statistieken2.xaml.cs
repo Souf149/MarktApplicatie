@@ -30,7 +30,7 @@ namespace MarktApplicatie
             {
                 new ColumnSeries
                 {
-                    Title = "vorige week",
+                    Title = "week 1 ",
                     Values = new ChartValues<double> { 11, 20, 44, 62 }
                 }
             };
@@ -39,12 +39,24 @@ namespace MarktApplicatie
 
             SeriesCollection.Add(new ColumnSeries
             {
-                Title = "deze week",
+                Title = "week 2",
                 Values = new ChartValues<double> { 22, 88, 34 }
             });
 
 
             SeriesCollection[1].Values.Add(48d);
+
+            SeriesCollection.Add(new ColumnSeries
+            {
+                Title = "week 3",
+                Values = new ChartValues<double> { 26,68, 54, 33 }
+            });
+
+            SeriesCollection.Add(new ColumnSeries
+            {
+                Title = "week 4",
+                Values = new ChartValues<double> { 15, 22, 34, 21 }
+            });
 
             Labels = new[] { "Bananen", "Komkommers", "Kiwis", "Bloemskool" };
             Formatter = value => value.ToString("N");
