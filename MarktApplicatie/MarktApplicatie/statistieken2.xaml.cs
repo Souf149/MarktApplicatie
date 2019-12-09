@@ -58,7 +58,7 @@ namespace MarktApplicatie
                 Values = new ChartValues<double> { 15, 22, 34, 21 }
             });
 
-            Labels = new[] { "Bananen", "Komkommers", "Kiwis", "Bloemskool" };
+            Labels = new[] { "Appels", "Peren", "Citroenen", "Tomaten" };
             Formatter = value => value.ToString("N");
 
             DataContext = this;

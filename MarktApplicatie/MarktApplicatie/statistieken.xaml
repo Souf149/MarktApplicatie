@@ -10,10 +10,10 @@
         Title="BasicCollum" Height="450" Width="800">
     <Grid Background="#FFEDEDED">
 
-        <Button x:Name="Home" Content="Home" HorizontalAlignment="Left" Margin="0,62,0,0" VerticalAlignment="Top" Width="75" Click="openHome"
+        <Button x:Name="Home" Content="Home" HorizontalAlignment="Left" Margin="0,62,0,0" VerticalAlignment="Top" Width="75" Click="openHome" FontSize="11"
                />
-        <Button x:Name="Stat2" Content="vorige maand2" HorizontalAlignment="Left" Margin="0,90,0,0" VerticalAlignment="Top" Width="75" Click="openStat2" />
-        <Button x:Name="Stat3" Content="Stat3" HorizontalAlignment="Left" Margin="0,120,0,0" VerticalAlignment="Top" Width="75" Click="openStat3" />
+        <Button x:Name="Stat2" Content="Vorige maand" HorizontalAlignment="Left" Margin="0,90,0,0" VerticalAlignment="Top" Width="75" Click="openStat2" FontSize="11" />
+        <Button x:Name="Stat3" Content="Cirkeldiagram" HorizontalAlignment="Left" Margin="0,120,0,0" VerticalAlignment="Top" Width="75" Click="openStat3" FontSize="11" />
 
 
 
