@@ -88,6 +88,7 @@
 
         <Button Content="Save" PreviewMouseLeftButtonDown="save_Composition"
                 Grid.Column="1" Grid.Row="4" Width="150"/>
+        <Button Content="Randomize" PreviewMouseLeftButtonDown="randomize_composition"/> 
     </Grid>
 
 

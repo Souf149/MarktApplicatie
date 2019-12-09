@@ -413,5 +413,48 @@ namespace MarktApplicatie
             editkraam.Show();
             this.Close();
         }
+
+        private void randomize_composition(object sender, MouseButtonEventArgs e)
+        {
+            var rand = new Random();
+            var plank_times = rand.Next(4, 8);
+            var prev_x = 0;
+            for (int i = 0; i < plank_times; i++)
+            {
+               
+                var width = rand.Next(2, 11);
+                var height = rand.Next(2, 11);
+                var x = rand.Next(0, 1400);
+                var y = rand.Next(0, 800);
+
+                if (true)
+                {
+
+
+                    debugText.Text = planks.Count.ToString();
+                    var width_plank = Convert.ToInt16(width);
+                    var height_plank = Convert.ToInt16(height);
+                    var x_plank = Convert.ToInt16(x);
+                    var y_plank = Convert.ToInt16(y);
+
+
+                    SetColor("#654321");
+
+                    Plank p = new Plank(
+                        planks.Count,
+                        Rect(x_plank, y_plank, width_plank * GRID_SIZE, height_plank * GRID_SIZE)
+                        );
+
+                    planks.Add(p);
+                    selectedPlank = p;
+                    Plank.selectedPlank = planks.Count() - 1;
+
+                    prev_x = width_plank;
+                    CheckPlanks();
+                    
+                }
+                
+            }
+        }
     }
 }
