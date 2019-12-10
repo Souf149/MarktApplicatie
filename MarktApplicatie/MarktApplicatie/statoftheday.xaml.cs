@@ -72,12 +72,12 @@ namespace MarktApplicatie
 
             if (i == 1)
             {
-                textstat.Text = "jemoeder";
+                textstat.Text = "Je hebt deze week 30 appels meer verkocht dan vorige week. Klik op de knop 'Statistiekenscherm' om deze statistiek direct te bekijken.";
             }
 
             if (i == 2)
             {
-                textstat.Text = "jevader";
+                textstat.Text = "Je hebt deze week 40 appels meer verkocht dan vorige week. Klik op de knop 'Statistiekenscherm' om deze statistiek direct te bekijken.";
             }
 
         }
