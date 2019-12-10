@@ -1,0 +1,31 @@
+﻿<Window x:Class="MarktApplicatie.statoftheday"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MarktApplicatie"
+        mc:Ignorable="d"
+        Title="Statistiek van de dag" Height="226.358" Width="529.722">
+
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="110*"/>
+            <ColumnDefinition Width="110*"/>
+            <ColumnDefinition Width="110*"/>
+
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Je hebt deze week 20 appels meer verkocht dan vorige week. Klik op de knop 'Statistiekenscherm' om deze statistiek direct te bekijken." VerticalAlignment="Top" Grid.ColumnSpan="3" Width="503" Height="76" Grid.RowSpan="2"/>
+        <CheckBox Grid.Column="0" Grid.Row="1" Content="Deze melding niet meer weergeven bij opstarten" HorizontalAlignment="Left" Margin="10,55.4,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Grid.ColumnSpan="3" Height="20" Width="339"/>
+        <Button Content="Sluiten" Grid.Column="0" HorizontalAlignment="Left" Margin="30,24.4,0,0" Grid.Row="2" VerticalAlignment="Top" Width="110" Height="20"/>
+        <Button Content="Statistiekenscherm" Grid.Column="1" HorizontalAlignment="Left" Margin="35.2,24.4,0,0" Grid.Row="2" VerticalAlignment="Top" Width="110" Height="20"/>
+        <Button Content="Volgende statistiek" Grid.Column="2" HorizontalAlignment="Left" Margin="31.2,24.4,0,0" Grid.Row="2" VerticalAlignment="Top" Width="110" Height="20" Click="Sluiten"/>
+        
+    </Grid>
+</Window>

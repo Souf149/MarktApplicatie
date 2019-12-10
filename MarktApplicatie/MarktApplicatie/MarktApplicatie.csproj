@@ -123,6 +123,9 @@
     <Compile Include="statistieken3.xaml.cs">
       <DependentUpon>statistieken3.xaml</DependentUpon>
     </Compile>
+    <Compile Include="statoftheday.xaml.cs">
+      <DependentUpon>statoftheday.xaml</DependentUpon>
+    </Compile>
     <Compile Include="tijdelijkstatscherm.xaml.cs">
       <DependentUpon>tijdelijkstatscherm.xaml</DependentUpon>
     </Compile>
@@ -186,6 +189,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="statistieken3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="statoftheday.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
