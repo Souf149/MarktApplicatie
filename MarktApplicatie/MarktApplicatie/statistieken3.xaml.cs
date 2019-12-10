@@ -24,34 +24,16 @@ namespace MarktApplicatie
         {
             InitializeComponent();
 
-
-
-            SeriesCollection = new SeriesCollection
-            {
-                new ColumnSeries
-                {
-                    Title = "vorige week",
-                    Values = new ChartValues<double> { 23, 37, 54, 62 }
-                }
-            };
-
-
-
-            SeriesCollection.Add(new ColumnSeries
-            {
-                Title = "deze week",
-                Values = new ChartValues<double> { 33, 28, 64 }
-            });
-
-
-            SeriesCollection[1].Values.Add(33d);
-
-            Labels = new[] { "Sinasappels", "Ananas", "Kokosnoten", "Asperges" };
-            Formatter = value => value.ToString("N");
+            PointLabel = chartPoint =>
+                string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
 
             DataContext = this;
+
+            
         }
 
+        public Func<ChartPoint, string> PointLabel { get; set; }
+       
 
 
         public SeriesCollection SeriesCollection { get; set; }
