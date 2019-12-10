@@ -30,8 +30,6 @@ namespace MarktApplicatie
 
             }
 
-            
-
         }
 
         private void Sluiten(object sender, RoutedEventArgs e)
@@ -40,6 +38,16 @@ namespace MarktApplicatie
             MainWindow main = new MainWindow();
             main.Show();
             this.Close();
+
+            if (checkbox.IsChecked == true)
+            {
+               
+            }
+
+            
+
+
+
 
         }
 
@@ -58,7 +66,7 @@ namespace MarktApplicatie
             if (i == 3)
             {
                 i = 0;
-                
+                textstat.Text = "Je hebt deze week 20 appels meer verkocht dan vorige week. Klik op de knop 'Statistiekenscherm' om deze statistiek direct te bekijken.";
 
             }
 
