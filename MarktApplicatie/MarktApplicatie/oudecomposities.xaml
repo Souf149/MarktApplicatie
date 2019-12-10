@@ -40,8 +40,7 @@
 
         </Canvas>
 
-        <TextBox Grid.Column="0" Grid.Row="0" DockPanel.Dock="Top" Text="Zoek hier" Name="blabla" TextChanged="txtFilter_TextChanged" FontSize="18" Margin="10,4,10,10.4"/>
-
+        
 
         <ListView Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Margin="10,8.6,10,10.4"
         x:Name="listView"

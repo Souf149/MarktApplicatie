@@ -19,15 +19,61 @@ namespace MarktApplicatie
     /// </summary>
     public partial class statoftheday : Window
     {
+        public int i = 0;
         public statoftheday()
         {
             InitializeComponent();
+
+            if (i==0)
+            {
+                textstat.Text = "Je hebt deze week 20 appels meer verkocht dan vorige week. Klik op de knop 'Statistiekenscherm' om deze statistiek direct te bekijken.";
+
+            }
+
+            
+
         }
 
         private void Sluiten(object sender, RoutedEventArgs e)
         {
-            this.Close();
             
+            MainWindow main = new MainWindow();
+            main.Show();
+            this.Close();
+
         }
+
+        private void GoToStatistiekenscherm(object sender, RoutedEventArgs e)
+        {
+            
+            statistieken statistieken = new statistieken();
+            statistieken.Show();
+            this.Close();
+
+        }
+
+        private void NextStat(object sender, RoutedEventArgs e)
+        {
+            i += 1;
+            if (i == 3)
+            {
+                i = 0;
+                
+
+            }
+
+            if (i == 1)
+            {
+                textstat.Text = "jemoeder";
+            }
+
+            if (i == 2)
+            {
+                textstat.Text = "jevader";
+            }
+
+        }
+
+
     }
 }
