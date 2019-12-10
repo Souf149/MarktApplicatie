@@ -1,0 +1,21 @@
+﻿<Window x:Class="MarktApplicatie.automatischplank_popup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MarktApplicatie"
+        mc:Ignorable="d"
+        Title="automatische opzet" Height="200" Width="300">
+    <Grid x:Name="grid">
+        <StackPanel x:Name="tabs">
+            <TextBlock Text="How many planks?"></TextBlock>
+            <TextBox x:Name="amount_planks" Grid.Column="1" Grid.Row="1"
+                 Margin="10"/>
+            <Button x:Name="makemycomposition" Content="Make My Composition"
+                    FontSize="15" Click="makemycomposition_Click"/>
+            
+        </StackPanel>
+
+    </Grid>
+
+</Window>
