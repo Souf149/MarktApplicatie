@@ -8,19 +8,8 @@
         FontSize="10"
         Title="settingscreen" Height="450" Width="800">
     <Grid x:Name="LayoutRoot">
-        <Grid.Triggers>
-            <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="playbutton">
-                <BeginStoryboard Storyboard="{StaticResource PlaySoundStoryboard}" Name="theStoryboard" />
-            </EventTrigger>
-            <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="stopbutton">
-                <StopStoryboard BeginStoryboardName="theStoryboard" />
-            </EventTrigger>
-        </Grid.Triggers>
-        <MediaElement x:Name="myMediaElement" Width="100" Height="100" Margin="511,178,182.6,142"/>
-        <Button Click="playbutton_Click" Name="playbutton" HorizontalAlignment="Left" Margin="82,72,0,0" VerticalAlignment="Top" Width="75">play</Button>
-        <Button Click="stopbutton_Click" Name="stopbutton" HorizontalAlignment="Left" Margin="82,30,0,0" VerticalAlignment="Top" Width="75">stop</Button>
 
-
+        <CheckBox Name="checkbox" Content="Laat statistiek van de dag zien"/>
         <Button Click="Home_button" Content="Home" HorizontalAlignment="Left" Margin="494,30,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Click="Darkmode" Content="Darkmode" HorizontalAlignment="Left" Margin="82,163,0,0" VerticalAlignment="Top" Width="134"/>
         <Button Click="Bigger_fontsize" Content="Bigger fontsize" HorizontalAlignment="Left" Margin="82,218,0,0" VerticalAlignment="Top" Width="110"/>

@@ -118,5 +118,17 @@ namespace MarktApplicatie {
                 this["tab8Setting"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Message {
+            get {
+                return ((bool)(this["Message"]));
+            }
+            set {
+                this["Message"] = value;
+            }
+        }
     }
 }

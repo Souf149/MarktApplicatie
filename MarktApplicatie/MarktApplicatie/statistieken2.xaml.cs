@@ -31,7 +31,7 @@ namespace MarktApplicatie
                 new ColumnSeries
                 {
                     Title = "week 1 ",
-                    Values = new ChartValues<double> { 11, 20, 44, 62 }
+                    Values = new ChartValues<double> { 13, 20, 44, 62 }
                 }
             };
 

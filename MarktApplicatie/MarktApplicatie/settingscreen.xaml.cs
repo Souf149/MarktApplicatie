@@ -73,7 +73,20 @@ namespace MarktApplicatie
 
         private void Button_save(object sender, RoutedEventArgs e)
         {
+            if (checkbox.IsChecked == true)
+            {
 
+                Properties.Settings.Default.Message = true;
+                Properties.Settings.Default.Save();
+            }
+
+            if (checkbox.IsChecked == false)
+            {
+
+                Properties.Settings.Default.Message = false;
+                Properties.Settings.Default.Save();
+
+            }
         }
 
         private void Button_reset(object sender, RoutedEventArgs e)
@@ -82,6 +95,11 @@ namespace MarktApplicatie
             FontSize = 10;
             Background = new SolidColorBrush(Colors.White);
             Foreground = new SolidColorBrush(Colors.Black);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 
