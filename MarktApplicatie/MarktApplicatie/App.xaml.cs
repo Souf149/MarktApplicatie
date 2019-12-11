@@ -20,12 +20,12 @@ namespace MarktApplicatie
         {
 
            
-            if (MarktApplicatie.Properties.Settings.Default.Message == true)
+            if (Settings1.Default.Message == true)
             {
                 new MainWindow().Show();
             }
           
-            if (MarktApplicatie.Properties.Settings.Default.Message == false)
+            if (Settings1.Default.Message == false)
             {
                 new statoftheday().Show();
                 

@@ -76,15 +76,19 @@ namespace MarktApplicatie
             if (checkbox.IsChecked == true)
             {
 
-                Properties.Settings.Default.Message = true;
-                Properties.Settings.Default.Save();
+                Settings1.Default.Message = false;
+                Settings1.Default.Save();
+
             }
 
             if (checkbox.IsChecked == false)
             {
 
-                Properties.Settings.Default.Message = false;
-                Properties.Settings.Default.Save();
+                
+
+                Settings1.Default.Message = true;
+                Settings1.Default.Save();
+
 
             }
         }
