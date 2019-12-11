@@ -11,7 +11,7 @@ namespace MarktApplicatie {
 
         public static string path = AppDomain.CurrentDomain.BaseDirectory;
         public static string data_folder_path = AppDomain.CurrentDomain.BaseDirectory + @"data\";
-        public static string custom_fruit_path = data_folder_path + @"\custom_fruits.txt";
+        public static string custom_fruit_path = data_folder_path + @"custom_fruits.txt";
         public static string compositions_path = data_folder_path + @"\compositions\";
 
         public static string default_fruit = @"Appel|#FF0000;Banaan|#ffe119;Limoen|#bcf60c;Draken fruit|#911eb4";
@@ -79,8 +79,8 @@ namespace MarktApplicatie {
             if (!File.Exists(file_path)) {
                 FileStream file = File.Create(file_path);
                 file.Close();
+                File.WriteAllText(file_path, value);
             }
-            File.WriteAllText(file_path, value);
         }
 
         private static void CreateDataFolder() {
