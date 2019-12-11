@@ -28,13 +28,11 @@
         </Grid.RowDefinitions>
 
         <CheckBox Grid.Row="0" Grid.Column="0" Name="checkbox" FontSize="16" Content="Laat statistiek van de dag zien" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <Button FontSize="16" Click="Home_button" Grid.Column="0" Grid.Row="1" Content="Home" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="39,33.2,78.4,0" Height="63" Width="137" />
+        <Button FontSize="16" Click="Home_button" Grid.Column="2" Content="Home" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="61,36,55.6,0" Height="63" Width="137" />
 
 
 
-        <Button Content="Save" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Margin="62.6,83,0,0" VerticalAlignment="Top" Width="117" Click="Button_save" Height="37"/>
-        <Button Content="Reset" HorizontalAlignment="Left" Margin="569,355,0,0" VerticalAlignment="Top" Width="107" Click="Button_reset" Height="37"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="115.6,71.2,0,45.8" Grid.Row="1" Width="75" Grid.Column="1" />
+        <Button Content="Save" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" Margin="61,61,0,0" VerticalAlignment="Top" Width="117" Click="Button_save" Height="37"/>
 
     </Grid>
 

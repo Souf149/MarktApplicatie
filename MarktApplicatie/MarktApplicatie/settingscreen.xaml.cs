@@ -38,41 +38,9 @@ namespace MarktApplicatie
             Close();
         }
 
-        private void playbutton_Click(object sender, RoutedEventArgs e)
-        {
-            var player = new MediaPlayer();
-            player.Play();
-        }
-
-        private void stopbutton_Click(object sender, RoutedEventArgs e)
-        {
-            var player = new MediaPlayer();
-            player.Stop();
-        }
-
-        private void Darkmode(object sender, RoutedEventArgs e)
-        { 
-            Background = new SolidColorBrush(Colors.Black);
-            Foreground = new SolidColorBrush(Colors.White);
-        }
-
-        private void Bigger_fontsize(object sender, RoutedEventArgs e)
-        {
-            FontSize = 20;
-        }
+       
 
         
-
-        private void Smaller_fontsize(object sender, RoutedEventArgs e)
-        {
-            FontSize = 10;
-        }
-
-        private void Normalmode(object sender, RoutedEventArgs e)
-        {
-            Background = new SolidColorBrush(Colors.White);
-            Foreground = new SolidColorBrush(Colors.Black);
-        }
 
         private void Button_save(object sender, RoutedEventArgs e)
         {
@@ -92,21 +60,7 @@ namespace MarktApplicatie
 
         }
 
-        private void Button_reset(object sender, RoutedEventArgs e)
-        {
-            
-            FontSize = 10;
-            Background = new SolidColorBrush(Colors.White);
-            Foreground = new SolidColorBrush(Colors.Black);
-
-            this.Close();
-            new settingscreen().Show();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
     }
 
 

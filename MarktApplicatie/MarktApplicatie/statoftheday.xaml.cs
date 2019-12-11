@@ -53,11 +53,10 @@ namespace MarktApplicatie
 
             }
 
-            
 
-            
-            MainWindow main = new MainWindow();
-            main.Show();
+
+
+            new MainWindow().Show();
             this.Close();
 
 
@@ -80,22 +79,20 @@ namespace MarktApplicatie
             
             if (i == 0)
             {
-                statistieken statistieken = new statistieken();
-                statistieken.Show();
+                
+                new statistieken().Show();
                 this.Close();
             }
             
             if (i == 1)
             {
-                statistieken2 statistieken = new statistieken2();
-                statistieken.Show();
+                new statistieken2().Show();
                 this.Close();
             }
 
             if (i == 2)
             {
-                statistieken3 statistieken = new statistieken3();
-                statistieken.Show();
+                new statistieken3().Show();
                 this.Close();
             }
 
