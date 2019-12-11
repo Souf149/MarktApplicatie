@@ -130,5 +130,17 @@ namespace MarktApplicatie {
                 this["Message"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Darkmode {
+            get {
+                return ((bool)(this["Darkmode"]));
+            }
+            set {
+                this["Darkmode"] = value;
+            }
+        }
     }
 }

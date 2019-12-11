@@ -6,6 +6,8 @@
         xmlns:local="clr-namespace:MarktApplicatie"
         mc:Ignorable="d"
         ResizeMode="NoResize"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Bottom"
         Title="Statistiek van de dag" Height="226.358" Width="529.722">
 
 

@@ -24,8 +24,11 @@ namespace MarktApplicatie
         public settingscreen()
         {
             InitializeComponent();
+            
 
         }
+
+        
         
         private void Home_button(object sender, RoutedEventArgs e)
         {
@@ -81,16 +84,12 @@ namespace MarktApplicatie
 
             }
 
-            if (checkbox.IsChecked == false)
-            {
-
-                
-
-                Settings1.Default.Message = true;
-                Settings1.Default.Save();
+            MessageBox.Show("Instellingen opgeslagen!", "Instellingen", MessageBoxButton.OK, MessageBoxImage.Information);
+            new settingscreen().Show();
+            this.Close();
+            
 
 
-            }
         }
 
         private void Button_reset(object sender, RoutedEventArgs e)
@@ -99,6 +98,9 @@ namespace MarktApplicatie
             FontSize = 10;
             Background = new SolidColorBrush(Colors.White);
             Foreground = new SolidColorBrush(Colors.Black);
+
+            this.Close();
+            new settingscreen().Show();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

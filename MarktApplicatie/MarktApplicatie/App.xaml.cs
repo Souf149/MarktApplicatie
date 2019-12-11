@@ -28,7 +28,6 @@ namespace MarktApplicatie
             if (Settings1.Default.Message == false)
             {
                 new statoftheday().Show();
-                
             }
           
                

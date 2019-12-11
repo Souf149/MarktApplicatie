@@ -26,7 +26,7 @@ namespace MarktApplicatie
         {
             InitializeComponent();
 
-            
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
 
             if (i==0)
             {
@@ -41,29 +41,19 @@ namespace MarktApplicatie
 
         }
 
+        
         private void Sluiten(object sender, RoutedEventArgs e)
         {
             
            if (checkbox.IsChecked == true)
             {
 
-                
-
                 Settings1.Default.Message = true;
                 Settings1.Default.Save();
 
             }
 
-            if (checkbox.IsChecked == false)
-            {
-                Settings1.Default.Message = false;
-
-                Settings1.Default.Save();
-                
-                
-
-            }
-
+            
 
             
             MainWindow main = new MainWindow();
@@ -86,12 +76,7 @@ namespace MarktApplicatie
                 Properties.Settings.Default.Save();
             }
 
-            if (checkbox.IsChecked == false)
-            {
-                Properties.Settings.Default.Message = false;
-                Properties.Settings.Default.Save();
-
-            }
+            
             
             if (i == 0)
             {
@@ -144,13 +129,6 @@ namespace MarktApplicatie
                 Properties.Settings.Default.Save();
             }
 
-            if (checkbox.IsChecked == false)
-            {
-
-                Properties.Settings.Default.Message = false;
-                Properties.Settings.Default.Save();
-
-            }
 
         }
 

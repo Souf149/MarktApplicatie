@@ -6,19 +6,36 @@
         xmlns:local="clr-namespace:MarktApplicatie"
         mc:Ignorable="d"
         FontSize="10"
-        Title="settingscreen" Height="450" Width="800">
+        WindowState="Maximized"
+        
+        
+        Title="Instellingen"    >
+
+
     <Grid x:Name="LayoutRoot">
 
-        <CheckBox Name="checkbox" Content="Laat statistiek van de dag zien"/>
-        <Button Click="Home_button" Content="Home" HorizontalAlignment="Left" Margin="494,30,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Click="Darkmode" Content="Darkmode" HorizontalAlignment="Left" Margin="82,163,0,0" VerticalAlignment="Top" Width="134"/>
-        <Button Click="Bigger_fontsize" Content="Bigger fontsize" HorizontalAlignment="Left" Margin="82,218,0,0" VerticalAlignment="Top" Width="110"/>
-        <TextBlock Name="Textboxexample"  HorizontalAlignment="Left" Margin="82,355,0,0" TextWrapping="Wrap" Text="Example of text" VerticalAlignment="Top"/>
-        <Button Click="Smaller_fontsize" Content="Back to normal Fontsize" HorizontalAlignment="Left" Margin="82,266,0,0" VerticalAlignment="Top" Width="239" Height="36" />
-        <Button Content="Back to normalmode" Click="Normalmode" HorizontalAlignment="Left" Margin="82,106,0,0" VerticalAlignment="Top" Width="310" Height="37"/>
-        <Button Content="Save" HorizontalAlignment="Left" Margin="351,355,0,0" VerticalAlignment="Top" Width="117" Click="Button_save" Height="37"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="100*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="100*"/>
+
+        </Grid.RowDefinitions>
+
+        <CheckBox Grid.Row="0" Grid.Column="0" Name="checkbox" FontSize="16" Content="Laat statistiek van de dag zien" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Button FontSize="16" Click="Home_button" Grid.Column="0" Grid.Row="1" Content="Home" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="39,33.2,78.4,0" Height="63" Width="137" />
+
+
+
+        <Button Content="Save" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Margin="62.6,83,0,0" VerticalAlignment="Top" Width="117" Click="Button_save" Height="37"/>
         <Button Content="Reset" HorizontalAlignment="Left" Margin="569,355,0,0" VerticalAlignment="Top" Width="107" Click="Button_reset" Height="37"/>
-        <MediaElement x:Name="myMediaElement_Copy" Width="100" Height="100" Margin="511,178,182.6,142"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="115.6,71.2,0,45.8" Grid.Row="1" Width="75" Grid.Column="1" />
+
     </Grid>
 
 
