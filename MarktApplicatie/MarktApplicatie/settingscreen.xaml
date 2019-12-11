@@ -14,19 +14,16 @@
     <Grid x:Name="LayoutRoot">
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="187*"/>
-            <ColumnDefinition Width="165*"/>
-            <ColumnDefinition Width="131*"/>
+            <ColumnDefinition Width="99*"/>
+            <ColumnDefinition Width="87*"/>
+            <ColumnDefinition Width="89*"/>
 
-            <ColumnDefinition Width="239*"/>
+            <ColumnDefinition Width="106*"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="213*"/>
-            <RowDefinition Height="64*"/>
-            <RowDefinition Height="66*"/>
-            <RowDefinition Height="81*"/>
-            <RowDefinition Height="82*"/>
+            <RowDefinition Height="*"/>
+
 
 
 
@@ -38,14 +35,49 @@
                 Laat statistiek van de dag zien bij opstarten"
             </TextBlock>
         </CheckBox>
-        <RadioButton Name="darkmode_on" GroupName="darkmode" Content="Darkmode aan" Margin="9.4,49,23.2,55.8" RenderTransformOrigin="2.24,-2.692" Grid.Column="1" />
+        <RadioButton Name="darkmode_on" GroupName="darkmode" Content="Darkmode aan" Margin="9.4,49,23,55.8" RenderTransformOrigin="2.24,-2.692" Grid.Column="1" />
         <RadioButton Name="darkmode_off" GroupName="darkmode" Content="Darkmode uit" Margin="9.4,100,0,4.8" Grid.Column="1" HorizontalAlignment="Left" Width="128" />
 
-        <Button FontSize="16" Click="Home_button" Grid.Column="3" Content="Home" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="58.4,1,-0.4,0" Height="39" Width="194" />
+        <Button FontSize="16" Click="Home_button" Grid.Column="3" Content="Home" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,1,-0.4,0" Height="39" Width="194" />
         <TextBlock FontWeight="Bold" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Statisitiek van de dag:" VerticalAlignment="Top" Height="28" Width="167"/>
         <TextBlock FontWeight="Bold"  HorizontalAlignment="Left" Margin="9.4,10,0,0" TextWrapping="Wrap" Text="Darkmode:" VerticalAlignment="Top" RenderTransformOrigin="-0.441,0.329" Height="39" Width="106" Grid.Column="1"/>
-        <Button Content="Save" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="58.4,58,-0.4,0"  Width="194" Click="Button_save" Height="38"/>
-        <Button Content="Reset" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="58.4,116,-0.4,0"  Width="194" Click="Button_reset" Height="41"/>
+        <Button Content="Save" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,58,-0.4,0"  Width="194" Click="Button_save" Height="38"/>
+        <Button Content="Reset" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,116,-0.4,0"  Width="194" Click="Button_reset" Height="41"/>
+        <TextBlock FontWeight="Bold"  HorizontalAlignment="Left" Margin="20,10,0,0" TextWrapping="Wrap" Text="Fontsize:" VerticalAlignment="Top" RenderTransformOrigin="-0.441,0.329" Height="39" Width="106" Grid.Column="2"/>
+
+        <RadioButton Name="font8" GroupName="fontsize"  Margin="20,49,9.6,430.6" RenderTransformOrigin="2.24,-2.692" Grid.Column="2" >
+            <WrapPanel>
+                <Image Source="8.jpg" Height="31" Width="36"   />
+            </WrapPanel>
+        </RadioButton>
+
+        <RadioButton Name="font10" GroupName="fontsize" Margin="20,80,0,400.6" Grid.Column="2" HorizontalAlignment="Left" Width="148" >
+            <WrapPanel>
+                <Image Source="10.jpg" Height="23" Width="28"   />
+            </WrapPanel>
+        </RadioButton>
+
+        <RadioButton Name="font12" GroupName="fontsize" Margin="20,116,0,364.6" Grid.Column="2" HorizontalAlignment="Left" Width="148" >
+            <WrapPanel>
+                <Image Source="12.jpg" Width="31" Height="20"   />
+            </WrapPanel>
+        </RadioButton>
+
+        <RadioButton Name="font14" GroupName="fontsize"  Margin="20,146,9.6,323.6" RenderTransformOrigin="2.24,-2.692" Grid.Column="2" >
+            <WrapPanel>
+                <Image Source="14.JPG" Height="26" Width="33"   />
+            </WrapPanel>
+        </RadioButton>
+
+        <RadioButton Name="font16" GroupName="fontsize"  Margin="20,187,211.6,279.6" RenderTransformOrigin="2.24,-2.692" Grid.Column="2" Grid.ColumnSpan="2" >
+            <WrapPanel>
+                <Image Source="16.JPG" Height="54" Width="42"  />
+            </WrapPanel>
+        </RadioButton>
+
+        <Button Content="Reset" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,172,-0.4,0"  Width="194" Click="Button_reset" Height="41" Grid.RowSpan="2"/>
+
+
 
     </Grid>
 

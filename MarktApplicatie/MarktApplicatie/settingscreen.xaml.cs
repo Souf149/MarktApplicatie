@@ -42,19 +42,17 @@ namespace MarktApplicatie
                 darkmode_off.Foreground = new SolidColorBrush(Colors.Black);
             }
 
+            if (Settings1.Default.Font8 == true)
+            {
+               
+            }
 
 
         }
 
-       
-
-
-
         private void Home_button(object sender, RoutedEventArgs e)
         {
-            MainWindow main = new MainWindow();
-           
-            main.Show();
+            new MainWindow().Show();
             Close();
         }
 
@@ -74,7 +72,7 @@ namespace MarktApplicatie
             if (checkbox.IsChecked == true)
             {
                 Settings1.Default.Message = false;
-                
+          
             }
 
             if (darkmode_on.IsChecked == true)
@@ -85,6 +83,31 @@ namespace MarktApplicatie
             if (darkmode_off.IsChecked == true)
             {
                 Settings1.Default.Darkmode = false;
+            }
+
+            if (font8.IsChecked == true)
+            {
+                Settings1.Default.Font8 = true;
+            }
+
+            if (font10.IsChecked == true)
+            {
+                Settings1.Default.Font10 = true;
+            }
+
+            if (font12.IsChecked == true)
+            {
+                Settings1.Default.Font12 = true;
+            }
+
+            if (font14.IsChecked == true)
+            {
+                Settings1.Default.Font14 = true;
+            }
+
+            if (font16.IsChecked == true)
+            {
+                Settings1.Default.Font16 = true;
             }
 
 

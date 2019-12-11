@@ -32,20 +32,20 @@
     <Setting Name="Darkmode" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="Font8" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">8</Value>
+    <Setting Name="Font8" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="Font10" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">10</Value>
+    <Setting Name="Font10" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="Font12" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">12</Value>
+    <Setting Name="Font12" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="Font14" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">14</Value>
+    <Setting Name="Font14" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="Font16" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">16</Value>
+    <Setting Name="Font16" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>
