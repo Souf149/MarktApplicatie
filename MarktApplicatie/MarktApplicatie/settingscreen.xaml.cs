@@ -44,7 +44,33 @@ namespace MarktApplicatie
 
             if (Settings1.Default.Font8 == true)
             {
-               
+                FontSize = 8;
+
+            }
+
+            if (Settings1.Default.Font10 == true)
+            {
+                FontSize = 10;
+
+            }
+
+            if (Settings1.Default.Font12 == true)
+            {
+                FontSize = 12;
+
+            }
+
+            if (Settings1.Default.Font14 == true)
+            {
+                FontSize = 14;
+
+            }
+
+            if (Settings1.Default.Font16 == true)
+            {
+                FontSize = 16;
+
+
             }
 
 
@@ -60,7 +86,14 @@ namespace MarktApplicatie
         {
             Settings1.Default.Darkmode = false;
             Settings1.Default.Message = false;
+            Settings1.Default.Font8 = false;
+            Settings1.Default.Font10 = false;
+            Settings1.Default.Font12 = true;
+            Settings1.Default.Font14 = false;
+            Settings1.Default.Font16 = false;
+            
             Settings1.Default.Save();
+            MessageBox.Show("Instellingen gereset!, Fontsize=12", "Instellingen", MessageBoxButton.OK, MessageBoxImage.Information);
             new settingscreen().Show();
             this.Close();
         }
@@ -72,7 +105,6 @@ namespace MarktApplicatie
             if (checkbox.IsChecked == true)
             {
                 Settings1.Default.Message = false;
-          
             }
 
             if (darkmode_on.IsChecked == true)
@@ -88,34 +120,56 @@ namespace MarktApplicatie
             if (font8.IsChecked == true)
             {
                 Settings1.Default.Font8 = true;
+                Settings1.Default.Font10 = false;
+                Settings1.Default.Font12 = false;
+                Settings1.Default.Font14 = false;
+                Settings1.Default.Font16 = false;
             }
 
             if (font10.IsChecked == true)
             {
+                Settings1.Default.Font8 = false;
                 Settings1.Default.Font10 = true;
+                Settings1.Default.Font12 = false;
+                Settings1.Default.Font14 = false;
+                Settings1.Default.Font16 = false;
             }
 
             if (font12.IsChecked == true)
             {
+                Settings1.Default.Font8 = false;
+                Settings1.Default.Font10 = false;
                 Settings1.Default.Font12 = true;
+                Settings1.Default.Font14 = false;
+                Settings1.Default.Font16 = false;
             }
 
             if (font14.IsChecked == true)
             {
+                Settings1.Default.Font8 = false;
+                Settings1.Default.Font10 = false;
+                Settings1.Default.Font12 = false;
                 Settings1.Default.Font14 = true;
+                Settings1.Default.Font16 = false;
             }
 
             if (font16.IsChecked == true)
             {
+                Settings1.Default.Font8 = false;
+                Settings1.Default.Font10 = false;
+                Settings1.Default.Font12 = false;
+                Settings1.Default.Font14 = false;
                 Settings1.Default.Font16 = true;
             }
+
 
 
             Settings1.Default.Save();
             MessageBox.Show("Instellingen opgeslagen!", "Instellingen", MessageBoxButton.OK, MessageBoxImage.Information);
             new settingscreen().Show();
             this.Close();
-            
+
+
 
 
         }

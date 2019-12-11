@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         
         WindowState="Maximized"
-        FontSize="16"
+        
         Title="Instellingen"    >
 
 
@@ -38,7 +38,7 @@
         <RadioButton Name="darkmode_on" GroupName="darkmode" Content="Darkmode aan" Margin="9.4,49,23,55.8" RenderTransformOrigin="2.24,-2.692" Grid.Column="1" />
         <RadioButton Name="darkmode_off" GroupName="darkmode" Content="Darkmode uit" Margin="9.4,100,0,4.8" Grid.Column="1" HorizontalAlignment="Left" Width="128" />
 
-        <Button FontSize="16" Click="Home_button" Grid.Column="3" Content="Home" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,1,-0.4,0" Height="39" Width="194" />
+        <Button Click="Home_button" Grid.Column="3" Content="Home" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,1,-0.4,0" Height="39" Width="194" />
         <TextBlock FontWeight="Bold" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Statisitiek van de dag:" VerticalAlignment="Top" Height="28" Width="167"/>
         <TextBlock FontWeight="Bold"  HorizontalAlignment="Left" Margin="9.4,10,0,0" TextWrapping="Wrap" Text="Darkmode:" VerticalAlignment="Top" RenderTransformOrigin="-0.441,0.329" Height="39" Width="106" Grid.Column="1"/>
         <Button Content="Save" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,58,-0.4,0"  Width="194" Click="Button_save" Height="38"/>
@@ -75,7 +75,7 @@
             </WrapPanel>
         </RadioButton>
 
-        <Button Content="Reset" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,172,-0.4,0"  Width="194" Click="Button_reset" Height="41" Grid.RowSpan="2"/>
+        <Button Content="Homescreensettings" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,172,-0.4,0"  Width="194" Click="Button_reset" Height="41" Grid.RowSpan="2"/>
 
 
 
