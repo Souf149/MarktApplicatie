@@ -8,12 +8,12 @@
         Title="automatische opzet" Height="200" Width="300">
     <Grid x:Name="grid">
         <StackPanel x:Name="tabs">
-            <TextBlock Text="How many planks?"></TextBlock>
-            <TextBox x:Name="amount_planks" Grid.Column="1" Grid.Row="1"
-                 Margin="10"/>
+
+            <CheckBox x:Name="fruit_together">All fruits together</CheckBox>
+
             <Button x:Name="makemycomposition" Content="Make My Composition"
                     FontSize="15" Click="makemycomposition_Click"/>
-            
+
         </StackPanel>
 
     </Grid>

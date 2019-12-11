@@ -21,6 +21,7 @@ namespace MarktApplicatie
     /// </summary>
     public partial class settingscreen : Window
     {
+         public bool fruittogether = false;
         public settingscreen()
         {
             InitializeComponent();
@@ -73,7 +74,6 @@ namespace MarktApplicatie
 
         private void Button_save(object sender, RoutedEventArgs e)
         {
-
         }
 
         private void Button_reset(object sender, RoutedEventArgs e)

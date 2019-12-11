@@ -19,6 +19,8 @@ namespace MarktApplicatie
     /// </summary>
     public partial class automatischplank_popup : Window
     {
+        public bool fruittogether = false;
+        
         public automatischplank_popup()
         {
             InitializeComponent();
@@ -26,8 +28,14 @@ namespace MarktApplicatie
 
         public void makemycomposition_Click(object sender, RoutedEventArgs e)
         {
-            var amount = amount_planks.Text;
-            Console.WriteLine(amount);
+            //var amount = amount_planks.Text;
+           // Console.WriteLine(amount);
+            
+            if (fruit_together.IsChecked == true)
+            {
+                fruittogether = true;
+            }
+            Console.WriteLine(fruittogether);
             DialogResult = true;
         }
     }

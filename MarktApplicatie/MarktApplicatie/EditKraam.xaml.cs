@@ -437,22 +437,22 @@ namespace MarktApplicatie
         private void randomize_composition(object sender, MouseButtonEventArgs e)
         {
             automatischplank_popup dialog = new automatischplank_popup();
+            
             if (dialog.ShowDialog() == true)
             {
-
-                if (planks.Count == 0)
+                bool fruittogether = dialog.fruittogether;
+                if (planks.Count != 0 && fruittogether == true)
                 {
-                    randomPlank(dialog.amount_planks.Text);
+                    randomFruitOrganize();
                 }
-                else 
+                if(planks.Count != 0 && fruittogether == false)
                 {
-                    canvas.Children.Clear();
-                    randomPlank(dialog.amount_planks.Text);
+                    randomFruit();
                 }
             }
         }
 
-        public void randomPlank(string dialog)
+        /*public void randomPlank(string dialog, bool fruittogether, string planks_fruits)
         {
             var amount = Convert.ToInt16(dialog);
             var rand = new Random();
@@ -490,13 +490,37 @@ namespace MarktApplicatie
                     Plank.selectedPlank = planks.Count() - 1;
                     prev_x = width_plank;
                     CheckPlanks();
-                    randomFruit();
+                    Console.WriteLine(fruittogether);
+                    if (fruittogether == true)
+                    {
+                        randomFruitOrganize(planks_fruits);
+                    }
+                    else
+                    {
+                        randomFruit();
+                    }
+                    
                 }
             }
         }
+        */
+
+        public void randomFruitOrganize()
+        {
+            Random r = new Random();
+            for (int p = 0; p < planks.Count; p++)
+            {
+            var randomnumber = r.Next(0, SoufTools.GetAllFruits().Count());
+                for (int f = 0; f < planks[p].fruits.Count; f++)
+                {
+                   planks[p].fruits[f].Change(randomnumber);
+                }
+                }
+            }  
+
 
         public void randomFruit()
-        {
+        {   
             Random r = new Random();
 
             for (int p = 0; p < planks.Count; p++)
@@ -506,6 +530,6 @@ namespace MarktApplicatie
                     planks[p].fruits[f].Change(r.Next(0, SoufTools.GetAllFruits().Count()));
                 }
             }
-        }
+        }  
     }
 }
