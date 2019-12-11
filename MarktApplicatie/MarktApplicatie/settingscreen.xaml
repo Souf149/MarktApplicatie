@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:MarktApplicatie"
         mc:Ignorable="d"
         
+        
         WindowState="Maximized"
         
         Title="Instellingen"    >
@@ -47,31 +48,31 @@
 
         <RadioButton Name="font8" GroupName="fontsize"  Margin="20,49,9.6,430.6" RenderTransformOrigin="2.24,-2.692" Grid.Column="2" >
             <WrapPanel>
-                <Image Source="8.jpg" Height="31" Width="36"   />
+                <Image Source="8.jpg" Height="22" Width="24"   />
             </WrapPanel>
         </RadioButton>
 
         <RadioButton Name="font10" GroupName="fontsize" Margin="20,80,0,400.6" Grid.Column="2" HorizontalAlignment="Left" Width="148" >
             <WrapPanel>
-                <Image Source="10.jpg" Height="23" Width="28"   />
+                <Image Source="10.jpg" Height="21" Width="27"   />
             </WrapPanel>
         </RadioButton>
 
         <RadioButton Name="font12" GroupName="fontsize" Margin="20,116,0,364.6" Grid.Column="2" HorizontalAlignment="Left" Width="148" >
             <WrapPanel>
-                <Image Source="12.jpg" Width="31" Height="20"   />
+                <Image Source="12.jpg" Width="33" Height="25"   />
             </WrapPanel>
         </RadioButton>
 
-        <RadioButton Name="font14" GroupName="fontsize"  Margin="20,146,9.6,323.6" RenderTransformOrigin="2.24,-2.692" Grid.Column="2" >
+        <RadioButton Name="font14" GroupName="fontsize"  Margin="20,151,9.6,318.6" RenderTransformOrigin="2.24,-2.692" Grid.Column="2" >
             <WrapPanel>
-                <Image Source="14.JPG" Height="26" Width="33"   />
+                <Image Source="14.JPG" Height="30" Width="37"   />
             </WrapPanel>
         </RadioButton>
 
         <RadioButton Name="font16" GroupName="fontsize"  Margin="20,187,211.6,279.6" RenderTransformOrigin="2.24,-2.692" Grid.Column="2" Grid.ColumnSpan="2" >
             <WrapPanel>
-                <Image Source="16.JPG" Height="54" Width="42"  />
+                <Image Source="16.JPG" Height="42" Width="46"  />
             </WrapPanel>
         </RadioButton>
 

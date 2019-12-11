@@ -27,12 +27,18 @@ namespace MarktApplicatie
             {
                 this.Background = new SolidColorBrush(Colors.Black);
                 this.Foreground = new SolidColorBrush(Colors.White);
+
+                cartesianChart1.DataTooltip.Background = Brushes.Black;
+                cartesianChart1.DataTooltip.Foreground = Brushes.White;
             }
 
             if (Settings1.Default.Darkmode == false)
             {
                 this.Background = new SolidColorBrush(Colors.White);
                 this.Foreground = new SolidColorBrush(Colors.Black);
+
+                cartesianChart1.DataTooltip.Background = Brushes.White;
+                cartesianChart1.DataTooltip.Foreground = Brushes.Black;
             }
 
             if (Settings1.Default.Font8 == true)
@@ -124,6 +130,11 @@ namespace MarktApplicatie
             statistieken3 stats3 = new statistieken3();
             stats3.Show();
             this.Close();
+        }
+
+        private void CartesianChart_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

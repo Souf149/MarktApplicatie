@@ -17,7 +17,7 @@
 
 
 
-        <lvc:PieChart LegendLocation="Bottom"   DataTooltip="{x:Null}" Margin="142,42,-0.4,0">
+        <lvc:PieChart LegendLocation="Bottom"   Margin="142,42,-0.4,0" Name="cartesianChart1">
             <lvc:PieChart.Series>
                 <lvc:PieSeries Title="Appels" Values="11" DataLabels="True"
                                LabelPoint="{Binding PointLabel}"/>
