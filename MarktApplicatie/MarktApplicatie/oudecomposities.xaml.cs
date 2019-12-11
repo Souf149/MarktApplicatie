@@ -30,6 +30,7 @@ namespace MarktApplicatie
                 listView.Foreground = new SolidColorBrush(Colors.White);
                 this.Background = new SolidColorBrush(Colors.Black);
                 this.Foreground = new SolidColorBrush(Colors.White);
+                canvas.Background = new SolidColorBrush(Colors.Black);
             }
 
             if (Settings1.Default.Darkmode == false)
@@ -38,6 +39,7 @@ namespace MarktApplicatie
                 listView.Foreground = new SolidColorBrush(Colors.Black);
                 this.Background = new SolidColorBrush(Colors.White);
                 this.Foreground = new SolidColorBrush(Colors.Black);
+                canvas.Background = new SolidColorBrush(Colors.White);
             }
 
            

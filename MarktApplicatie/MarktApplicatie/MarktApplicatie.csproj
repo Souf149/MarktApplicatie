@@ -243,5 +243,12 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="10.JPG" />
+    <Resource Include="12.JPG" />
+    <Resource Include="14.JPG" />
+    <Resource Include="16.JPG" />
+    <Resource Include="18.JPG" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -97,13 +97,16 @@ namespace MarktApplicatie
             if (Settings1.Default.Darkmode == true)
             {
                 listView.Background = new SolidColorBrush(Colors.Black);
+                canvas.Background = new SolidColorBrush(Colors.Black);
                 
             }
 
             if (Settings1.Default.Darkmode == false)
             {
                 listView.Background = new SolidColorBrush(Colors.White);
-                
+                canvas.Background = new SolidColorBrush(Colors.White);
+
+
             }
 
             Fruit.c = canvas;

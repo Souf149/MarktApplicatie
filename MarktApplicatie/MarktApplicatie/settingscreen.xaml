@@ -15,18 +15,18 @@
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="187*"/>
-            <ColumnDefinition Width="251*"/>
-            <ColumnDefinition Width="45*"/>
-            <ColumnDefinition Width="39*"/>
+            <ColumnDefinition Width="165*"/>
+            <ColumnDefinition Width="131*"/>
+
             <ColumnDefinition Width="239*"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="147*"/>
-            <RowDefinition Height="56*"/>
-            <RowDefinition Height="101*"/>
-            <RowDefinition Height="101*"/>
-            <RowDefinition Height="101*"/>
+            <RowDefinition Height="213*"/>
+            <RowDefinition Height="64*"/>
+            <RowDefinition Height="66*"/>
+            <RowDefinition Height="81*"/>
+            <RowDefinition Height="82*"/>
 
 
 
@@ -35,17 +35,17 @@
 
         <CheckBox Grid.Column="0" Name="checkbox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,49,0,0" Width="164" Height="76">
             <TextBlock TextWrapping="Wrap" Height="76" Width="142" >
-                Laat statistiek van de dag zien"
+                Laat statistiek van de dag zien bij opstarten"
             </TextBlock>
         </CheckBox>
-        <RadioButton Name="darkmode_on" GroupName="darkmode" Content="Darkmode aan" Margin="9.8,49,34.4,55.2" RenderTransformOrigin="2.24,-2.692" Grid.Column="1" />
-        <RadioButton Name="darkmode_off" GroupName="darkmode" Content="Darkmode uit" Margin="9.8,100,91.4,4.2" Grid.Column="1" />
+        <RadioButton Name="darkmode_on" GroupName="darkmode" Content="Darkmode aan" Margin="9.4,49,23.2,55.8" RenderTransformOrigin="2.24,-2.692" Grid.Column="1" />
+        <RadioButton Name="darkmode_off" GroupName="darkmode" Content="Darkmode uit" Margin="9.4,100,0,4.8" Grid.Column="1" HorizontalAlignment="Left" Width="128" />
 
-        <Button FontSize="16" Click="Home_button" Grid.Column="4" Content="Home" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="24.6,33,20.6,0" Height="52" Width="194" />
+        <Button FontSize="16" Click="Home_button" Grid.Column="3" Content="Home" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="58.4,1,-0.4,0" Height="39" Width="194" />
         <TextBlock FontWeight="Bold" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Statisitiek van de dag:" VerticalAlignment="Top" Height="28" Width="167"/>
-        <TextBlock FontWeight="Bold"  HorizontalAlignment="Left" Margin="9.8,10,0,0" TextWrapping="Wrap" Text="Darkmode:" VerticalAlignment="Top" RenderTransformOrigin="-0.441,0.329" Height="39" Width="106" Grid.Column="1"/>
-        <Button Content="Seefe" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="18.6,31.8,4.6,0"  Width="216" Click="Button_save" Height="48" Grid.Row="1" Grid.RowSpan="2"/>
-        <Button Content="Reset" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="40.6,31.8,20.6,0"  Width="178" Click="Button_reset" Height="41" Grid.Row="2"/>
+        <TextBlock FontWeight="Bold"  HorizontalAlignment="Left" Margin="9.4,10,0,0" TextWrapping="Wrap" Text="Darkmode:" VerticalAlignment="Top" RenderTransformOrigin="-0.441,0.329" Height="39" Width="106" Grid.Column="1"/>
+        <Button Content="Save" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="58.4,58,-0.4,0"  Width="194" Click="Button_save" Height="38"/>
+        <Button Content="Reset" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="58.4,116,-0.4,0"  Width="194" Click="Button_reset" Height="41"/>
 
     </Grid>
 

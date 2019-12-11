@@ -142,5 +142,65 @@ namespace MarktApplicatie {
                 this["Darkmode"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Font8 {
+            get {
+                return ((bool)(this["Font8"]));
+            }
+            set {
+                this["Font8"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Font10 {
+            get {
+                return ((bool)(this["Font10"]));
+            }
+            set {
+                this["Font10"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Font12 {
+            get {
+                return ((bool)(this["Font12"]));
+            }
+            set {
+                this["Font12"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Font14 {
+            get {
+                return ((bool)(this["Font14"]));
+            }
+            set {
+                this["Font14"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Font16 {
+            get {
+                return ((bool)(this["Font16"]));
+            }
+            set {
+                this["Font16"] = value;
+            }
+        }
     }
 }
