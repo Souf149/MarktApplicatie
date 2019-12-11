@@ -24,7 +24,19 @@ namespace MarktApplicatie
         {
             InitializeComponent();
 
-            
+            if (Settings1.Default.Darkmode == true)
+            {
+                list_view.Background = new SolidColorBrush(Colors.Black);
+                list_view.Foreground = new SolidColorBrush(Colors.White);
+            }
+
+            if (Settings1.Default.Darkmode == false)
+            {
+                list_view.Background = new SolidColorBrush(Colors.White);
+                list_view.Foreground = new SolidColorBrush(Colors.Black);
+            }
+
+
 
             // load fruits from file and split it into each fruit with their respective color.
             string data = File.ReadAllText(SoufTools.custom_fruit_path);
@@ -50,6 +62,8 @@ namespace MarktApplicatie
         {
             add_new_fruit dialog = new add_new_fruit();
             if (dialog.ShowDialog() == true) {
+
+                
 
                 string[] rgb = new string[] {
                     dialog.Inp_red,

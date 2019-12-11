@@ -23,6 +23,18 @@ namespace MarktApplicatie
         public tijdelijkstatscherm()
         {
             InitializeComponent();
+            
+            if (Settings1.Default.Darkmode == true)
+            {
+                this.Background = new SolidColorBrush(Colors.Black);
+                this.Foreground = new SolidColorBrush(Colors.White);
+            }
+
+            if (Settings1.Default.Darkmode == false)
+            {
+                this.Background = new SolidColorBrush(Colors.White);
+                this.Foreground = new SolidColorBrush(Colors.Black);
+            }
         }
 
         private void onClick_homepage(object sender, MouseButtonEventArgs e)

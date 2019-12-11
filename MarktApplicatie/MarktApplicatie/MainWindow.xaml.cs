@@ -39,6 +39,8 @@ namespace MarktApplicatie
         {
             InitializeComponent();
 
+           
+
             CreateTimer();
 
             SoufShape.canvas = canvas;

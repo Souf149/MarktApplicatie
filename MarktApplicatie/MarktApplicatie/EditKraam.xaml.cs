@@ -23,6 +23,8 @@ namespace MarktApplicatie
     
     public partial class EditKraam : Window
     {
+
+
         bool mouseDown = false;
         bool plankEditMode = true;
 
@@ -91,8 +93,18 @@ namespace MarktApplicatie
         {
             // initialize window
             InitializeComponent();
-
             
+            if (Settings1.Default.Darkmode == true)
+            {
+                listView.Background = new SolidColorBrush(Colors.Black);
+                
+            }
+
+            if (Settings1.Default.Darkmode == false)
+            {
+                listView.Background = new SolidColorBrush(Colors.White);
+                
+            }
 
             Fruit.c = canvas;
             Plank.c = canvas;
@@ -124,12 +136,7 @@ namespace MarktApplicatie
             this.Close();
         }
 
-        private void Go_bus(object sender, MouseButtonEventArgs e)
-        {
-            editbus editBus = new editbus();
-            editBus.Show();
-            this.Close();
-        }
+        
 
         private void ListView_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {

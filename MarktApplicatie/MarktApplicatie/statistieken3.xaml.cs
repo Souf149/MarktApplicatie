@@ -23,6 +23,17 @@ namespace MarktApplicatie
         public statistieken3()
         {
             InitializeComponent();
+            if (Settings1.Default.Darkmode == true)
+            {
+                this.Background = new SolidColorBrush(Colors.Black);
+                this.Foreground = new SolidColorBrush(Colors.White);
+            }
+
+            if (Settings1.Default.Darkmode == false)
+            {
+                this.Background = new SolidColorBrush(Colors.White);
+                this.Foreground = new SolidColorBrush(Colors.Black);
+            }
 
             PointLabel = chartPoint =>
                 string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);

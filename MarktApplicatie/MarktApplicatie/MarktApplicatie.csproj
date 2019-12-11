@@ -88,9 +88,6 @@
     <Compile Include="custom_fruits.xaml.cs">
       <DependentUpon>custom_fruits.xaml</DependentUpon>
     </Compile>
-    <Compile Include="editbus.xaml.cs">
-      <DependentUpon>editbus.xaml</DependentUpon>
-    </Compile>
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="oudecomposities.xaml.cs">
       <DependentUpon>oudecomposities.xaml</DependentUpon>
@@ -138,10 +135,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="custom_fruits.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="editbus.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -249,9 +242,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Mii.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

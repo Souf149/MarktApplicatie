@@ -24,6 +24,23 @@ namespace MarktApplicatie
         {
             InitializeComponent();
 
+            if (Settings1.Default.Darkmode == true)
+            {
+                listView.Background = new SolidColorBrush(Colors.Black);
+                listView.Foreground = new SolidColorBrush(Colors.White);
+                this.Background = new SolidColorBrush(Colors.Black);
+                this.Foreground = new SolidColorBrush(Colors.White);
+            }
+
+            if (Settings1.Default.Darkmode == false)
+            {
+                listView.Background = new SolidColorBrush(Colors.White);
+                listView.Foreground = new SolidColorBrush(Colors.Black);
+                this.Background = new SolidColorBrush(Colors.White);
+                this.Foreground = new SolidColorBrush(Colors.Black);
+            }
+
+           
             UpdateList();
 
             if (composition_names.Length < 1) {

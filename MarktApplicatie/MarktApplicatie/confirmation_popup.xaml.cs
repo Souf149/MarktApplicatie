@@ -21,6 +21,18 @@ namespace MarktApplicatie {
         private bool result;
         public confirmation_popup() {
             InitializeComponent();
+
+            if (Settings1.Default.Darkmode == true)
+            {
+                this.Background = new SolidColorBrush(Colors.Black);
+                this.Foreground = new SolidColorBrush(Colors.White);
+            }
+
+            if (Settings1.Default.Darkmode == false)
+            {
+                this.Background = new SolidColorBrush(Colors.White);
+                this.Foreground = new SolidColorBrush(Colors.Black);
+            }
         }
 
         public bool Confirmation {
