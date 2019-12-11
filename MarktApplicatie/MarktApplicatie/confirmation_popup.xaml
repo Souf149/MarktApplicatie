@@ -21,8 +21,8 @@
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Weet je het zeker?" FontSize="40" Margin="20"  FontStyle="Oblique"
-                   Grid.ColumnSpan="5" HorizontalAlignment="Center"/>
+        <TextBlock Text="Weet je het zeker?" 
+                   Grid.ColumnSpan="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
         <Button x:Name ="accept" Content="Ja" Background="#5000FF00"
                 Grid.Column="1" Grid.Row="1" Click="Accept_Click"/>

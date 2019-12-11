@@ -45,10 +45,10 @@
             PreviewMouseLeftButtonUp="ListView_onclick"/>
 
         <StackPanel Orientation="Vertical" Grid.Column="3" Grid.Row ="2" Margin="0.4,1.6,-0.4,0.4" >
-            <Button Content="Verander naam" Click="btnEditTitle_Click" />
-            <Button Content="Start schetsen" Click="StartSketch"/>
-            <Button Content="Beginscherm" Click="onClick_homepage"/>
-            <Button Content="Verwijder" Click="OnClick_Verwijder"/>
+            <Button Content="Verander naam" Click="btnEditTitle_Click" FontSize="12" />
+            <Button Content="Start schetsen" Click="StartSketch" FontSize="12" />
+            <Button Content="Beginscherm" Click="onClick_homepage" FontSize="12" />
+            <Button Content="Verwijder" Click="OnClick_Verwijder" FontSize="12" />
         </StackPanel>
 
 

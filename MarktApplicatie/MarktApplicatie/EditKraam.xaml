@@ -72,22 +72,22 @@
 
 
         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" >
-            <Button Content="Nieuw plank" PreviewMouseLeftButtonDown="Create_plank"/>
-            <Button x:Name="btn_switch_editmode" Content="Switch to&#10;add fruit" PreviewMouseLeftButtonDown="Switch_editmode_onclick"/>
+            <Button Content="Nieuw plank" PreviewMouseLeftButtonDown="Create_plank" FontSize="12"/>
+            <Button x:Name="btn_switch_editmode" Content="Switch to&#10;add fruit" PreviewMouseLeftButtonDown="Switch_editmode_onclick" FontSize="12"/>
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
-            <Button Content="Reset" PreviewMouseLeftButtonDown="reset"/>
-            <Button Content="Begin scherm" PreviewMouseLeftButtonDown="go_home"/>
+            <Button Content="Reset" PreviewMouseLeftButtonDown="reset" FontSize="12"/>
+            <Button Content="Begin scherm" PreviewMouseLeftButtonDown="go_home" FontSize="12"/>
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
-            <Button Content="Custom fruits" PreviewMouseLeftButtonDown="Go_to_custom_fruits" />
-            <Button Content="Verander&#10;grootte" PreviewMouseLeftButtonDown="Verander_grootte"/>
+            <Button Content="Custom fruits" PreviewMouseLeftButtonDown="Go_to_custom_fruits" FontSize="12" />
+            <Button Content="Verander&#10;grootte" PreviewMouseLeftButtonDown="Verander_grootte" FontSize="12"/>
         </StackPanel>
 
         <Button Content="Save" PreviewMouseLeftButtonDown="save_Composition"
-                Grid.Column="1" Grid.Row="4" Width="150"/>
+                Grid.Column="1" Grid.Row="4" Width="150" FontSize="12"/>
     </Grid>
 
 
