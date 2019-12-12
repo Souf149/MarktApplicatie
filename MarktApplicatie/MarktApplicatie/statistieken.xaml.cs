@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
 using LiveCharts;
 using LiveCharts.Wpf;
 
@@ -68,6 +69,17 @@ namespace MarktApplicatie
                 FontSize = 16;
             }
 
+            //get data from vorige file and put it in a array
+            StreamReader file1 = new StreamReader(@"vorige.txt");
+            string line1;
+            List<int> list1 = new List<int>();
+            while ((line1 = file1.ReadLine()) != null)
+            {
+                list1.Add(int.Parse(line1));
+            }
+
+            int[] vorige = list1.ToArray();
+
 
             int[] vorigeweek = {10, 50, 39, 50 };
             int[] dezeweek = { 11, 56, 42, 48 };
@@ -77,7 +89,7 @@ namespace MarktApplicatie
                 new ColumnSeries
                 {
                     Title = "vorige week",
-                    Values = new ChartValues<double> { vorigeweek[0], vorigeweek[1], vorigeweek[2], vorigeweek[3] }
+                    Values = new ChartValues<double> { vorige[0], vorige[1], vorige[2], vorige[3] }
                 }
             };
 
