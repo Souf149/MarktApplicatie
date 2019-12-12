@@ -452,58 +452,6 @@ namespace MarktApplicatie
             }
         }
 
-        /*public void randomPlank(string dialog, bool fruittogether, string planks_fruits)
-        {
-            var amount = Convert.ToInt16(dialog);
-            var rand = new Random();
-            var plank_times = amount;
-            var prev_x = 0;
-
-            for (int i = 0; i < plank_times; i++)
-            {
-
-                var width = rand.Next(2, 11);
-                var height = rand.Next(2, 11);
-                var x = rand.Next(0, 1400);
-                var y = rand.Next(0, 800);
-
-                if (true)
-                {
-
-
-                    debugText.Text = planks.Count.ToString();
-                    var width_plank = Convert.ToInt16(width);
-                    var height_plank = Convert.ToInt16(height);
-                    var x_plank = Convert.ToInt16(x);
-                    var y_plank = Convert.ToInt16(y);
-
-
-                    SetColor("#654321");
-
-                    Plank p = new Plank(
-                        planks.Count,
-                        Rect(x_plank, y_plank, width_plank * GRID_SIZE, height_plank * GRID_SIZE)
-                        );
-
-                    planks.Add(p);
-                    selectedPlank = p;
-                    Plank.selectedPlank = planks.Count() - 1;
-                    prev_x = width_plank;
-                    CheckPlanks();
-                    Console.WriteLine(fruittogether);
-                    if (fruittogether == true)
-                    {
-                        randomFruitOrganize(planks_fruits);
-                    }
-                    else
-                    {
-                        randomFruit();
-                    }
-                    
-                }
-            }
-        }
-        */
 
         public void randomFruitOrganize()
         {
@@ -530,6 +478,47 @@ namespace MarktApplicatie
                     planks[p].fruits[f].Change(r.Next(0, SoufTools.GetAllFruits().Count()));
                 }
             }
-        }  
+        }
+
+        private void randomPlank(object sender, MouseButtonEventArgs e)
+        {
+            var rand = new Random();
+            int planktimes = 2;
+            var new_x = 0;
+
+            for (int i = 0; i < planktimes; i++)
+            {
+                
+                var width = rand.Next(2, 11);
+                var height = rand.Next(2, 11);
+                var x = rand.Next(0, 800);
+                new_x = width;
+                var y = rand.Next(0, 800);
+                if (true)
+                {
+
+
+                    debugText.Text = planks.Count.ToString();
+                    var width_plank = Convert.ToInt16(width);
+                    var height_plank = Convert.ToInt16(height);
+                    var x_plank = Convert.ToInt16(new_x);
+                    var y_plank = Convert.ToInt16(y);
+
+                    SetColor("#654321");
+
+                    Plank p = new Plank(
+                        planks.Count,
+                        Rect(x_plank, y_plank, width_plank * GRID_SIZE, height_plank * GRID_SIZE)
+                        );
+
+                    planks.Add(p);
+                    selectedPlank = p;
+                    Plank.selectedPlank = planks.Count() - 1;
+                    CheckPlanks();
+                   
+
+                }
+            }
+        }
     }
 }
