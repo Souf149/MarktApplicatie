@@ -31,6 +31,13 @@ namespace MarktApplicatie
                 checkbox.Foreground = new SolidColorBrush(Colors.White);
                 darkmode_on.Foreground = new SolidColorBrush(Colors.White);
                 darkmode_off.Foreground = new SolidColorBrush(Colors.White);
+                darkmodehome.Foreground = new SolidColorBrush(Colors.White);
+                darkmodehome_off.Foreground = new SolidColorBrush(Colors.White);
+                color1.Foreground = new SolidColorBrush(Colors.White);
+                color2.Foreground = new SolidColorBrush(Colors.White);
+                color3.Foreground = new SolidColorBrush(Colors.White);
+                stil.Foreground = new SolidColorBrush(Colors.White);
+                bewegend.Foreground = new SolidColorBrush(Colors.White);
             }
 
             if (Settings1.Default.Darkmode == false)
@@ -40,6 +47,13 @@ namespace MarktApplicatie
                 checkbox.Foreground = new SolidColorBrush(Colors.Black);
                 darkmode_on.Foreground = new SolidColorBrush(Colors.Black);
                 darkmode_off.Foreground = new SolidColorBrush(Colors.Black);
+                darkmodehome.Foreground = new SolidColorBrush(Colors.Black);
+                darkmodehome_off.Foreground = new SolidColorBrush(Colors.Black);
+                color1.Foreground = new SolidColorBrush(Colors.Black);
+                color2.Foreground = new SolidColorBrush(Colors.Black);
+                color3.Foreground = new SolidColorBrush(Colors.Black);
+                stil.Foreground = new SolidColorBrush(Colors.Black);
+                bewegend.Foreground = new SolidColorBrush(Colors.Black);
             }
 
             if (Settings1.Default.Font8 == true)
@@ -162,6 +176,30 @@ namespace MarktApplicatie
                 Settings1.Default.Font16 = true;
             }
 
+            if (darkmodehome.IsChecked == true)
+            {
+                //homescreen dark
+            }
+
+            if (color1.IsChecked == true)
+            {
+                //homescreen between dark and standard
+            }
+
+            if (color2.IsChecked == true)
+            {
+                //homescreen standard
+            }
+
+            if (color3.IsChecked == true)
+            {
+                //homescreen between light and standard
+            }
+
+            if (darkmodehome_off.IsChecked == true)
+            {
+                //homescreen lightmode
+            }
 
 
             Settings1.Default.Save();
