@@ -28,12 +28,24 @@ namespace MarktApplicatie
             {
                 this.Background = new SolidColorBrush(Colors.Black);
                 this.Foreground = new SolidColorBrush(Colors.White);
+                twee.Foreground = new SolidColorBrush(Colors.White);
+                drie.Foreground = new SolidColorBrush(Colors.White);
+                vier.Foreground = new SolidColorBrush(Colors.White);
+                peren.Foreground = new SolidColorBrush(Colors.White);
+                Citroenen.Foreground = new SolidColorBrush(Colors.White);
+                citroenen.Foreground = new SolidColorBrush(Colors.White);
             }
 
             if (Settings1.Default.Darkmode == false)
             {
                 this.Background = new SolidColorBrush(Colors.White);
                 this.Foreground = new SolidColorBrush(Colors.Black);
+                twee.Foreground = new SolidColorBrush(Colors.Black);
+                drie.Foreground = new SolidColorBrush(Colors.Black);
+                vier.Foreground = new SolidColorBrush(Colors.Black);
+                peren.Foreground = new SolidColorBrush(Colors.Black);
+                Citroenen.Foreground = new SolidColorBrush(Colors.Black);
+                citroenen.Foreground = new SolidColorBrush(Colors.Black);
             }
 
             if (Settings1.Default.Font8 == true)

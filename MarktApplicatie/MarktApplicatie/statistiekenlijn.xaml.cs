@@ -51,16 +51,16 @@ namespace MarktApplicatie
                     Values = new ChartValues<double>{62,55,33,21}
                 }
             };
-   
-            Labels = new[] {"Week 1","Week 2","Week 3","Week 4" };
+
+            Labels = new[] { "Week 1", "Week 2", "Week 3", "Week 4" };
             YFormatter = value => value.ToString("C");
 
             DataContext = this;
-            
+
 
         }
 
-        public SeriesCollection SeriesCollection { get; set;  }
+        public SeriesCollection SeriesCollection { get; set; }
         public string[] Labels { get; set; }
         public Func<double, string> YFormatter { get; set; }
 
@@ -77,5 +77,31 @@ namespace MarktApplicatie
             maand.Show();
             this.Close();
         }
+
+        private void Save(object sender, RoutedEventArgs e) //https://www.youtube.com/watch?v=D55E7Wor9Os source code
+        {
+            try
+            {
+                this.IsEnabled = false;
+
+                PrintDialog printDialog = new PrintDialog();
+
+                if (printDialog.ShowDialog() == true)
+                {
+                    printDialog.PrintVisual(cartesianChart1, "cartesianChart1");
+                }
+
+
+            }
+            finally
+            {
+                this.IsEnabled = true;
+            }
+
+
+        }
+
+
     }
+
 }
