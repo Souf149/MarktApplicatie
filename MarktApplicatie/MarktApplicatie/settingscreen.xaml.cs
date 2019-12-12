@@ -105,7 +105,8 @@ namespace MarktApplicatie
             Settings1.Default.Font12 = true;
             Settings1.Default.Font14 = false;
             Settings1.Default.Font16 = false;
-            
+            Settings1.Default.Stilstaan = true;
+
             Settings1.Default.Save();
             MessageBox.Show("Instellingen gereset!, Fontsize=12", "Instellingen", MessageBoxButton.OK, MessageBoxImage.Information);
             new settingscreen().Show();
@@ -201,6 +202,15 @@ namespace MarktApplicatie
                 //homescreen lightmode
             }
 
+            if (stil.IsChecked == true)
+            {
+                Settings1.Default.Stilstaan = true;
+            }
+
+            if (bewegend.IsChecked == true)
+            {
+                Settings1.Default.Stilstaan = false;
+            }
 
             Settings1.Default.Save();
             MessageBox.Show("Instellingen opgeslagen!", "Instellingen", MessageBoxButton.OK, MessageBoxImage.Information);

@@ -202,5 +202,17 @@ namespace MarktApplicatie {
                 this["Font16"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Stilstaan {
+            get {
+                return ((bool)(this["Stilstaan"]));
+            }
+            set {
+                this["Stilstaan"] = value;
+            }
+        }
     }
 }

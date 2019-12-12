@@ -64,7 +64,12 @@ namespace MarktApplicatie
                 FontSize = 16;
             }
 
-            CreateTimer();
+            if (Settings1.Default.Stilstaan == false)
+            {
+                CreateTimer();
+            }
+
+            
 
             SoufShape.canvas = canvas;
 
