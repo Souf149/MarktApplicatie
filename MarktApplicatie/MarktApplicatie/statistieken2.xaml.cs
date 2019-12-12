@@ -143,5 +143,26 @@ namespace MarktApplicatie
             statslijn.Show();
             this.Close();
         }
+
+        private void Save(object sender, RoutedEventArgs e) //https://www.youtube.com/watch?v=D55E7Wor9Os source code
+        {
+            try
+            {
+                this.IsEnabled = false;
+
+                PrintDialog printDialog = new PrintDialog();
+
+                if (printDialog.ShowDialog() == true)
+                {
+                    printDialog.PrintVisual(cartesianChart1, "cartesianChart1");
+                }
+
+
+            }
+            finally
+            {
+                this.IsEnabled = true;
+            }
+        }
     }
 }

@@ -17,7 +17,7 @@
         <Button Click="Save" Content="Save" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="0,150,0,0" Width="75"  FontSize="11" />
 
 
-        <lvc:PieChart LegendLocation="Bottom"   Margin="142,42,-0.4,0" Name="cartesianChart1">
+        <lvc:PieChart LegendLocation="Bottom"   Margin="142,8,-0.4,34" Name="cartesianChart1">
             <lvc:PieChart.Series>
                 <lvc:PieSeries Title="Appels" Values="11" DataLabels="True"
                                LabelPoint="{Binding PointLabel}"/>
