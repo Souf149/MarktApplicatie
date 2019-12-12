@@ -20,7 +20,7 @@ using Path = System.IO.Path;
 
 namespace MarktApplicatie
 {
-    
+
     public partial class EditKraam : Window
     {
 
@@ -30,25 +30,25 @@ namespace MarktApplicatie
 
         List<string> fruitNames = new List<string>();
 
-        
-        
+
+
 
         int GRID_SIZE = SoufTools.GRID_SIZE;
 
         Plank selectedPlank = new Plank();
 
-        List<Plank> planks = new List<Plank>();
+        public List<Plank> planks = new List<Plank>();
 
         SolidColorBrush currentFill = new SolidColorBrush(Colors.Red);
         int selectedFruit = -1;
 
-        
 
-        
 
-        
 
-        private void SetColor(string code)
+
+
+
+        public void SetColor(string code)
         {
             currentFill = SoufTools.GetColor(code);
         }
@@ -63,7 +63,7 @@ namespace MarktApplicatie
                 Height = h,
                 Fill = currentFill
             };
-            
+
             Canvas.SetLeft(r, x);
             Canvas.SetTop(r, y);
 
@@ -93,6 +93,7 @@ namespace MarktApplicatie
         {
             // initialize window
             InitializeComponent();
+
             
             if (Settings1.Default.Darkmode)
             {
@@ -108,6 +109,7 @@ namespace MarktApplicatie
 
 
             }
+
 
             Fruit.c = canvas;
             Plank.c = canvas;
@@ -175,7 +177,7 @@ namespace MarktApplicatie
         {
             plank_popup dialog = new plank_popup();
             int width, height;
-            if(dialog.ShowDialog() == true)
+            if (dialog.ShowDialog() == true)
             {
                 debugText.Text = planks.Count.ToString();
                 width = Convert.ToInt16(dialog.Inp_width);
@@ -197,13 +199,14 @@ namespace MarktApplicatie
                 CheckPlanks();
 
             }
-            
+
         }
 
         public void save_Composition(object sender, MouseButtonEventArgs e)
         {
             save_popup popup = new save_popup();
-            if (popup.ShowDialog() == true) {
+            if (popup.ShowDialog() == true)
+            {
 
                 string path_filename = Path.Combine(SoufTools.compositions_path, popup.FileName);
 
@@ -242,12 +245,13 @@ namespace MarktApplicatie
             }
 
 
-            
 
-            
+
+
         }
 
-        private void Canvas_onclick(object sender, MouseButtonEventArgs e) {
+        private void Canvas_onclick(object sender, MouseButtonEventArgs e)
+        {
 
             Point p = e.GetPosition(this);
             mouseDown = true;
@@ -255,15 +259,18 @@ namespace MarktApplicatie
 
 
 
-            if (plankEditMode) {
-                for (int i = 0; i < planks.Count; i++) {
+            if (plankEditMode)
+            {
+                for (int i = 0; i < planks.Count; i++)
+                {
                     Rectangle r = planks[i].r;
                     double x = Canvas.GetLeft(r);
                     double y = Canvas.GetTop(r);
 
 
                     if (p.X > x && p.X < x + r.Width &&
-                        p.Y > y && p.Y < y + r.Height) {
+                        p.Y > y && p.Y < y + r.Height)
+                    {
                         Plank.selectedPlank = i;
                         selectedPlank = planks[i];
                         selectedPlank.OnClick(p.X, p.Y);
@@ -277,52 +284,61 @@ namespace MarktApplicatie
                 Plank.selectedPlank = -1;
                 CheckPlanks();
             }
-            else {
+            else
+            {
 
-                foreach(Plank plank in planks) {
+                foreach (Plank plank in planks)
+                {
                     Rectangle r = plank.r;
                     double plank_x = Canvas.GetLeft(r);
                     double plank_y = Canvas.GetTop(r);
 
                     if (p.X > plank_x && p.X < plank_x + r.Width &&
-                        p.Y > plank_y && p.Y < plank_y + r.Height) {
+                        p.Y > plank_y && p.Y < plank_y + r.Height)
+                    {
 
                         double x = p.X - Canvas.GetLeft(plank.r);
                         double y = p.Y - Canvas.GetTop(plank.r);
                         plank.OnClick(selectedFruit, x, y);
                     }
-                    
+
                 }
             }
-            
+
 
         }
 
-        void CheckPlanks() {
+        void CheckPlanks()
+        {
             // Make it get green stroke, if its currently selected.
-            for(int i = 0; i < planks.Count; i++) {
+            for (int i = 0; i < planks.Count; i++)
+            {
                 planks[i].Check();
-             }
-            
-            
-            
+            }
+
+
+
 
         }
 
-        private void Canvas_onrelease(object sender, MouseButtonEventArgs e) {
+        private void Canvas_onrelease(object sender, MouseButtonEventArgs e)
+        {
             mouseDown = false;
 
 
         }
 
-        private void Canvas_PreviewMouseMove(object sender, MouseEventArgs e) {
+        private void Canvas_PreviewMouseMove(object sender, MouseEventArgs e)
+        {
             Point p = e.GetPosition(this);
             // if the mouse is held down while moving
-            if (mouseDown) {
+            if (mouseDown)
+            {
                 positionText.Text = $"X: {p.X.ToString()}, \nY: {p.Y.ToString()}";
 
                 // if you want to move the current selected plank
-                if (plankEditMode) {
+                if (plankEditMode)
+                {
                     if (Plank.selectedPlank == -1)
                         return;
 
@@ -330,32 +346,38 @@ namespace MarktApplicatie
                 }
 
 
-             }
+            }
         }
 
-        private void Switch_editmode_onclick(object sender, MouseButtonEventArgs e) {
+        private void Switch_editmode_onclick(object sender, MouseButtonEventArgs e)
+        {
 
-            if (plankEditMode) {
+            if (plankEditMode)
+            {
                 plankEditMode = false;
                 btn_switch_editmode.Content = "Switch to\nplank edit";
                 
             }
-            else {
+            else
+            {
                 plankEditMode = true;
                 btn_switch_editmode.Content = "Switch to\nadd fruit";
                 
             }
         }
 
-        private void Verander_grootte(object sender, MouseButtonEventArgs e) {
-            if (Plank.selectedPlank == -1) { 
+        private void Verander_grootte(object sender, MouseButtonEventArgs e)
+        {
+            if (Plank.selectedPlank == -1)
+            {
                 MessageBox.Show("Selecteer een plank");
                 return;
             }
 
             plank_popup dialog = new plank_popup();
             int width, height;
-            if (dialog.ShowDialog() == true) {
+            if (dialog.ShowDialog() == true)
+            {
                 debugText.Text = planks.Count.ToString();
                 width = Convert.ToInt16(dialog.Inp_width);
                 height = Convert.ToInt16(dialog.Inp_height);
@@ -380,7 +402,7 @@ namespace MarktApplicatie
         {
             List<TextBlock> selected_blocks = new List<TextBlock>();
 
-            foreach(TextBlock block in listView.Items)
+            foreach (TextBlock block in listView.Items)
             {
                 selected_blocks.Add(block);
             }
@@ -391,11 +413,11 @@ namespace MarktApplicatie
                 listView.Items.Remove(block);
             }
 
-            foreach(string[] d in fruit_info)
+            foreach (string[] d in fruit_info)
             {
                 CreateFruit(d[0], d[1]);
             }
-            
+
 
 
         }
@@ -437,7 +459,7 @@ namespace MarktApplicatie
                 }
             }
 
-            
+
 
         }
 
@@ -446,6 +468,93 @@ namespace MarktApplicatie
             EditKraam editkraam = new EditKraam();
             editkraam.Show();
             this.Close();
+        }
+
+        private void randomize_composition(object sender, MouseButtonEventArgs e)
+        {
+            automatischplank_popup dialog = new automatischplank_popup();
+            
+            if (dialog.ShowDialog() == true)
+            {
+                bool fruittogether = dialog.fruittogether;
+                if (planks.Count != 0 && fruittogether == true)
+                {
+                    randomFruitOrganize();
+                }
+                if(planks.Count != 0 && fruittogether == false)
+                {
+                    randomFruit();
+                }
+            }
+        }
+
+
+        public void randomFruitOrganize()
+        {
+            Random r = new Random();
+            for (int p = 0; p < planks.Count; p++)
+            {
+            var randomnumber = r.Next(0, SoufTools.GetAllFruits().Count());
+                for (int f = 0; f < planks[p].fruits.Count; f++)
+                {
+                   planks[p].fruits[f].Change(randomnumber);
+                }
+                }
+            }  
+
+
+        public void randomFruit()
+        {   
+            Random r = new Random();
+
+            for (int p = 0; p < planks.Count; p++)
+            {
+                for (int f = 0; f < planks[p].fruits.Count; f++)
+                {
+                    planks[p].fruits[f].Change(r.Next(0, SoufTools.GetAllFruits().Count()));
+                }
+            }
+        }
+
+        private void randomPlank(object sender, MouseButtonEventArgs e)
+        {
+            var rand = new Random();
+            int planktimes = 2;
+            var new_x = 0;
+
+            for (int i = 0; i < planktimes; i++)
+            {
+                
+                var width = rand.Next(2, 11);
+                var height = rand.Next(2, 11);
+                var x = rand.Next(0, 800);
+                new_x = width;
+                var y = rand.Next(0, 800);
+                if (true)
+                {
+
+
+                    debugText.Text = planks.Count.ToString();
+                    var width_plank = Convert.ToInt16(width);
+                    var height_plank = Convert.ToInt16(height);
+                    var x_plank = Convert.ToInt16(new_x);
+                    var y_plank = Convert.ToInt16(y);
+
+                    SetColor("#654321");
+
+                    Plank p = new Plank(
+                        planks.Count,
+                        Rect(x_plank, y_plank, width_plank * GRID_SIZE, height_plank * GRID_SIZE)
+                        );
+
+                    planks.Add(p);
+                    selectedPlank = p;
+                    Plank.selectedPlank = planks.Count() - 1;
+                    CheckPlanks();
+                   
+
+                }
+            }
         }
     }
 }

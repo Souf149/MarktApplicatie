@@ -20,7 +20,7 @@ namespace MarktApplicatie {
         public int id;
         public Rectangle r;
         public static int selectedPlank = -1;
-        List<Fruit> fruits = new List<Fruit>();
+        public List<Fruit> fruits = new List<Fruit>();
 
         public int cols, rows;
 
@@ -159,7 +159,7 @@ namespace MarktApplicatie {
 
         public int x_on_plank;
         public int y_on_plank;
-
+        public int currentFruit;
 
         public Fruit(int id_, int fruitId, Plank plank_) {
             id = id_;
@@ -207,7 +207,8 @@ namespace MarktApplicatie {
             fruit_info = SoufTools.GetAllFruits();
         }
 
-        internal void Change(int selectedFruit) {
+        public void Change(int selectedFruit) {
+            currentFruit = selectedFruit;
             if (selectedFruit < 0) {
                 r.Fill = standard_color;
                 return;

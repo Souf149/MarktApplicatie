@@ -21,6 +21,7 @@ namespace MarktApplicatie
     // </summary>
     public partial class settingscreen : Window
     {
+         public bool fruittogether = false;
         public settingscreen()
         {
             InitializeComponent();
@@ -274,7 +275,6 @@ namespace MarktApplicatie
             MessageBox.Show("Instellingen opgeslagen!", "Instellingen", MessageBoxButton.OK, MessageBoxImage.Information);
             new settingscreen().Show();
             this.Close();
-
 
 
 

@@ -83,6 +83,9 @@
     <Compile Include="add_new_fruit.xaml.cs">
       <DependentUpon>add_new_fruit.xaml</DependentUpon>
     </Compile>
+    <Compile Include="automatischplank_popup.xaml.cs">
+      <DependentUpon>automatischplank_popup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="confirmation_popup.xaml.cs">
       <DependentUpon>confirmation_popup.xaml</DependentUpon>
     </Compile>
@@ -128,6 +131,10 @@
       <DependentUpon>tijdelijkstatscherm.xaml</DependentUpon>
     </Compile>
     <Page Include="add_new_fruit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="automatischplank_popup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
