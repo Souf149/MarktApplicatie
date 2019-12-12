@@ -95,7 +95,7 @@
 
         <Button Content="Save" PreviewMouseLeftButtonDown="save_Composition"
 
-                Grid.Column="1" Grid.Row="4" Width="150" FontSize="12"/>
+                Grid.Column="1" Grid.Row="5" Width="150" FontSize="12"/>
     </Grid>
 
 
