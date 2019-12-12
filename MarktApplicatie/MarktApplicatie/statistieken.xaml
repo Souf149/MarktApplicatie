@@ -16,7 +16,7 @@
         <Button x:Name="Stat3" Content="Cirkeldiagram" HorizontalAlignment="Left" Margin="0,61,0,0" VerticalAlignment="Top" Width="75" Click="openStat3" FontSize="11" />
         <Button Click="Save" Content="Save" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="0,93,0,0" Width="75"  FontSize="11" />
 
-        <Canvas x:Name="canvas" Margin="86,0,0,0">
+        
             <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Left" Name="cartesianChart1" Margin="86,0,0,0">
                 <lvc:CartesianChart.AxisX>
                     <lvc:Axis Title="Producten" Labels="{Binding Labels}"></lvc:Axis>
@@ -25,7 +25,7 @@
                     <lvc:Axis Title="Aantal" LabelFormatter="{Binding Formatter}"></lvc:Axis>
                 </lvc:CartesianChart.AxisY>
             </lvc:CartesianChart>
-        </Canvas>
+       
 
     </Grid>
 </Window>

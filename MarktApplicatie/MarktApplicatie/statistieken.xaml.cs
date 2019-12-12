@@ -104,6 +104,8 @@ namespace MarktApplicatie
             DataContext = this;
         }
 
+        
+
         private void Save (object sender, RoutedEventArgs e) //https://www.youtube.com/watch?v=D55E7Wor9Os source code
         {
             try
@@ -111,13 +113,13 @@ namespace MarktApplicatie
                 this.IsEnabled = false;
 
                 PrintDialog printDialog = new PrintDialog();
-
+                
+                  if (printDialog.ShowDialog() == true)
+                    {
+                        printDialog.PrintVisual(cartesianChart1, "cartesianChart1");
+                    }
                 
 
-                if (printDialog.ShowDialog() == true)
-                {
-                    printDialog.PrintVisual(cartesianChart1, "cartesianChart1");
-                }
             }
             finally
             {
