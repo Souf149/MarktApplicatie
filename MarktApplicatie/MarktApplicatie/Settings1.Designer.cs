@@ -214,5 +214,89 @@ namespace MarktApplicatie {
                 this["Stilstaan"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool lightmode {
+            get {
+                return ((bool)(this["lightmode"]));
+            }
+            set {
+                this["lightmode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool lightblue {
+            get {
+                return ((bool)(this["lightblue"]));
+            }
+            set {
+                this["lightblue"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool blue {
+            get {
+                return ((bool)(this["blue"]));
+            }
+            set {
+                this["blue"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool darkblue {
+            get {
+                return ((bool)(this["darkblue"]));
+            }
+            set {
+                this["darkblue"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool darkmodehome {
+            get {
+                return ((bool)(this["darkmodehome"]));
+            }
+            set {
+                this["darkmodehome"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
+        public int speed {
+            get {
+                return ((int)(this["speed"]));
+            }
+            set {
+                this["speed"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool verdwijnen {
+            get {
+                return ((bool)(this["verdwijnen"]));
+            }
+            set {
+                this["verdwijnen"] = value;
+            }
+        }
     }
 }

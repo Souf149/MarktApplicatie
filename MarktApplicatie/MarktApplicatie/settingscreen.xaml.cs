@@ -16,9 +16,9 @@ using System.Windows.Shapes;
 
 namespace MarktApplicatie
 {
-    /// <summary>
-    /// Interaction logic for settingscreen.xaml
-    /// </summary>
+    // <summary>
+    // Interaction logic for settingscreen.xaml
+    // </summary>
     public partial class settingscreen : Window
     {
         public settingscreen()
@@ -37,7 +37,10 @@ namespace MarktApplicatie
                 color2.Foreground = new SolidColorBrush(Colors.White);
                 color3.Foreground = new SolidColorBrush(Colors.White);
                 stil.Foreground = new SolidColorBrush(Colors.White);
-                bewegend.Foreground = new SolidColorBrush(Colors.White);
+                verdwijn.Foreground = new SolidColorBrush(Colors.White);
+                Langzaam.Foreground = new SolidColorBrush(Colors.White);
+                Normaal.Foreground = new SolidColorBrush(Colors.White);
+                Snel.Foreground = new SolidColorBrush(Colors.White);
             }
 
             if (Settings1.Default.Darkmode == false)
@@ -53,7 +56,12 @@ namespace MarktApplicatie
                 color2.Foreground = new SolidColorBrush(Colors.Black);
                 color3.Foreground = new SolidColorBrush(Colors.Black);
                 stil.Foreground = new SolidColorBrush(Colors.Black);
-                bewegend.Foreground = new SolidColorBrush(Colors.Black);
+                verdwijn.Foreground = new SolidColorBrush(Colors.Black);
+                Langzaam.Foreground = new SolidColorBrush(Colors.Black);
+                Normaal.Foreground = new SolidColorBrush(Colors.Black);
+                Snel.Foreground = new SolidColorBrush(Colors.Black);
+
+
             }
 
             if (Settings1.Default.Font8 == true)
@@ -106,6 +114,10 @@ namespace MarktApplicatie
             Settings1.Default.Font14 = false;
             Settings1.Default.Font16 = false;
             Settings1.Default.Stilstaan = true;
+            Settings1.Default.speed = 50;
+            Settings1.Default.Stilstaan = false;
+            Settings1.Default.verdwijnen = false;
+            Settings1.Default.blue = true;
 
             Settings1.Default.Save();
             MessageBox.Show("Instellingen gereset!, Fontsize=12", "Instellingen", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -179,37 +191,83 @@ namespace MarktApplicatie
 
             if (darkmodehome.IsChecked == true)
             {
-                //homescreen dark
+                Settings1.Default.darkmodehome = true;
+                Settings1.Default.lightblue = false;
+                Settings1.Default.blue = false;
+                Settings1.Default.darkblue = false;
+                Settings1.Default.lightmode = false;
+
             }
 
             if (color1.IsChecked == true)
             {
-                //homescreen between dark and standard
+                Settings1.Default.lightblue = true;
+                Settings1.Default.darkmodehome = false;
+                Settings1.Default.blue = false;
+                Settings1.Default.darkblue = false;
+                Settings1.Default.lightmode = false;
             }
 
             if (color2.IsChecked == true)
             {
-                //homescreen standard
+                Settings1.Default.blue = true;
+                Settings1.Default.lightblue = false;
+                Settings1.Default.darkmodehome = false;
+                Settings1.Default.darkblue = false;
+                Settings1.Default.lightmode = false;
             }
 
             if (color3.IsChecked == true)
             {
-                //homescreen between light and standard
+                Settings1.Default.darkblue = false;
+                Settings1.Default.lightblue = false;
+                Settings1.Default.darkmodehome = false;
+                Settings1.Default.darkblue = true;
+                Settings1.Default.lightmode = false;
             }
 
             if (darkmodehome_off.IsChecked == true)
             {
-                //homescreen lightmode
+                Settings1.Default.lightmode = true;
+                Settings1.Default.darkblue = false;
+                Settings1.Default.lightblue = false;
+                Settings1.Default.darkmodehome = false;
+                Settings1.Default.darkblue = false;
+                
             }
 
             if (stil.IsChecked == true)
             {
                 Settings1.Default.Stilstaan = true;
+                Settings1.Default.verdwijnen = false;
             }
 
-            if (bewegend.IsChecked == true)
+            if (Langzaam.IsChecked == true)
             {
+                Settings1.Default.speed = 25;
                 Settings1.Default.Stilstaan = false;
+                Settings1.Default.verdwijnen = false;
+
+            }
+
+            if (Normaal.IsChecked == true)
+            {
+                Settings1.Default.speed = 50;
+                Settings1.Default.Stilstaan = false;
+                Settings1.Default.verdwijnen = false;
+            }
+
+            if (Snel.IsChecked == true)
+            {
+                Settings1.Default.speed = 75;
+                Settings1.Default.Stilstaan = false;
+                Settings1.Default.verdwijnen = false;
+            }
+
+            if (verdwijn.IsChecked == true)
+            {
+                Settings1.Default.Stilstaan = true;
+                Settings1.Default.verdwijnen = true;
             }
 
             Settings1.Default.Save();

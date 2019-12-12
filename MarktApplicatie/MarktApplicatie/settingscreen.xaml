@@ -78,20 +78,18 @@
                 <Image Source="16.JPG" Height="42" Width="46"  />
             </WrapPanel>
         </RadioButton>
-        <TextBlock FontWeight="Bold"  HorizontalAlignment="Left" Margin="15.4,10,0,0" TextWrapping="Wrap" Text="Homescherm - kleur van achtergrond elementen:" VerticalAlignment="Top" RenderTransformOrigin="-0.441,0.329" Height="43" Width="194" Grid.Column="3"/>
-
-
-
+        <TextBlock FontWeight="Bold"  HorizontalAlignment="Left" Margin="15.4,10,0,0" TextWrapping="Wrap" Text="Homescherm - achtergrondkleur:" VerticalAlignment="Top" RenderTransformOrigin="-0.441,0.329" Height="43" Width="194" Grid.Column="3"/>
         <RadioButton Name="darkmodehome" Grid.Column="3" Content="Darkmode" RenderTransformOrigin="0.513,0.532" Margin="15.4,58,8.2,441.6" GroupName="Homecolor"/>
         <RadioButton Name="color1" GroupName="Homecolor" Content="Donkere kleuren" Margin="15.4,88,0,409.6" Grid.Column="3" HorizontalAlignment="Left" Width="141" />
         <RadioButton Name="color2" GroupName="Homecolor" Content="Normale mode" Margin="15.4,130,0,366.6" Grid.Column="3" HorizontalAlignment="Left" Width="141" />
         <RadioButton Name="color3" GroupName="Homecolor" Content="Lichte kleuren" Margin="15.4,171,0,325.6" Grid.Column="3" HorizontalAlignment="Left" Width="141" />
         <RadioButton Name="darkmodehome_off" GroupName="Homecolor" Content="Lightmode" Margin="15.4,218,0,259.6" Grid.Column="3" HorizontalAlignment="Left" Width="133" />
         <TextBlock FontWeight="Bold"  HorizontalAlignment="Left" Margin="11.8,10,0,0" TextWrapping="Wrap" Text="Homescherm - Snelheid van achtergrond elementen:" VerticalAlignment="Top" RenderTransformOrigin="-0.441,0.329" Height="43" Width="220" Grid.Column="4"/>
-        <RadioButton Name="stil" Grid.Column="4" Content="Stil" RenderTransformOrigin="0.513,0.532" Margin="28.8,58,48.8,441.6" GroupName="elementspeed"/>
-        <RadioButton Name="bewegend" Grid.Column="4" Content="Bewegend" RenderTransformOrigin="0.513,0.532" Margin="28.8,88,48.8,411.6" GroupName="elementspeed"/>
-
-
+        <RadioButton Name="verdwijn" Grid.Column="4" Content="Verdwijn" RenderTransformOrigin="0.513,0.532" Margin="28.8,58,48.8,441.6" GroupName="elementspeed"/>
+        <RadioButton Name="stil" Grid.Column="4" Content="Stil" RenderTransformOrigin="0.513,0.532" Margin="28.8,88,48.8,411.6" GroupName="elementspeed"/>
+        <RadioButton Name="Langzaam" Grid.Column="4" Content="Langzaam" RenderTransformOrigin="0.513,0.532" Margin="28.8,130,48.8,369.6" GroupName="elementspeed"/>
+        <RadioButton Name="Normaal" Grid.Column="4" Content="Normaal" RenderTransformOrigin="0.513,0.532" Margin="28.8,171,48.8,328.6" GroupName="elementspeed"/>
+        <RadioButton Name="Snel" Grid.Column="4" Content="Snel" RenderTransformOrigin="0.513,0.532" Margin="28.8,218,48.8,281.6" GroupName="elementspeed"/>
 
     </Grid>
 
