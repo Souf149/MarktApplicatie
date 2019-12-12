@@ -70,26 +70,35 @@ namespace MarktApplicatie
             }
 
             //get data from vorige file and put it in a array
+            string line;
             StreamReader file1 = new StreamReader(@"vorige.txt");
-            string line1;
-            List<int> list1 = new List<int>();
-            while ((line1 = file1.ReadLine()) != null)
+            
+            List<int> listvorige = new List<int>();
+            while ((line = file1.ReadLine()) != null)
             {
-                list1.Add(int.Parse(line1));
+                listvorige.Add(int.Parse(line));
             }
 
-            int[] vorige = list1.ToArray();
 
+            //get data from huide file and put it in a array
+            StreamReader file2 = new StreamReader(@"huidige.txt");
 
-            int[] vorigeweek = {10, 50, 39, 50 };
-            int[] dezeweek = { 11, 56, 42, 48 };
+            List<int> listhuidige = new List<int>();
+            while ((line = file2.ReadLine()) != null)
+            {
+                listhuidige.Add(int.Parse(line));
+            }
+
+            
+
+            
 
             SeriesCollection = new SeriesCollection
             {
                 new ColumnSeries
                 {
                     Title = "vorige week",
-                    Values = new ChartValues<double> { vorige[0], vorige[1], vorige[2], vorige[3] }
+                    Values = new ChartValues<double> { listvorige[0], listvorige[1], listvorige[2], listvorige[3] }
                 }
             };
 
@@ -98,7 +107,7 @@ namespace MarktApplicatie
             SeriesCollection.Add(new ColumnSeries
             {
                 Title = "deze week",
-                Values = new ChartValues<double> { dezeweek[0], dezeweek[1], dezeweek[2], dezeweek[3] }
+                Values = new ChartValues<double> { listhuidige[0], listhuidige[1], listhuidige[2], listhuidige[3] }
             });
 
             //also adding values updates and animates the chart automatically

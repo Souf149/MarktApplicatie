@@ -81,7 +81,7 @@ namespace MarktApplicatie
             SeriesCollection.Add(new ColumnSeries
             {
                 Title = "week 2",
-                Values = new ChartValues<double> { 22, 88, 34 }
+                Values = new ChartValues<double> { 22, 88, 34, 55 }
             });
 
 
@@ -135,6 +135,13 @@ namespace MarktApplicatie
         private void CartesianChart_Loaded(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void openstatlijn(object sender, RoutedEventArgs e)
+        {
+            statistiekenlijn statslijn = new statistiekenlijn();
+            statslijn.Show();
+            this.Close();
         }
     }
 }
