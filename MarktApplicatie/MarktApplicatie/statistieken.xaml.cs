@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
 using LiveCharts;
 using LiveCharts.Wpf;
 using Brushes = System.Windows.Media.Brushes;
@@ -75,16 +76,36 @@ namespace MarktApplicatie
                 FontSize = 16;
             }
 
+            //get data from vorige file and put it in a array
+            string line;
+            StreamReader file1 = new StreamReader(@"vorige.txt");
+            
+            List<int> listvorige = new List<int>();
+            while ((line = file1.ReadLine()) != null)
+            {
+                listvorige.Add(int.Parse(line));
+            }
 
-            int[] vorigeweek = {10, 50, 39, 50 };
-            int[] dezeweek = { 11, 56, 42, 48 };
+
+            //get data from huide file and put it in a array
+            StreamReader file2 = new StreamReader(@"huidige.txt");
+
+            List<int> listhuidige = new List<int>();
+            while ((line = file2.ReadLine()) != null)
+            {
+                listhuidige.Add(int.Parse(line));
+            }
+
+            
+
+            
 
             SeriesCollection = new SeriesCollection
             {
                 new ColumnSeries
                 {
                     Title = "vorige week",
-                    Values = new ChartValues<double> { vorigeweek[0], vorigeweek[1], vorigeweek[2], vorigeweek[3] }
+                    Values = new ChartValues<double> { listvorige[0], listvorige[1], listvorige[2], listvorige[3] }
                 }
             };
 
@@ -93,7 +114,7 @@ namespace MarktApplicatie
             SeriesCollection.Add(new ColumnSeries
             {
                 Title = "deze week",
-                Values = new ChartValues<double> { dezeweek[0], dezeweek[1], dezeweek[2], dezeweek[3] }
+                Values = new ChartValues<double> { listhuidige[0], listhuidige[1], listhuidige[2], listhuidige[3] }
             });
 
             //also adding values updates and animates the chart automatically

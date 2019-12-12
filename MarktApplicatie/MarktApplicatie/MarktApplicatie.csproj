@@ -124,6 +124,9 @@
     <Compile Include="statistieken3.xaml.cs">
       <DependentUpon>statistieken3.xaml</DependentUpon>
     </Compile>
+    <Compile Include="statistiekenlijn.xaml.cs">
+      <DependentUpon>statistiekenlijn.xaml</DependentUpon>
+    </Compile>
     <Compile Include="statoftheday.xaml.cs">
       <DependentUpon>statoftheday.xaml</DependentUpon>
     </Compile>
@@ -193,6 +196,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="statistiekenlijn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="statoftheday.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -259,6 +266,14 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="8.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="huidige.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vorige.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
