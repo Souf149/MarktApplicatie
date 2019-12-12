@@ -50,7 +50,6 @@ namespace MarktApplicatie
             }
 
 
-
             if (Settings1.Default.Font8 == true)
             {
                 FontSize = 8;
@@ -112,6 +111,9 @@ namespace MarktApplicatie
                 this.IsEnabled = false;
 
                 PrintDialog printDialog = new PrintDialog();
+
+                
+
                 if (printDialog.ShowDialog() == true)
                 {
                     printDialog.PrintVisual(cartesianChart1, "cartesianChart1");

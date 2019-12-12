@@ -10,21 +10,23 @@
         Title="Statistiek huidige week" Height="450" Width="800">
     <Grid Margin="0,0,-0.4,0" >
 
-        <Button x:Name="Home" Content="Home" HorizontalAlignment="Left" Margin="0,60,0,0" VerticalAlignment="Top" Width="75" Click="openHome" FontSize="11"
+        <Button x:Name="Home" Content="Home" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Width="75" Click="openHome" FontSize="11"
                />
-        <Button x:Name="Stat2" Content="Vorige maand" HorizontalAlignment="Left" Margin="0,90,0,0" VerticalAlignment="Top" Width="75" Click="openStat2" FontSize="11" />
-        <Button x:Name="Stat3" Content="Cirkeldiagram" HorizontalAlignment="Left" Margin="0,120,0,0" VerticalAlignment="Top" Width="75" Click="openStat3" FontSize="11" />
-        <Button Click="Save" Content="Save" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="0,150,0,0" Width="75"  FontSize="11" />
+        <Button x:Name="Stat2" Content="Vorige maand" HorizontalAlignment="Left" Margin="0,30,0,0" VerticalAlignment="Top" Width="75" Click="openStat2" FontSize="11" />
+        <Button x:Name="Stat3" Content="Cirkeldiagram" HorizontalAlignment="Left" Margin="0,61,0,0" VerticalAlignment="Top" Width="75" Click="openStat3" FontSize="11" />
+        <Button Click="Save" Content="Save" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="0,93,0,0" Width="75"  FontSize="11" />
 
+        <Canvas x:Name="canvas" Margin="86,0,0,0">
+            <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Left" Name="cartesianChart1" Margin="86,0,0,0">
+                <lvc:CartesianChart.AxisX>
+                    <lvc:Axis Title="Producten" Labels="{Binding Labels}"></lvc:Axis>
+                </lvc:CartesianChart.AxisX>
+                <lvc:CartesianChart.AxisY>
+                    <lvc:Axis Title="Aantal" LabelFormatter="{Binding Formatter}"></lvc:Axis>
+                </lvc:CartesianChart.AxisY>
+            </lvc:CartesianChart>
+        </Canvas>
 
-        <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Left" Name="cartesianChart1" Margin="75,0,0,0">
-            <lvc:CartesianChart.AxisX>
-                <lvc:Axis Title="Producten" Labels="{Binding Labels}"></lvc:Axis>
-            </lvc:CartesianChart.AxisX>
-            <lvc:CartesianChart.AxisY>
-                <lvc:Axis Title="Aantal" LabelFormatter="{Binding Formatter}"></lvc:Axis>
-            </lvc:CartesianChart.AxisY>
-        </lvc:CartesianChart>
     </Grid>
 </Window>
 
