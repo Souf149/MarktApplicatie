@@ -26,5 +26,7 @@ namespace MarktApplicatie.Properties
                 return defaultInstance;
             }
         }
+
+        public bool Message { get; internal set; }
     }
 }

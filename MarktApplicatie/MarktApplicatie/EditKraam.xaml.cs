@@ -23,6 +23,8 @@ namespace MarktApplicatie
     
     public partial class EditKraam : Window
     {
+
+
         bool mouseDown = false;
         bool plankEditMode = true;
 
@@ -91,14 +93,51 @@ namespace MarktApplicatie
         {
             // initialize window
             InitializeComponent();
-
             
+            if (Settings1.Default.Darkmode)
+            {
+                listView.Background = new SolidColorBrush(Colors.Black);
+                canvas.Background = new SolidColorBrush(Colors.Black);
+                
+            }
+
+            else 
+            {
+                listView.Background = new SolidColorBrush(Colors.White);
+                canvas.Background = new SolidColorBrush(Colors.White);
+
+
+            }
 
             Fruit.c = canvas;
             Plank.c = canvas;
 
             ReloadFruits();
 
+            if (Settings1.Default.Font8 == true)
+            {
+                FontSize = 8;
+            }
+
+            if (Settings1.Default.Font10 == true)
+            {
+                FontSize = 10;
+            }
+
+            if (Settings1.Default.Font12 == true)
+            {
+                FontSize = 12;
+            }
+
+            if (Settings1.Default.Font14 == true)
+            {
+                FontSize = 14;
+            }
+
+            if (Settings1.Default.Font16 == true)
+            {
+                FontSize = 16;
+            }
 
 
 
@@ -124,12 +163,7 @@ namespace MarktApplicatie
             this.Close();
         }
 
-        private void Go_bus(object sender, MouseButtonEventArgs e)
-        {
-            editbus editBus = new editbus();
-            editBus.Show();
-            this.Close();
-        }
+        
 
         private void ListView_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
@@ -304,12 +338,12 @@ namespace MarktApplicatie
             if (plankEditMode) {
                 plankEditMode = false;
                 btn_switch_editmode.Content = "Switch to\nplank edit";
-                canvas.Background = SoufTools.GetColor("#22AA22");
+                
             }
             else {
                 plankEditMode = true;
                 btn_switch_editmode.Content = "Switch to\nadd fruit";
-                canvas.Background = SoufTools.GetColor("#555555");
+                
             }
         }
 

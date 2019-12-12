@@ -26,8 +26,47 @@ namespace MarktApplicatie
         public statistieken()
         {
             InitializeComponent();
+            {
+                this.Background = new SolidColorBrush(Colors.Black);
+                this.Foreground = new SolidColorBrush(Colors.White);
 
+                cartesianChart1.DataTooltip.Background = Brushes.Black;
+                cartesianChart1.DataTooltip.Foreground = Brushes.White;
+            }
 
+            if (Settings1.Default.Darkmode == false)
+            {
+                this.Background = new SolidColorBrush(Colors.White);
+                this.Foreground = new SolidColorBrush(Colors.Black);
+
+                cartesianChart1.DataTooltip.Background = Brushes.White;
+                cartesianChart1.DataTooltip.Foreground = Brushes.Black;
+            }
+
+            if (Settings1.Default.Font8 == true)
+            {
+                FontSize = 8;
+            }
+
+            if (Settings1.Default.Font10 == true)
+            {
+                FontSize = 10;
+            }
+
+            if (Settings1.Default.Font12 == true)
+            {
+                FontSize = 12;
+            }
+
+            if (Settings1.Default.Font14 == true)
+            {
+                FontSize = 14;
+            }
+
+            if (Settings1.Default.Font16 == true)
+            {
+                FontSize = 16;
+            }
 
             SeriesCollection = new SeriesCollection
             {

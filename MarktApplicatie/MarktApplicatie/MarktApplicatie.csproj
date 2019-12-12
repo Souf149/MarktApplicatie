@@ -88,9 +88,6 @@
     <Compile Include="custom_fruits.xaml.cs">
       <DependentUpon>custom_fruits.xaml</DependentUpon>
     </Compile>
-    <Compile Include="editbus.xaml.cs">
-      <DependentUpon>editbus.xaml</DependentUpon>
-    </Compile>
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="oudecomposities.xaml.cs">
       <DependentUpon>oudecomposities.xaml</DependentUpon>
@@ -123,6 +120,9 @@
     <Compile Include="statistieken3.xaml.cs">
       <DependentUpon>statistieken3.xaml</DependentUpon>
     </Compile>
+    <Compile Include="statoftheday.xaml.cs">
+      <DependentUpon>statoftheday.xaml</DependentUpon>
+    </Compile>
     <Compile Include="tijdelijkstatscherm.xaml.cs">
       <DependentUpon>tijdelijkstatscherm.xaml</DependentUpon>
     </Compile>
@@ -135,10 +135,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="custom_fruits.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="editbus.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -186,6 +182,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="statistieken3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="statoftheday.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -244,7 +244,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Mii.mp3" />
+    <Resource Include="10.JPG" />
+    <Resource Include="12.JPG" />
+    <Resource Include="14.JPG" />
+    <Resource Include="16.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="8.JPG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
