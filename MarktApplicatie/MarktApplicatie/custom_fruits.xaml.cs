@@ -24,7 +24,44 @@ namespace MarktApplicatie
         {
             InitializeComponent();
 
-            
+            if (Settings1.Default.Darkmode == true)
+            {
+                list_view.Background = new SolidColorBrush(Colors.Black);
+                list_view.Foreground = new SolidColorBrush(Colors.White);
+            }
+
+            if (Settings1.Default.Darkmode == false)
+            {
+                list_view.Background = new SolidColorBrush(Colors.White);
+                list_view.Foreground = new SolidColorBrush(Colors.Black);
+            }
+
+            if (Settings1.Default.Font8 == true)
+            {
+                FontSize = 8;
+            }
+
+            if (Settings1.Default.Font10 == true)
+            {
+                FontSize = 10;
+            }
+
+            if (Settings1.Default.Font12 == true)
+            {
+                FontSize = 12;
+            }
+
+            if (Settings1.Default.Font14 == true)
+            {
+                FontSize = 14;
+            }
+
+            if (Settings1.Default.Font16 == true)
+            {
+                FontSize = 16;
+            }
+
+
 
             // load fruits from file and split it into each fruit with their respective color.
             string data = File.ReadAllText(SoufTools.custom_fruit_path);
@@ -50,6 +87,8 @@ namespace MarktApplicatie
         {
             add_new_fruit dialog = new add_new_fruit();
             if (dialog.ShowDialog() == true) {
+
+                
 
                 string[] rgb = new string[] {
                     dialog.Inp_red,

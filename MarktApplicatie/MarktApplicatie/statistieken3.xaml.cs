@@ -23,35 +23,58 @@ namespace MarktApplicatie
         public statistieken3()
         {
             InitializeComponent();
-
-
-
-            SeriesCollection = new SeriesCollection
             {
-                new ColumnSeries
-                {
-                    Title = "vorige week",
-                    Values = new ChartValues<double> { 23, 37, 54, 62 }
-                }
-            };
+                this.Background = new SolidColorBrush(Colors.Black);
+                this.Foreground = new SolidColorBrush(Colors.White);
 
+                cartesianChart1.DataTooltip.Background = Brushes.Black;
+                cartesianChart1.DataTooltip.Foreground = Brushes.White;
+            }
 
-
-            SeriesCollection.Add(new ColumnSeries
+            if (Settings1.Default.Darkmode == false)
             {
-                Title = "deze week",
-                Values = new ChartValues<double> { 33, 28, 64 }
-            });
+                this.Background = new SolidColorBrush(Colors.White);
+                this.Foreground = new SolidColorBrush(Colors.Black);
 
+                cartesianChart1.DataTooltip.Background = Brushes.White;
+                cartesianChart1.DataTooltip.Foreground = Brushes.Black;
+            }
 
-            SeriesCollection[1].Values.Add(33d);
+            if (Settings1.Default.Font8 == true)
+            {
+                FontSize = 8;
+            }
 
-            Labels = new[] { "Sinasappels", "Ananas", "Kokosnoten", "Asperges" };
-            Formatter = value => value.ToString("N");
+            if (Settings1.Default.Font10 == true)
+            {
+                FontSize = 10;
+            }
+
+            if (Settings1.Default.Font12 == true)
+            {
+                FontSize = 12;
+            }
+
+            if (Settings1.Default.Font14 == true)
+            {
+                FontSize = 14;
+            }
+
+            if (Settings1.Default.Font16 == true)
+            {
+                FontSize = 16;
+            }
+
+            PointLabel = chartPoint =>
+                string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
 
             DataContext = this;
+
+            
         }
 
+        public Func<ChartPoint, string> PointLabel { get; set; }
+       
 
 
         public SeriesCollection SeriesCollection { get; set; }

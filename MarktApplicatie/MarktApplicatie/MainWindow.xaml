@@ -74,20 +74,12 @@
 
     <Grid>
         <!-- Background -->
-        <Canvas x:Name="canvas">
-            <Canvas.Background>
-                <LinearGradientBrush EndPoint="0.504,1.5" StartPoint="0.504,0.03">
-                    <GradientStop Color="#8888FF" Offset="0.2"/>
-                    <GradientStop Color="#6666FF" Offset="0.4"/>
-                    <GradientStop Color="#4444FF" Offset="0.6"/>
-                    <GradientStop Color="#2222FF" Offset="0.8"/>
-                    <GradientStop Color="#0000FF" Offset="1"/>
-                </LinearGradientBrush>
-            </Canvas.Background>
-            
-            
-            
-        </Canvas>
+        <Canvas x:Name="canvas"/>
+
+
+
+
+
 
         <!-- Foreground -->
         <Grid x:Name="grid">
@@ -118,13 +110,13 @@
                Margin="30"/>
 
             <Button x:Name="btn" Content="Nieuwe compositie starten" Grid.Column="2" Grid.Row="3" 
-                   PreviewMouseLeftButtonUp="OnClick_newComposition"/>
+                   PreviewMouseLeftButtonUp="OnClick_newComposition" />
             <Button Content="Vorige composities" Grid.Column="2" Grid.Row="4"
-                   PreviewMouseLeftButtonUp="OnClick_oldComposition"/>
+                   PreviewMouseLeftButtonUp="OnClick_oldComposition" Name="oldcomp"/>
             <Button Content="Statistieken" Grid.Column="2" Grid.Row="5"
-                   PreviewMouseLeftButtonUp="OnClick_statistics"/>
+                   PreviewMouseLeftButtonUp="OnClick_statistics" Name="stats"/>
             <Button Content="Instellingen" Grid.Column="2" Grid.Row="6"
-                   PreviewMouseLeftButtonUp="OnClick_settings"/>
+                   PreviewMouseLeftButtonUp="OnClick_settings" Name="settings"/>
 
 
         </Grid>

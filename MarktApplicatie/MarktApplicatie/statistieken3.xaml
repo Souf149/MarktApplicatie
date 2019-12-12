@@ -6,25 +6,29 @@
         xmlns:local="clr-namespace:MarktApplicatie"
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"      
         mc:Ignorable="d"
-        d:DesignHeight="300" d:DesignWidth="300" d:DataContext="{d:DesignInstance local:statistieken2}"
-        Title="BasicCollum" Height="450" Width="800">
-    <Grid Background="#FFEDEDED">
+        d:DesignHeight="300" d:DesignWidth="500" d:DataContext="{d:DesignInstance local:statistieken2}"
+        Title="Cirkeldiagram huidige week" Height="450" Width="800">
+    <Grid >
 
-        <Button x:Name="Home" Content="Home" HorizontalAlignment="Left" Margin="0,62,0,0" VerticalAlignment="Top" Width="75" Click="openHome"
+        <Button x:Name="Home" Content="Home" HorizontalAlignment="Left" Margin="0,62,0,0" VerticalAlignment="Top" Width="75" Click="openHome" FontSize="11"
                />
-        <Button x:Name="Stat1" Content="Stat1" HorizontalAlignment="Left" Margin="0,90,0,0" VerticalAlignment="Top" Width="75" Click="openstats" />
-        <Button x:Name="Stat2" Content="Stat2" HorizontalAlignment="Left" Margin="0,120,0,0" VerticalAlignment="Top" Width="75" Click="openstats2" />
+        <Button x:Name="Stat1" Content="Huidige week" HorizontalAlignment="Left" Margin="0,90,0,0" VerticalAlignment="Top" Width="75" Click="openstats" FontSize="11" />
+        <Button x:Name="Stat2" Content="Vorige Maand" HorizontalAlignment="Left" Margin="0,120,0,0" VerticalAlignment="Top" Width="75" Click="openstats2" FontSize="11" />
 
 
 
-        <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Left">
-            <lvc:CartesianChart.AxisX>
-                <lvc:Axis Title="Producten" Labels="{Binding Labels}"></lvc:Axis>
-            </lvc:CartesianChart.AxisX>
-            <lvc:CartesianChart.AxisY>
-                <lvc:Axis Title="Aantal" LabelFormatter="{Binding Formatter}"></lvc:Axis>
-            </lvc:CartesianChart.AxisY>
-        </lvc:CartesianChart>
+        <lvc:PieChart LegendLocation="Bottom"   Margin="142,42,-0.4,0" Name="cartesianChart1">
+            <lvc:PieChart.Series>
+                <lvc:PieSeries Title="Appels" Values="11" DataLabels="True"
+                               LabelPoint="{Binding PointLabel}"/>
+                <lvc:PieSeries Title="Peren" Values="56" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}"/>
+                <lvc:PieSeries Title="Citroenen" Values="42" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}"/>
+                <lvc:PieSeries Title="Tomaten" Values="48" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}"/>
+            </lvc:PieChart.Series>
+        </lvc:PieChart>
     </Grid>
 </Window>
 

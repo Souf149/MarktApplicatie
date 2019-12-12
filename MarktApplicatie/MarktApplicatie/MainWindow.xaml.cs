@@ -25,7 +25,7 @@ namespace MarktApplicatie
     public partial class MainWindow : Window
     {
         DispatcherTimer loopTimer;
-        public const int FPS = 30;
+        public int FPS = Settings1.Default.speed;
         double angle = 0;
         double shapeAmount = 30;
         List<SoufShape> shapes = new List<SoufShape>();
@@ -39,7 +39,56 @@ namespace MarktApplicatie
         {
             InitializeComponent();
 
-            CreateTimer();
+            if (Settings1.Default.Font8 == true)
+            {
+                btn.FontSize = 8;
+                settings.FontSize = 8;
+                oldcomp.FontSize = 8;
+                stats.FontSize = 8;
+
+            }
+
+            if (Settings1.Default.Font10 == true)
+            {
+                btn.FontSize = 10;
+                settings.FontSize = 10;
+                oldcomp.FontSize = 10;
+                stats.FontSize = 10;
+            }
+
+            if (Settings1.Default.Font12 == true)
+            {
+                btn.FontSize = 12;
+                settings.FontSize = 12;
+                oldcomp.FontSize = 12;
+                stats.FontSize = 12;
+            }
+
+            if (Settings1.Default.Font14 == true)
+            {
+                btn.FontSize = 14;
+                settings.FontSize = 14;
+                oldcomp.FontSize = 14;
+                stats.FontSize = 14;
+            }
+
+            if (Settings1.Default.Font16 == true)
+            {
+                btn.FontSize = 16;
+                settings.FontSize = 16;
+                oldcomp.FontSize = 16;
+                stats.FontSize = 16;
+            }
+
+            if (Settings1.Default.Stilstaan == false)
+            {
+                CreateTimer();
+            }
+
+            
+
+
+
 
             SoufShape.canvas = canvas;
 
@@ -49,7 +98,9 @@ namespace MarktApplicatie
                 colors.Add(fruits[i][1]);
             }
 
-            // for every color there exists there is a shape
+            if (Settings1.Default.verdwijnen == false)
+            {
+                // for every color there exists there is a shape
             for (int i = 0; i < shapeAmount; i++) {
 
                 Shape s;
@@ -66,21 +117,54 @@ namespace MarktApplicatie
                 }
 
                 shapes.Add(new SoufShape(s));
-
             }
             
-            
 
-            
+            }
+
+
+            if (Settings1.Default.lightmode == true)
+            {
+                canvas.Background = new SolidColorBrush(Colors.White);
+            }
+
+            if (Settings1.Default.lightblue == true)
+            {
+                canvas.Background = new SolidColorBrush(Colors.LightBlue);
+            }
+
+            if (Settings1.Default.blue == true)
+            {
+                canvas.Background = new SolidColorBrush(Colors.Blue);
+
+            }
+
+            if (Settings1.Default.darkblue == true)
+            {
+                canvas.Background = new SolidColorBrush(Colors.DarkBlue);
+            }
+
+            if (Settings1.Default.darkmodehome == true)
+
+            {
+                canvas.Background = new SolidColorBrush(Colors.Black);
+            }
+
+
+
+
 
 
 
 
         }
 
+        
+        
         private Rectangle CreateSquare(int x, int y, int size) {
 
             // chooses a random color from the list and applies it to the rectangle
+            
             int i = new Random().Next(colors.Count);
 
             Rectangle r = new Rectangle() {
@@ -94,9 +178,12 @@ namespace MarktApplicatie
             Canvas.SetTop(r, y);
 
             
-
+            
             return r;
         }
+
+
+        
 
         private Ellipse CreateCircle(int x, int y, int diameter) {
 

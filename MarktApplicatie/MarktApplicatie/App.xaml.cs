@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using static MarktApplicatie.statoftheday;
 
 namespace MarktApplicatie
 {
@@ -13,19 +14,23 @@ namespace MarktApplicatie
     /// </summary>
     public partial class App : Application
     {
+        
+
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            
-            
-            MessageBox.Show("Tip van de dag is het bekijken van oude composities in het laadscherm.", "Tip van de dag", MessageBoxButton.OK, MessageBoxImage.Information);
 
            
-
-
-
-
-            new MainWindow().Show();
-            
+            if (Settings1.Default.Message == true)
+            {
+                new MainWindow().Show();
+            }
+          
+            if (Settings1.Default.Message == false)
+            {
+                new statoftheday().Show();
+            }
+          
+               
 
         }
 

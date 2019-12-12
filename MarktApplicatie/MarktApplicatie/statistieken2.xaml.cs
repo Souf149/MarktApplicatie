@@ -23,15 +23,56 @@ namespace MarktApplicatie
         public statistieken2()
         {
             InitializeComponent();
+            if (Settings1.Default.Darkmode == true)
+            {
+                this.Background = new SolidColorBrush(Colors.Black);
+                this.Foreground = new SolidColorBrush(Colors.White);
 
+                cartesianChart1.DataTooltip.Background = Brushes.Black;
+                cartesianChart1.DataTooltip.Foreground = Brushes.White;
+            }
+
+            if (Settings1.Default.Darkmode == false)
+            {
+                this.Background = new SolidColorBrush(Colors.White);
+                this.Foreground = new SolidColorBrush(Colors.Black);
+
+                cartesianChart1.DataTooltip.Background = Brushes.White;
+                cartesianChart1.DataTooltip.Foreground = Brushes.Black;
+            }
+
+            if (Settings1.Default.Font8 == true)
+            {
+                FontSize = 8;
+            }
+
+            if (Settings1.Default.Font10 == true)
+            {
+                FontSize = 10;
+            }
+
+            if (Settings1.Default.Font12 == true)
+            {
+                FontSize = 12;
+            }
+
+            if (Settings1.Default.Font14 == true)
+            {
+                FontSize = 14;
+            }
+
+            if (Settings1.Default.Font16 == true)
+            {
+                FontSize = 16;
+            }
 
 
             SeriesCollection = new SeriesCollection
             {
                 new ColumnSeries
                 {
-                    Title = "vorige week",
-                    Values = new ChartValues<double> { 11, 20, 44, 62 }
+                    Title = "week 1 ",
+                    Values = new ChartValues<double> { 13, 20, 44, 62 }
                 }
             };
 
@@ -39,14 +80,26 @@ namespace MarktApplicatie
 
             SeriesCollection.Add(new ColumnSeries
             {
-                Title = "deze week",
+                Title = "week 2",
                 Values = new ChartValues<double> { 22, 88, 34 }
             });
 
 
             SeriesCollection[1].Values.Add(48d);
 
-            Labels = new[] { "Bananen", "Komkommers", "Kiwis", "Bloemskool" };
+            SeriesCollection.Add(new ColumnSeries
+            {
+                Title = "week 3",
+                Values = new ChartValues<double> { 26,68, 54, 33 }
+            });
+
+            SeriesCollection.Add(new ColumnSeries
+            {
+                Title = "week 4",
+                Values = new ChartValues<double> { 15, 22, 34, 21 }
+            });
+
+            Labels = new[] { "Appels", "Peren", "Citroenen", "Tomaten" };
             Formatter = value => value.ToString("N");
 
             DataContext = this;
@@ -77,6 +130,11 @@ namespace MarktApplicatie
             statistieken3 stats3 = new statistieken3();
             stats3.Show();
             this.Close();
+        }
+
+        private void CartesianChart_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
