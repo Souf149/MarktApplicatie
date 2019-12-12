@@ -146,6 +146,13 @@ namespace MarktApplicatie
             this.Close();
 
         }
+
+        private void invulscherm(object sender, RoutedEventArgs e)
+        {
+            tijdelijkstatscherm invul = new tijdelijkstatscherm();
+            invul.Show();
+            this.Close();
+        }
     }
 }
 
