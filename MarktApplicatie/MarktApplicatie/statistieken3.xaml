@@ -10,28 +10,25 @@
         Title="Cirkeldiagram huidige week" Height="450" Width="800">
     <Grid >
 
-        
-        <Button x:Name="Home" Content="Home" HorizontalAlignment="Left" Margin="0,62,0,0" VerticalAlignment="Top" Width="75" Click="openHome" FontSize="11" Height="18"
+        <Button x:Name="Home" Content="Home" HorizontalAlignment="Left" Margin="0,62,0,0" VerticalAlignment="Top" Width="75" Click="openHome" FontSize="11"
                />
-        <Button x:Name="Stat1" Content="Huidige week" HorizontalAlignment="Left" Margin="0,90,0,0" VerticalAlignment="Top" Width="75" Click="openstats" FontSize="11" Height="18" />
-        <Button x:Name="Stat2" Content="Vorige Maand" HorizontalAlignment="Left" Margin="0,120,0,0" VerticalAlignment="Top" Width="75" Click="openstats2" FontSize="11" Height="18" />
-        <Button Click="Save" Content="Save" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="0,150,0,0" Width="75"  FontSize="11" Height="18" />
+        <Button x:Name="Stat1" Content="Huidige week" HorizontalAlignment="Left" Margin="0,90,0,0" VerticalAlignment="Top" Width="75" Click="openstats" FontSize="11" />
+        <Button x:Name="Stat2" Content="Vorige Maand" HorizontalAlignment="Left" Margin="0,120,0,0" VerticalAlignment="Top" Width="75" Click="openstats2" FontSize="11" />
+        <Button Click="Save" Content="Save" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="0,150,0,0" Width="75"  FontSize="11" />
 
-        
-            <lvc:PieChart LegendLocation="Bottom"   Margin="131,10,23.6,88" Name="cartesianChart1" >
-                <lvc:PieChart.Series>
-                    <lvc:PieSeries Title="Appels" Values="11" DataLabels="True"
-                               LabelPoint="{Binding PointLabel}"/>
-                    <lvc:PieSeries Title="Peren" Values="56" DataLabels="True" 
-                               LabelPoint="{Binding PointLabel}"/>
-                    <lvc:PieSeries Title="Citroenen" Values="42" DataLabels="True" 
-                               LabelPoint="{Binding PointLabel}"/>
-                    <lvc:PieSeries Title="Tomaten" Values="48" DataLabels="True" 
-                               LabelPoint="{Binding PointLabel}"/>
-                </lvc:PieChart.Series>
-            </lvc:PieChart>
-        
 
+        <lvc:PieChart LegendLocation="Bottom"   Margin="142,8,-0.4,34" Name="cartesianChart1">
+            <lvc:PieChart.Series>
+                <lvc:PieSeries Title="Appels" Values="11" DataLabels="True"
+                               LabelPoint="{Binding PointLabel}"/>
+                <lvc:PieSeries Title="Peren" Values="56" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}"/>
+                <lvc:PieSeries Title="Citroenen" Values="42" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}"/>
+                <lvc:PieSeries Title="Tomaten" Values="48" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}"/>
+            </lvc:PieChart.Series>
+        </lvc:PieChart>
     </Grid>
 </Window>
 
