@@ -120,7 +120,7 @@ namespace MarktApplicatie
             Settings1.Default.blue = true;
 
             Settings1.Default.Save();
-            MessageBox.Show("Instellingen gereset!, Fontsize=12", "Instellingen", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("Instellingen gereset!", "Instellingen", MessageBoxButton.OK, MessageBoxImage.Information);
             new settingscreen().Show();
             this.Close();
         }
