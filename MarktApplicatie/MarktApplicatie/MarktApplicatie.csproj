@@ -252,5 +252,10 @@
   <ItemGroup>
     <Resource Include="8.JPG" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="vorige.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
