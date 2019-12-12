@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using LiveCharts;
 using LiveCharts.Wpf;
+using Brushes = System.Windows.Media.Brushes;
 
 namespace MarktApplicatie
 {
@@ -26,6 +29,9 @@ namespace MarktApplicatie
         public statistieken()
         {
             InitializeComponent();
+
+            if (Settings1.Default.Darkmode == true)
+
             {
                 this.Background = new SolidColorBrush(Colors.Black);
                 this.Foreground = new SolidColorBrush(Colors.White);
@@ -42,6 +48,8 @@ namespace MarktApplicatie
                 cartesianChart1.DataTooltip.Background = Brushes.White;
                 cartesianChart1.DataTooltip.Foreground = Brushes.Black;
             }
+
+
 
             if (Settings1.Default.Font8 == true)
             {
@@ -90,13 +98,31 @@ namespace MarktApplicatie
             });
 
             //also adding values updates and animates the chart automatically
-            
 
             Labels = new[] { "Appels", "Peren", "Citroenen", "Tomaten" };
             Formatter = value => value.ToString("N");
 
             DataContext = this;
         }
+
+        private void Save (object sender, RoutedEventArgs e) //https://www.youtube.com/watch?v=D55E7Wor9Os source code
+        {
+            try
+            {
+                this.IsEnabled = false;
+
+                PrintDialog printDialog = new PrintDialog();
+                if (printDialog.ShowDialog() == true)
+                {
+                    printDialog.PrintVisual(cartesianChart1, "cartesianChart1");
+                }
+            }
+            finally
+            {
+                this.IsEnabled = true;
+            }
+        }
+        
 
 
         //add collections to xaml 
