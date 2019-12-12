@@ -68,12 +68,16 @@ namespace MarktApplicatie
                 FontSize = 16;
             }
 
+
+            int[] vorigeweek = {10, 50, 39, 50 };
+            int[] dezeweek = { 11, 56, 42, 48 };
+
             SeriesCollection = new SeriesCollection
             {
                 new ColumnSeries
                 {
                     Title = "vorige week",
-                    Values = new ChartValues<double> { 10, 50, 39, 50 }
+                    Values = new ChartValues<double> { vorigeweek[0], vorigeweek[1], vorigeweek[2], vorigeweek[3] }
                 }
             };
 
@@ -82,11 +86,11 @@ namespace MarktApplicatie
             SeriesCollection.Add(new ColumnSeries
             {
                 Title = "deze week",
-                Values = new ChartValues<double> { 11, 56, 42 }
+                Values = new ChartValues<double> { dezeweek[0], dezeweek[1], dezeweek[2], dezeweek[3] }
             });
 
             //also adding values updates and animates the chart automatically
-            SeriesCollection[1].Values.Add(48d);
+            
 
             Labels = new[] { "Appels", "Peren", "Citroenen", "Tomaten" };
             Formatter = value => value.ToString("N");
