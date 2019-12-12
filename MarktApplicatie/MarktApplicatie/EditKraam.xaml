@@ -41,6 +41,7 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
 
 
@@ -53,7 +54,7 @@
 
 
 
-        <Canvas x:Name="canvas" Grid.Column="0"  Grid.Row="0" Grid.RowSpan="5" Panel.ZIndex="-1"
+        <Canvas x:Name="canvas" Grid.Column="0"  Grid.Row="0" Grid.RowSpan="6" Panel.ZIndex="-1"
             Background="#555555"
             PreviewMouseLeftButtonDown="Canvas_onclick" MouseLeftButtonUp="Canvas_onrelease"
             PreviewMouseMove="Canvas_PreviewMouseMove" PreviewMouseRightButtonDown="Canvas_right_click">
@@ -86,10 +87,14 @@
             <Button Content="Verander&#10;grootte" PreviewMouseLeftButtonDown="Verander_grootte"/>
         </StackPanel>
 
+        <StackPanel Grid.Column="1" Grid.Row="4" Orientation="Horizontal">
+            <Button Content="Random Fruit" PreviewMouseLeftButtonDown="randomize_composition"/>
+            <Button Content="Random Plank" PreviewMouseLeftButtonDown="randomPlank"/>
+        </StackPanel>
+
         <Button Content="Save" PreviewMouseLeftButtonDown="save_Composition"
-                Grid.Column="1" Grid.Row="4" Width="150"/>
-        <Button Content="Random Fruit" PreviewMouseLeftButtonDown="randomize_composition"/>
-        <Button Content="Random Plank" PreviewMouseLeftButtonDown="randomPlank" Margin="284,192,284,27"/>
+                Grid.Column="1" Grid.Row="5" Width="150"/>
+        
     </Grid>
 
 
