@@ -39,16 +39,13 @@ namespace MarktApplicatie
         {
             InitializeComponent();
 
-
-            
-
-
             if (Settings1.Default.Font8 == true)
             {
                 btn.FontSize = 8;
                 settings.FontSize = 8;
                 oldcomp.FontSize = 8;
                 stats.FontSize = 8;
+
             }
 
             if (Settings1.Default.Font10 == true)
@@ -88,32 +85,7 @@ namespace MarktApplicatie
                 CreateTimer();
             }
 
-            if (Settings1.Default.lightmode == true)
-            {
-                canvas.Background = new SolidColorBrush(Colors.White);
-            }
-
-            if (Settings1.Default.lightblue == true)
-            {
-                canvas.Background = new SolidColorBrush(Colors.LightBlue);
-            }
             
-            if (Settings1.Default.blue == true)
-            {
-                canvas.Background = new SolidColorBrush(Colors.Blue);
-                
-            }
-
-            if (Settings1.Default.darkblue == true)
-            {
-                canvas.Background = new SolidColorBrush(Colors.DarkBlue);
-            }
-
-            if (Settings1.Default.darkmodehome == true)
-
-            {
-                canvas.Background = new SolidColorBrush(Colors.Black);
-            }
 
 
 
@@ -129,28 +101,53 @@ namespace MarktApplicatie
             if (Settings1.Default.verdwijnen == false)
             {
                 // for every color there exists there is a shape
-                for (int i = 0; i < shapeAmount; i++)
-                {
+            for (int i = 0; i < shapeAmount; i++) {
 
-                    Shape s;
-                    int x = rng.Next(width);
-                    int y = rng.Next(height);
-                    int size = rng.Next(30, 50);
+                Shape s;
+                int x = rng.Next(width);
+                int y = rng.Next(height);
+                int size = rng.Next(30, 50);
 
 
-                    if (rng.NextDouble() < 0.5)
-                    {
-                        s = CreateSquare(x, y, size);
-                    }
-                    else
-                    {
-                        s = CreateCircle(x, y, size);
-                    }
-
-                    shapes.Add(new SoufShape(s));
+                if(rng.NextDouble() < 0.5) {
+                    s = CreateSquare(x, y, size);
                 }
+                else {
+                    s = CreateCircle(x, y, size);
+                }
+
+                shapes.Add(new SoufShape(s));
+            }
             
 
+            }
+
+
+            if (Settings1.Default.lightmode == true)
+            {
+                canvas.Background = new SolidColorBrush(Colors.White);
+            }
+
+            if (Settings1.Default.lightblue == true)
+            {
+                canvas.Background = new SolidColorBrush(Colors.LightBlue);
+            }
+
+            if (Settings1.Default.blue == true)
+            {
+                canvas.Background = new SolidColorBrush(Colors.Blue);
+
+            }
+
+            if (Settings1.Default.darkblue == true)
+            {
+                canvas.Background = new SolidColorBrush(Colors.DarkBlue);
+            }
+
+            if (Settings1.Default.darkmodehome == true)
+
+            {
+                canvas.Background = new SolidColorBrush(Colors.Black);
             }
 
 

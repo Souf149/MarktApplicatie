@@ -201,10 +201,10 @@ namespace MarktApplicatie
 
             if (color1.IsChecked == true)
             {
-                Settings1.Default.lightblue = true;
+                Settings1.Default.darkblue = true;
+                Settings1.Default.lightblue = false;
                 Settings1.Default.darkmodehome = false;
                 Settings1.Default.blue = false;
-                Settings1.Default.darkblue = false;
                 Settings1.Default.lightmode = false;
             }
 
@@ -219,10 +219,10 @@ namespace MarktApplicatie
 
             if (color3.IsChecked == true)
             {
+                Settings1.Default.lightblue = true;
                 Settings1.Default.darkblue = false;
-                Settings1.Default.lightblue = false;
                 Settings1.Default.darkmodehome = false;
-                Settings1.Default.darkblue = true;
+                Settings1.Default.darkblue = false;
                 Settings1.Default.lightmode = false;
             }
 
