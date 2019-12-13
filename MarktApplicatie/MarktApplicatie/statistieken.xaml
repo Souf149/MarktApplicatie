@@ -18,7 +18,7 @@
         <Button Click="Save" Content="Save" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="0,150,0,0" Width="75"  FontSize="11" />
 
 
-
+        
         <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Left" Name="cartesianChart1">
             <lvc:CartesianChart.AxisX>
                 <lvc:Axis Title="Producten" Labels="{Binding Labels}"></lvc:Axis>

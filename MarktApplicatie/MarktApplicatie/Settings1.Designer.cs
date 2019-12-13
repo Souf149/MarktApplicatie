@@ -241,7 +241,7 @@ namespace MarktApplicatie {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool blue {
             get {
                 return ((bool)(this["blue"]));
@@ -277,7 +277,7 @@ namespace MarktApplicatie {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2")]
+        [global::System.Configuration.DefaultSettingValueAttribute("50")]
         public int speed {
             get {
                 return ((int)(this["speed"]));
@@ -296,6 +296,30 @@ namespace MarktApplicatie {
             }
             set {
                 this["verdwijnen"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool checkdmon {
+            get {
+                return ((bool)(this["checkdmon"]));
+            }
+            set {
+                this["checkdmon"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool checkdmoff {
+            get {
+                return ((bool)(this["checkdmoff"]));
+            }
+            set {
+                this["checkdmoff"] = value;
             }
         }
     }

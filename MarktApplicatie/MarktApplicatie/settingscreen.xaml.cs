@@ -25,6 +25,16 @@ namespace MarktApplicatie
         public settingscreen()
         {
             InitializeComponent();
+            if (Settings1.Default.checkdmon == true)
+            {
+                darkmode_on.IsChecked = true;
+            }
+
+            if (Settings1.Default.checkdmoff == true)
+            {
+                darkmode_off.IsChecked = true;
+            }
+
             if (Settings1.Default.Darkmode == true)
             {
                 this.Background = new SolidColorBrush(Colors.Black);
@@ -118,8 +128,14 @@ namespace MarktApplicatie
             Settings1.Default.speed = 50;
             Settings1.Default.Stilstaan = false;
             Settings1.Default.verdwijnen = false;
+            Settings1.Default.darkmodehome = false;
+            Settings1.Default.darkblue = false;
             Settings1.Default.blue = true;
-
+            Settings1.Default.lightblue = false;
+            Settings1.Default.lightmode = false;
+            Settings1.Default.Darkmode = false;
+            Settings1.Default.checkdmoff = true;
+            Settings1.Default.checkdmon = false;
             Settings1.Default.Save();
             MessageBox.Show("Instellingen gereset!", "Instellingen", MessageBoxButton.OK, MessageBoxImage.Information);
             new settingscreen().Show();
@@ -133,16 +149,22 @@ namespace MarktApplicatie
             if (checkbox.IsChecked == true)
             {
                 Settings1.Default.Message = false;
+                
+
             }
 
             if (darkmode_on.IsChecked == true)
             {
                 Settings1.Default.Darkmode = true;
+                Settings1.Default.checkdmon = true;
+                Settings1.Default.checkdmoff = false;
             }
 
             if (darkmode_off.IsChecked == true)
             {
                 Settings1.Default.Darkmode = false;
+                Settings1.Default.checkdmoff = true;
+                Settings1.Default.checkdmon = false;
             }
 
             if (font8.IsChecked == true)
@@ -193,48 +215,48 @@ namespace MarktApplicatie
             if (darkmodehome.IsChecked == true)
             {
                 Settings1.Default.darkmodehome = true;
-                Settings1.Default.lightblue = false;
-                Settings1.Default.blue = false;
                 Settings1.Default.darkblue = false;
+                Settings1.Default.blue = false;
+                Settings1.Default.lightblue = false;
                 Settings1.Default.lightmode = false;
 
             }
 
             if (color1.IsChecked == true)
             {
-                Settings1.Default.darkblue = true;
-                Settings1.Default.lightblue = false;
                 Settings1.Default.darkmodehome = false;
+                Settings1.Default.darkblue = true;
                 Settings1.Default.blue = false;
+                Settings1.Default.lightblue = false;
                 Settings1.Default.lightmode = false;
             }
 
             if (color2.IsChecked == true)
             {
-                Settings1.Default.blue = true;
-                Settings1.Default.lightblue = false;
                 Settings1.Default.darkmodehome = false;
                 Settings1.Default.darkblue = false;
+                Settings1.Default.blue = true;
+                Settings1.Default.lightblue = false;
                 Settings1.Default.lightmode = false;
             }
 
             if (color3.IsChecked == true)
             {
-                Settings1.Default.lightblue = true;
-                Settings1.Default.darkblue = false;
                 Settings1.Default.darkmodehome = false;
                 Settings1.Default.darkblue = false;
+                Settings1.Default.blue = false;
+                Settings1.Default.lightblue = true;
                 Settings1.Default.lightmode = false;
             }
 
             if (darkmodehome_off.IsChecked == true)
             {
-                Settings1.Default.lightmode = true;
-                Settings1.Default.darkblue = false;
-                Settings1.Default.lightblue = false;
                 Settings1.Default.darkmodehome = false;
                 Settings1.Default.darkblue = false;
-                
+                Settings1.Default.blue = false;
+                Settings1.Default.lightblue = false;
+                Settings1.Default.lightmode = true;
+
             }
 
             if (stil.IsChecked == true)

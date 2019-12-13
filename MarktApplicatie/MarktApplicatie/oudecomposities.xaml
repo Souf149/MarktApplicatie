@@ -35,14 +35,16 @@
 
         </Canvas>
 
-        
+
+        <TextBox Grid.Row="0" Grid.Column="0" DockPanel.Dock="Top" Name="txtFilter"  Margin="10,10,10,0.4"/>
+
 
         <ListView Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Margin="10,8.6,10,10.4"
         x:Name="listView"
           ScrollViewer.VerticalScrollBarVisibility="Visible"
           ScrollViewer.HorizontalScrollBarVisibility="Hidden"
           ScrollViewer.CanContentScroll="False" 
-            PreviewMouseLeftButtonUp="ListView_onclick"/>
+            PreviewMouseLeftButtonUp="ListView_onclick"  />
 
         <StackPanel Orientation="Vertical" Grid.Column="3" Grid.Row ="2" Margin="0.4,1.6,-0.4,0.4" >
             <Button Content="Verander naam" Click="btnEditTitle_Click" FontSize="12" />
