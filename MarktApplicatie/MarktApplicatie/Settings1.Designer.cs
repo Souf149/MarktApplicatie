@@ -322,5 +322,29 @@ namespace MarktApplicatie {
                 this["checkdmoff"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool msgon {
+            get {
+                return ((bool)(this["msgon"]));
+            }
+            set {
+                this["msgon"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool msgoff {
+            get {
+                return ((bool)(this["msgoff"]));
+            }
+            set {
+                this["msgoff"] = value;
+            }
+        }
     }
 }

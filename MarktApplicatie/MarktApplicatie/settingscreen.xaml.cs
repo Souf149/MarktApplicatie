@@ -35,6 +35,16 @@ namespace MarktApplicatie
                 darkmode_off.IsChecked = true;
             }
 
+            if (Settings1.Default.msgon == true)
+            {
+                checkbox.IsChecked = true;
+            }
+
+            if (Settings1.Default.msgoff == true)
+            {
+                checkbox2.IsChecked = true;
+            }
+
             if (Settings1.Default.Darkmode == true)
             {
                 this.Background = new SolidColorBrush(Colors.Black);
@@ -52,6 +62,7 @@ namespace MarktApplicatie
                 Langzaam.Foreground = new SolidColorBrush(Colors.White);
                 Normaal.Foreground = new SolidColorBrush(Colors.White);
                 Snel.Foreground = new SolidColorBrush(Colors.White);
+                checkbox2.Foreground = new SolidColorBrush(Colors.White);
             }
 
             if (Settings1.Default.Darkmode == false)
@@ -136,6 +147,8 @@ namespace MarktApplicatie
             Settings1.Default.Darkmode = false;
             Settings1.Default.checkdmoff = true;
             Settings1.Default.checkdmon = false;
+            Settings1.Default.msgon = true;
+            Settings1.Default.msgoff = false;
             Settings1.Default.Save();
             MessageBox.Show("Instellingen gereset!", "Instellingen", MessageBoxButton.OK, MessageBoxImage.Information);
             new settingscreen().Show();
@@ -149,8 +162,16 @@ namespace MarktApplicatie
             if (checkbox.IsChecked == true)
             {
                 Settings1.Default.Message = false;
-                
+                Settings1.Default.msgon = true;
+                Settings1.Default.msgoff = false;
 
+            }
+
+            if (checkbox2.IsChecked == true)
+            {
+                Settings1.Default.Message = true;
+                Settings1.Default.msgoff = true;
+                Settings1.Default.msgon = false;
             }
 
             if (darkmode_on.IsChecked == true)
