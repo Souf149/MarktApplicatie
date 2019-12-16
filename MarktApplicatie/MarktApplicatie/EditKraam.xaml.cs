@@ -353,12 +353,14 @@ namespace MarktApplicatie
             {
                 plankEditMode = false;
                 btn_switch_editmode.Content = "Switch to\nplank edit";
-                
+                canvasBorder.BorderBrush = SoufTools.GetColor("#90ee90");
+
             }
             else
             {
                 plankEditMode = true;
                 btn_switch_editmode.Content = "Switch to\nadd fruit";
+                canvasBorder.BorderBrush = SoufTools.GetColor("#654321");
                 
             }
         }

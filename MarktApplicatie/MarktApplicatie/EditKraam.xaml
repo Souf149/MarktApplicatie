@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MarktApplicatie"
         mc:Ignorable="d"
-        Title="Editkraam"
+        Title="Nieuwe Compositie"
         WindowState="Maximized">
 
     <Window.Resources>
@@ -87,10 +87,11 @@
 
 
 
-        <Border BorderBrush="Brown" BorderThickness="1">
+        <Border x:Name="canvasBorder" BorderBrush="Brown" BorderThickness="2">
             <Canvas x:Name="canvas" Grid.Column="0"  Grid.Row="0" Grid.RowSpan="5" Panel.ZIndex="-1"
             PreviewMouseLeftButtonDown="Canvas_onclick" MouseLeftButtonUp="Canvas_onrelease"
-            PreviewMouseMove="Canvas_PreviewMouseMove" PreviewMouseRightButtonDown="Canvas_right_click"/>
+            PreviewMouseMove="Canvas_PreviewMouseMove" PreviewMouseRightButtonDown="Canvas_right_click"
+                    Background="Aqua"/>
         </Border>
         
 
