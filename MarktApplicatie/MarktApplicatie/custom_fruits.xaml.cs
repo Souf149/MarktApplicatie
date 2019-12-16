@@ -61,6 +61,8 @@ namespace MarktApplicatie
                 FontSize = 16;
             }
 
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+
 
 
             // load fruits from file and split it into each fruit with their respective color.

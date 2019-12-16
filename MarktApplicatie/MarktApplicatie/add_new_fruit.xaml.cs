@@ -58,6 +58,7 @@ namespace MarktApplicatie {
             {
                 FontSize = 16;
             }
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
 
             MessageBox.Show("Kies een naam en je kleur (default value 255)");
         }
