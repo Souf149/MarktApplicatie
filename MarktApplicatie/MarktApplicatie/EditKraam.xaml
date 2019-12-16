@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MarktApplicatie"
         mc:Ignorable="d"
-        Title="Nieuwe Compositie"
+        Title="Nieuwe Compositie" Width="1080" Height="980"
         WindowState="Maximized">
 
     <Window.Resources>
@@ -20,7 +20,8 @@
 
         <Style TargetType="TextBlock">
             <Setter Property="Width" Value="5000" />
-            <Setter Property="Height" Value="30" />
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="FontSize" Value="30"/>
         </Style>
 
         
@@ -61,7 +62,7 @@
             </Setter>
 
             <Setter Property="Margin" Value="5"/>
-            <Setter Property="Width" Value="300"/>
+            <Setter Property="Width" Value="500"/>
         </Style>
     </Window.Resources>
 
@@ -83,21 +84,47 @@
       ScrollViewer.VerticalScrollBarVisibility="Visible"
       ScrollViewer.HorizontalScrollBarVisibility="Hidden"
       ScrollViewer.CanContentScroll="False"
-        PreviewMouseLeftButtonUp="ListView_PreviewMouseLeftButtonUp"/>
+        PreviewMouseLeftButtonUp="ListView_PreviewMouseLeftButtonUp">
+
+            <ListView.Background>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                    <GradientStop Color="Gray" Offset="0" />
+                    <GradientStop Color="DarkMagenta" Offset="0.2" />
+                    <GradientStop Color="DarkGray" Offset="0.4" />
+                    <GradientStop Color="Gray" Offset="0.6" />
+                    <GradientStop Color="DarkMagenta" Offset="0.8" />
+                    <GradientStop Color="Magenta" Offset="1" />
+                </LinearGradientBrush>
+            </ListView.Background>
+            
+        </ListView>
 
 
 
         <Border x:Name="canvasBorder" BorderBrush="Brown" BorderThickness="2">
             <Canvas x:Name="canvas" Grid.Column="0"  Grid.Row="0" Grid.RowSpan="5" Panel.ZIndex="-1"
             PreviewMouseLeftButtonDown="Canvas_onclick" MouseLeftButtonUp="Canvas_onrelease"
-            PreviewMouseMove="Canvas_PreviewMouseMove" PreviewMouseRightButtonDown="Canvas_right_click"
-                    Background="Aqua"/>
+            PreviewMouseMove="Canvas_PreviewMouseMove" PreviewMouseRightButtonDown="Canvas_right_click">
+
+                <Canvas.Background>
+                    <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                        <GradientStop Color="Gray" Offset="0" />
+                        <GradientStop Color="DarkCyan" Offset="0.2" />
+                        <GradientStop Color="DarkGray" Offset="0.4" />
+                        <GradientStop Color="Gray" Offset="0.6" />
+                        <GradientStop Color="DarkCyan" Offset="0.8" />
+                        <GradientStop Color="Cyan" Offset="1" />
+                    </LinearGradientBrush>
+                </Canvas.Background>
+
+            </Canvas>
         </Border>
         
 
 
         <!-- button container-->
-        <Grid x:Name="btnContainer" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1">
+        <Grid x:Name="btnContainer" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
+
             <Grid.Background>
                 <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
                     <GradientStop Color="Gray" Offset="0" />
@@ -108,13 +135,6 @@
                     <GradientStop Color="Yellow" Offset="1" />
                 </LinearGradientBrush>
             </Grid.Background>
-            
-
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -122,29 +142,31 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Button Content="Nieuw plank" PreviewMouseLeftButtonDown="Create_plank"
-                    Grid.Column="0" Grid.Row="0"/>
-            <Button x:Name="btn_switch_editmode" Content="Switch to&#10;add fruit" PreviewMouseLeftButtonDown="Switch_editmode_onclick"
-                   Grid.Column="1" Grid.Row="0" />
-            <Button Content="Reset" PreviewMouseLeftButtonDown="reset"
-                    Grid.Column="2" Grid.Row="0"/>
-            
-            
-            <Button Content="Begin scherm" PreviewMouseLeftButtonDown="go_home"
-                    Grid.Column="0" Grid.Row="1"/>
-            <Button Content="Custom fruits" PreviewMouseLeftButtonDown="Go_to_custom_fruits" 
-                    Grid.Column="1" Grid.Row="1"/>
-            <Button Content="Verander&#10;grootte" PreviewMouseLeftButtonDown="Verander_grootte"
-                    Grid.Column="2" Grid.Row="1"/>
 
-            <Button Content="Random Fruit" PreviewMouseLeftButtonDown="randomize_composition"
-                    Grid.Column="0" Grid.Row="2"/>
-            <Button Content="Random Plank" PreviewMouseLeftButtonDown="randomPlank"
-                    Grid.Column="1" Grid.Row="2"/>
-            <Button Content="Save" PreviewMouseLeftButtonDown="save_Composition"
-                Grid.Column="2" Grid.Row="2" />
+            <StackPanel Orientation="Horizontal" Grid.Row="0">
+                <Button Content="Nieuw plank" PreviewMouseLeftButtonDown="Create_plank"/>
+                <Button x:Name="btn_switch_editmode" Content="Switch to add fruit" PreviewMouseLeftButtonDown="Switch_editmode_onclick"/>
+                <Button Content="Reset" PreviewMouseLeftButtonDown="reset"/>
+            </StackPanel>
+
+
+            <StackPanel Orientation="Horizontal" Grid.Row="1">
+                <Button Content="Begin scherm" PreviewMouseLeftButtonDown="go_home"/>
+                <Button Content="Custom fruits" PreviewMouseLeftButtonDown="Go_to_custom_fruits" />
+                <Button Content="Verander grootte" PreviewMouseLeftButtonDown="Verander_grootte"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="2">
+                <Button Content="Random Fruit" PreviewMouseLeftButtonDown="randomize_composition"/>
+                <Button Content="Random Plank" PreviewMouseLeftButtonDown="randomPlank"/>
+                <Button Content="Save" PreviewMouseLeftButtonDown="save_Composition"/>
+            </StackPanel>
+
+
+
 
         </Grid>
+
     </Grid>
 
 

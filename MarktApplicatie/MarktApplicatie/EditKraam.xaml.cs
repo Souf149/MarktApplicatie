@@ -94,20 +94,14 @@ namespace MarktApplicatie
             // initialize window
             InitializeComponent();
 
-            
-            if (Settings1.Default.Darkmode)
-            {
+
+            if (Settings1.Default.Darkmode) {
                 listView.Background = new SolidColorBrush(Colors.Black);
                 canvas.Background = new SolidColorBrush(Colors.Black);
-                
             }
-
-            else 
-            {
+            else {
                 listView.Background = new SolidColorBrush(Colors.White);
                 canvas.Background = new SolidColorBrush(Colors.White);
-
-
             }
 
 
@@ -352,14 +346,14 @@ namespace MarktApplicatie
             if (plankEditMode)
             {
                 plankEditMode = false;
-                btn_switch_editmode.Content = "Switch to\nplank edit";
+                btn_switch_editmode.Content = "Switch to plank edit";
                 canvasBorder.BorderBrush = SoufTools.GetColor("#90ee90");
 
             }
             else
             {
                 plankEditMode = true;
-                btn_switch_editmode.Content = "Switch to\nadd fruit";
+                btn_switch_editmode.Content = "Switch to add fruit";
                 canvasBorder.BorderBrush = SoufTools.GetColor("#654321");
                 
             }
