@@ -62,7 +62,6 @@
             </Setter>
 
             <Setter Property="Margin" Value="5"/>
-            <Setter Property="Width" Value="500"/>
         </Style>
     </Window.Resources>
 
@@ -143,28 +142,42 @@
             </Grid.RowDefinitions>
 
 
-            <StackPanel Orientation="Horizontal" Grid.Row="0">
-                <Button Content="Nieuw plank" PreviewMouseLeftButtonDown="Create_plank"/>
-                <Button x:Name="btn_switch_editmode" Content="Switch to add fruit" PreviewMouseLeftButtonDown="Switch_editmode_onclick"/>
-                <Button Content="Reset" PreviewMouseLeftButtonDown="reset"/>
-            </StackPanel>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <Button Content="Nieuw plank" PreviewMouseLeftButtonDown="Create_plank" Grid.Column="0"/>
+                <Button x:Name="btn_switch_editmode" Content="Switch to add fruit" PreviewMouseLeftButtonDown="Switch_editmode_onclick" Grid.Column="1"/>
+                <Button Content="Reset" PreviewMouseLeftButtonDown="reset" Grid.Column="2"/>
+            </Grid>
 
 
-            <StackPanel Orientation="Horizontal" Grid.Row="1">
-                <Button Content="Begin scherm" PreviewMouseLeftButtonDown="go_home"/>
-                <Button Content="Custom fruits" PreviewMouseLeftButtonDown="Go_to_custom_fruits" />
-                <Button Content="Verander grootte" PreviewMouseLeftButtonDown="Verander_grootte"/>
-            </StackPanel>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-            <StackPanel Orientation="Horizontal" Grid.Row="2">
-                <Button Content="Random Fruit" PreviewMouseLeftButtonDown="randomize_composition"/>
-                <Button Content="Random Plank" PreviewMouseLeftButtonDown="randomPlank"/>
-                <Button Content="Save" PreviewMouseLeftButtonDown="save_Composition"/>
-            </StackPanel>
+                <Button Content="Begin scherm" PreviewMouseLeftButtonDown="go_home" Grid.Column="0"/>
+                <Button Content="Custom fruits" PreviewMouseLeftButtonDown="Go_to_custom_fruits" Grid.Column="1"/>
+                <Button Content="Verander grootte" PreviewMouseLeftButtonDown="Verander_grootte" Grid.Column="2"/>
+            </Grid>
 
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-
-
+                <Button Content="Random Fruit" PreviewMouseLeftButtonDown="randomize_composition" Grid.Column="0"/>
+                <Button Content="Random Plank" PreviewMouseLeftButtonDown="randomPlank" Grid.Column="1"/>
+                <Button Content="Save" PreviewMouseLeftButtonDown="save_Composition" Grid.Column="2"/>
+            </Grid>
         </Grid>
 
     </Grid>
