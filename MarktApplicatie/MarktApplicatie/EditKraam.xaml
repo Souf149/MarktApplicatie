@@ -18,30 +18,24 @@
         </Style>
 
         <Style TargetType="TextBlock">
-            <Setter Property="Width" Value="100" />
+            <Setter Property="Width" Value="5000" />
             <Setter Property="Height" Value="30" />
         </Style>
 
         <Style TargetType="Button">
-            <Setter Property="Width" Value="75" />
-            <Setter Property="Height" Value="40" />
         </Style>
     </Window.Resources>
 
     <Grid>
 
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="150"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
 
 
@@ -72,30 +66,44 @@
 
         </Canvas>
 
+        <Grid Grid.Column="2" Grid.Row="1">
+            
 
-        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" >
-            <Button Content="Nieuw plank" PreviewMouseLeftButtonDown="Create_plank" FontSize="12"/>
-            <Button x:Name="btn_switch_editmode" Content="Switch to&#10;add fruit" PreviewMouseLeftButtonDown="Switch_editmode_onclick" FontSize="12"/>
-        </StackPanel>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
-            <Button Content="Reset" PreviewMouseLeftButtonDown="reset" FontSize="12"/>
-            <Button Content="Begin scherm" PreviewMouseLeftButtonDown="go_home" FontSize="12"/>
-        </StackPanel>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-        <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
-            <Button Content="Custom fruits" PreviewMouseLeftButtonDown="Go_to_custom_fruits" FontSize="12" />
-            <Button Content="Verander&#10;grootte" PreviewMouseLeftButtonDown="Verander_grootte" FontSize="12"/>
-        </StackPanel>
+            <Button Content="Nieuw plank" PreviewMouseLeftButtonDown="Create_plank" FontSize="12"
+                    Grid.Column="0" Grid.Row="0"/>
+            <Button x:Name="btn_switch_editmode" Content="Switch to&#10;add fruit" PreviewMouseLeftButtonDown="Switch_editmode_onclick" FontSize="12"
+                   Grid.Column="1" Grid.Row="0" />
+            <Button Content="Reset" PreviewMouseLeftButtonDown="reset" FontSize="12"
+                    Grid.Column="2" Grid.Row="0"/>
+            
+            
+            <Button Content="Begin scherm" PreviewMouseLeftButtonDown="go_home" FontSize="12"
+                    Grid.Column="0" Grid.Row="1"/>
+            <Button Content="Custom fruits" PreviewMouseLeftButtonDown="Go_to_custom_fruits" FontSize="12" 
+                    Grid.Column="1" Grid.Row="1"/>
+            <Button Content="Verander&#10;grootte" PreviewMouseLeftButtonDown="Verander_grootte" FontSize="12"
+                    Grid.Column="2" Grid.Row="1"/>
 
-        <StackPanel Grid.Column="1" Grid.Row="4" Orientation="Horizontal">
-            <Button Content="Random Fruit" PreviewMouseLeftButtonDown="randomize_composition"/>
-            <Button Content="Random Plank" PreviewMouseLeftButtonDown="randomPlank"/>
-        </StackPanel>
+            <Button Content="Random Fruit" PreviewMouseLeftButtonDown="randomize_composition"
+                    Grid.Column="0" Grid.Row="2"/>
+            <Button Content="Random Plank" PreviewMouseLeftButtonDown="randomPlank"
+                    Grid.Column="1" Grid.Row="2"/>
+            <Button Content="Save" PreviewMouseLeftButtonDown="save_Composition"
+                Grid.Column="2" Grid.Row="2" />
 
-        <Button Content="Save" PreviewMouseLeftButtonDown="save_Composition"
-
-                Grid.Column="1" Grid.Row="5" Width="150" FontSize="12"/>
+        </Grid>
     </Grid>
 
 
