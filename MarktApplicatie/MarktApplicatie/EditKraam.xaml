@@ -51,19 +51,12 @@
 
 
         <Canvas x:Name="canvas" Grid.Column="0"  Grid.Row="0" Grid.RowSpan="5" Panel.ZIndex="-1"
-           
             PreviewMouseLeftButtonDown="Canvas_onclick" MouseLeftButtonUp="Canvas_onrelease"
             PreviewMouseMove="Canvas_PreviewMouseMove" PreviewMouseRightButtonDown="Canvas_right_click">
 
 
 
 
-            <!-- TODO: delete this debug text -->
-            <TextBlock x:Name="debugText" Text="" Canvas.Left="10" Canvas.Top="10"
-                 Width="400"/>
-
-            <TextBlock x:Name="positionText" Text="" Canvas.Left="10" Canvas.Top="30"
-                 Width="400"/>
 
         </Canvas>
 

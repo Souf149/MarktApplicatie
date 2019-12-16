@@ -171,7 +171,6 @@ namespace MarktApplicatie
         private void ListView_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             selectedFruit = listView.SelectedIndex;
-            debugText.Text = selectedFruit.ToString();
         }
 
         private void Create_plank(object sender, MouseButtonEventArgs e)
@@ -180,7 +179,6 @@ namespace MarktApplicatie
             int width, height;
             if (dialog.ShowDialog() == true)
             {
-                debugText.Text = planks.Count.ToString();
                 width = Convert.ToInt16(dialog.Inp_width);
                 height = Convert.ToInt16(dialog.Inp_height);
 
@@ -256,7 +254,6 @@ namespace MarktApplicatie
 
             Point p = e.GetPosition(this);
             mouseDown = true;
-            positionText.Text = $"X: {p.X.ToString()}, \nY: {p.Y.ToString()}";
 
 
 
@@ -335,7 +332,6 @@ namespace MarktApplicatie
             // if the mouse is held down while moving
             if (mouseDown)
             {
-                positionText.Text = $"X: {p.X.ToString()}, \nY: {p.Y.ToString()}";
 
                 // if you want to move the current selected plank
                 if (plankEditMode)
@@ -379,7 +375,6 @@ namespace MarktApplicatie
             int width, height;
             if (dialog.ShowDialog() == true)
             {
-                debugText.Text = planks.Count.ToString();
                 width = Convert.ToInt16(dialog.Inp_width);
                 height = Convert.ToInt16(dialog.Inp_height);
 
@@ -533,9 +528,6 @@ namespace MarktApplicatie
                 var y = rand.Next(0, 800);
                 if (true)
                 {
-
-
-                    debugText.Text = planks.Count.ToString();
                     var width_plank = Convert.ToInt16(width);
                     var height_plank = Convert.ToInt16(height);
                     var x_plank = Convert.ToInt16(new_x);
