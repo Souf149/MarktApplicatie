@@ -161,8 +161,7 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-
-                <Button Content="Begin scherm" PreviewMouseLeftButtonDown="go_home" Grid.Column="0"/>
+                <Button Content="Random Plank" PreviewMouseLeftButtonDown="randomPlank" Grid.Column="0"/>
                 <Button Content="Custom fruits" PreviewMouseLeftButtonDown="Go_to_custom_fruits" Grid.Column="1"/>
                 <Button Content="Random Fruit" PreviewMouseLeftButtonDown="randomize_composition" Grid.Column="2"/>
 
@@ -176,7 +175,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Button Content="Reset" PreviewMouseLeftButtonDown="reset" Grid.Column="0"/>
-                <Button Content="Random Plank" PreviewMouseLeftButtonDown="randomPlank" Grid.Column="1"/>
+                <Button Content="Begin scherm" PreviewMouseLeftButtonDown="go_home" Grid.Column="1"/>
                 <Button Content="Save" PreviewMouseLeftButtonDown="save_Composition" Grid.Column="2"/>
             </Grid>
         </Grid>
