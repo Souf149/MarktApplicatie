@@ -7,8 +7,8 @@
         xmlns:local="clr-namespace:MarktApplicatie"
         mc:Ignorable="d"
         Background="White"  Name="window"
-        Title="Markt componist" Height="450" Width="800"
-    ResizeMode="NoResize">
+        Title="Markt componist"
+        WindowState="Maximized">
 
     <Window.Resources>
         <Style TargetType="TextBlock">
@@ -85,39 +85,44 @@
         <Grid x:Name="grid">
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="50"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="50"/>
             </Grid.ColumnDefinitions>
-
-            <Grid.RowDefinitions>
-                <RowDefinition Height="10"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="100"/>
-            </Grid.RowDefinitions>
 
             
 
-            <Image Source="logo.png" Grid.Column="2" Grid.Row="2" Width="300" Height="150" 
-               Margin="30"/>
+            <!-- Content -->
+            <Grid Grid.Column="1">
 
-            <Button x:Name="btn" Content="Nieuwe compositie starten" Grid.Column="2" Grid.Row="3" 
-                   PreviewMouseLeftButtonUp="OnClick_newComposition" />
-            <Button Content="Vorige composities" Grid.Column="2" Grid.Row="4"
-                   PreviewMouseLeftButtonUp="OnClick_oldComposition" Name="oldcomp"/>
-            <Button Content="Statistieken" Grid.Column="2" Grid.Row="5"
-                   PreviewMouseLeftButtonUp="OnClick_statistics" Name="stats"/>
-            <Button Content="Instellingen" Grid.Column="2" Grid.Row="6"
-                   PreviewMouseLeftButtonUp="OnClick_settings" Name="settings"/>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
+                <Image Source="logo.png" Grid.Row="0" Width="300" Height="150" Margin="50"/>
+
+                <Button x:Name="btn" Content="Nieuwe compositie starten"  
+                   PreviewMouseLeftButtonUp="OnClick_newComposition"
+                        Grid.Row="1"/>
+                <Button Content="Vorige composities"
+                   PreviewMouseLeftButtonUp="OnClick_oldComposition" Name="oldcomp"
+                        Grid.Row="2"/>
+                <Button Content="Statistieken"
+                   PreviewMouseLeftButtonUp="OnClick_statistics" Name="stats"
+                        Grid.Row="3"/>
+                <Button Content="Instellingen"
+                   PreviewMouseLeftButtonUp="OnClick_settings" Name="settings"
+                        Grid.Row="4"/>
+
+            </Grid>
+
+            
 
         </Grid>
 
