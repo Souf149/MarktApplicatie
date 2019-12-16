@@ -53,7 +53,7 @@ namespace MarktApplicatie
             };
 
             Labels = new[] { "Week 1", "Week 2", "Week 3", "Week 4" };
-            YFormatter = value => value.ToString("C");
+            YFormatter = value => value.ToString();
 
             DataContext = this;
 
