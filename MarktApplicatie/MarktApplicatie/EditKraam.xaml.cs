@@ -95,16 +95,6 @@ namespace MarktApplicatie
             InitializeComponent();
 
 
-            if (Settings1.Default.Darkmode) {
-                listView.Background = new SolidColorBrush(Colors.Black);
-                canvas.Background = new SolidColorBrush(Colors.Black);
-            }
-            else {
-                listView.Background = new SolidColorBrush(Colors.White);
-                canvas.Background = new SolidColorBrush(Colors.White);
-            }
-
-
             Fruit.c = canvas;
             Plank.c = canvas;
 
@@ -141,15 +131,33 @@ namespace MarktApplicatie
 
         }
 
-        public void CreateFruit(String name, String hex_color)
+        public void CreateFruit(string name, string hex_color)
         {
-            TextBlock txt = new TextBlock
+
+            SolidColorBrush brush = new SolidColorBrush
             {
-                Text = name,
-                Background = SoufTools.GetColor(hex_color)
+                Opacity = 0.8,
+                Color = Colors.White
             };
 
-            listView.Items.Add(txt);
+            TextBlock textBlock = new TextBlock
+            {
+                Text = name,
+                Background = brush,
+                Margin = new Thickness(8),
+                Padding = new Thickness(3, 0, 0, 0)
+            };
+
+            Border border = new Border
+            {
+                BorderBrush = Brushes.White,
+                Background = SoufTools.GetColor(hex_color),
+                BorderThickness = new Thickness(2),
+                Child = textBlock,
+                Margin = new Thickness(5)
+            };
+
+            listView.Items.Add(border);
             fruitNames.Add(name);
         }
 
