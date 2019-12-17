@@ -100,7 +100,7 @@ namespace MarktApplicatie
             });
 
             Labels = new[] { "Appels", "Peren", "Citroenen", "Tomaten" };
-            Formatter = value => value.ToString("N");
+            Formatter = value => value.ToString();
 
             DataContext = this;
         }
