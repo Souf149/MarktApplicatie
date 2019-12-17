@@ -24,6 +24,7 @@ namespace MarktApplicatie
         {
             InitializeComponent();
 
+           /*
             if (Settings1.Default.Darkmode == true)
             {
                 list_view.Background = new SolidColorBrush(Colors.Black);
@@ -35,7 +36,7 @@ namespace MarktApplicatie
                 list_view.Background = new SolidColorBrush(Colors.White);
                 list_view.Foreground = new SolidColorBrush(Colors.Black);
             }
-
+            */
             if (Settings1.Default.Font8 == true)
             {
                 FontSize = 8;

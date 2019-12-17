@@ -23,7 +23,7 @@ namespace MarktApplicatie
         {
             InitializeComponent();
 
-            if (Settings1.Default.Darkmode == true)
+            /*if (Settings1.Default.Darkmode == true)
             {
                 this.Background = new SolidColorBrush(Colors.Black);
                 this.Foreground = new SolidColorBrush(Colors.White);
@@ -34,6 +34,7 @@ namespace MarktApplicatie
                 this.Background = new SolidColorBrush(Colors.White);
                 this.Foreground = new SolidColorBrush(Colors.Black);
             }
+            */
 
             if (Settings1.Default.Font8 == true)
             {

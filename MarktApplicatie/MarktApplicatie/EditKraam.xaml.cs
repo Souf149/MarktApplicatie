@@ -95,7 +95,7 @@ namespace MarktApplicatie
             InitializeComponent();
 
             
-            if (Settings1.Default.Darkmode)
+          /*  if (Settings1.Default.Darkmode)
             {
                 listView.Background = new SolidColorBrush(Colors.Black);
                 canvas.Background = new SolidColorBrush(Colors.Black);
@@ -109,7 +109,7 @@ namespace MarktApplicatie
 
 
             }
-
+            */
 
             Fruit.c = canvas;
             Plank.c = canvas;

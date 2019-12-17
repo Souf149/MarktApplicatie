@@ -22,7 +22,9 @@ namespace MarktApplicatie
     public partial class save_popup : Window {
         public save_popup() {
             InitializeComponent();
-            if (Settings1.Default.Darkmode == true)
+            
+            
+            /*if (Settings1.Default.Darkmode == true)
             {
                
                 this.Background = new SolidColorBrush(Colors.Black);
@@ -35,6 +37,7 @@ namespace MarktApplicatie
                 this.Background = new SolidColorBrush(Colors.White);
                 this.Foreground = new SolidColorBrush(Colors.Black);
             }
+            */
 
             if (Settings1.Default.Font8 == true)
             {
