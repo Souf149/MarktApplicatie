@@ -15,7 +15,7 @@
 
     <Grid>
 
-        
+
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
@@ -25,9 +25,9 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="32*"/>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="148*"/>
+            <RowDefinition Height="124"/>
         </Grid.RowDefinitions>
 
         <Canvas  x:Name="canvas" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="3" Margin="0,0,99.6,0.4">
@@ -51,6 +51,7 @@
             <Button Content="Start schetsen" Click="StartSketch" FontSize="12" />
             <Button Content="Beginscherm" Click="onClick_homepage" FontSize="12" />
             <Button Content="Verwijder" Click="OnClick_Verwijder" FontSize="12" />
+            <Button Content="Zie statistiek" Click="Button_Click" FontFamily="12" />
         </StackPanel>
 
 
