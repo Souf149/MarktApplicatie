@@ -106,14 +106,7 @@
             PreviewMouseMove="Canvas_PreviewMouseMove" PreviewMouseRightButtonDown="Canvas_right_click">
 
                 <Canvas.Background>
-                    <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
-                        <GradientStop Color="Gray" Offset="0" />
-                        <GradientStop Color="DarkCyan" Offset="0.2" />
-                        <GradientStop Color="DarkGray" Offset="0.4" />
-                        <GradientStop Color="Gray" Offset="0.6" />
-                        <GradientStop Color="DarkCyan" Offset="0.8" />
-                        <GradientStop Color="Cyan" Offset="1" />
-                    </LinearGradientBrush>
+                    <ImageBrush ImageSource="betonlook.jpg" Stretch="UniformToFill"/>
                 </Canvas.Background>
 
             </Canvas>
