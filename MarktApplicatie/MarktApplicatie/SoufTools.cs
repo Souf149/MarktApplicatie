@@ -113,5 +113,6 @@ namespace MarktApplicatie {
 
             return hexStr;
         }
+
     }
 }

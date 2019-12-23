@@ -94,22 +94,6 @@ namespace MarktApplicatie
             // initialize window
             InitializeComponent();
 
-            
-            if (Settings1.Default.Darkmode)
-            {
-                listView.Background = new SolidColorBrush(Colors.Black);
-                canvas.Background = new SolidColorBrush(Colors.Black);
-                
-            }
-
-            else 
-            {
-                listView.Background = new SolidColorBrush(Colors.White);
-                canvas.Background = new SolidColorBrush(Colors.White);
-
-
-            }
-
 
             Fruit.c = canvas;
             Plank.c = canvas;
@@ -144,17 +128,36 @@ namespace MarktApplicatie
 
 
 
+
         }
 
-        public void CreateFruit(String name, String hex_color)
+        public void CreateFruit(string name, string hex_color)
         {
-            TextBlock txt = new TextBlock
+
+            SolidColorBrush brush = new SolidColorBrush
             {
-                Text = name,
-                Background = SoufTools.GetColor(hex_color)
+                Opacity = 0.8,
+                Color = Colors.White
             };
 
-            listView.Items.Add(txt);
+            TextBlock textBlock = new TextBlock
+            {
+                Text = name,
+                Background = brush,
+                Margin = new Thickness(8),
+                Padding = new Thickness(3, 0, 0, 0)
+            };
+
+            Border border = new Border
+            {
+                BorderBrush = Brushes.White,
+                Background = SoufTools.GetColor(hex_color),
+                BorderThickness = new Thickness(2),
+                Child = textBlock,
+                Margin = new Thickness(5)
+            };
+
+            listView.Items.Add(border);
             fruitNames.Add(name);
         }
 
@@ -170,7 +173,6 @@ namespace MarktApplicatie
         private void ListView_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             selectedFruit = listView.SelectedIndex;
-            debugText.Text = selectedFruit.ToString();
         }
 
         private void Create_plank(object sender, MouseButtonEventArgs e)
@@ -179,7 +181,6 @@ namespace MarktApplicatie
             int width, height;
             if (dialog.ShowDialog() == true)
             {
-                debugText.Text = planks.Count.ToString();
                 width = Convert.ToInt16(dialog.Inp_width);
                 height = Convert.ToInt16(dialog.Inp_height);
 
@@ -255,7 +256,6 @@ namespace MarktApplicatie
 
             Point p = e.GetPosition(this);
             mouseDown = true;
-            positionText.Text = $"X: {p.X.ToString()}, \nY: {p.Y.ToString()}";
 
 
 
@@ -334,7 +334,6 @@ namespace MarktApplicatie
             // if the mouse is held down while moving
             if (mouseDown)
             {
-                positionText.Text = $"X: {p.X.ToString()}, \nY: {p.Y.ToString()}";
 
                 // if you want to move the current selected plank
                 if (plankEditMode)
@@ -355,13 +354,15 @@ namespace MarktApplicatie
             if (plankEditMode)
             {
                 plankEditMode = false;
-                btn_switch_editmode.Content = "Switch to\nplank edit";
-                
+                btn_switch_editmode.Content = "Switch to plank edit";
+                canvasBorder.BorderBrush = SoufTools.GetColor("#90ee90");
+
             }
             else
             {
                 plankEditMode = true;
-                btn_switch_editmode.Content = "Switch to\nadd fruit";
+                btn_switch_editmode.Content = "Switch to add fruit";
+                canvasBorder.BorderBrush = SoufTools.GetColor("#654321");
                 
             }
         }
@@ -378,7 +379,6 @@ namespace MarktApplicatie
             int width, height;
             if (dialog.ShowDialog() == true)
             {
-                debugText.Text = planks.Count.ToString();
                 width = Convert.ToInt16(dialog.Inp_width);
                 height = Convert.ToInt16(dialog.Inp_height);
 
@@ -400,15 +400,15 @@ namespace MarktApplicatie
 
         public void ReloadFruitsMainScreen(string[][] fruit_info)
         {
-            List<TextBlock> selected_blocks = new List<TextBlock>();
+            List<Border> selected_blocks = new List<Border>();
 
-            foreach (TextBlock block in listView.Items)
+            foreach (Border block in listView.Items)
             {
                 selected_blocks.Add(block);
             }
 
             // Delete all previous fruits
-            foreach (TextBlock block in selected_blocks)
+            foreach (Border block in selected_blocks)
             {
                 listView.Items.Remove(block);
             }
@@ -532,9 +532,6 @@ namespace MarktApplicatie
                 var y = rand.Next(0, 800);
                 if (true)
                 {
-
-
-                    debugText.Text = planks.Count.ToString();
                     var width_plank = Convert.ToInt16(width);
                     var height_plank = Convert.ToInt16(height);
                     var x_plank = Convert.ToInt16(new_x);

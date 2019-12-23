@@ -60,6 +60,8 @@ namespace MarktApplicatie
             {
                 FontSize = 16;
             }
+
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         public string FileName {

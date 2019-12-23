@@ -24,6 +24,8 @@ namespace MarktApplicatie
         public automatischplank_popup()
         {
             InitializeComponent();
+
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
         }
 
         public void makemycomposition_Click(object sender, RoutedEventArgs e)
