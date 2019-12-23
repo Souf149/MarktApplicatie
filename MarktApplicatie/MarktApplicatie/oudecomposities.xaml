@@ -70,6 +70,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="0.01*"/>
+
         </Grid.RowDefinitions>
 
         <Border Grid.Column="1" Background="Black" CornerRadius="10" Margin="5">
@@ -83,7 +84,6 @@
                         <GradientStop Color="White" Offset="0" />
                     </RadialGradientBrush>
                 </Canvas.Background>
-
 
                 <Image Name="img_preview" Margin="0, 20" Stretch="Fill" Opacity="0.9"/>
 
@@ -125,6 +125,7 @@
             <Button Content="Beginscherm" Click="onClick_homepage" Grid.Column="2"/>
             <Button Content="Verwijder" Click="OnClick_Verwijder" Grid.Column="3"/>
         </Grid>
+
 
 
 

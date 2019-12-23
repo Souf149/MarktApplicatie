@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:MarktApplicatie"
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"      
         mc:Ignorable="d"
+        WindowState="Maximized"
         d:DesignHeight="300" d:DesignWidth="500" d:DataContext="{d:DesignInstance local:statistieken2}"
         Title="Cirkeldiagram huidige week" Height="450" Width="800">
     <Grid >
