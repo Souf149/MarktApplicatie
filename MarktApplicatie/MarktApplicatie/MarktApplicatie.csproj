@@ -243,6 +243,9 @@
     <Resource Include="logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="betonlook.jpg" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="staafdiagram.png" />
   </ItemGroup>
   <ItemGroup>

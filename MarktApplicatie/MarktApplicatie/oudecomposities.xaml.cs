@@ -28,23 +28,7 @@ namespace MarktApplicatie
             
 
 
-            if (Settings1.Default.Darkmode == true)
-            {
-                listView.Background = new SolidColorBrush(Colors.Black);
-                listView.Foreground = new SolidColorBrush(Colors.White);
-                this.Background = new SolidColorBrush(Colors.Black);
-                this.Foreground = new SolidColorBrush(Colors.White);
-                canvas.Background = new SolidColorBrush(Colors.Black);
-            }
-
-            if (Settings1.Default.Darkmode == false)
-            {
-                listView.Background = new SolidColorBrush(Colors.White);
-                listView.Foreground = new SolidColorBrush(Colors.Black);
-                this.Background = new SolidColorBrush(Colors.White);
-                this.Foreground = new SolidColorBrush(Colors.Black);
-                canvas.Background = new SolidColorBrush(Colors.White);
-            }
+            
             if (Settings1.Default.Font8 == true)
             {
                 FontSize = 8;
@@ -107,6 +91,7 @@ namespace MarktApplicatie
             image.BeginInit();
             image.CacheOption = BitmapCacheOption.OnLoad;
             image.UriSource = new Uri(SoufTools.compositions_path + img_filename);
+            image.DecodePixelWidth = (int)canvas.ActualWidth;
             image.EndInit();
 
             img_preview.Source = image;

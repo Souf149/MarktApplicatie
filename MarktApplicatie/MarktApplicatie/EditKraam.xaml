@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MarktApplicatie"
         mc:Ignorable="d"
-        Title="Editkraam" Height="450" Width="800">
+        Title="Nieuwe Compositie" Width="1080" Height="980"
+        WindowState="Maximized">
 
     <Window.Resources>
         <Style TargetType="Rectangle" >
@@ -18,30 +19,62 @@
         </Style>
 
         <Style TargetType="TextBlock">
-            <Setter Property="Width" Value="100" />
-            <Setter Property="Height" Value="30" />
+            <Setter Property="Width" Value="5000" />
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="FontSize" Value="30"/>
         </Style>
 
-        <Style TargetType="Button">
-            <Setter Property="Width" Value="75" />
-            <Setter Property="Height" Value="40" />
+        
+
+        <!-- stackoverflow.com/questions/17630968/wpf-c-sharp-button-style -->
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#373737" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border CornerRadius="4" Background="{TemplateBinding Background}">
+                            <Grid>
+                                <!-- Button design -->
+                                <Path x:Name="PathIcon" Width="15" Height="25" Stretch="Fill" Fill="#4C87B3" HorizontalAlignment="Left" Margin="17,0,0,0" Data="F1 M 30.0833,22.1667L 50.6665,37.6043L 50.6665,38.7918L 30.0833,53.8333L 30.0833,22.1667 Z "/>
+                                <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+                            </Grid>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#E59400" />
+                                <Setter Property="Foreground" Value="White" />
+                                <Setter TargetName="PathIcon" Property="Fill" Value="Black" />
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="OrangeRed" />
+                                <Setter Property="Foreground" Value="White" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Setter Property="Margin" Value="5"/>
         </Style>
     </Window.Resources>
 
     <Grid>
 
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="150"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
 
 
@@ -50,52 +83,96 @@
       ScrollViewer.VerticalScrollBarVisibility="Visible"
       ScrollViewer.HorizontalScrollBarVisibility="Hidden"
       ScrollViewer.CanContentScroll="False"
-        PreviewMouseLeftButtonUp="ListView_PreviewMouseLeftButtonUp"/>
+        PreviewMouseLeftButtonUp="ListView_PreviewMouseLeftButtonUp">
+
+            <ListView.Background>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                    <GradientStop Color="Gray" Offset="0" />
+                    <GradientStop Color="DarkMagenta" Offset="0.2" />
+                    <GradientStop Color="DarkGray" Offset="0.4" />
+                    <GradientStop Color="Gray" Offset="0.6" />
+                    <GradientStop Color="DarkMagenta" Offset="0.8" />
+                    <GradientStop Color="Magenta" Offset="1" />
+                </LinearGradientBrush>
+            </ListView.Background>
+            
+        </ListView>
 
 
 
-
-        <Canvas x:Name="canvas" Grid.Column="0"  Grid.Row="0" Grid.RowSpan="5" Panel.ZIndex="-1"
-           
+        <Border x:Name="canvasBorder" BorderBrush="Brown" BorderThickness="2">
+            <Canvas x:Name="canvas" Grid.Column="0"  Grid.Row="0" Grid.RowSpan="5" Panel.ZIndex="-1"
             PreviewMouseLeftButtonDown="Canvas_onclick" MouseLeftButtonUp="Canvas_onrelease"
             PreviewMouseMove="Canvas_PreviewMouseMove" PreviewMouseRightButtonDown="Canvas_right_click">
 
+                <Canvas.Background>
+                    <ImageBrush ImageSource="betonlook.jpg" Stretch="UniformToFill"/>
+                </Canvas.Background>
+
+            </Canvas>
+        </Border>
+        
 
 
+        <!-- button container-->
+        <Grid x:Name="btnContainer" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
 
-            <!-- TODO: delete this debug text -->
-            <TextBlock x:Name="debugText" Text="" Canvas.Left="10" Canvas.Top="10"
-                 Width="400"/>
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                    <GradientStop Color="Gray" Offset="0" />
+                    <GradientStop Color="DarkGoldenrod" Offset="0.2" />
+                    <GradientStop Color="DarkGray" Offset="0.4" />
+                    <GradientStop Color="LightGray" Offset="0.6" />
+                    <GradientStop Color="LightGoldenrodYellow" Offset="0.8" />
+                    <GradientStop Color="Yellow" Offset="1" />
+                </LinearGradientBrush>
+            </Grid.Background>
 
-            <TextBlock x:Name="positionText" Text="" Canvas.Left="10" Canvas.Top="30"
-                 Width="400"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-        </Canvas>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <Button Content="Nieuw plank" PreviewMouseLeftButtonDown="Create_plank" Grid.Column="0"/>
+                <Button x:Name="btn_switch_editmode" Content="Switch to add fruit" PreviewMouseLeftButtonDown="Switch_editmode_onclick" Grid.Column="1"/>
+                <Button Content="Verander grootte" PreviewMouseLeftButtonDown="Verander_grootte" Grid.Column="2"/>
+            </Grid>
 
 
-        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" >
-            <Button Content="Nieuw plank" PreviewMouseLeftButtonDown="Create_plank" FontSize="12"/>
-            <Button x:Name="btn_switch_editmode" Content="Switch to&#10;add fruit" PreviewMouseLeftButtonDown="Switch_editmode_onclick" FontSize="12"/>
-        </StackPanel>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Content="Random Plank" PreviewMouseLeftButtonDown="randomPlank" Grid.Column="0"/>
+                <Button Content="Custom fruits" PreviewMouseLeftButtonDown="Go_to_custom_fruits" Grid.Column="1"/>
+                <Button Content="Random Fruit" PreviewMouseLeftButtonDown="randomize_composition" Grid.Column="2"/>
 
-        <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
-            <Button Content="Reset" PreviewMouseLeftButtonDown="reset" FontSize="12"/>
-            <Button Content="Begin scherm" PreviewMouseLeftButtonDown="go_home" FontSize="12"/>
-        </StackPanel>
+            </Grid>
 
-        <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
-            <Button Content="Custom fruits" PreviewMouseLeftButtonDown="Go_to_custom_fruits" FontSize="12" />
-            <Button Content="Verander&#10;grootte" PreviewMouseLeftButtonDown="Verander_grootte" FontSize="12"/>
-        </StackPanel>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Column="1" Grid.Row="4" Orientation="Horizontal">
-            <Button Content="Random Fruit" PreviewMouseLeftButtonDown="randomize_composition"/>
-            <Button Content="Random Plank" PreviewMouseLeftButtonDown="randomPlank"/>
-        </StackPanel>
+                <Button Content="Reset" PreviewMouseLeftButtonDown="reset" Grid.Column="0"/>
+                <Button Content="Begin scherm" PreviewMouseLeftButtonDown="go_home" Grid.Column="1"/>
+                <Button Content="Save" PreviewMouseLeftButtonDown="save_Composition" Grid.Column="2"/>
+            </Grid>
+        </Grid>
 
-        <Button Content="Save" PreviewMouseLeftButtonDown="save_Composition"
-
-                Grid.Column="1" Grid.Row="5" Width="150" FontSize="12"/>
     </Grid>
 
 

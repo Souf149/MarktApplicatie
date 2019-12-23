@@ -59,6 +59,8 @@ namespace MarktApplicatie
             {
                 FontSize = 16;
             }
+
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
         }
 
         public string Inp_width
