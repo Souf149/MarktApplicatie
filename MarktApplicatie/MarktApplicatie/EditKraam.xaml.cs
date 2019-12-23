@@ -400,15 +400,15 @@ namespace MarktApplicatie
 
         public void ReloadFruitsMainScreen(string[][] fruit_info)
         {
-            List<TextBlock> selected_blocks = new List<TextBlock>();
+            List<Border> selected_blocks = new List<Border>();
 
-            foreach (TextBlock block in listView.Items)
+            foreach (Border block in listView.Items)
             {
                 selected_blocks.Add(block);
             }
 
             // Delete all previous fruits
-            foreach (TextBlock block in selected_blocks)
+            foreach (Border block in selected_blocks)
             {
                 listView.Items.Remove(block);
             }
