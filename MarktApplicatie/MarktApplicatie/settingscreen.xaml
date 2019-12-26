@@ -99,7 +99,7 @@
 
 
 
-        <Button Click="Home_button" Grid.Row="0" Grid.Column="0" Content="Home" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Height="39" Width="194" RenderTransformOrigin="0.5,0.5" />
+        <Button Click="Home_button" Grid.Row="0" Grid.Column="0" Content="Beginscherm" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Height="39" Width="194" RenderTransformOrigin="0.5,0.5" />
 
         <Button  Grid.Row="0" Content="Opslaan" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="9.6,10,0,0"  Width="194" Click="Button_save" Height="38" Grid.Column="1"/>
         <Button  Grid.Row="0" Content="Reset" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="9.6,10,0,0"  Width="194" Click="Button_reset" Height="41" Grid.Column="2"/>
