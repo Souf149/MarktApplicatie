@@ -22,9 +22,9 @@
 
         
 
-            <CheckBox x:Name="fruit_together" Grid.Row="0" Grid.Column="0">Group Fruits</CheckBox>
+            <CheckBox  x:Name="fruit_together" Grid.Row="0" Grid.Column="0">Group Fruits</CheckBox>
             <Button x:Name="makemycomposition" Content="Generate"
-                    FontSize="8" Click="makemycomposition_Click" Grid.Row="2" Grid.Column="1"/>
+                    FontSize="12" Click="makemycomposition_Click" Grid.Row="2" Grid.Column="1"/>
 
 
     </Grid>

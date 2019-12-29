@@ -168,7 +168,7 @@ namespace MarktApplicatie
             this.Close();
         }
 
-        
+
 
         private void ListView_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
@@ -363,7 +363,7 @@ namespace MarktApplicatie
                 plankEditMode = true;
                 btn_switch_editmode.Content = "Switch to add fruit";
                 canvasBorder.BorderBrush = SoufTools.GetColor("#654321");
-                
+
             }
         }
 
@@ -473,7 +473,7 @@ namespace MarktApplicatie
         private void randomize_composition(object sender, MouseButtonEventArgs e)
         {
             automatischplank_popup dialog = new automatischplank_popup();
-            
+
             if (dialog.ShowDialog() == true)
             {
                 bool fruittogether = dialog.fruittogether;
@@ -481,7 +481,7 @@ namespace MarktApplicatie
                 {
                     randomFruitOrganize();
                 }
-                if(planks.Count != 0 && fruittogether == false)
+                if (planks.Count != 0 && fruittogether == false)
                 {
                     randomFruit();
                 }
@@ -494,17 +494,17 @@ namespace MarktApplicatie
             Random r = new Random();
             for (int p = 0; p < planks.Count; p++)
             {
-            var randomnumber = r.Next(0, SoufTools.GetAllFruits().Count());
+                var randomnumber = r.Next(0, SoufTools.GetAllFruits().Count());
                 for (int f = 0; f < planks[p].fruits.Count; f++)
                 {
-                   planks[p].fruits[f].Change(randomnumber);
+                    planks[p].fruits[f].Change(randomnumber);
                 }
-                }
-            }  
+            }
+        }
 
 
         public void randomFruit()
-        {   
+        {
             Random r = new Random();
 
             for (int p = 0; p < planks.Count; p++)
@@ -516,40 +516,51 @@ namespace MarktApplicatie
             }
         }
 
+
         private void randomPlank(object sender, MouseButtonEventArgs e)
         {
             var rand = new Random();
-            int planktimes = 2;
-            var new_x = 0;
-
-            for (int i = 0; i < planktimes; i++)
+            int planktimes = rand.Next(5, 12);
+            if (planks.Count != 0)
             {
-                
-                var width = rand.Next(2, 11);
-                var height = rand.Next(2, 11);
-                var x = rand.Next(0, 800);
-                new_x = width;
-                var y = rand.Next(0, 800);
-                if (true)
+
+                EditKraam editkraam = new EditKraam();
+                planks.Clear();
+                editkraam.randomPlank(sender, e);
+                editkraam.Show();
+                this.Close();
+
+            }
+            else
+            {
+                for (int i = 0; i < planktimes; i++)
                 {
-                    var width_plank = Convert.ToInt16(width);
-                    var height_plank = Convert.ToInt16(height);
-                    var x_plank = Convert.ToInt16(new_x);
-                    var y_plank = Convert.ToInt16(y);
 
-                    SetColor("#654321");
+                    var width = rand.Next(2, 11);
+                    var height = rand.Next(2, 11);
+                    var x = rand.Next(0, 800);
+                    var y = rand.Next(0, 800);
+                    if (true)
+                    {
+                        var width_plank = Convert.ToInt16(width);
+                        var height_plank = Convert.ToInt16(height);
+                        var x_plank = Convert.ToInt16(x);
+                        var y_plank = Convert.ToInt16(y);
 
-                    Plank p = new Plank(
-                        planks.Count,
-                        Rect(x_plank, y_plank, width_plank * GRID_SIZE, height_plank * GRID_SIZE)
-                        );
+                        SetColor("#654321");
 
-                    planks.Add(p);
-                    selectedPlank = p;
-                    Plank.selectedPlank = planks.Count() - 1;
-                    CheckPlanks();
-                   
+                        Plank p = new Plank(
+                            planks.Count,
+                            Rect(x_plank, y_plank, width_plank * GRID_SIZE, height_plank * GRID_SIZE)
+                            );
 
+                        planks.Add(p);
+                        selectedPlank = p;
+                        Plank.selectedPlank = planks.Count() - 1;
+                        CheckPlanks();
+
+
+                    }
                 }
             }
         }
