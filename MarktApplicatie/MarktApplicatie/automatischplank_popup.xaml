@@ -5,16 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MarktApplicatie"
         mc:Ignorable="d"
-        Title="automatische opzet" Height="200" Width="300">
+        Title="Generate Planks" Height="200" Width="300">
     <Grid x:Name="grid">
-        <StackPanel x:Name="tabs">
 
-            <CheckBox x:Name="fruit_together">All fruits together</CheckBox>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-            <Button x:Name="makemycomposition" Content="Make My Composition"
-                    FontSize="15" Click="makemycomposition_Click"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-        </StackPanel>
+        
+
+            <CheckBox x:Name="fruit_together" Grid.Row="0" Grid.Column="0">Group Fruits</CheckBox>
+            <Button x:Name="makemycomposition" Content="Generate"
+                    FontSize="8" Click="makemycomposition_Click" Grid.Row="2" Grid.Column="1"/>
+
 
     </Grid>
 
