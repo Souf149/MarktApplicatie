@@ -154,9 +154,9 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Button Content="Random Plank" PreviewMouseLeftButtonDown="randomPlank" Grid.Column="0"/>
+                <Button Content="Generate Planks" PreviewMouseLeftButtonDown="randomPlank" Grid.Column="0"/>
                 <Button Content="Custom fruits" PreviewMouseLeftButtonDown="Go_to_custom_fruits" Grid.Column="1"/>
-                <Button Content="Random Fruit" PreviewMouseLeftButtonDown="randomize_composition" Grid.Column="2"/>
+                <Button Content="Generate Fruits" PreviewMouseLeftButtonDown="randomize_composition" Grid.Column="2"/>
 
             </Grid>
 
