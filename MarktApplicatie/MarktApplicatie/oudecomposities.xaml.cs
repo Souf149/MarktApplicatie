@@ -105,6 +105,12 @@ namespace MarktApplicatie
             Close();
         }
 
+        private void statistic(object sender, RoutedEventArgs e)
+        {
+            new statistieken_yasin().Show();
+            this.Close();
+        }
+
         public void StartSketch(object sender, RoutedEventArgs e) {
 
             if (listView.SelectedIndex < 0) {

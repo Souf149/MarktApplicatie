@@ -113,6 +113,7 @@ namespace MarktApplicatie
             {
                 return;
             }
+
             Labels = new[] { "Appels", "Peren", "Citroenen", "Tomaten" };
 
             
@@ -182,7 +183,8 @@ namespace MarktApplicatie
         private void composition(object sender, RoutedEventArgs e)
         {
 
-            
+            new OudeComposities().Show();
+            this.Close();
 
         }
 
