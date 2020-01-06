@@ -45,6 +45,35 @@ namespace MarktApplicatie
                 checkbox2.IsChecked = true;
             }
 
+            if (Settings1.Default.checkdmhome == true)
+            {
+                darkmodehome.IsChecked = true;
+            }
+
+            if (Settings1.Default.checklmhome == true)
+            {
+                darkmodehome_off.IsChecked = true;
+            }
+
+            if (Settings1.Default.color1check == true)
+            {
+                color1.IsChecked = true;
+            }
+
+            if (Settings1.Default.color2check == true)
+            {
+                color2.IsChecked = true;
+            }
+
+            if (Settings1.Default.color3check == true)
+            {
+                color3.IsChecked = true;
+            }
+
+
+           
+           
+
             if (Settings1.Default.Darkmode == true)
             {
                 this.Background = new SolidColorBrush(Colors.Black);
@@ -63,7 +92,7 @@ namespace MarktApplicatie
                 Normaal.Foreground = new SolidColorBrush(Colors.White);
                 Snel.Foreground = new SolidColorBrush(Colors.White);
                 checkbox2.Foreground = new SolidColorBrush(Colors.White);
-                normalmode.Foreground = new SolidColorBrush(Colors.White);
+                
             }
 
             if (Settings1.Default.Darkmode == false)
@@ -83,8 +112,7 @@ namespace MarktApplicatie
                 Langzaam.Foreground = new SolidColorBrush(Colors.Black);
                 Normaal.Foreground = new SolidColorBrush(Colors.Black);
                 Snel.Foreground = new SolidColorBrush(Colors.Black);
-                normalmode.Foreground = new SolidColorBrush(Colors.Black);
-
+                
 
             }
 
@@ -151,7 +179,9 @@ namespace MarktApplicatie
             Settings1.Default.checkdmon = false;
             Settings1.Default.msgon = true;
             Settings1.Default.msgoff = false;
+            Settings1.Default.color2check = true;
             Settings1.Default.Save();
+            
             MessageBox.Show("Instellingen gereset!", "Instellingen", MessageBoxButton.OK, MessageBoxImage.Information);
             new settingscreen().Show();
             this.Close();
@@ -197,6 +227,8 @@ namespace MarktApplicatie
                 Settings1.Default.Font12 = false;
                 Settings1.Default.Font14 = false;
                 Settings1.Default.Font16 = false;
+
+
             }
 
             if (font10.IsChecked == true)
@@ -242,7 +274,12 @@ namespace MarktApplicatie
                 Settings1.Default.blue = false;
                 Settings1.Default.lightblue = false;
                 Settings1.Default.lightmode = false;
-
+                
+                Settings1.Default.checkdmhome = true;
+                Settings1.Default.checklmhome = false;
+                Settings1.Default.color1check = false;
+                Settings1.Default.color2check = false;
+                Settings1.Default.color3check = false;
             }
 
             if (color1.IsChecked == true)
@@ -252,6 +289,12 @@ namespace MarktApplicatie
                 Settings1.Default.blue = false;
                 Settings1.Default.lightblue = false;
                 Settings1.Default.lightmode = false;
+
+                Settings1.Default.checkdmhome = false;
+                Settings1.Default.checklmhome = false;
+                Settings1.Default.color1check = true;
+                Settings1.Default.color2check = false;
+                Settings1.Default.color3check = false;
             }
 
             if (color2.IsChecked == true)
@@ -261,6 +304,12 @@ namespace MarktApplicatie
                 Settings1.Default.blue = true;
                 Settings1.Default.lightblue = false;
                 Settings1.Default.lightmode = false;
+
+                Settings1.Default.checkdmhome = false;
+                Settings1.Default.checklmhome = false;
+                Settings1.Default.color1check = false;
+                Settings1.Default.color2check = true;
+                Settings1.Default.color3check = false;
             }
 
             if (color3.IsChecked == true)
@@ -270,6 +319,13 @@ namespace MarktApplicatie
                 Settings1.Default.blue = false;
                 Settings1.Default.lightblue = true;
                 Settings1.Default.lightmode = false;
+
+
+                Settings1.Default.checkdmhome = false;
+                Settings1.Default.checklmhome = false;
+                Settings1.Default.color1check = false;
+                Settings1.Default.color2check = false;
+                Settings1.Default.color3check = true;
             }
 
             if (darkmodehome_off.IsChecked == true)
@@ -280,6 +336,11 @@ namespace MarktApplicatie
                 Settings1.Default.lightblue = false;
                 Settings1.Default.lightmode = true;
 
+                Settings1.Default.checkdmhome = false;
+                Settings1.Default.checklmhome = true;
+                Settings1.Default.color1check = false;
+                Settings1.Default.color2check = false;
+                Settings1.Default.color3check = false;
             }
 
             if (stil.IsChecked == true)
@@ -293,6 +354,7 @@ namespace MarktApplicatie
                 Settings1.Default.speed = 25;
                 Settings1.Default.Stilstaan = false;
                 Settings1.Default.verdwijnen = false;
+
 
             }
 
@@ -308,6 +370,7 @@ namespace MarktApplicatie
                 Settings1.Default.speed = 75;
                 Settings1.Default.Stilstaan = false;
                 Settings1.Default.verdwijnen = false;
+                
             }
 
             if (verdwijn.IsChecked == true)
@@ -325,10 +388,7 @@ namespace MarktApplicatie
 
         }
 
-        private void checkbox2_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
     }
 
 

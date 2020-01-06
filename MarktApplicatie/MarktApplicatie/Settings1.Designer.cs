@@ -346,5 +346,77 @@ namespace MarktApplicatie {
                 this["msgoff"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool color1check {
+            get {
+                return ((bool)(this["color1check"]));
+            }
+            set {
+                this["color1check"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool checkdmhome {
+            get {
+                return ((bool)(this["checkdmhome"]));
+            }
+            set {
+                this["checkdmhome"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool checklmhome {
+            get {
+                return ((bool)(this["checklmhome"]));
+            }
+            set {
+                this["checklmhome"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool color2check {
+            get {
+                return ((bool)(this["color2check"]));
+            }
+            set {
+                this["color2check"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool color3check {
+            get {
+                return ((bool)(this["color3check"]));
+            }
+            set {
+                this["color3check"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("50")]
+        public int checkspeed {
+            get {
+                return ((int)(this["checkspeed"]));
+            }
+            set {
+                this["checkspeed"] = value;
+            }
+        }
     }
 }
