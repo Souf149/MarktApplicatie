@@ -26,7 +26,7 @@
         </Grid.RowDefinitions>
         <TextBlock Name="textstat" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Grid.ColumnSpan="3" Width="503" Height="76" Grid.RowSpan="2"/>
         <CheckBox Name="checkbox" Grid.Column="0" Grid.Row="1" Content="Deze melding niet meer weergeven bij opstarten" HorizontalAlignment="Left" Margin="10,31.2,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Height="20" Width="503"/>
-        <Button Content="Homescherm" Grid.Column="0" HorizontalAlignment="Left" Margin="25,10.4,0,-4.6" Grid.Row="2" Width="130" Click="Sluiten"/>
+        <Button Content="Beginscherm" Grid.Column="0" HorizontalAlignment="Left" Margin="25,10.4,0,-4.6" Grid.Row="2" Width="130" Click="Sluiten"/>
         <Button Content="Statistiekenscherm" Grid.Column="1" HorizontalAlignment="Left" Margin="19.6,10.4,0,-4.6" Grid.Row="2" Width="136"   Click="GoToStatistiekenscherm"/>
         <Button Content="Volgende statistiek" Grid.Column="2" HorizontalAlignment="Left" Margin="20.2,10.4,0,-4.6" Grid.Row="2" Width="144" Click="NextStat" />
 

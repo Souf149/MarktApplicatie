@@ -21,18 +21,18 @@ namespace MarktApplicatie
     // </summary>
     public partial class settingscreen : Window
     {
-         public bool fruittogether = false;
+       
         public settingscreen()
         {
             InitializeComponent();
             if (Settings1.Default.checkdmon == true)
             {
-                darkmode_on.IsChecked = true;
+                darkmode.IsChecked = true;
             }
 
             if (Settings1.Default.checkdmoff == true)
             {
-                darkmode_off.IsChecked = true;
+                lightmode.IsChecked = true;
             }
 
             if (Settings1.Default.msgon == true)
@@ -50,8 +50,8 @@ namespace MarktApplicatie
                 this.Background = new SolidColorBrush(Colors.Black);
                 this.Foreground = new SolidColorBrush(Colors.White);
                 checkbox.Foreground = new SolidColorBrush(Colors.White);
-                darkmode_on.Foreground = new SolidColorBrush(Colors.White);
-                darkmode_off.Foreground = new SolidColorBrush(Colors.White);
+                darkmode.Foreground = new SolidColorBrush(Colors.White);
+                lightmode.Foreground = new SolidColorBrush(Colors.White);
                 darkmodehome.Foreground = new SolidColorBrush(Colors.White);
                 darkmodehome_off.Foreground = new SolidColorBrush(Colors.White);
                 color1.Foreground = new SolidColorBrush(Colors.White);
@@ -63,6 +63,7 @@ namespace MarktApplicatie
                 Normaal.Foreground = new SolidColorBrush(Colors.White);
                 Snel.Foreground = new SolidColorBrush(Colors.White);
                 checkbox2.Foreground = new SolidColorBrush(Colors.White);
+                normalmode.Foreground = new SolidColorBrush(Colors.White);
             }
 
             if (Settings1.Default.Darkmode == false)
@@ -70,8 +71,8 @@ namespace MarktApplicatie
                 this.Background = new SolidColorBrush(Colors.White);
                 this.Foreground = new SolidColorBrush(Colors.Black);
                 checkbox.Foreground = new SolidColorBrush(Colors.Black);
-                darkmode_on.Foreground = new SolidColorBrush(Colors.Black);
-                darkmode_off.Foreground = new SolidColorBrush(Colors.Black);
+                darkmode.Foreground = new SolidColorBrush(Colors.Black);
+                lightmode.Foreground = new SolidColorBrush(Colors.Black);
                 darkmodehome.Foreground = new SolidColorBrush(Colors.Black);
                 darkmodehome_off.Foreground = new SolidColorBrush(Colors.Black);
                 color1.Foreground = new SolidColorBrush(Colors.Black);
@@ -82,6 +83,7 @@ namespace MarktApplicatie
                 Langzaam.Foreground = new SolidColorBrush(Colors.Black);
                 Normaal.Foreground = new SolidColorBrush(Colors.Black);
                 Snel.Foreground = new SolidColorBrush(Colors.Black);
+                normalmode.Foreground = new SolidColorBrush(Colors.Black);
 
 
             }
@@ -174,14 +176,14 @@ namespace MarktApplicatie
                 Settings1.Default.msgon = false;
             }
 
-            if (darkmode_on.IsChecked == true)
+            if (darkmode.IsChecked == true)
             {
                 Settings1.Default.Darkmode = true;
                 Settings1.Default.checkdmon = true;
                 Settings1.Default.checkdmoff = false;
             }
 
-            if (darkmode_off.IsChecked == true)
+            if (lightmode.IsChecked == true)
             {
                 Settings1.Default.Darkmode = false;
                 Settings1.Default.checkdmoff = true;
