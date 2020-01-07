@@ -354,14 +354,14 @@ namespace MarktApplicatie
             if (plankEditMode)
             {
                 plankEditMode = false;
-                btn_switch_editmode.Content = "Switch to plank edit";
+                btn_switch_editmode.Content = "Planken veranderen";
                 canvasBorder.BorderBrush = SoufTools.GetColor("#90ee90");
 
             }
             else
             {
                 plankEditMode = true;
-                btn_switch_editmode.Content = "Switch to add fruit";
+                btn_switch_editmode.Content = "Fruit veranderen";
                 canvasBorder.BorderBrush = SoufTools.GetColor("#654321");
 
             }
