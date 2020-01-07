@@ -143,7 +143,7 @@
                 </Grid.ColumnDefinitions>
                 
                 <Button Content="Nieuw plank" PreviewMouseLeftButtonDown="Create_plank" Grid.Column="0"/>
-                <Button x:Name="btn_switch_editmode" Content="Switch to add fruit" PreviewMouseLeftButtonDown="Switch_editmode_onclick" Grid.Column="1"/>
+                <Button x:Name="btn_switch_editmode" Content="Fruit veranderen" PreviewMouseLeftButtonDown="Switch_editmode_onclick" Grid.Column="1"/>
                 <Button Content="Verander grootte" PreviewMouseLeftButtonDown="Verander_grootte" Grid.Column="2"/>
             </Grid>
 
@@ -154,9 +154,9 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Button Content="Generate Planks" PreviewMouseLeftButtonDown="randomPlank" Grid.Column="0"/>
-                <Button Content="Custom fruits" PreviewMouseLeftButtonDown="Go_to_custom_fruits" Grid.Column="1"/>
-                <Button Content="Generate Fruits" PreviewMouseLeftButtonDown="randomize_composition" Grid.Column="2"/>
+                <Button Content="Automatische planken" PreviewMouseLeftButtonDown="randomPlank" Grid.Column="0"/>
+                <Button Content="Custom fruit en groentes" PreviewMouseLeftButtonDown="Go_to_custom_fruits" Grid.Column="1"/>
+                <Button Content="Automatische fruit" PreviewMouseLeftButtonDown="randomize_composition" Grid.Column="2"/>
 
             </Grid>
 
@@ -167,9 +167,9 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Button Content="Reset" PreviewMouseLeftButtonDown="reset" Grid.Column="0"/>
+                <Button Content="Opnieuw beginnen" PreviewMouseLeftButtonDown="reset" Grid.Column="0"/>
                 <Button Content="Begin scherm" PreviewMouseLeftButtonDown="go_home" Grid.Column="1"/>
-                <Button Content="Save" PreviewMouseLeftButtonDown="save_Composition" Grid.Column="2"/>
+                <Button Content="Opslaan" PreviewMouseLeftButtonDown="save_Composition" Grid.Column="2"/>
             </Grid>
         </Grid>
 
