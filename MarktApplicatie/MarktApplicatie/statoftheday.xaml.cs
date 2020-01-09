@@ -90,12 +90,14 @@ namespace MarktApplicatie
             {
 
                 Settings1.Default.Message = true;
+                Settings1.Default.msgoff = true;
                 Settings1.Default.Save();
 
             }
 
+            
 
-
+            
 
             new MainWindow().Show();
             this.Close();
@@ -111,7 +113,7 @@ namespace MarktApplicatie
 
             if (checkbox.IsChecked == true)
             {
-
+                Settings1.Default.msgoff = true;
                 Properties.Settings.Default.Message = true;
                 Properties.Settings.Default.Save();
             }

@@ -115,7 +115,6 @@ namespace MarktApplicatie
                     printDialog.PrintVisual(cartesianChart1, "cartesianChart1");
                 }
 
-
             }
             finally
             {
