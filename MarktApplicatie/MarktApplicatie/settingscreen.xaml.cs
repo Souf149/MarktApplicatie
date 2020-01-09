@@ -89,21 +89,39 @@ namespace MarktApplicatie
             {
                 font14.IsChecked = true;
             }
+
             if (Settings1.Default.checkfont16 == true)
             {
                 font16.IsChecked = true;
             }
 
-            if (Settings1.Default.speed == 25)
+            
+
+            if (Settings1.Default.checkstil == true)
             {
+                stil.IsChecked = true;
+            }
+
+            if (Settings1.Default.checklangzaam == true)
+            {
+                Langzaam.IsChecked = true;
+            }
+
+            if (Settings1.Default.checknormaal == true)
+            {
+                Normaal.IsChecked = true;
+            }
+
+            if (Settings1.Default.checksnel == true)
+            {
+                Snel.IsChecked = true;
 
             }
 
-
-
-
-
-
+            if (Settings1.Default.checkverdwijn == true)
+            {
+                verdwijn.IsChecked = true;
+            }
 
             if (Settings1.Default.Darkmode == true)
             {
@@ -216,6 +234,11 @@ namespace MarktApplicatie
             Settings1.Default.checkfont12 = true;
             Settings1.Default.checkfont14 = false;
             Settings1.Default.checkfont16 = false;
+            Settings1.Default.checkstil = false;
+            Settings1.Default.checklangzaam = false;
+            Settings1.Default.checknormaal = true;
+            Settings1.Default.checksnel = false;
+            Settings1.Default.checkverdwijn = false;
             Settings1.Default.Save();
             
             MessageBox.Show("Instellingen gereset!", "Instellingen", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -419,6 +442,11 @@ namespace MarktApplicatie
                 Settings1.Default.verdwijnen = false;
                 Settings1.Default.Stilstaan = true;
 
+                Settings1.Default.checkstil = true;
+                Settings1.Default.checklangzaam = false;
+                Settings1.Default.checknormaal = false;
+                Settings1.Default.checksnel = false;
+                Settings1.Default.checkverdwijn = false;
             }
 
             if (Langzaam.IsChecked == true)
@@ -427,6 +455,11 @@ namespace MarktApplicatie
                 Settings1.Default.Stilstaan = false;
                 Settings1.Default.verdwijnen = false;
 
+                Settings1.Default.checkstil = false;
+                Settings1.Default.checklangzaam = true;
+                Settings1.Default.checknormaal = false;
+                Settings1.Default.checksnel = false;
+                Settings1.Default.checkverdwijn = false;
 
             }
 
@@ -435,6 +468,12 @@ namespace MarktApplicatie
                 Settings1.Default.speed = 50;
                 Settings1.Default.Stilstaan = false;
                 Settings1.Default.verdwijnen = false;
+
+                Settings1.Default.checkstil = false;
+                Settings1.Default.checklangzaam = false;
+                Settings1.Default.checknormaal = true;
+                Settings1.Default.checksnel = false;
+                Settings1.Default.checkverdwijn = false;
             }
 
             if (Snel.IsChecked == true)
@@ -442,13 +481,25 @@ namespace MarktApplicatie
                 Settings1.Default.speed = 75;
                 Settings1.Default.Stilstaan = false;
                 Settings1.Default.verdwijnen = false;
-                
+
+                Settings1.Default.checkstil = false;
+                Settings1.Default.checklangzaam = false;
+                Settings1.Default.checknormaal = false;
+                Settings1.Default.checksnel = true;
+                Settings1.Default.checkverdwijn = false;
+
             }
 
             if (verdwijn.IsChecked == true)
             {
                 Settings1.Default.Stilstaan = true;
                 Settings1.Default.verdwijnen = true;
+
+                Settings1.Default.checkstil = false;
+                Settings1.Default.checklangzaam = false;
+                Settings1.Default.checknormaal = false;
+                Settings1.Default.checksnel = false;
+                Settings1.Default.checkverdwijn = true;
             }
 
             Settings1.Default.Save();
