@@ -20,6 +20,8 @@ using System.Windows.Shapes;
 using javax.sound.sampled;
 using Path = System.IO.Path;
 
+
+
 namespace MarktApplicatie
 {
     /// <summary>
@@ -91,6 +93,8 @@ namespace MarktApplicatie
         public string[] Labels { get; set; }
         public Func<double, string> Formatter { get; set; }
 
+       
+
 
         private void AddListViewItem(string filename)
         {
@@ -133,7 +137,34 @@ namespace MarktApplicatie
         }
 
 
-        
+        /*private void txtFilter_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string inp = composition_names[listView.SelectedIndex];
+
+            if (inp == "")
+            {
+                UpdateList();
+                return;
+            }
+            UpdateList();
+
+            ItemCollection old_listView_list = listView.Items;
+            List<string> new_listView_list = new List<string>();
+            foreach (TextBlock txt_block in old_listView_list)
+            {
+                string txt = txt_block.Text;
+                if (txt.ToLower().Contains(inp.ToLower()))
+                {
+                    new_listView_list.Add(txt);
+                }
+            }
+            listView.Items.Clear();
+            foreach (string txt in new_listView_list)
+            {
+                AddListViewItem(txt);
+            }
+        }*/
+
 
         private void UpdateList()
         {
@@ -182,8 +213,32 @@ namespace MarktApplicatie
 
         private void composition(object sender, RoutedEventArgs e)
         {
+           
+            if (listView.SelectedIndex < 0)
+            {
+                MessageBox.Show("Kies eerst een compositie!", "Zie compositie", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
 
-            new OudeComposities().Show();
+
+            OudeComposities composities = new OudeComposities();
+
+
+
+            TextBlock txt = (TextBlock)listView.SelectedItem;
+            string img_filename = txt.Text + ".png";
+
+
+
+            BitmapImage image = new BitmapImage();
+            image.BeginInit();
+            image.CacheOption = BitmapCacheOption.OnLoad;
+            image.UriSource = new Uri(SoufTools.compositions_path + img_filename);
+          
+           
+
+          
+            composities.Show();
             this.Close();
 
         }

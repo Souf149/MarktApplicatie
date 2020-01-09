@@ -20,15 +20,17 @@ namespace MarktApplicatie
     public partial class OudeComposities : Window
     {
 
+
+        public int i = 0;
         string[] composition_names;
 
         public OudeComposities()
         {
             InitializeComponent();
+
             
 
 
-            
             if (Settings1.Default.Font8 == true)
             {
                 FontSize = 8;
@@ -60,6 +62,12 @@ namespace MarktApplicatie
             if (composition_names.Length < 1) {
                 MessageBox.Show("Je moet eerst een compositie opslaan!");
             }
+
+            if (i == 0)
+            {
+                sorttxt.Text = "Sorteer [A-Z]";
+
+            }
         }
 
         
@@ -76,6 +84,8 @@ namespace MarktApplicatie
 
         }
 
+
+        
         private void ListView_onclick(object sender, MouseButtonEventArgs e)
         {
             if (listView.SelectedIndex < 0) {
@@ -107,6 +117,11 @@ namespace MarktApplicatie
 
         private void statistic(object sender, RoutedEventArgs e)
         {
+            if (listView.SelectedIndex < 0)
+            {
+                MessageBox.Show("Kies eerst een compositie!", "Zie statistiek", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
             new statistieken_yasin().Show();
             this.Close();
         }
@@ -187,6 +202,58 @@ namespace MarktApplicatie
 
         }
 
+
+        private void Sort(object sender, RoutedEventArgs e)
+        {
+
+            i += 1;
+            if (i == 2)
+            {
+                i = 0;
+                sorttxt.Text = "Sorteer [A-Z]";
+                listView.Items.SortDescriptions.Clear();
+                // sorteer z-a
+            }
+
+            if (i == 1)
+            {
+                sorttxt.Text = "Sorteer [Z-A]";
+                // sorteer a-z
+            }
+
+            
+
+
+        }
+
+        private void txtFilter_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string inp = txtFilter.Text;
+            if (inp == "")
+            {
+                UpdateList();
+                return;
+            }
+            UpdateList();
+
+            ItemCollection old_listView_list = listView.Items;
+            List<string> new_listView_list = new List<string>();
+            foreach (TextBlock txt_block in old_listView_list)
+            {
+                string txt = txt_block.Text;
+                if (txt.ToLower().Contains(inp.ToLower()))
+                {
+                    new_listView_list.Add(txt);
+                }
+            }
+            listView.Items.Clear();
+            foreach (string txt in new_listView_list)
+            {
+                AddListViewItem(txt);
+            }
+        }
+
+
         private void OnClick_Verwijder(object sender, RoutedEventArgs e) {
 
             if (listView.SelectedIndex < 0) {
@@ -207,9 +274,6 @@ namespace MarktApplicatie
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
     }
 }
