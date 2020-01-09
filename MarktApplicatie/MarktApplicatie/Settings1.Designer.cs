@@ -418,5 +418,65 @@ namespace MarktApplicatie {
                 this["checkspeed"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool checkfont8 {
+            get {
+                return ((bool)(this["checkfont8"]));
+            }
+            set {
+                this["checkfont8"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool checkfont10 {
+            get {
+                return ((bool)(this["checkfont10"]));
+            }
+            set {
+                this["checkfont10"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool checkfont12 {
+            get {
+                return ((bool)(this["checkfont12"]));
+            }
+            set {
+                this["checkfont12"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool checkfont14 {
+            get {
+                return ((bool)(this["checkfont14"]));
+            }
+            set {
+                this["checkfont14"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool checkfont16 {
+            get {
+                return ((bool)(this["checkfont16"]));
+            }
+            set {
+                this["checkfont16"] = value;
+            }
+        }
     }
 }

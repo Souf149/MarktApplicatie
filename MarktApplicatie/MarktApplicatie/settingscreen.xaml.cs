@@ -70,9 +70,40 @@ namespace MarktApplicatie
                 color3.IsChecked = true;
             }
 
+            
+            if (Settings1.Default.checkfont8 == true)
+            {
+                font8.IsChecked = true;
+            }
 
-           
-           
+            if (Settings1.Default.checkfont10 == true)
+            {
+                font10.IsChecked = true;
+            }
+            if (Settings1.Default.checkfont12 == true)
+            {
+                font12.IsChecked = true;
+            }
+
+            if (Settings1.Default.checkfont14 == true)
+            {
+                font14.IsChecked = true;
+            }
+            if (Settings1.Default.checkfont16 == true)
+            {
+                font16.IsChecked = true;
+            }
+
+            if (Settings1.Default.speed == 25)
+            {
+
+            }
+
+
+
+
+
+
 
             if (Settings1.Default.Darkmode == true)
             {
@@ -180,6 +211,11 @@ namespace MarktApplicatie
             Settings1.Default.msgon = true;
             Settings1.Default.msgoff = false;
             Settings1.Default.color2check = true;
+            Settings1.Default.checkfont8 = false;
+            Settings1.Default.checkfont10 = false;
+            Settings1.Default.checkfont12 = true;
+            Settings1.Default.checkfont14 = false;
+            Settings1.Default.checkfont16 = false;
             Settings1.Default.Save();
             
             MessageBox.Show("Instellingen gereset!", "Instellingen", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -228,6 +264,12 @@ namespace MarktApplicatie
                 Settings1.Default.Font14 = false;
                 Settings1.Default.Font16 = false;
 
+                Settings1.Default.checkfont8 = true;
+                Settings1.Default.checkfont10 = false;
+                Settings1.Default.checkfont12 = false;
+                Settings1.Default.checkfont14 = false;
+                Settings1.Default.checkfont16 = false;
+
 
             }
 
@@ -238,6 +280,13 @@ namespace MarktApplicatie
                 Settings1.Default.Font12 = false;
                 Settings1.Default.Font14 = false;
                 Settings1.Default.Font16 = false;
+
+                Settings1.Default.checkfont8 = false;
+                Settings1.Default.checkfont10 = true;
+                Settings1.Default.checkfont12 = false;
+                Settings1.Default.checkfont14 = false;
+                Settings1.Default.checkfont16 = false;
+
             }
 
             if (font12.IsChecked == true)
@@ -247,6 +296,13 @@ namespace MarktApplicatie
                 Settings1.Default.Font12 = true;
                 Settings1.Default.Font14 = false;
                 Settings1.Default.Font16 = false;
+
+                Settings1.Default.checkfont8 = false;
+                Settings1.Default.checkfont10 = false;
+                Settings1.Default.checkfont12 = true;
+                Settings1.Default.checkfont14 = false;
+                Settings1.Default.checkfont16 = false;
+
             }
 
             if (font14.IsChecked == true)
@@ -256,6 +312,13 @@ namespace MarktApplicatie
                 Settings1.Default.Font12 = false;
                 Settings1.Default.Font14 = true;
                 Settings1.Default.Font16 = false;
+
+                Settings1.Default.checkfont8 = false;
+                Settings1.Default.checkfont10 = false;
+                Settings1.Default.checkfont12 = false;
+                Settings1.Default.checkfont14 = true;
+                Settings1.Default.checkfont16 = false;
+
             }
 
             if (font16.IsChecked == true)
@@ -265,6 +328,13 @@ namespace MarktApplicatie
                 Settings1.Default.Font12 = false;
                 Settings1.Default.Font14 = false;
                 Settings1.Default.Font16 = true;
+
+                Settings1.Default.checkfont8 = false;
+                Settings1.Default.checkfont10 = false;
+                Settings1.Default.checkfont12 = false;
+                Settings1.Default.checkfont14 = false;
+                Settings1.Default.checkfont16 = true;
+
             }
 
             if (darkmodehome.IsChecked == true)
@@ -347,6 +417,8 @@ namespace MarktApplicatie
             {
                 Settings1.Default.Stilstaan = true;
                 Settings1.Default.verdwijnen = false;
+                Settings1.Default.Stilstaan = true;
+
             }
 
             if (Langzaam.IsChecked == true)
